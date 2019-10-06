@@ -1,0 +1,23 @@
+<h1>עבודות לחבר</h1>
+
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th>העבודה</th>
+            <th>תאריך התחלה<th>
+            <th>תאריך סיום</th>
+            <th>הערה</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let thisJobMember of jobMember">
+            <td>{{thisJobMember.CodeJob}}</td>
+            <td>{{thisJobMember.DateStart}}</td>
+            <td>{{thisJobMember.DateEnd}}</td>
+            <td>{{thisJobMember.Note}}</td>
+            <td>
+                <input type="button" value="בחר" class="btn btn-warning" (click)="selectP=item">
+            </td>
+        </tr>
+    </tbody>
+</table>

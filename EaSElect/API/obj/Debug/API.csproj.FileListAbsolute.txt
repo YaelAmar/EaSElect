@@ -1,0 +1,2 @@
+C:\Users\User\Desktop\EaSElect\EaSElect\API\obj\Debug\API.csprojAssemblyReference.cache
+C:\Users\User\Desktop\EaSElect\EaSElect\API\obj\Debug\API.csproj.CoreCompileInputs.cache

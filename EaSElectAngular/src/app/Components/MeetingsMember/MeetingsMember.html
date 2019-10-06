@@ -1,0 +1,19 @@
+<p>קבלת רשימת האסיפות של חבר עמותה על פי קוד חבר</p>
+<table>
+    <thead>
+        <tr>
+         <th>קוד אסיפה</th> 
+         <th>נושא אסיפה</th>
+         <th>תאריך</th>
+         <th>מנהל אסיפה</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of meetings">
+            <td>{{item.CodeMeeting}}</td>
+            <td>{{item.SubjectMeeting}}</td>
+            <td>{{item.MeetingDate}}</td>
+            <td>{{item.MeetingDirector}}</td>
+        </tr>
+    </tbody>
+</table>
