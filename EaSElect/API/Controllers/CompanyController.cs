@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,5 +10,12 @@ namespace API.Controllers
 {
     public class CompanyController : ApiController
     {
+        CompanyBL CompanyBL = new CompanyBL();
+        [HttpGet]
+       // [Route("api/voters/loadDataVoters")]
+        public void AddNewCompany(string companyName,string userName,string password)
+        {
+            CompanyBL.AddNewCompany(companyName,userName,password);
+        }
     }
 }
