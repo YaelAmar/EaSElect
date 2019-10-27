@@ -9,5 +9,10 @@ namespace API.Controllers
 {
     public class ElectionController : ApiController
     {
+        [HttpGet]
+        public void Get()
+        {
+
+        }
     }
 }
