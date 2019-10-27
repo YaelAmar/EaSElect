@@ -12,10 +12,11 @@ namespace API.Controllers
     {
         CompanyBL CompanyBL = new CompanyBL();
         [HttpGet]
-       // [Route("api/voters/loadDataVoters")]
+        [Route("api/company/addCompany")]
         public void AddNewCompany(string companyName,string userName,string password)
         {
             CompanyBL.AddNewCompany(companyName,userName,password);
         }
+
     }
 }

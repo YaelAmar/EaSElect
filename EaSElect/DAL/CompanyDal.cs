@@ -12,7 +12,8 @@ namespace DAL
         Models.ElectionsDBEntities DB = new ElectionsDBEntities();
         public void AddNewCompany(Company newCompany)
         {
-           DB.Companies
+            DB.Companies.Add(newCompany);
+            DB.SaveChanges();
         }
     }
 }
