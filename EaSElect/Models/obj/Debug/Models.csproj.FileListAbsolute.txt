@@ -1,0 +1,12 @@
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\Models.dll.config
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\Models.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\Models.pdb
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\obj\Debug\Models.csproj.CopyComplete
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\obj\Debug\Models.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\obj\Debug\Models.pdb

@@ -11,7 +11,7 @@ namespace API.Controllers
     public class VoterController : ApiController
     {
         GeneralBL _generalBL = new GeneralBL();
-
+        [HttpGet]
         [Route("api/voters/loadDataVoters")]
         public void LoadDataVoters(string path)
         {

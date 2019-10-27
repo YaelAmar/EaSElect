@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\BL.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\BL.pdb
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\DAL.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\Models.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\DAL.pdb
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\DAL.dll.config
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\Models.pdb
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\Models.dll.config
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\obj\Debug\BL.csprojAssemblyReference.cache
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\obj\Debug\BL.csproj.CopyComplete
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\obj\Debug\BL.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\obj\Debug\BL.pdb
