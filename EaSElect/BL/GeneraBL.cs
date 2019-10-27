@@ -26,22 +26,43 @@ namespace BL
             {
                 for (int i = 0; !reader.EndOfStream; i++)
                 {
+                    List<string> types = new List<string>();
                     var line = reader.ReadLine();
                     var values = line.Split(';');
                     if (i == 0)
                     {
                         for (int j = 1; j < values.Length; j++)
                         {
+                            types.Add(values[j]);
                             TypeBL.AddNewType(values[j]);
                         }
                     }
                     else
                     {
+                        for (int j = 0; j < values.Length; j++)
+                        {
+                            if (j==0)
+                            {
+                                //save fingerprint at Azure
+                           
+                            }
+                            else
+                            {
+                               bool result=TypeDetailsBL.IsExistTypeDetails(values[j]);
+                                //if the row is not exist
+                                if (result==false)
+                                {
+                                    TypeDetailsBL.AddNewTypeDetail(values[j],types[j]);
+                                }
+                            }
 
+                        }
                     }
                 }
             }
 
         }
+
+       
     }
 }

@@ -15,5 +15,10 @@ namespace BL
             Models.Type newType=new Models.Type() { TypeName=type};
             TypeDal.Add(newType);
         }
+
+        public int GetTypeIdByName(string typeName)
+        {
+            return TypeDal.GetIdByName(typeName);
+        }
     }
 }
