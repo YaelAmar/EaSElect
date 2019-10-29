@@ -18,5 +18,6 @@ namespace API.Controllers
             _generalBL.LoadDataVoters(path);
         }
 
+      
     }
 }
