@@ -44,6 +44,7 @@ namespace BL
                             if (j==0)
                             {
                                 //save fingerprint at Azure
+                              
                            
                             }
                             else
@@ -55,6 +56,7 @@ namespace BL
                                     TypeDetailsBL.AddNewTypeDetail(values[j],types[j]);
                                 }
                             }
+                            //enter fingerprint+typedetail
 
                         }
                     }
