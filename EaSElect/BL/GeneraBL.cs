@@ -44,8 +44,7 @@ namespace BL
                             if (j==0)
                             {
                                 //save fingerprint at Azure
-                              
-                           //בשביל פרקש
+                       
                             }
                             else
                             {
