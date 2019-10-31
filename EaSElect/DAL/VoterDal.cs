@@ -8,5 +8,10 @@ namespace DAL
 {
     public class VoterDal
     {
+        Models.ElectionsDBEntities DB = new Models.ElectionsDBEntities();
+        public void AddNewVoter(string voterId)
+        {
+
+        }
     }
 }

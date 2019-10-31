@@ -44,7 +44,9 @@ namespace BL
                             if (j==0)
                             {
                                 //save fingerprint at Azure
-                       
+                                VoterBL.AddNewVoter(values[j]);
+
+                           //בשביל פרקש
                             }
                             else
                             {
