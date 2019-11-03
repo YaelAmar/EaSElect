@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="88a5cf5afeab48b0b2bc6cbce5ef95ba" Name="Diagram1">
-        <EntityTypeShape EntityType="ElectionsDBModel.Company" Width="1.5" PointX="0.875" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectionsDBModel.Election" Width="1.5" PointX="2.625" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectionsDBModel.ElectionOption" Width="1.5" PointX="4.75" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectionsDBModel.ElectionResult" Width="1.5" PointX="4.625" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectionsDBModel.Type" Width="1.5" PointX="2.5" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectionsDBModel.TypeDetail" Width="1.5" PointX="6.875" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectionsDBModel.ValueToType" Width="1.5" PointX="6.875" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectionsDBModel.Voter" Width="1.5" PointX="0.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectionsDBModel.Company" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectionsDBModel.Election" Width="1.5" PointX="2.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectionsDBModel.ElectionOption" Width="1.5" PointX="4.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectionsDBModel.ElectionResult" Width="1.5" PointX="4.375" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectionsDBModel.Type" Width="1.5" PointX="6.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectionsDBModel.TypeDetail" Width="1.5" PointX="6.875" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectionsDBModel.ValueToType" Width="1.5" PointX="6.875" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectionsDBModel.Voter" Width="1.5" PointX="2.25" PointY="3.625" IsExpanded="true" />
         <AssociationConnector Association="ElectionsDBModel.FK_CompanyId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_ElectionId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_ElectionIdVoter" ManuallyRouted="false" />
