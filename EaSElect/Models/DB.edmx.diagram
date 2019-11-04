@@ -12,14 +12,14 @@
         <EntityTypeShape EntityType="ElectionsDBModel.Type" Width="1.5" PointX="6.875" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.TypeDetail" Width="1.5" PointX="6.875" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.ValueToType" Width="1.5" PointX="6.875" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectionsDBModel.Voter" Width="1.5" PointX="2.25" PointY="3.625" IsExpanded="true" />
         <AssociationConnector Association="ElectionsDBModel.FK_CompanyId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_ElectionId" ManuallyRouted="false" />
-        <AssociationConnector Association="ElectionsDBModel.FK_ElectionIdVoter" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_ElectionOptionId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_VoterId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_TypeId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_TypeDetailsId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ElectionsDBModel.Voter" Width="1.5" PointX="2.25" PointY="3.5" />
+        <AssociationConnector Association="ElectionsDBModel.FK_ElectionIdVoter" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

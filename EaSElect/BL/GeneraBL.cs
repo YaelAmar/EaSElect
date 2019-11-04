@@ -19,10 +19,10 @@ namespace BL
         VoterBL VoterBL = new VoterBL();
 
         //קליטה של נתונים כל אחד לטבלה המתאימה
-        public void LoadDataVoters(string path)
+        public void LoadDataVoters(string path,int electionId)
         {
 
-            using (var reader = new StreamReader(path))
+            using (var reader = new StreamReader(path,Encoding.UTF8))
             {
                 for (int i = 0; !reader.EndOfStream; i++)
                 {
@@ -44,9 +44,8 @@ namespace BL
                             if (j==0)
                             {
                                 //save fingerprint at Azure
-                                VoterBL.AddNewVoter(values[j]);
-
-                           //בשביל פרקש
+                                //save in voters
+                                VoterBL.AddNewVoter(values[j],electionId);
                             }
                             else
                             {
@@ -56,9 +55,10 @@ namespace BL
                                 {
                                     TypeDetailsBL.AddNewTypeDetail(values[j],types[j]);
                                 }
+                                int typeDetailId = TypeDetailsBL.GetTypeDetailIdByName(values[j]);
+                                ValueToTypeBL.AddValueToType(values[0], typeDetailId);
                             }
                             //enter fingerprint+typedetail
-
                         }
                     }
                 }

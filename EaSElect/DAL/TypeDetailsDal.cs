@@ -38,6 +38,11 @@ namespace DAL
             }
            return result;
         }
+
+        public int GetTypeDetailIdByName(string typeDetail)
+        {
+            return int.Parse(DB.TypeDetails.Where(n => n.TypeDetailsName.Equals(typeDetail)).Select(c => c.TypeDetailsId).ToString());
+        }
     }
 }
  

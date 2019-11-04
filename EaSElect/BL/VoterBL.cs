@@ -10,9 +10,11 @@ namespace BL
     public class VoterBL
     {
         VoterDal VoterDal= new VoterDal(); 
-        public void AddNewVoter(string voterId)
+        public void AddNewVoter(string voterId,int electionId)
         {
-            VoterDal.AddNewVoter(voterId);
+            int VoterId = int.Parse(voterId);
+            Models.Voter newVoter = new Models.Voter() { ElectionId = electionId, VoterId = VoterId };
+            VoterDal.AddNewVoter(newVoter);
         }
     }
 }

@@ -23,5 +23,10 @@ namespace BL
             Models.TypeDetail newTypeDetail = new Models.TypeDetail() { TypeDetailsName=typeDetail,TypeId=typeId};
             typeDetailsDal.AddNewTypeDetail(newTypeDetail);
         }
+
+        public int GetTypeDetailIdByName(string typeDetail)
+        {
+           return typeDetailsDal.GetTypeDetailIdByName(typeDetail);
+        }
     }
 }

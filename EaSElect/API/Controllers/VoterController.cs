@@ -10,12 +10,12 @@ namespace API.Controllers
 {
     public class VoterController : ApiController
     {
-        GeneralBL _generalBL = new GeneralBL();
+        GeneralBL GeneralBL = new GeneralBL();
         [HttpGet]
         [Route("api/voters/loadDataVoters")]
-        public void LoadDataVoters(string path)
+        public void LoadDataVoters(string path,int electionId)
         {
-            _generalBL.LoadDataVoters(path);
+            GeneralBL.LoadDataVoters(path,electionId);
         }
 
       
