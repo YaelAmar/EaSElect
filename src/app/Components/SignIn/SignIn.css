@@ -1,0 +1,12 @@
+.associationDetails{
+    border:black solid 1px;
+    text-align: center;
+}
+.LogIn{
+    border:purple solid 1px;
+    
+}
+.error{
+    color: red;
+    
+}

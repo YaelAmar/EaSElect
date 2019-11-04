@@ -1,0 +1,112 @@
+<p>חברי העמותה!</p>
+
+<form novalidate (submit)="searchInMembers(frm)" #frm="ngForm">
+        <input type="button" value="יצא לאקסל" (click)="exportExcel()">
+    <div>
+        <label>שם חבר</label>
+        <input name="memberName" #memberName="ngModel" [(ngModel)]="criteria.NameMember" type="text" />
+
+    </div>
+    <div>
+        <label>תעודת זהות חבר</label>
+        <input name="memberId" #memberId="ngModel" [(ngModel)]="criteria.IdMember" type="text" />
+    </div>
+    <div>
+        <label>סוג חבר</label><br/>
+        <label>חיצוני</label>
+        <input type="checkbox" value="חיצוני" (checked)="criteria.TypeMember=false">
+        <label>פנימי</label>
+        <input type="checkbox" value="פנימי" (checked)="criteria.TypeMember=true">
+      <!--
+      <input name="memberType" #memberType="ngModel" [(ngModel)]="tempTypeMember" type="text" />-->  
+    </div>
+    <div>
+        <label>מורשה חתימה</label><br/>
+        <label>כן</label>
+        <input type="checkbox" value="כן" (selected)="criteria.AllowedSignature=true">
+        <label>לא</label>
+        <input type="checkbox" value="לא" (selected)="criteria.AllowedSignature=false">
+       <!-- 
+        <input name="memberAllowedSignature" #memberAllowedSignature="ngModel" [(ngModel)]="tempAllowSignature" type="text" />-->
+    </div>
+    <div>
+        <label>מייל חבר</label>
+        <input name="memberMail" #memberMail="ngModel" [(ngModel)]="criteria.MailMember" type="text" />
+    </div>
+    <div>
+        <label>תאריך הצטרפות</label>
+        <input name="memberJoinDate" #memberJoinDate="ngModel" [(ngModel)]="criteria.JoinDate" type="text" />
+    </div>
+    <div>
+        <label>תאריך יציאה</label>
+        <input name="memberExitDate" #memberExitDate="ngModel" [(ngModel)]="criteria.ExitDate" type="text" />
+    </div>
+    <input type="submit" value="חפש">
+</form>
+
+
+
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th>שם</th>
+            <th>תעודת זהות</th>
+            <th>סוג חבר</th>
+            <th>מורשה חתימה</th>
+            <th>מייל</th>
+            <th>תאריך הצטרפות</th>
+            <th>תאריך יציאה</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let member of members">
+            <td>{{member.NameMember}}</td>
+            <td>{{member.IdMember}}</td>
+            <td>{{WhatTypeMember(member.TypeMember)}}</td>
+            <td>{{IsAllowSignature(member.AllowedSignature)}}</td>
+            <td>{{member.MailMember}}</td>
+            <td>{{member.JoinDate | date : "dd/MM/yyyy"}}</td>
+            <td>{{member.ExitDate | date : "dd/MM/yyyy"}}</td>
+            <td>
+                <input type="button" value="בחר" class="btn btn-warning" (click)="selectP=item">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<input type="button" value="הוסף חבר" class="btn btn-warning" (click)="toAddMember=true">
+<div *ngIf="toAddMember">
+    <form (submit)="addingMember(frm)" #frm="ngForm">
+        <div>
+            <label>שם חבר</label>
+            <input name="newmemberName" #memberName="ngModel" [(ngModel)]="newMember.NameMember" type="text" />
+
+        </div>
+        <div>
+            <label>תעודת זהות חבר</label>
+            <input name="newmemberId" #memberId="ngModel" [(ngModel)]="newMember.IdMember" type="text" />
+        </div>
+        <div>
+            <label>סוג חבר</label>
+            <input name="newmemberType" #memberType="ngModel" [(ngModel)]="newMember.TypeMember" type="text" />
+        </div>
+        <div>
+            <label>מורשה חתימה</label>
+            <input name="newmemberAllowedSignature" #memberAllowedSignature="ngModel" [(ngModel)]="newMember.AllowedSignature" type="text" />
+        </div>
+        <div>
+            <label>מייל חבר</label>
+            <input name="newmemberMail" #memberMail="ngModel" [(ngModel)]="newMember.MailMember" type="text" />
+        </div>
+        <div>
+            <label>תאריך הצטרפות</label>
+            <input name="newmemberJoinDate" #memberJoinDate="ngModel" [(ngModel)]="newMember.JoinDate" type="text" />
+        </div>
+    <input type="submit" value="הוסף">
+
+    </form>
+
+</div>
