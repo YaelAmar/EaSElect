@@ -74,11 +74,12 @@
     <EntitySetMapping Name="Voters">
       <EntityTypeMapping TypeName="ElectionsDBModel.Voter">
         <MappingFragment StoreEntitySet="Voter">
-          <ScalarProperty Name="VoterId" ColumnName="VoterId" />
-          <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
           <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
+          <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
+          <ScalarProperty Name="VoterId" ColumnName="VoterId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="IsExistTypeDetails" FunctionName="ElectionsDBModel.Store.IsExistTypeDetails" />
   </EntityContainerMapping>
 </Mapping>

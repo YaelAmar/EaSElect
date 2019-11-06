@@ -66,6 +66,7 @@
   <EntityType Name="Voter">
     <Key>
       <PropertyRef Name="VoterId" />
+      <PropertyRef Name="ElectionId" />
     </Key>
     <Property Name="VoterId" Type="bigint" Nullable="false" />
     <Property Name="ElectionId" Type="bigint" Nullable="false" />
@@ -155,6 +156,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="IsExistTypeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="typeDetailName" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="ElectionsDBModelStoreContainer">
     <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Election" EntityType="Self.Election" Schema="dbo" store:Type="Tables" />

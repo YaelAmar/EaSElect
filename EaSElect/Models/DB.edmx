@@ -161,6 +161,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="IsExistTypeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="typeDetailName" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="ElectionsDBModelStoreContainer">
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Election" EntityType="Self.Election" Schema="dbo" store:Type="Tables" />
@@ -388,6 +391,9 @@
             <End Role="Election" EntitySet="Elections" />
             <End Role="Voter" EntitySet="Voters" />
           </AssociationSet>
+          <FunctionImport Name="IsExistTypeDetails">
+          <Parameter Name="typeDetailName" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Voter">
           <Key>
@@ -496,6 +502,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="IsExistTypeDetails" FunctionName="ElectionsDBModel.Store.IsExistTypeDetails" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

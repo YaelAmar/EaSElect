@@ -12,6 +12,8 @@ namespace Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class ElectionsDBEntities : DbContext
     {
@@ -33,5 +35,14 @@ namespace Models
         public virtual DbSet<TypeDetail> TypeDetails { get; set; }
         public virtual DbSet<ValueToType> ValueToTypes { get; set; }
         public virtual DbSet<Voter> Voters { get; set; }
+    
+        public virtual int IsExistTypeDetails(string typeDetailName)
+        {
+            var typeDetailNameParameter = typeDetailName != null ?
+                new ObjectParameter("typeDetailName", typeDetailName) :
+                new ObjectParameter("typeDetailName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("IsExistTypeDetails", typeDetailNameParameter);
+        }
     }
 }
