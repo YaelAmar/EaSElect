@@ -19,14 +19,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-    "../node_modules/bootstrap/dist/css/bootstrap.min.css"
-  ],
- 
-      "scripts": [
-      
-    "../node_modules/bootstrap/dist/js/bootstrap.js"
+        "styles.css"
       ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -53,7 +48,6 @@
       "exclude": "**/node_modules/**"
     }
   ],
-  
   "test": {
     "karma": {
       "config": "./karma.conf.js"
@@ -63,5 +57,4 @@
     "styleExt": "css",
     "component": {}
   }
- 
 }
