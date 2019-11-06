@@ -20,7 +20,7 @@
             <PropertyRef Name="ElectionId" />
           </Key>
           <Property Name="ElectionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ElectionName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ElectionName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="StartDate" Type="datetime" Nullable="false" />
           <Property Name="EndDate" Type="datetime" Nullable="false" />
           <Property Name="CompanyId" Type="bigint" Nullable="false" />
@@ -222,7 +222,7 @@
             <PropertyRef Name="ElectionId" />
           </Key>
           <Property Name="ElectionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ElectionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ElectionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CompanyId" Type="Int64" Nullable="false" />
