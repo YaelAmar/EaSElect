@@ -9,7 +9,7 @@ namespace DAL
 {
     public class CompanyDal
     {
-        Models.ElectionsDBEntities DB = new ElectionsDBEntities();
+        Models.ElectionsDBEntities DB = new Models.ElectionsDBEntities();
         public void AddNewCompany(Company newCompany)
         {
             DB.Companies.Add(newCompany);
