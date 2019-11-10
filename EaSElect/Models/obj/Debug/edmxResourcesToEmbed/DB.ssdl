@@ -5,7 +5,7 @@
       <PropertyRef Name="CompanyId" />
     </Key>
     <Property Name="CompanyId" Type="bigint" Nullable="false" />
-    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="55" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="DeleteRow" Type="bit" Nullable="false" />
@@ -15,7 +15,7 @@
       <PropertyRef Name="ElectionId" />
     </Key>
     <Property Name="ElectionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ElectionName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ElectionName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="StartDate" Type="datetime" Nullable="false" />
     <Property Name="EndDate" Type="datetime" Nullable="false" />
     <Property Name="CompanyId" Type="bigint" Nullable="false" />
