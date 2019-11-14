@@ -13,6 +13,4 @@ C:\Users\User\Desktop\EaSElect\EaSElect\DAL\obj\Debug\DAL.csproj.CoreCompileInpu
 C:\Users\User\Desktop\EaSElect\EaSElect\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\User\Desktop\EaSElect\EaSElect\DAL\obj\Debug\DAL.dll
 C:\Users\User\Desktop\EaSElect\EaSElect\DAL\obj\Debug\DAL.pdb
-C:\Users\User\Desktop\EaSElect\EaSElect\DAL\bin\Debug\ElectionsDB.mdf
-C:\Users\User\Desktop\EaSElect\EaSElect\DAL\bin\Debug\ElectionsDB_log.ldf
 C:\Users\User\Desktop\EaSElect\EaSElect\DAL\bin\Debug\System.Data.SqlServerCe.dll
