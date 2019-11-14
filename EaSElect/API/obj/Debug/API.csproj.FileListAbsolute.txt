@@ -94,3 +94,5 @@ C:\Users\User\Desktop\EaSElect\EaSElect\API\bin\EntityFramework.xml
 C:\Users\User\Desktop\EaSElect\EaSElect\API\obj\Debug\API.csproj.CopyComplete
 C:\Users\User\Desktop\EaSElect\EaSElect\API\obj\Debug\API.dll
 C:\Users\User\Desktop\EaSElect\EaSElect\API\obj\Debug\API.pdb
+C:\Users\User\Desktop\EaSElect\EaSElect\API\bin\ElectionsDB.mdf
+C:\Users\User\Desktop\EaSElect\EaSElect\API\bin\ElectionsDB_log.ldf

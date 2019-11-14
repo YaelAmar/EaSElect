@@ -10,3 +10,9 @@ C:\Users\User\Desktop\EaSElect\EaSElect\Models\obj\Debug\Models.csproj.CoreCompi
 C:\Users\User\Desktop\EaSElect\EaSElect\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\User\Desktop\EaSElect\EaSElect\Models\obj\Debug\Models.dll
 C:\Users\User\Desktop\EaSElect\EaSElect\Models\obj\Debug\Models.pdb
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\ElectionsDB.mdf
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\ElectionsDB_log.ldf
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\SQL.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\System.Data.SqlClient.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\System.Data.SqlClient.xml

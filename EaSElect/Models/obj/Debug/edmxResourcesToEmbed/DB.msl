@@ -74,9 +74,9 @@
     <EntitySetMapping Name="Voters">
       <EntityTypeMapping TypeName="ElectionsDBModel.Voter">
         <MappingFragment StoreEntitySet="Voter">
-          <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
-          <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
           <ScalarProperty Name="VoterId" ColumnName="VoterId" />
+          <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
+          <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
