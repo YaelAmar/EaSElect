@@ -14,17 +14,7 @@ namespace Models
     
     public partial class ElectionResult
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ElectionResult()
-        {
-            this.ValueToTypes = new HashSet<ValueToType>();
-        }
-    
         public long VoterId { get; set; }
         public long ElectionOptionId { get; set; }
-    
-        public virtual ElectionOption ElectionOption { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ValueToType> ValueToTypes { get; set; }
     }
 }

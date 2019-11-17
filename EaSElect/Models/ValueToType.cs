@@ -18,8 +18,5 @@ namespace Models
         public long VoterId { get; set; }
         public long TypeDetailsId { get; set; }
         public bool DeleteRow { get; set; }
-    
-        public virtual ElectionResult ElectionResult { get; set; }
-        public virtual TypeDetail TypeDetail { get; set; }
     }
 }
