@@ -22,47 +22,92 @@ namespace BL
         public void LoadDataVoters(string path,int electionId)
         {
 
-            using (var reader = new StreamReader(path,Encoding.UTF8))
+           using (var reader = new StreamReader(path,Encoding.Default))
             {
+                List<string> types = new List<string>();
                 for (int i = 0; !reader.EndOfStream; i++)
                 {
-                    List<string> types = new List<string>();
                     var line = reader.ReadLine();
                     var values = line.Split(';');
                     if (i == 0)
                     {
-                        for (int j = 1; j < values.Length; j++)
+                        for (int j = values[0].IndexOf(',')+1; j < values[0].Length; j++)
                         {
-                            types.Add(values[j]);
-                            TypeBL.AddNewType(values[j]);
+                            string typeName = "";
+                            int k, f=0;
+                            for ( k = j; k <values[0].IndexOf(',', k); k++)
+                            {
+                                f= values[0].IndexOf(',', k);       
+                                 typeName += values[0].ElementAt(k);
+                                
+                            }
+                            if (j < values[0].Length && k > f)
+                            {
+                                for (int w = k; w < values[0].Length; w++)
+                                {
+                                    typeName += values[0].ElementAt(w);
+
+                                }
+                                j = values[0].Length;
+                            }
+                            types.Add(typeName);
+                            j += typeName.Length;
+                            TypeBL.AddNewType(typeName);
                         }
+                      
                     }
                     else
                     {
-                        for (int j = 0; j < values.Length; j++)
+                        string typeDetailName = "";
+
+                        for (int j = 0; j < values[0].Length; j++)
                         {
                             if (j==0)
                             {
+                                string voterId = "";
                                 //save fingerprint at Azure
                                 //save in voters
-                                VoterBL.AddNewVoter(values[j],electionId);
+                                for (int k = 0; k < values[0].IndexOf(',',j); k++)
+                                {
+                                    voterId += values[0].ElementAt(k);
+                                }
+                                VoterBL.AddNewVoter(voterId,electionId);
+                                j += voterId.Length;
                             }
+
                             else
                             {
-                               bool result=TypeDetailsBL.IsExistTypeDetails(values[j]);
-                                //if the row is not exist
+                                int f=0, k;
+                                typeDetailName = "";
+                                for ( k = j; k < values[0].IndexOf(',', k); k++)
+                                {
+                                    f = values[0].IndexOf(',', k);
+                                    typeDetailName += values[0].ElementAt(k);
+                                }
+                                if(j<values[0].Length&&k>f)
+                                {
+                                    for (int w = k; w < values[0].Length; w++)
+                                    {
+                                        typeDetailName += values[0].ElementAt(w);
+
+                                    }
+                                    j = values[0].Length;
+                                }
+                               bool result=TypeDetailsBL.IsExistTypeDetails(typeDetailName);
+                               //if the row is not exist
                                 if (result==false)
                                 {
-                                    TypeDetailsBL.AddNewTypeDetail(values[j],types[j]);
+                                 TypeDetailsBL.AddNewTypeDetail(typeDetailName,types[j]);
                                 }
-                                int typeDetailId = TypeDetailsBL.GetTypeDetailIdByName(values[j]);
-                                ValueToTypeBL.AddValueToType(values[0], typeDetailId);
+                                 int typeDetailId = TypeDetailsBL.GetTypeDetailIdByName(values[j]);
+                                 ValueToTypeBL.AddValueToType(values[0], typeDetailId);
+                                j += typeDetailName.Length;
+
                             }
-                            //enter fingerprint+typedetail
                         }
                     }
                 }
-            }
+           }
 
         }
 

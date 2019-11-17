@@ -1,16 +1,20 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { LogInComponent } from './Components/LogIn/LogIn.component';
+import { ElectionOptionComponent } from './Components/ElectionOption/ElectionOption.component';
+import { AddCopmanyComponent } from './Components/AddCompany/Addcompany.component';
+import { AddElectionComponent } from './Components/AddElection/AddElection.component';
+import { SignUpComponent } from './Components/SignUp/SignUp.component';
+
 
 
 export const appRoutes: Routes = [
-  // { path: 'DetailsAssocition', component: DetailsAssocitionComponent },
-  // { path: 'Members', component: MembersComponent },
-  // { path: 'Invitation', component: InvitationComponent },
-  // { path: 'CreateProtocol', component: CreateProtocolComponent },
-  // { path: 'AddMember', component: AddMemberComponent },
-  // { path: 'Meetings' ,component:MeetingsComponent}
-
+   { path: 'AddCopmany', component: AddCopmanyComponent },
+   { path: 'AddElection', component: AddElectionComponent },
+   { path: 'ElectionOption', component: ElectionOptionComponent },
+   { path: 'LogIn', component: LogInComponent },
+   { path: 'SignUp', component: SignUpComponent },
 ];
 
 @NgModule({

@@ -13,9 +13,7 @@ namespace DAL
         {
             DB.Types.Add(type);
             DB.SaveChanges();
-
         }
-
         public int GetIdByName(string typeName)
         {
             return int.Parse(DB.Types.Where(n => n.TypeName == typeName).Select(c => c.TypeId).ToString());
