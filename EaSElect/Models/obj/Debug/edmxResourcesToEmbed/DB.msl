@@ -37,8 +37,10 @@
     <EntitySetMapping Name="ElectionResults">
       <EntityTypeMapping TypeName="ElectionsDBModel.ElectionResult">
         <MappingFragment StoreEntitySet="ElectionResult">
+          <ScalarProperty Name="ElectionResultId" ColumnName="ElectionResultId" />
           <ScalarProperty Name="VoterId" ColumnName="VoterId" />
           <ScalarProperty Name="ElectionOptionId" ColumnName="ElectionOptionId" />
+          <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -61,25 +63,28 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ValueToTypes">
-      <EntityTypeMapping TypeName="ElectionsDBModel.ValueToType">
-        <MappingFragment StoreEntitySet="ValueToType">
-          <ScalarProperty Name="ValueToTypeId" ColumnName="ValueToTypeId" />
-          <ScalarProperty Name="VoterId" ColumnName="VoterId" />
-          <ScalarProperty Name="TypeDetailsId" ColumnName="TypeDetailsId" />
-          <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Voters">
       <EntityTypeMapping TypeName="ElectionsDBModel.Voter">
         <MappingFragment StoreEntitySet="Voter">
           <ScalarProperty Name="VoterId" ColumnName="VoterId" />
           <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
           <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="IsExistType" FunctionName="ElectionsDBModel.Store.IsExistType" />
     <FunctionImportMapping FunctionImportName="IsExistTypeDetails" FunctionName="ElectionsDBModel.Store.IsExistTypeDetails" />
+    <EntitySetMapping Name="ValueToTypes">
+      <EntityTypeMapping TypeName="ElectionsDBModel.ValueToType">
+        <MappingFragment StoreEntitySet="ValueToType">
+          <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
+          <ScalarProperty Name="TypeDetailsId" ColumnName="TypeDetailsId" />
+          <ScalarProperty Name="VoterId" ColumnName="VoterId" />
+          <ScalarProperty Name="ValueToTypeId" ColumnName="ValueToTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="IsExistVoter" FunctionName="ElectionsDBModel.Store.IsExistVoter" />
   </EntityContainerMapping>
 </Mapping>

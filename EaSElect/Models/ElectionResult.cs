@@ -14,7 +14,11 @@ namespace Models
     
     public partial class ElectionResult
     {
+        public long ElectionResultId { get; set; }
         public long VoterId { get; set; }
         public long ElectionOptionId { get; set; }
+        public bool DeleteRow { get; set; }
+    
+        public virtual Voter Voter { get; set; }
     }
 }

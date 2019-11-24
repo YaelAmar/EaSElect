@@ -13,3 +13,7 @@ C:\Users\User\Desktop\EaSElect\EaSElect\BL\obj\Debug\BL.csproj.CoreCompileInputs
 C:\Users\User\Desktop\EaSElect\EaSElect\BL\obj\Debug\BL.csproj.CopyComplete
 C:\Users\User\Desktop\EaSElect\EaSElect\BL\obj\Debug\BL.dll
 C:\Users\User\Desktop\EaSElect\EaSElect\BL\obj\Debug\BL.pdb
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\BL.dll.config
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\BL\bin\Debug\EntityFramework.SqlServer.xml

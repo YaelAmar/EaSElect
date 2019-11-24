@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="CompanyId" />
     </Key>
-    <Property Name="CompanyId" Type="Int64" Nullable="false" />
+    <Property Name="CompanyId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CompanyName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
@@ -37,10 +37,13 @@
   </EntityType>
   <EntityType Name="ElectionResult">
     <Key>
-      <PropertyRef Name="VoterId" />
+      <PropertyRef Name="ElectionResultId" />
     </Key>
+    <Property Name="ElectionResultId" Type="Int64" Nullable="false" />
     <Property Name="VoterId" Type="Int64" Nullable="false" />
     <Property Name="ElectionOptionId" Type="Int64" Nullable="false" />
+    <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Voter" Relationship="Self.FK_VoterIdResult" FromRole="ElectionResult" ToRole="Voter" />
   </EntityType>
   <EntityType Name="Type">
     <Key>
@@ -49,6 +52,7 @@
     <Property Name="TypeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TypeDetails" Relationship="Self.FK_TypeId" FromRole="Type" ToRole="TypeDetails" />
   </EntityType>
   <EntityType Name="TypeDetail">
     <Key>
@@ -58,25 +62,20 @@
     <Property Name="TypeId" Type="Int64" Nullable="false" />
     <Property Name="TypeDetailsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ValueToType">
-    <Key>
-      <PropertyRef Name="ValueToTypeId" />
-    </Key>
-    <Property Name="ValueToTypeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="VoterId" Type="Int64" Nullable="false" />
-    <Property Name="TypeDetailsId" Type="Int64" Nullable="false" />
-    <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Type" Relationship="Self.FK_TypeId" FromRole="TypeDetails" ToRole="Type" />
+    <NavigationProperty Name="ValueToTypes" Relationship="ElectionsDBModel.FK_TypeDetailsId" FromRole="TypeDetail" ToRole="ValueToType" />
   </EntityType>
   <EntityType Name="Voter">
     <Key>
       <PropertyRef Name="VoterId" />
-      <PropertyRef Name="ElectionId" />
     </Key>
     <Property Name="VoterId" Type="Int64" Nullable="false" />
     <Property Name="ElectionId" Type="Int64" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Election" Relationship="Self.FK_ElectionIdVoter" FromRole="Voter" ToRole="Election" />
+    <NavigationProperty Name="ElectionResults" Relationship="Self.FK_VoterIdResult" FromRole="Voter" ToRole="ElectionResult" />
+    <NavigationProperty Name="ValueToTypes" Relationship="ElectionsDBModel.FK_VoterId" FromRole="Voter" ToRole="ValueToType" />
   </EntityType>
   <Association Name="FK_CompanyId">
     <End Role="Company" Type="Self.Company" Multiplicity="1" />
@@ -114,6 +113,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_VoterIdResult">
+    <End Role="Voter" Type="Self.Voter" Multiplicity="1" />
+    <End Role="ElectionResult" Type="Self.ElectionResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voter">
+        <PropertyRef Name="VoterId" />
+      </Principal>
+      <Dependent Role="ElectionResult">
+        <PropertyRef Name="VoterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TypeId">
+    <End Role="Type" Type="Self.Type" Multiplicity="1" />
+    <End Role="TypeDetails" Type="Self.TypeDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="TypeId" />
+      </Principal>
+      <Dependent Role="TypeDetails">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="ElectionsDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Companies" EntityType="Self.Company" />
     <EntitySet Name="Elections" EntityType="Self.Election" />
@@ -121,7 +144,6 @@
     <EntitySet Name="ElectionResults" EntityType="Self.ElectionResult" />
     <EntitySet Name="Types" EntityType="Self.Type" />
     <EntitySet Name="TypeDetails" EntityType="Self.TypeDetail" />
-    <EntitySet Name="ValueToTypes" EntityType="Self.ValueToType" />
     <EntitySet Name="Voters" EntityType="Self.Voter" />
     <AssociationSet Name="FK_CompanyId" Association="Self.FK_CompanyId">
       <End Role="Company" EntitySet="Companies" />
@@ -135,8 +157,67 @@
       <End Role="Election" EntitySet="Elections" />
       <End Role="Voter" EntitySet="Voters" />
     </AssociationSet>
+    <AssociationSet Name="FK_VoterIdResult" Association="Self.FK_VoterIdResult">
+      <End Role="Voter" EntitySet="Voters" />
+      <End Role="ElectionResult" EntitySet="ElectionResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TypeId" Association="Self.FK_TypeId">
+      <End Role="Type" EntitySet="Types" />
+      <End Role="TypeDetails" EntitySet="TypeDetails" />
+    </AssociationSet>
+    <FunctionImport Name="IsExistType">
+      <Parameter Name="typeName" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="IsExistTypeDetails">
       <Parameter Name="typeDetailName" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="ValueToTypes" EntityType="ElectionsDBModel.ValueToType" />
+    <AssociationSet Name="FK_TypeDetailsId" Association="ElectionsDBModel.FK_TypeDetailsId">
+      <End Role="TypeDetail" EntitySet="TypeDetails" />
+      <End Role="ValueToType" EntitySet="ValueToTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoterId" Association="ElectionsDBModel.FK_VoterId">
+      <End Role="Voter" EntitySet="Voters" />
+      <End Role="ValueToType" EntitySet="ValueToTypes" />
+    </AssociationSet>
+    <FunctionImport Name="IsExistVoter" ReturnType="Collection(Int32)">
+      <Parameter Name="voterId" Mode="In" Type="Int32" />
+      <Parameter Name="electionId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
+  <EntityType Name="ValueToType">
+    <Key>
+      <PropertyRef Name="ValueToTypeId" />
+    </Key>
+    <Property Name="ValueToTypeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VoterId" Type="Int64" Nullable="false" />
+    <Property Name="TypeDetailsId" Type="Int64" Nullable="false" />
+    <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TypeDetail" Relationship="ElectionsDBModel.FK_TypeDetailsId" FromRole="ValueToType" ToRole="TypeDetail" />
+    <NavigationProperty Name="Voter" Relationship="ElectionsDBModel.FK_VoterId" FromRole="ValueToType" ToRole="Voter" />
+  </EntityType>
+  <Association Name="FK_TypeDetailsId">
+    <End Type="ElectionsDBModel.TypeDetail" Role="TypeDetail" Multiplicity="1" />
+    <End Type="ElectionsDBModel.ValueToType" Role="ValueToType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeDetail">
+        <PropertyRef Name="TypeDetailsId" />
+      </Principal>
+      <Dependent Role="ValueToType">
+        <PropertyRef Name="TypeDetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoterId">
+    <End Type="ElectionsDBModel.Voter" Role="Voter" Multiplicity="1" />
+    <End Type="ElectionsDBModel.ValueToType" Role="ValueToType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voter">
+        <PropertyRef Name="VoterId" />
+      </Principal>
+      <Dependent Role="ValueToType">
+        <PropertyRef Name="VoterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

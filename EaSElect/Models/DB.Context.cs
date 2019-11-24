@@ -33,8 +33,17 @@ namespace Models
         public virtual DbSet<ElectionResult> ElectionResults { get; set; }
         public virtual DbSet<Type> Types { get; set; }
         public virtual DbSet<TypeDetail> TypeDetails { get; set; }
-        public virtual DbSet<ValueToType> ValueToTypes { get; set; }
         public virtual DbSet<Voter> Voters { get; set; }
+        public virtual DbSet<ValueToType> ValueToTypes { get; set; }
+    
+        public virtual int IsExistType(string typeName)
+        {
+            var typeNameParameter = typeName != null ?
+                new ObjectParameter("typeName", typeName) :
+                new ObjectParameter("typeName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("IsExistType", typeNameParameter);
+        }
     
         public virtual int IsExistTypeDetails(string typeDetailName)
         {
@@ -43,6 +52,19 @@ namespace Models
                 new ObjectParameter("typeDetailName", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("IsExistTypeDetails", typeDetailNameParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> IsExistVoter(Nullable<int> voterId, Nullable<int> electionId)
+        {
+            var voterIdParameter = voterId.HasValue ?
+                new ObjectParameter("voterId", voterId) :
+                new ObjectParameter("voterId", typeof(int));
+    
+            var electionIdParameter = electionId.HasValue ?
+                new ObjectParameter("electionId", electionId) :
+                new ObjectParameter("electionId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("IsExistVoter", voterIdParameter, electionIdParameter);
         }
     }
 }

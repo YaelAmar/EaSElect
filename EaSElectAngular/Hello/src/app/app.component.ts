@@ -8,7 +8,7 @@ import { Model, ToDoItem } from './model';
 })
 export class AppComponent {
   model = new Model();
-  title = 'app';
+  title = 'אתר הבחירות שיחסוך לכם זמן וכח';
 
   getName() {
     return this.model.user;

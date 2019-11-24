@@ -14,10 +14,22 @@ namespace Models
     
     public partial class Voter
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Voter()
+        {
+            this.ElectionResults = new HashSet<ElectionResult>();
+            this.ValueToTypes = new HashSet<ValueToType>();
+        }
+    
         public long VoterId { get; set; }
         public long ElectionId { get; set; }
+        public string Adress { get; set; }
         public bool DeleteRow { get; set; }
     
         public virtual Election Election { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ElectionResult> ElectionResults { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ValueToType> ValueToTypes { get; set; }
     }
 }
