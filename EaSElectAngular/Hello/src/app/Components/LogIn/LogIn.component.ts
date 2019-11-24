@@ -1,11 +1,12 @@
 
 import { Component } from '@angular/core';
 import { LogIn } from '../../Models/Login.model';
+import { CompanyService } from '../../Services/company.service';
 
 
 
 @Component({
-  selector: 'app-logIn',
+    selector: 'app-logIn',
     templateUrl: './LogIn.component.html',
     styleUrls: ['./LogIn.component.css']
   })
@@ -13,17 +14,22 @@ import { LogIn } from '../../Models/Login.model';
   export class LogInComponent {
     login:LogIn
     subscribe:any
-  
-    enter(){
+    res:boolean
 
+   
+   constructor(private  companyService:CompanyService){
     }
-//    constructor(private  associationDetailsService:AssociationDetailsService){
-//        this.subscribe=this.associationDetailsService.get().subscribe(d=>this.detailsAssociation=d);
-//    }
   
-   ngOnInit(logIn:LogIn)
+   ngOnInit()
    {
-    //  this.logIn.userName=logIn.userName;
-    //  this.logIn.password=logIn.password;
+    
+   }
+   enter(){
+      this.subscribe=this.companyService.Login(this.login.userName,this.login.password).subscribe(d=>this.res=d);
+      if(this.res==true)
+      {
+
+      }
+ 
    }
 }

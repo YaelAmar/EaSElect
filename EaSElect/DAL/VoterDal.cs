@@ -16,5 +16,21 @@ namespace DAL
             DB.Voters.Add(newVoter);
             DB.SaveChanges();
         }
+
+        public bool IsVoterExists(int voterId, int electionId)
+        {
+            try
+            {
+              var resultnum = DB.IsExistVoter(voterId,electionId).ToList()[0];
+              if (resultnum == 1)
+                    return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("not good!" + e.ToString());
+
+            }
+            return false;
+        }
     }
 }

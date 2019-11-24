@@ -20,5 +20,10 @@ namespace BL
         {
             return TypeDal.GetIdByName(typeName);
         }
+
+        public bool IsTypeExists(string typeName)
+        {
+            return TypeDal.IsExistType(typeName);
+        }
     }
 }

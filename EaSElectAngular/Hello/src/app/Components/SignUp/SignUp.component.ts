@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { CompanyService } from "../../Services/company.service";
+import { Company } from "../../Models/company.model";
 
 @Component({
     selector: 'app-signUp',
@@ -6,15 +8,18 @@ import { Component } from "@angular/core";
     styleUrls: ['./SignUp.component.css']
   })
   export class SignUpComponent {
-  
+    signUp:Company
     subscribe:any;
-  
-//    constructor(private  associationDetailsService:AssociationDetailsService){
-//        this.subscribe=this.associationDetailsService.get().subscribe(d=>this.detailsAssociation=d);
-//    }
+    res:boolean
+   constructor(private  companyService:CompanyService){
+   }
   
    ngOnInit()
    {
-  
+     
+   }
+   SignUp(){
+    this.subscribe=this.companyService.SignUp().subscribe(d=>this.res=d);
+       
    }
 }
