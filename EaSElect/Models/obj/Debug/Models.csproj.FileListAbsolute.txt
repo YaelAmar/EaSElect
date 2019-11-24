@@ -10,7 +10,25 @@ C:\Users\User\Desktop\EaSElect\EaSElect\Models\obj\Debug\Models.csproj.CoreCompi
 C:\Users\User\Desktop\EaSElect\EaSElect\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\User\Desktop\EaSElect\EaSElect\Models\obj\Debug\Models.dll
 C:\Users\User\Desktop\EaSElect\EaSElect\Models\obj\Debug\Models.pdb
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\ElectionsDB.mdf
+C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\ElectionsDB_log.ldf
 C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\SQL.dll
 C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\System.Data.SqlClient.dll
 C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\System.Data.SqlServerCe.dll
 C:\Users\User\Desktop\EaSElect\EaSElect\Models\bin\Debug\System.Data.SqlClient.xml
+C:\Users\USER\Desktop\my project\EaSElect\Models\bin\Debug\ElectionsDB.mdf
+C:\Users\USER\Desktop\my project\EaSElect\Models\bin\Debug\ElectionsDB_log.ldf
+C:\Users\USER\Desktop\my project\EaSElect\Models\bin\Debug\Models.dll.config
+C:\Users\USER\Desktop\my project\EaSElect\Models\bin\Debug\Models.dll
+C:\Users\USER\Desktop\my project\EaSElect\Models\bin\Debug\Models.pdb
+C:\Users\USER\Desktop\my project\EaSElect\Models\bin\Debug\EntityFramework.dll
+C:\Users\USER\Desktop\my project\EaSElect\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\USER\Desktop\my project\EaSElect\Models\bin\Debug\SQL.dll
+C:\Users\USER\Desktop\my project\EaSElect\Models\bin\Debug\System.Data.SqlClient.dll
+C:\Users\USER\Desktop\my project\EaSElect\Models\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\USER\Desktop\my project\EaSElect\Models\bin\Debug\EntityFramework.xml
+C:\Users\USER\Desktop\my project\EaSElect\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\USER\Desktop\my project\EaSElect\Models\bin\Debug\System.Data.SqlClient.xml
+C:\Users\USER\Desktop\my project\EaSElect\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\Users\USER\Desktop\my project\EaSElect\Models\obj\Debug\Models.dll
+C:\Users\USER\Desktop\my project\EaSElect\Models\obj\Debug\Models.pdb

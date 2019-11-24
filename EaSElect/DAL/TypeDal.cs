@@ -18,7 +18,23 @@ namespace DAL
 
         public int GetIdByName(string typeName)
         {
-            return int.Parse(DB.Types.Where(n => n.TypeName == typeName).Select(c => c.TypeId).ToString());
+            return int.Parse((DB.Types.Where(n => n.TypeName == typeName).Select(c => c.TypeId).ToList()[0].ToString()));
+        }
+
+        public bool IsExistType(string typeName)
+        {
+            try
+            {
+            var resultnum =DB.IsExistType(typeName).ToList()[0];
+            if (resultnum == 1)
+                    return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("not good!" + e.ToString());
+
+            }
+            return false;
         }
     }
 }

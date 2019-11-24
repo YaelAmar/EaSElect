@@ -66,12 +66,16 @@
     <Compile Include="VoterBL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{b5cb71f7-d733-409d-952e-77162f70fa91}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{a880576a-b62e-40d9-8e99-cde861b18055}</Project>
+    <ProjectReference Include="..\Model\Models.csproj">
+      <Project>{a0a8f943-28c6-4ab3-a3bb-5c55633c3ad3}</Project>
       <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>

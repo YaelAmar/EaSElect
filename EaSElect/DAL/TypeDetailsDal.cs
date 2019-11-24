@@ -23,7 +23,7 @@ namespace DAL
         {
             try
             {
-              int resultnum= DB.IsExistTypeDetails(typeDetail);
+              var resultnum= DB.IsExistTypeDetails(typeDetail).ToList()[0];
                 if (resultnum == 1)
                     return true;
             }
@@ -37,7 +37,7 @@ namespace DAL
 
         public int GetTypeDetailIdByName(string typeDetail)
         {
-            return int.Parse(DB.TypeDetails.Where(n => n.TypeDetailsName.Equals(typeDetail)).Select(c => c.TypeDetailsId).ToString());
+            return int.Parse(DB.TypeDetails.Where(n => n.TypeDetailsName.Equals(typeDetail)).Select(c => c.TypeDetailsId).ToList()[0].ToString());
         }
     }
 }

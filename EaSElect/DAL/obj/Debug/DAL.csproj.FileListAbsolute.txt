@@ -13,4 +13,22 @@ C:\Users\User\Desktop\EaSElect\EaSElect\DAL\obj\Debug\DAL.csproj.CoreCompileInpu
 C:\Users\User\Desktop\EaSElect\EaSElect\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\User\Desktop\EaSElect\EaSElect\DAL\obj\Debug\DAL.dll
 C:\Users\User\Desktop\EaSElect\EaSElect\DAL\obj\Debug\DAL.pdb
+C:\Users\User\Desktop\EaSElect\EaSElect\DAL\bin\Debug\ElectionsDB.mdf
+C:\Users\User\Desktop\EaSElect\EaSElect\DAL\bin\Debug\ElectionsDB_log.ldf
 C:\Users\User\Desktop\EaSElect\EaSElect\DAL\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\ElectionsDB.mdf
+C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\ElectionsDB_log.ldf
+C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\DAL.dll.config
+C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\DAL.dll
+C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\DAL.pdb
+C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\EntityFramework.dll
+C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\Models.dll
+C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\Models.pdb
+C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\Models.dll.config
+C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\EntityFramework.xml
+C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\USER\Desktop\my project\EaSElect\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\USER\Desktop\my project\EaSElect\DAL\obj\Debug\DAL.dll
+C:\Users\USER\Desktop\my project\EaSElect\DAL\obj\Debug\DAL.pdb

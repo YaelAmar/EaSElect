@@ -19,12 +19,10 @@ namespace BL
         VoterBL VoterBL = new VoterBL();
 
         //קליטה של נתונים כל אחד לטבלה המתאימה
-
-
-        public void LoadDataVoters(string path, int electionId)
+        public void LoadDataVoters(string path,int electionId)
         {
 
-            using (var reader = new StreamReader(path, Encoding.Default))
+           using (var reader = new StreamReader(path,Encoding.Default))
             {
                 List<string> types = new List<string>();
                 for (int i = 0; !reader.EndOfStream; i++)
@@ -33,15 +31,15 @@ namespace BL
                     var values = line.Split(';');
                     if (i == 0)
                     {
-                        for (int j = values[0].IndexOf(',') + 1; j < values[0].Length; j++)
+                        for (int j = values[0].IndexOf(',')+1; j < values[0].Length; j++)
                         {
                             string typeName = "";
-                            int k, f = 0;
-                            for (k = j; k < values[0].IndexOf(',', k); k++)
+                            int k, f=0;
+                            for ( k = j; k <values[0].IndexOf(',', k); k++)
                             {
-                                f = values[0].IndexOf(',', k);
-                                typeName += values[0].ElementAt(k);
-
+                                f= values[0].IndexOf(',', k);       
+                                 typeName += values[0].ElementAt(k);
+                                
                             }
                             if (j < values[0].Length && k > f)
                             {
@@ -56,7 +54,7 @@ namespace BL
                             j += typeName.Length;
                             TypeBL.AddNewType(typeName);
                         }
-
+                      
                     }
                     else
                     {
@@ -64,29 +62,29 @@ namespace BL
 
                         for (int j = 0; j < values[0].Length; j++)
                         {
-                            if (j == 0)
+                            if (j==0)
                             {
                                 string voterId = "";
                                 //save fingerprint at Azure
                                 //save in voters
-                                for (int k = 0; k < values[0].IndexOf(',', j); k++)
+                                for (int k = 0; k < values[0].IndexOf(',',j); k++)
                                 {
                                     voterId += values[0].ElementAt(k);
                                 }
-                                VoterBL.AddNewVoter(voterId, electionId);
+                                VoterBL.AddNewVoter(voterId,electionId);
                                 j += voterId.Length;
                             }
 
                             else
                             {
-                                int f = 0, k;
+                                int f=0, k;
                                 typeDetailName = "";
-                                for (k = j; k < values[0].IndexOf(',', k); k++)
+                                for ( k = j; k < values[0].IndexOf(',', k); k++)
                                 {
                                     f = values[0].IndexOf(',', k);
                                     typeDetailName += values[0].ElementAt(k);
                                 }
-                                if (j < values[0].Length && k > f)
+                                if(j<values[0].Length&&k>f)
                                 {
                                     for (int w = k; w < values[0].Length; w++)
                                     {
@@ -95,25 +93,24 @@ namespace BL
                                     }
                                     j = values[0].Length;
                                 }
-                                bool result = TypeDetailsBL.IsExistTypeDetails(typeDetailName);
-                                //if the row is not exist
-                                if (result == false)
+                               bool result=TypeDetailsBL.IsExistTypeDetails(typeDetailName);
+                               //if the row is not exist
+                                if (result==false)
                                 {
-                                    TypeDetailsBL.AddNewTypeDetail(typeDetailName, types[j]);
+                                 TypeDetailsBL.AddNewTypeDetail(typeDetailName,types[j]);
                                 }
-                                int typeDetailId = TypeDetailsBL.GetTypeDetailIdByName(values[j]);
-                                ValueToTypeBL.AddValueToType(values[0], typeDetailId);
+                                 int typeDetailId = TypeDetailsBL.GetTypeDetailIdByName(values[j]);
+                                 ValueToTypeBL.AddValueToType(values[0], typeDetailId);
                                 j += typeDetailName.Length;
 
                             }
                         }
                     }
                 }
-            }
+           }
 
         }
 
-
-
+       
     }
 }
