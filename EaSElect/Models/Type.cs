@@ -14,17 +14,8 @@ namespace Models
     
     public partial class Type
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Type()
-        {
-            this.TypeDetails = new HashSet<TypeDetail>();
-        }
-    
         public long TypeId { get; set; }
         public string TypeName { get; set; }
         public bool DeleteRow { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TypeDetail> TypeDetails { get; set; }
     }
 }
