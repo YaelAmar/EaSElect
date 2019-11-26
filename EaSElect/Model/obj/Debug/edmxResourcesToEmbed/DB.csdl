@@ -219,5 +219,9 @@
       <Parameter Name="voterId" Mode="In" Type="Int32" />
       <Parameter Name="electionId" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="Login" ReturnType="Collection(Int32)">
+      <Parameter Name="userName" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

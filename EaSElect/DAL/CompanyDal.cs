@@ -15,5 +15,10 @@ namespace DAL
             DB.Companies.Add(newCompany);
             DB.SaveChanges();
         }
+
+        public bool Login(string userName, string password)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

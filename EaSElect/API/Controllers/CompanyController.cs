@@ -17,6 +17,18 @@ namespace API.Controllers
         {
             CompanyBL.AddNewCompany(companyName,userName,password);
         }
-
+        [HttpGet]
+        [Route("api/company/login")]
+        public bool Login(string userName, string password)
+        {
+            return CompanyBL.Login(userName, password);
+        }
+        [HttpGet]
+        [Route("api/company/signUp")]
+        public bool SignUp(string companyName, string userName, string password)
+        {
+            this.AddNewCompany(companyName, userName, password);
+            return true;
+        }
     }
 }

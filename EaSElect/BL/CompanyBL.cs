@@ -16,5 +16,12 @@ namespace BL
             Models.Company newCompany = new Models.Company() { CompanyName=companyName,UserName=userName,Password=password};
             CompanyDal.AddNewCompany(newCompany);
         }
+
+        public bool Login(string userName, string password)
+        {
+           return CompanyDal.Login(userName, password);
+        }
+
+       
     }
 }

@@ -12,7 +12,7 @@ import { CompanyService } from '../../Services/company.service';
   })
   
   export class LogInComponent {
-    login:LogIn
+    logIn:LogIn=new LogIn();
     subscribe:any
     res:boolean
 
@@ -25,10 +25,10 @@ import { CompanyService } from '../../Services/company.service';
     
    }
    enter(){
-      this.subscribe=this.companyService.Login(this.login.userName,this.login.password).subscribe(d=>this.res=d);
+      this.subscribe=this.companyService.Login(this.logIn.UserName,this.logIn.Password).subscribe(d=>this.res=d);
       if(this.res==true)
       {
-
+        console.log("yes");
       }
  
    }

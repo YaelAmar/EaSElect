@@ -14,13 +14,14 @@ import { ElectionResult } from './Models/electionResult.model';
 import { TypeService } from './Services/type.service';
 import { VoterService } from './Services/voter.service';
 import { SignUpComponent } from './Components/SignUp/SignUp.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,AddElectionComponent,AddCopmanyComponent,ElectionOptionComponent,LogInComponent,SignUpComponent
   ],
   imports: [
-    BrowserModule, FormsModule,AppRoutingModule
+    BrowserModule, FormsModule,AppRoutingModule,HttpClientModule
   ],
   providers: [CompanyService,ElectionOptionService,ElectionService,ElectionResult,TypeService,VoterService],
   bootstrap: [AppComponent]

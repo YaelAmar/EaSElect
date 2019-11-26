@@ -9,10 +9,11 @@ import { Company } from "../../Models/company.model";
   })
   export class SignUpComponent {
    
-    signUp:Company;
+    company:Company=new Company();
     subscribe:any;
     res:boolean
    constructor(private  companyService:CompanyService){
+
    }
   
    ngOnInit()
@@ -20,7 +21,10 @@ import { Company } from "../../Models/company.model";
      
    }
    SignUp(){
-    this.subscribe=this.companyService.SignUp(this.signUp.CompanyName,this.signUp.UserName,this.signUp.Password).subscribe(d=>this.res=d);
-       
+    this.subscribe=this.companyService.SignUp(this.company.CompanyName,this.company.UserName,this.company.Password).subscribe(d=>this.res=d);
+     if(this.res==true)
+      {
+        console.log("yes");
+      }
    }
 }

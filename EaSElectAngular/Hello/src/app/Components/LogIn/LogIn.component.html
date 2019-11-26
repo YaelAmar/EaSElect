@@ -1,9 +1,14 @@
 <div>
   <form>
-      <label>שם משתמש</label>
-      <input type="text" name="userName" [(ngModel)]="logIn.userName">
-      <label>סיסמא</label>
-      <input type="password" name="password" [(ngModel)]="logIn.userName">
+      <div>
+          <label>שם משתמש</label>
+           <input name="UserName" [(ngModel)]="logIn.UserName" type="text" #UserName="ngModel" required maxlength="20"/>
+           <span class="error" *ngIf="UserName.errors!=null && UserName.errors.required">שדה חובה</span>
+      </div>
+      <div>
+          <label>סיסמה</label>
+          <input name="password" [(ngModel)]="logIn.Password" type="password"  placeholder="New password"  required/>
+      </div>
 
        <input type="button" value="הכנס" (click)="enter()">
   </form>

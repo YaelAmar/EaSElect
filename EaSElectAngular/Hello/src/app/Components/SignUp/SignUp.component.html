@@ -1,11 +1,19 @@
 <div>
   <form>
+    <div>
       <label>שם חברה</label>
-      <input type="text">
-      <label>שם משתמש</label>
-      <input type="text">
-      <label>סיסמא</label>
-      <input type="text">
+      <input name="companyName" [(ngModel)]=company.CompanyName type="text" #CompanyName="ngModel" required >
+    </div>
+     <div>
+          <label>שם משתמש</label>
+           <input name="userName" [(ngModel)]="company.UserName" type="text" #UserName="ngModel" required maxlength="20"/>
+           <span class="error" *ngIf="UserName.errors!=null && UserName.errors.required">שדה חובה</span>
+      </div>
+      <div>
+          <label>סיסמה</label>
+          <input name="password" [(ngModel)]="company.Password" type="password"  placeholder="New password"  required/>
+      </div>
+
        <input type="button" value="הרשם">
   </form>
 </div>
