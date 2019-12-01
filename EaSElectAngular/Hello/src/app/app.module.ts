@@ -15,10 +15,11 @@ import { TypeService } from './Services/type.service';
 import { VoterService } from './Services/voter.service';
 import { SignUpComponent } from './Components/SignUp/SignUp.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './Components/Home/Home.component';
 
 @NgModule({
   declarations: [
-    AppComponent,AddElectionComponent,AddCopmanyComponent,ElectionOptionComponent,LogInComponent,SignUpComponent
+    AppComponent,AddElectionComponent,AddCopmanyComponent,ElectionOptionComponent,LogInComponent,SignUpComponent,HomeComponent
   ],
   imports: [
     BrowserModule, FormsModule,AppRoutingModule,HttpClientModule

@@ -5,10 +5,12 @@ import { ElectionOptionComponent } from './Components/ElectionOption/ElectionOpt
 import { AddCopmanyComponent } from './Components/AddCompany/Addcompany.component';
 import { AddElectionComponent } from './Components/AddElection/AddElection.component';
 import { SignUpComponent } from './Components/SignUp/SignUp.component';
+import { HomeComponent } from './Components/Home/Home.component';
 
 
 
 export const appRoutes: Routes = [
+   { path:'Home',component:HomeComponent},
    { path: 'AddCopmany', component: AddCopmanyComponent },
    { path: 'AddElection', component: AddElectionComponent },
    { path: 'ElectionOption', component: ElectionOptionComponent },

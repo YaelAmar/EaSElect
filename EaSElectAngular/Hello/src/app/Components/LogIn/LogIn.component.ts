@@ -30,6 +30,9 @@ import { CompanyService } from '../../Services/company.service';
       {
         console.log("yes");
       }
+      else
+      console.log("no");
+        
  
    }
 }

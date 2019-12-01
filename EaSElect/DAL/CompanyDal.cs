@@ -18,7 +18,10 @@ namespace DAL
 
         public bool Login(string userName, string password)
         {
-            throw new NotImplementedException();
+            int? result = DB.Login(userName, password).ToList()[0];
+            if(result==1)
+                return true;
+            return false;
         }
     }
 }

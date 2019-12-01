@@ -24,7 +24,8 @@ import { Company } from "../../Models/company.model";
     this.subscribe=this.companyService.SignUp(this.company.CompanyName,this.company.UserName,this.company.Password).subscribe(d=>this.res=d);
      if(this.res==true)
       {
-        console.log("yes");
+        console.log("succesfuly");
       }
+    
    }
 }
