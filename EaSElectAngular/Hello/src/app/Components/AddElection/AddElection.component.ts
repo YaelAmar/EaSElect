@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { Election } from "../../Models/election.model";
+import { ElectionService } from "../../Services/election.service";
 
 @Component({
     selector: 'app-add-election',
@@ -6,15 +8,17 @@ import { Component } from "@angular/core";
     styleUrls: ['./addElection.component.css']
   })
   export class AddElectionComponent {
-  
+    election:Election=new Election();
     subscribe:any;
-  
-//    constructor(private  associationDetailsService:AssociationDetailsService){
-//        this.subscribe=this.associationDetailsService.get().subscribe(d=>this.detailsAssociation=d);
-//    }
+    dateNow=new Date();
+    constructor(private  electionService:ElectionService){
+    }
   
    ngOnInit()
    {
   
+   }
+   AddElection(frm:any){
+    this.subscribe=this.electionService.AddNewElection(this.election.ElectionName,this.election.StartDate,this.election.EndDate,this.election.CompanyId);
    }
 }

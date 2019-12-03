@@ -7,7 +7,7 @@ const httpOptions={
 @Injectable()
 export class ElectionResultService{
 
-    url='http://localhost:55866'
+    url='https://localhost:55866'
     constructor(private http:HttpClient){
 
 

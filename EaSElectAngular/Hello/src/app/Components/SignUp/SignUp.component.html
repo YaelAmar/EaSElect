@@ -1,5 +1,5 @@
 <div>
-  <form>
+  <form novalidate  (submit)="SignUp(frm)" #frm="ngForm">
     <div>
       <label>שם חברה</label>
       <input name="companyName" [(ngModel)]=company.CompanyName type="text" #CompanyName="ngModel" required >
@@ -14,6 +14,6 @@
           <input name="password" [(ngModel)]="company.Password" type="password"  placeholder="New password"  required/>
       </div>
 
-       <input type="button" value="הרשם">
+       <input type="submit" value="הבא" [routerLink]="['/AddElection']" routerLinkActive="active" [disabled]="!frm.valid" >
   </form>
 </div>

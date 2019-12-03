@@ -7,8 +7,9 @@
       </div>
       <div>
           <label>סיסמה</label>
-          <input name="password" [(ngModel)]="logIn.Password" type="password"  placeholder="New password"  required/>
-      </div>
+          <input name="password" [(ngModel)]="logIn.Password" type="password" #Password="ngModel"  placeholder="New password"  required/>
+          <span class="error" *ngIf="Password.errors!=null && UserName.errors.required">שדה חובה</span>
+        </div>
 
        <input type="submit" value="הכנס" [disabled]="!frm.valid" >
   </form>
