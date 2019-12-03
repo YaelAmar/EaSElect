@@ -24,8 +24,11 @@ import { CompanyService } from '../../Services/company.service';
    {
     
    }
-   enter(){
-      this.subscribe=this.companyService.Login(this.logIn.UserName,this.logIn.Password).subscribe(d=>this.res=d);
+   enter(frm:any){
+   
+ 
+    this.subscribe=this.companyService.Login(this.logIn.UserName,this.logIn.Password).subscribe(d=>this.res=d);
+     
       if(this.res==true)
       {
         console.log("yes");

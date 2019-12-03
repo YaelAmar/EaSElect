@@ -1,5 +1,5 @@
 <div>
-  <form>
+  <form novalidate  (submit)="enter(frm)" #frm="ngForm">
       <div>
           <label>שם משתמש</label>
            <input name="UserName" [(ngModel)]="logIn.UserName" type="text" #UserName="ngModel" required maxlength="20"/>
@@ -10,6 +10,6 @@
           <input name="password" [(ngModel)]="logIn.Password" type="password"  placeholder="New password"  required/>
       </div>
 
-       <input type="button" value="הכנס" (click)="enter()">
+       <input type="submit" value="הכנס" [disabled]="!frm.valid" >
   </form>
 </div>
