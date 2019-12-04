@@ -11,11 +11,12 @@ import { HomeComponent } from './Components/Home/Home.component';
 
 export const appRoutes: Routes = [
    { path:'Home',component:HomeComponent},
-   { path: 'AddCopmany', component: AddCopmanyComponent },
+   { path: 'AddCompany', component: AddCopmanyComponent },
    { path: 'AddElection', component: AddElectionComponent },
-   { path: 'ElectionOption', component: ElectionOptionComponent },
+   { path: 'AddElectionOption', component: ElectionOptionComponent },
    { path: 'LogIn', component: LogInComponent },
-   { path: 'SignUp', component: SignUpComponent }]
+   { path: 'SignUp', component: SignUpComponent }
+  ]
 
 @NgModule({
 
