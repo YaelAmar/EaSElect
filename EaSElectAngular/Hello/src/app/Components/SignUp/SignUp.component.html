@@ -12,7 +12,8 @@
       <div>
           <label>סיסמה</label>
           <input name="password" [(ngModel)]="company.Password" type="password"  placeholder="New password"  required/>
-      </div>
+     
+        </div>
 
        <input type="submit" value="הבא" [routerLink]="['/AddElection']" routerLinkActive="active" [disabled]="!frm.valid" >
   </form>

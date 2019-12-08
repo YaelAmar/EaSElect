@@ -1,3 +1,7 @@
-.font{
+.font1{
     font-family: Open Sans Hebrew;
+}
+.error{
+    color: red;
+    
 }
