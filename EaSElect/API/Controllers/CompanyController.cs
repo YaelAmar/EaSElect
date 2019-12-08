@@ -11,9 +11,7 @@ namespace API.Controllers
     public class CompanyController : ApiController
     {
         CompanyBL CompanyBL = new CompanyBL();
-        [HttpGet]
-        [Route("api/company/addCompany")]
-        public void AddNewCompany(string companyName,string userName,string password)
+       public void AddNewCompany(string companyName,string userName,string password)
         {
             CompanyBL.AddNewCompany(companyName,userName,password);
         }
@@ -23,12 +21,15 @@ namespace API.Controllers
         {
             return CompanyBL.Login(userName, password);
         }
-        [HttpGet]
+        [HttpPost]
         [Route("api/company/signUp")]
         public bool SignUp(string companyName, string userName, string password)
         {
             this.AddNewCompany(companyName, userName, password);
             return true;
         }
+
+        public void Options()
+        { }
     }
 }

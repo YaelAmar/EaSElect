@@ -11,7 +11,7 @@ namespace API.Controllers
     public class ElectionController : ApiController
     {
         ElectionBL ElectionBL = new ElectionBL();
-        [HttpGet]
+        [HttpPost]
         [Route("api/election/addElection")]
         public void AddNewElection(string electionName, DateTime startDate,DateTime endDate, int companyId)
         {

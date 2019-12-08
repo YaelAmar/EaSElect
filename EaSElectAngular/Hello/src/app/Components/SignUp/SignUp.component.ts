@@ -10,6 +10,7 @@ import { Company } from "../../Models/company.model";
   export class SignUpComponent {
    
     company:Company=new Company();
+    confirmPass:string
     subscribe:any;
     res:boolean
    constructor(private  companyService:CompanyService){
@@ -22,7 +23,7 @@ import { Company } from "../../Models/company.model";
    }
    SignUp(frm:any){
     this.subscribe=this.companyService.SignUp(this.company.CompanyName,this.company.UserName,this.company.Password).subscribe(d=>this.res=d);
-    //לקבל את הקוד חברה שנכנס עכשיו ולשלוח אותו להספת בחירה
+    //לקבל את הקוד חברה שנכנס עכשיו ולשלוח אותו להוספת בחירה
      if(this.res==true)
       {
         console.log("succesfuly");
