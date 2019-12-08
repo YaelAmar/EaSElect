@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { Company } from '../Models/company.model';
 
 const httpOptions={
     
@@ -9,7 +10,7 @@ const httpOptions={
 @Injectable()
 export class CompanyService{
 
-    url='https://localhost:55866/api/company'
+    url='http://localhost:55866/api/company'
     constructor(private http:HttpClient){
 
 
@@ -18,11 +19,12 @@ export class CompanyService{
 
     Login(userName:string, password:string):Observable<boolean>
     {
-     return this.http.get<boolean>(`${this.url}/login?UserName=${userName}&Password=${password}`)
+     return this.http.get<boolean>(`${this.url}/login?userName=${userName}&password=${password}`)
     }
 
-    SignUp(companyName:string,userName:string, password:string):Observable<boolean>
+    SignUp(companyName:string,userName:string, password:string)
     {
-     return this.http.get<boolean>(`${this.url}/signUp?CompanyName=${companyName}&UserName=${userName}&Password=${password}`)
+    let newCompany =new Company(companyName,userName,password);
+    return this.http.post(`${this.url}/signUp?companyName=${companyName}&userName=${userName}&password=${password}`,newCompany);
     }
 }

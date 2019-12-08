@@ -22,7 +22,9 @@ import { Company } from "../../Models/company.model";
      
    }
    SignUp(frm:any){
-    this.subscribe=this.companyService.SignUp(this.company.CompanyName,this.company.UserName,this.company.Password).subscribe(d=>this.res=d);
+    frm.method = "POST";   
+    document.body.appendChild(frm);
+    this.subscribe=this.companyService.SignUp(this.company.CompanyName,this.company.UserName,this.company.Password).subscribe();
     //לקבל את הקוד חברה שנכנס עכשיו ולשלוח אותו להוספת בחירה
      if(this.res==true)
       {

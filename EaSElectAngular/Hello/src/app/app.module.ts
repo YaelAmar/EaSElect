@@ -4,7 +4,6 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AddElectionComponent } from './Components/AddElection/AddElection.component';
-import { AddCopmanyComponent } from './Components/AddCompany/Addcompany.component';
 import { ElectionOptionComponent } from './Components/ElectionOption/ElectionOption.component';
 import { LogInComponent } from './Components/LogIn/LogIn.component';
 import { CompanyService } from './Services/company.service';
@@ -16,14 +15,20 @@ import { VoterService } from './Services/voter.service';
 import { SignUpComponent } from './Components/SignUp/SignUp.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Components/Home/Home.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AccordionModule} from 'primeng/accordion'; 
+import {CalendarModule} from 'primeng/calendar';
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent,AddElectionComponent,AddCopmanyComponent,ElectionOptionComponent,LogInComponent,SignUpComponent,HomeComponent
+    AppComponent,AddElectionComponent,ElectionOptionComponent,LogInComponent,SignUpComponent,HomeComponent
   ],
   imports: [
-    BrowserModule, FormsModule,AppRoutingModule,HttpClientModule
-  ],
+    BrowserModule,FormsModule,AppRoutingModule,HttpClientModule,BrowserAnimationsModule,AccordionModule,CalendarModule
+   ],
   providers: [CompanyService,ElectionOptionService,ElectionService,ElectionResult,TypeService,VoterService],
   bootstrap: [AppComponent]
 })

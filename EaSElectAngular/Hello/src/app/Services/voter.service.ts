@@ -8,7 +8,7 @@ const httpOptions={
 @Injectable()
 export class VoterService{
 
-    url='https://localhost:55866/api/voters/loadDataVoters'
+    url='http://localhost:55866/api/voters/loadDataVoters'
     constructor(private http:HttpClient){
 
 

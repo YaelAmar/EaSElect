@@ -19,6 +19,9 @@ import { ElectionService } from "../../Services/election.service";
   
    }
    AddElection(frm:any){
+   
+    frm.method = "POST";   
+    document.body.appendChild(frm);
     this.subscribe=this.electionService.AddNewElection(this.election.ElectionName,this.election.StartDate,this.election.EndDate,this.election.CompanyId);
    }
 }
