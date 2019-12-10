@@ -16,8 +16,7 @@ import { SignUpComponent } from './Components/SignUp/SignUp.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Components/Home/Home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AccordionModule} from 'primeng/accordion'; 
-import {CalendarModule} from 'primeng/calendar';
+
 
 
 
@@ -27,7 +26,8 @@ import {CalendarModule} from 'primeng/calendar';
     AppComponent,AddElectionComponent,ElectionOptionComponent,LogInComponent,SignUpComponent,HomeComponent
   ],
   imports: [
-    BrowserModule,FormsModule,AppRoutingModule,HttpClientModule,BrowserAnimationsModule,AccordionModule,CalendarModule
+    BrowserModule,FormsModule,AppRoutingModule,HttpClientModule,BrowserAnimationsModule
+    
    ],
   providers: [CompanyService,ElectionOptionService,ElectionService,ElectionResult,TypeService,VoterService],
   bootstrap: [AppComponent]
