@@ -15,10 +15,11 @@ import { VoterService } from './Services/voter.service';
 import { SignUpComponent } from './Components/SignUp/SignUp.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Components/Home/Home.component';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
-
-
+import { HttpModule } from '@angular/http';
+ 
+// import {CalendarModule} from 'primeng/calendar';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppComponent,AddElectionComponent,ElectionOptionComponent,LogInComponent,SignUpComponent,HomeComponent
   ],
   imports: [
-    BrowserModule,FormsModule,AppRoutingModule,HttpClientModule,BrowserAnimationsModule
+    BrowserModule,FormsModule,AppRoutingModule,HttpModule,HttpClientModule,BrowserAnimationsModule
     
    ],
   providers: [CompanyService,ElectionOptionService,ElectionService,ElectionResult,TypeService,VoterService],

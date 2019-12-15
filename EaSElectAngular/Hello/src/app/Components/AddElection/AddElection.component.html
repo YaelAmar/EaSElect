@@ -5,10 +5,10 @@
     <span class="error" *ngIf="electionName.errors!=null && electionName.errors.required">שדה חובה</span>
 </div>  
 
-<div class="ui-g-12 ui-md-4">
+<!-- <div class="ui-g-12 ui-md-4">
     <label>תאריך התחלה</label>
-    <!-- <p-calendar name="startDate" [(ngModel)]="election.StartDate" dateFormat="dd.mm.yy" [showTime]="true" hourFormat="24" #startDate="ngModel">        
-    </p-calendar> -->
+    <p-calendar name="startDate" [(ngModel)]="election.StartDate" dateFormat="dd.mm.yy" [showTime]="true" hourFormat="24" #startDate="ngModel">        
+    </p-calendar>
     <span class="error" *ngIf="startDate.errors!=null && startDate.errors.required">שדה חובה</span>
     <span class="error" *ngIf="startDate.errors?.min">תאריך לא יכול להיות לפני התאריך הנוכחי</span>
 
@@ -16,11 +16,11 @@
 
 <div class="ui-g-12 ui-md-4">
         <label>תאריך סיום</label>
-        <!-- <p-calendar class="ng-tns-c3-8 ng-valid ui-inputwrapper-filled ng-dirty ng-touched" name="endDate" [(ngModel)]="election.EndDate" [showTime]="true" hourFormat="24" #endDate="ngModel"></p-calendar> -->
+        <p-calendar class="ng-tns-c3-8 ng-valid ui-inputwrapper-filled ng-dirty ng-touched" name="endDate" [(ngModel)]="election.EndDate" [showTime]="true" hourFormat="24" #endDate="ngModel"></p-calendar>
         <span class="error" *ngIf="endDate.errors!=null && endDate.errors.required">שדה חובה</span>
         <span class="error" *ngIf="endDate.errors?.min">תאריך לא יכול להיות לפני התאריך הנוכחי</span>
 </div>     
-   
+    -->
 
 <input type="submit" value="הבא" [routerLink]="['/AddElectionOption']" routerLinkActive="active" [disabled]="!frm.valid" >
 

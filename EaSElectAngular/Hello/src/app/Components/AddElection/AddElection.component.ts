@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Election } from "../../Models/election.model";
 import { ElectionService } from "../../Services/election.service";
 
+
 @Component({
     selector: 'app-add-election',
     templateUrl: './addElection.component.html',
