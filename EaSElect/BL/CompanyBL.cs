@@ -11,10 +11,10 @@ namespace BL
     {
        
         CompanyDal CompanyDal = new CompanyDal();
-        public void AddNewCompany(string companyName, string userName, string password)
+        public long AddNewCompany(Models.Company company)
         {
-            Models.Company newCompany = new Models.Company() { CompanyName=companyName,UserName=userName,Password=password};
-            CompanyDal.AddNewCompany(newCompany);
+            CompanyDal.AddNewCompany(company);
+            return company.CompanyId;
         }
 
         public bool Login(string userName, string password)

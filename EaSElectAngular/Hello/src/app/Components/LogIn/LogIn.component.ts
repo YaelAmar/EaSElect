@@ -14,7 +14,7 @@ import { CompanyService } from '../../Services/company.service';
   export class LogInComponent {
     logIn:LogIn=new LogIn();
     subscribe:any
-    res:boolean
+
 
    
    constructor(private  companyService:CompanyService){
@@ -25,15 +25,18 @@ import { CompanyService } from '../../Services/company.service';
     
    }
    enter(frm:any){
+   let res=false;
+   this.companyService.Login(this.logIn.UserName,this.logIn.Password).subscribe(res=>
     
-    this.subscribe=this.companyService.Login(this.logIn.UserName,this.logIn.Password).subscribe(d=>this.res=d);     
-      if(this.res==true)
-      {
-        console.log("yes");
-      }
-      else
-      console.log("no");
-        
+    {console.log(res)
+   
+    if(res==true)
+     {
+       console.log("yes");
+     }
+     else
+  console.log("no");
+})
  
    }
 }

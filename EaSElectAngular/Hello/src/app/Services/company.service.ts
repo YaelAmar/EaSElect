@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Company } from '../Models/company.model';
+import { RequestOptions, Headers } from '@angular/http';
 
-const httpOptions={
     
-    headers:new HttpHeaders({'Content-type':'application/json'})}
-
 @Injectable()
 export class CompanyService{
 
@@ -19,12 +17,13 @@ export class CompanyService{
 
     Login(userName:string, password:string):Observable<boolean>
     {
-     return this.http.get<boolean>(`${this.url}/login?userName=${userName}&password=${password}`)
+     return this.http.get<boolean>(`${this.url}/login/${userName}/${password}`)
     }
 
-    SignUp(companyName:string,userName:string, password:string)
+    SignUp(newCompany:Company): Observable<number>
     {
-    let newCompany =new Company(companyName,userName,password);
-    return this.http.post(`${this.url}/signUp?companyName=${companyName}&userName=${userName}&password=${password}`,newCompany);
+    let  headers=new Headers({'Content-type':'application/json; charset=utf-8'});
+    let options = new RequestOptions({ headers: headers })
+    return this.http.post<number>(`${this.url}/signUp`,newCompany);
     }
 }

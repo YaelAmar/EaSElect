@@ -10,10 +10,13 @@ namespace DAL
     public class CompanyDal
     {
         Models.ElectionsDBEntities DB = new Models.ElectionsDBEntities();
-        public void AddNewCompany(Company newCompany)
+        public long AddNewCompany(Company newCompany)
         {
+            if (DB.Companies.Any(c => c.UserName == newCompany.UserName))
+                return 0;
             DB.Companies.Add(newCompany);
             DB.SaveChanges();
+            return DB.Companies.Where((c) => c.UserName == newCompany.UserName && c.Password == newCompany.Password).Select(l => l.CompanyId).ToList()[0];
         }
 
         public bool Login(string userName, string password)

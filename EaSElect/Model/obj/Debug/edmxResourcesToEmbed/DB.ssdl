@@ -7,7 +7,7 @@
     <Property Name="CompanyId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CompanyName" Type="nvarchar" MaxLength="55" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="DeleteRow" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Election">

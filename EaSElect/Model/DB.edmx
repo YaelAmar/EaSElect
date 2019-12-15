@@ -12,7 +12,7 @@
           <Property Name="CompanyId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CompanyName" Type="nvarchar" MaxLength="55" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DeleteRow" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Election">
@@ -219,17 +219,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ElectionsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Company">
-          <Key>
-            <PropertyRef Name="CompanyId" />
-          </Key>
-          <Property Name="CompanyId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CompanyName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Elections" Relationship="Self.FK_CompanyId" FromRole="Company" ToRole="Election" />
-        </EntityType>
         <EntityType Name="Election">
           <Key>
             <PropertyRef Name="ElectionId" />
@@ -240,9 +229,9 @@
           <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CompanyId" Type="Int64" Nullable="false" />
           <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Company" Relationship="Self.FK_CompanyId" FromRole="Election" ToRole="Company" />
           <NavigationProperty Name="ElectionOptions" Relationship="Self.FK_ElectionId" FromRole="Election" ToRole="ElectionOption" />
           <NavigationProperty Name="Voters" Relationship="Self.FK_ElectionIdVoter" FromRole="Election" ToRole="Voter" />
+          <NavigationProperty Name="Company" Relationship="ElectionsDBModel.FK_CompanyId" FromRole="Election" ToRole="Company" />
         </EntityType>
         <EntityType Name="ElectionOption">
           <Key>
@@ -307,18 +296,6 @@
           <NavigationProperty Name="ElectionResults" Relationship="Self.FK_VoterIdResult" FromRole="Voter" ToRole="ElectionResult" />
           <NavigationProperty Name="ValueToTypes" Relationship="Self.FK_VoterId" FromRole="Voter" ToRole="ValueToType" />
         </EntityType>
-        <Association Name="FK_CompanyId">
-          <End Role="Company" Type="Self.Company" Multiplicity="1" />
-          <End Role="Election" Type="Self.Election" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Company">
-              <PropertyRef Name="CompanyId" />
-            </Principal>
-            <Dependent Role="Election">
-              <PropertyRef Name="CompanyId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ElectionId">
           <End Role="Election" Type="Self.Election" Multiplicity="1" />
           <End Role="ElectionOption" Type="Self.ElectionOption" Multiplicity="*" />
@@ -392,7 +369,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ElectionsDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Companies" EntityType="Self.Company" />
           <EntitySet Name="Elections" EntityType="Self.Election" />
           <EntitySet Name="ElectionOptions" EntityType="Self.ElectionOption" />
           <EntitySet Name="ElectionResults" EntityType="Self.ElectionResult" />
@@ -400,10 +376,6 @@
           <EntitySet Name="TypeDetails" EntityType="Self.TypeDetail" />
           <EntitySet Name="ValueToTypes" EntityType="Self.ValueToType" />
           <EntitySet Name="Voters" EntityType="Self.Voter" />
-          <AssociationSet Name="FK_CompanyId" Association="Self.FK_CompanyId">
-            <End Role="Company" EntitySet="Companies" />
-            <End Role="Election" EntitySet="Elections" />
-          </AssociationSet>
           <AssociationSet Name="FK_ElectionId" Association="Self.FK_ElectionId">
             <End Role="Election" EntitySet="Elections" />
             <End Role="ElectionOption" EntitySet="ElectionOptions" />
@@ -442,24 +414,41 @@
             <Parameter Name="userName" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Companies" EntityType="ElectionsDBModel.Company" />
+          <AssociationSet Name="FK_CompanyId" Association="ElectionsDBModel.FK_CompanyId">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Election" EntitySet="Elections" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Elections" Relationship="ElectionsDBModel.FK_CompanyId" FromRole="Company" ToRole="Election" />
+        </EntityType>
+        <Association Name="FK_CompanyId">
+          <End Type="ElectionsDBModel.Company" Role="Company" Multiplicity="1" />
+          <End Type="ElectionsDBModel.Election" Role="Election" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Election">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ElectionsDBModelStoreContainer" CdmEntityContainer="ElectionsDBEntities">
-          <EntitySetMapping Name="Companies">
-            <EntityTypeMapping TypeName="ElectionsDBModel.Company">
-              <MappingFragment StoreEntitySet="Company">
-                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Elections">
             <EntityTypeMapping TypeName="ElectionsDBModel.Election">
               <MappingFragment StoreEntitySet="Election">
@@ -535,6 +524,17 @@
           <FunctionImportMapping FunctionImportName="IsExistTypeDetails" FunctionName="ElectionsDBModel.Store.IsExistTypeDetails" />
           <FunctionImportMapping FunctionImportName="IsExistVoter" FunctionName="ElectionsDBModel.Store.IsExistVoter" />
           <FunctionImportMapping FunctionImportName="Login" FunctionName="ElectionsDBModel.Store.Login" />
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="ElectionsDBModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

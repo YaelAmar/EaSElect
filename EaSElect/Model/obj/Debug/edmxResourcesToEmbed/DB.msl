@@ -1,17 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ElectionsDBModelStoreContainer" CdmEntityContainer="ElectionsDBEntities">
-    <EntitySetMapping Name="Companies">
-      <EntityTypeMapping TypeName="ElectionsDBModel.Company">
-        <MappingFragment StoreEntitySet="Company">
-          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
-          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Elections">
       <EntityTypeMapping TypeName="ElectionsDBModel.Election">
         <MappingFragment StoreEntitySet="Election">
@@ -87,5 +76,16 @@
     <FunctionImportMapping FunctionImportName="IsExistTypeDetails" FunctionName="ElectionsDBModel.Store.IsExistTypeDetails" />
     <FunctionImportMapping FunctionImportName="IsExistVoter" FunctionName="ElectionsDBModel.Store.IsExistVoter" />
     <FunctionImportMapping FunctionImportName="Login" FunctionName="ElectionsDBModel.Store.Login" />
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="ElectionsDBModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -5,7 +5,7 @@
     <span class="error" *ngIf="electionName.errors!=null && electionName.errors.required">שדה חובה</span>
 </div>  
 
-<!-- <div class="ui-g-12 ui-md-4">
+<div class="ui-g-12 ui-md-4">
     <label>תאריך התחלה</label>
     <p-calendar name="startDate" [(ngModel)]="election.StartDate" dateFormat="dd.mm.yy" [showTime]="true" hourFormat="24" #startDate="ngModel">        
     </p-calendar>
@@ -20,7 +20,7 @@
         <span class="error" *ngIf="endDate.errors!=null && endDate.errors.required">שדה חובה</span>
         <span class="error" *ngIf="endDate.errors?.min">תאריך לא יכול להיות לפני התאריך הנוכחי</span>
 </div>     
-    -->
+   
 
 <input type="submit" value="הבא" [routerLink]="['/AddElectionOption']" routerLinkActive="active" [disabled]="!frm.valid" >
 

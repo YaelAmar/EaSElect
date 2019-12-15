@@ -11,22 +11,23 @@ namespace API.Controllers
     public class CompanyController : ApiController
     {
         CompanyBL CompanyBL = new CompanyBL();
-       public void AddNewCompany(string companyName,string userName,string password)
+       public long AddNewCompany(Models.Company company)
         {
-            CompanyBL.AddNewCompany(companyName,userName,password);
+            CompanyBL.AddNewCompany(company);
+            return company.CompanyId;
         }
         [HttpGet]
-        [Route("api/company/login")]
+        [Route("api/company/login/{userName}/{password}")]
         public bool Login(string userName, string password)
         {
             return CompanyBL.Login(userName, password);
         }
         [HttpPost]
         [Route("api/company/signUp")]
-        public bool SignUp(string companyName, string userName, string password)
+        public long SignUp(Models.Company company)
         {
-            this.AddNewCompany(companyName, userName, password);
-            return true;
+            this.AddNewCompany(company);
+            return company.CompanyId;
         }
 
         public void Options()

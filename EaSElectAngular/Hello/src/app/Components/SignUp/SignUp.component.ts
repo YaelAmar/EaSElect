@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { CompanyService } from "../../Services/company.service";
 import { Company } from "../../Models/company.model";
+import { Router} from "@angular/router";
 
 @Component({
     selector: 'app-signUp',
@@ -9,11 +10,12 @@ import { Company } from "../../Models/company.model";
   })
   export class SignUpComponent {
    
-    company:Company=new Company();
+    newCompany:Company=new Company();
     confirmPass:string
     subscribe:any;
     res:boolean
-   constructor(private  companyService:CompanyService){
+  
+   constructor(private  companyService:CompanyService,private router: Router){
 
    }
   
@@ -22,14 +24,20 @@ import { Company } from "../../Models/company.model";
      
    }
    SignUp(frm:any){
-    frm.method = "POST";   
-    document.body.appendChild(frm);
-    this.subscribe=this.companyService.SignUp(this.company.CompanyName,this.company.UserName,this.company.Password).subscribe();
+   console.log(this.newCompany.CompanyName,this.newCompany.UserName,this.newCompany.Password);
+    //frm.method = "POST";   
+   // document.body.appendChild(frm);
+    this.companyService.SignUp(this.newCompany).subscribe(res=>{
     //לקבל את הקוד חברה שנכנס עכשיו ולשלוח אותו להוספת בחירה
-     if(this.res==true)
+    this.newCompany.CompanyId=res; 
+    if(res!=0)
       {
         console.log("succesfuly");
+        this.router.navigate(['/AddElection']);
       }
+    else 
+    console.log("בחר שם אחר שם משתמש זה כבר קיים במערכת")
+    });
     
    }
 }
