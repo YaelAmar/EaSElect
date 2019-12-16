@@ -9,7 +9,7 @@ import { ElectionService } from "../../Services/election.service";
     styleUrls: ['./addElection.component.css']
   })
   export class AddElectionComponent {
-    election:Election=new Election();
+    newElection:Election=new Election();
     subscribe:any;
     dateNow=new Date();
     constructor(private  electionService:ElectionService){
@@ -20,9 +20,9 @@ import { ElectionService } from "../../Services/election.service";
   
    }
    AddElection(frm:any){
-   
-    frm.method = "POST";   
-    document.body.appendChild(frm);
-    this.subscribe=this.electionService.AddNewElection(this.election.ElectionName,this.election.StartDate,this.election.EndDate,this.election.CompanyId);
+      this.electionService.AddNewElection(this.newElection.ElectionName,this.newElection.StartDate,this.newElection.EndDate,this.newElection.CompanyId).subscribe(res=>{
+        this.newElection.ElectionId=res;
+       // this.newElection.CompanyId=
+      });
    }
 }

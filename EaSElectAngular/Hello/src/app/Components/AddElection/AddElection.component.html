@@ -1,10 +1,29 @@
 <form novalidate  (submit)="AddElection(frm)" #frm="ngForm">
 <div>
     <label>שם בחירות</label>
-    <input name="electionName" [(ngModel)]="election.ElectionName" type="text" #electionName="ngModel" required maxlength="50"/>
+    <input name="electionName" [(ngModel)]="newElection.ElectionName" type="text" #electionName="ngModel" required maxlength="50"/>
     <span class="error" *ngIf="electionName.errors!=null && electionName.errors.required">שדה חובה</span>
-</div>  
+</div>
+<div>
+     <label>תאריך התחלה</label>
+    <input type="datetime-local" name="startDate" [(ngModel)]="newElection.StartDate" #startDate="ngModel">
+</div>
+<div>
+    <label>תאריך סיום</label>
+    <input type="datetime-local" name="EndDate" [(ngModel)]="newElection.EndDate" #startDate="ngModel">
+</div>
+<!-- <label>
+    Date
+    <input [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3">
+    <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+</label>
 
+<label>
+    Time
+    <input [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4">
+    <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
+</label>   -->
+<!-- 
 <div class="ui-g-12 ui-md-4">
     <label>תאריך התחלה</label>
     <p-calendar name="startDate" [(ngModel)]="election.StartDate" dateFormat="dd.mm.yy" [showTime]="true" hourFormat="24" #startDate="ngModel">        
@@ -20,7 +39,7 @@
         <span class="error" *ngIf="endDate.errors!=null && endDate.errors.required">שדה חובה</span>
         <span class="error" *ngIf="endDate.errors?.min">תאריך לא יכול להיות לפני התאריך הנוכחי</span>
 </div>     
-   
+    -->
 
 <input type="submit" value="הבא" [routerLink]="['/AddElectionOption']" routerLinkActive="active" [disabled]="!frm.valid" >
 

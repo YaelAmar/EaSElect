@@ -25,9 +25,7 @@ import { Router} from "@angular/router";
    }
    SignUp(frm:any){
    console.log(this.newCompany.CompanyName,this.newCompany.UserName,this.newCompany.Password);
-    //frm.method = "POST";   
-   // document.body.appendChild(frm);
-    this.companyService.SignUp(this.newCompany).subscribe(res=>{
+   this.companyService.SignUp(this.newCompany).subscribe(res=>{
     //לקבל את הקוד חברה שנכנס עכשיו ולשלוח אותו להוספת בחירה
     this.newCompany.CompanyId=res; 
     if(res!=0)
