@@ -28,8 +28,12 @@ import { HttpModule } from '@angular/http';
     AppComponent,AddElectionComponent,ElectionOptionComponent,LogInComponent,SignUpComponent,HomeComponent
   ],
   imports: [
-    BrowserModule,FormsModule,AppRoutingModule,HttpModule,HttpClientModule,BrowserAnimationsModule
-    
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
    ],
   providers: [CompanyService,ElectionOptionService,ElectionService,ElectionResult,TypeService,VoterService,],
   bootstrap: [AppComponent]

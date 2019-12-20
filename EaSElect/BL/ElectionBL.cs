@@ -10,10 +10,10 @@ namespace BL
     public class ElectionBL
     {
         ElectionDal ElectionDal = new ElectionDal();
-        public void AddNewElection(string electionName, DateTime startDate, DateTime endDate, int companyId)
+        public long AddNewElection(Models.Election newElection)
         {
-            Models.Election newElection = new Models.Election() {ElectionName=electionName,StartDate=startDate,EndDate=endDate,CompanyId=companyId };
-            ElectionDal.AddNewElection(newElection);
+          return ElectionDal.AddNewElection(newElection);
+             
         }
     }
 }

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Output, EventEmitter } from "@angular/core";
 import { CompanyService } from "../../Services/company.service";
 import { Company } from "../../Models/company.model";
 import { Router} from "@angular/router";
@@ -9,7 +9,6 @@ import { Router} from "@angular/router";
     styleUrls: ['./SignUp.component.css']
   })
   export class SignUpComponent {
-   
     newCompany:Company=new Company();
     confirmPass:string
     subscribe:any;
@@ -25,13 +24,13 @@ import { Router} from "@angular/router";
    }
    SignUp(frm:any){
    console.log(this.newCompany.CompanyName,this.newCompany.UserName,this.newCompany.Password);
-   this.companyService.SignUp(this.newCompany).subscribe(res=>{
+   this.companyService.SignUp(this.newCompany).subscribe(companyId=>{
     //לקבל את הקוד חברה שנכנס עכשיו ולשלוח אותו להוספת בחירה
-    this.newCompany.CompanyId=res; 
-    if(res!=0)
+    this.newCompany.CompanyId=companyId; 
+    if(companyId!=0)
       {
         console.log("succesfuly");
-        this.router.navigate(['/AddElection']);
+        this.router.navigate(['/AddElection',companyId]);
       }
     else 
     console.log("בחר שם אחר שם משתמש זה כבר קיים במערכת")

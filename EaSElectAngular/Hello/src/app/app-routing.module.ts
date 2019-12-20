@@ -10,7 +10,7 @@ import { HomeComponent } from './Components/Home/Home.component';
 
 export const appRoutes: Routes = [
    { path:'Home',component:HomeComponent},
-   { path: 'AddElection', component: AddElectionComponent },
+   { path: 'AddElection/:id', component: AddElectionComponent,pathMatch: 'full' },
    { path: 'AddElectionOption', component: ElectionOptionComponent },
    { path: 'LogIn', component: LogInComponent },
    { path: 'SignUp', component: SignUpComponent }
