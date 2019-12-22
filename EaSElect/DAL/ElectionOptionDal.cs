@@ -10,10 +10,15 @@ namespace DAL
     public class ElectionOptionDal
     {
         Models.ElectionsDBEntities DB = new ElectionsDBEntities();
-        public void AddNewElectionOption(ElectionOption newElectionOption)
+        public long AddNewElectionOption(ElectionOption newElectionOption)
         {
+            if (DB.ElectionOptions.Any(c => c.ElectionOptionName == newElectionOption.ElectionOptionName && c.ElectionId == newElectionOption.ElectionId))
+                return 0;
+
             DB.ElectionOptions.Add(newElectionOption);
             DB.SaveChanges();
+            return DB.ElectionOptions.Where(c => c.ElectionOptionName == newElectionOption.ElectionOptionName && c.ElectionId == newElectionOption.ElectionId).Select(l => l.ElectionId).ToList()[0];
+
         }
     }
 }

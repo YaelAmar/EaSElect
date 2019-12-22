@@ -10,10 +10,9 @@ namespace BL
     public class ElectionOptionBL
     {
         ElectionOptionDal ElectionOptionDal = new ElectionOptionDal();
-        public void AddNewElectionOption(string electionOptionName, int electionId)
+        public long AddNewElectionOption(Models.ElectionOption electionOption)
         {
-            Models.ElectionOption newElectionOption = new Models.ElectionOption() {ElectionOptionName=electionOptionName,ElectionId=electionId};
-            ElectionOptionDal.AddNewElectionOption(newElectionOption);
+          return  ElectionOptionDal.AddNewElectionOption(electionOption);
         }
     }
 }

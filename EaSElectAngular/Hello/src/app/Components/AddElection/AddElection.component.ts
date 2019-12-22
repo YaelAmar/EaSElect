@@ -22,7 +22,6 @@ import {ActivatedRoute, Router } from "@angular/router";
    ngOnInit()
    {
     this.subscripion=this.route.params.subscribe((params:any)=>{ 
-      
       console.log(params['id'])
       this.newElection.CompanyId=params['id']
     });

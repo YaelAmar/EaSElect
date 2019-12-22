@@ -11,11 +11,11 @@ namespace API.Controllers
     public class ElectionOptionController : ApiController
     {
         ElectionOptionBL ElectionOptionBL = new ElectionOptionBL();
-        [HttpGet]
+        [HttpPost]
         [Route("api/electionOption/addElectionOption")]
-        public void AddNewElectionOption(string electionOptionName, int electionId)
+        public long AddNewElectionOption(Models.ElectionOption electionOption)
         {
-            ElectionOptionBL.AddNewElectionOption(electionOptionName, electionId);
+          return  ElectionOptionBL.AddNewElectionOption(electionOption);
         }
     }
 }

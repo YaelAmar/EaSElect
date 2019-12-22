@@ -1,3 +1,10 @@
-<div>
-<label>הכנס אופציות בחירה</label>
-</div>
+<form novalidate  (submit)="AddElectionOption(frm)" #frm="ngForm">
+        <div>
+                <label>הכנס אופציות בחירה ל{{electionId}}</label>
+       </div>
+       <input type="text" [(ngModel)]="newElectionOption.ElectionOptionName" type="text" #electionOptionName="ngModel" required [ngModelOptions]="{standalone: true}">
+   
+<input type="submit" value="הוסף אופציה" [disabled]="!frm.valid" >
+
+</form>
+    
