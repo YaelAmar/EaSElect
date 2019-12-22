@@ -13,8 +13,7 @@ namespace API.Controllers
         CompanyBL CompanyBL = new CompanyBL();
        public long AddNewCompany(Models.Company company)
         {
-            CompanyBL.AddNewCompany(company);
-            return company.CompanyId;
+          return  CompanyBL.AddNewCompany(company);
         }
         [HttpGet]
         [Route("api/company/login/{userName}/{password}")]

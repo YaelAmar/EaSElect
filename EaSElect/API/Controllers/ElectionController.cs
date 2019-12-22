@@ -13,9 +13,9 @@ namespace API.Controllers
         ElectionBL ElectionBL = new ElectionBL();
         [HttpPost]
         [Route("api/election/addElection")]
-        public void AddNewElection(string electionName, DateTime startDate,DateTime endDate, int companyId)
+        public long AddNewElection(Models.Election newElection)
         {
-            ElectionBL.AddNewElection(electionName, startDate, endDate,companyId);
+          return  ElectionBL.AddNewElection(newElection);
         }
        
     }

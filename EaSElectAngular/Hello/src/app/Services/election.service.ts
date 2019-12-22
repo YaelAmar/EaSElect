@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { RequestOptions, Headers } from '@angular/http';
+import { Election } from '../Models/election.model';
 
 const httpOptions={
     headers:new HttpHeaders({'Content-type':'application/json'})}
@@ -8,13 +10,15 @@ const httpOptions={
 @Injectable()
 export class ElectionService{
 
-    url='http://localhost:55866/api/election/addElection'
+    url='http://localhost:55866/api/election'
     constructor(private http:HttpClient){
 
 
     }
-    AddNewElection(electionName:string, startDate:Date, endDate:Date,  companyId:number)
+    AddNewElection(newElection:Election):Observable<number>
     {
-     this.http.get<boolean>(`${this.url}?electionName=${electionName}&startDate=${startDate}&EndDate=${endDate}&companyId=${companyId}`);
+        let  headers=new Headers({'Content-type':'application/json; charset=utf-8'});
+        let options = new RequestOptions({ headers: headers })
+        return this.http.post<number>(`${this.url}/addElection`,newElection);
     }
 }

@@ -13,8 +13,7 @@ namespace BL
         CompanyDal CompanyDal = new CompanyDal();
         public long AddNewCompany(Models.Company company)
         {
-            CompanyDal.AddNewCompany(company);
-            return company.CompanyId;
+          return  CompanyDal.AddNewCompany(company);
         }
 
         public bool Login(string userName, string password)

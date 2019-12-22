@@ -10,10 +10,13 @@ namespace DAL
     public class ElectionDal
     {
         Models.ElectionsDBEntities DB = new ElectionsDBEntities();
-        public void AddNewElection(Election newElection)
+        public long AddNewElection(Election newElection)
         {
+            if (DB.Elections.Any(c => c.ElectionName == newElection.ElectionName && c.StartDate == newElection.StartDate && c.EndDate==newElection.EndDate))
+                return 0;
             DB.Elections.Add(newElection);
             DB.SaveChanges();
-        }
+            return DB.Elections.Where((c) => c.ElectionName== newElection.ElectionName && c.StartDate == newElection.StartDate && c.EndDate == newElection.EndDate).Select(l => l.ElectionId).ToList()[0];
+         }
     }
 }
