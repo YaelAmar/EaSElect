@@ -7,21 +7,21 @@
     </div>
      <div>
           <label>שם משתמש</label>
-           <input name="userName" [(ngModel)]="newCompany.UserName" type="text" #userName="ngModel" required maxlength="20"/>
+           <input name="userName" [(ngModel)]="newCompany.UserName" type="text" #userName="ngModel" required maxlength="20" minlength="8"/>
            <span class="error" *ngIf="userName.errors!=null && userName.errors.required">שדה חובה</span>
-      </div>
+           <span class="error" *ngIf="userName.errors!=null && (userName.errors.minlength || userName.errors.maxlength)">שם משתמש חייב להכיל בין 8 ל-20 תווים</span>     
+          </div>
       <div>
           <label>סיסמה</label>
-          <input name="password" [(ngModel)]="newCompany.Password" type="password" #password="ngModel" required/>
+          <input name="password" [(ngModel)]="newCompany.Password" type="password" #password="ngModel" required minlength="8"/>
           <span class="error" *ngIf="password.errors!=null && password.errors.required">שדה חובה</span>
-
+          <span class="error font" *ngIf="password.errors!=null && password.errors.minlength">סיסמא חייבת להכיל לפחות 8 תווים</span>
       </div>
       <div>
         <label>אמת סיסמה</label>
-        <input name="passwordTrue" [(ngModel)]="confirmPass" type="password" #passwordTrue="ngModel"  required/>
-        <!-- <span class="error" *ngIf="passwordTrue.errors!=null && passwordTrue.errors.required">שדה חובה</span>
-        <span class="error" *ngIf="passwordTrue.errors==newCompany.password"></span> -->
-
+        <input name="passwordTrue" [(ngModel)]="confirmPass" type="password" #passwordTrue="ngModel" required/>
+        <span class="error" *ngIf="passwordTrue.errors!=null && passwordTrue.errors.required">שדה חובה</span>
+        <span class="error" *ngIf="passwordTrue.value!=newCompany.password">הסיסמאות לא זהות</span>
     </div>
        <input type="submit" value="הבא" [disabled]="!frm.valid" >
   </form>

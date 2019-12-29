@@ -10,7 +10,7 @@ import { Router} from "@angular/router";
   })
   export class SignUpComponent {
     newCompany:Company=new Company();
-    confirmPass:string
+    confirmPass:string=this.newCompany.Password;
     subscribe:any;
     res:boolean
   
