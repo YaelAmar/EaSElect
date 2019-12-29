@@ -16,11 +16,10 @@ import { SignUpComponent } from './Components/SignUp/SignUp.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Components/Home/Home.component';
 
-
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
  
- //import {CalendarModule} from 'primeng/primeng';
+ import {CalendarModule} from 'primeng/calendar';
 
 
 @NgModule({
@@ -28,14 +27,11 @@ import { HttpModule } from '@angular/http';
     AppComponent,AddElectionComponent,ElectionOptionComponent,LogInComponent,SignUpComponent,HomeComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
+    BrowserModule,FormsModule,AppRoutingModule,HttpModule,HttpClientModule,BrowserAnimationsModule,CalendarModule
+    
    ],
-  providers: [CompanyService,ElectionOptionService,ElectionService,ElectionResult,TypeService,VoterService,],
+  providers: [CompanyService,ElectionOptionService,ElectionService,ElectionResult,TypeService,VoterService],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }
