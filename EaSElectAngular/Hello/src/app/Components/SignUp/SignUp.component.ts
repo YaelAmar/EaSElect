@@ -21,24 +21,23 @@ import { Router} from "@angular/router";
   
    ngOnInit()
    {
+    console.log(this.newCompany.Password)
      
    }
-   SignUp(frm:any){
-   console.log(this.newCompany.CompanyName,this.newCompany.UserName,this.newCompany.Password);
-    //frm.method = "POST";   
-   // document.body.appendChild(frm);
-    this.companyService.
-    (this.newCompany).subscribe(res=>{
-    //לקבל את הקוד חברה שנכנס עכשיו ולשלוח אותו להוספת בחירה
-    this.newCompany.CompanyId=res; 
-    if(res!=0)
-      {
-        console.log("succesfuly");
-       // this.router.navigate(['/AddElection']);
+   
+SignUp(frm:any){
+  console.log(this.newCompany.CompanyName,this.newCompany.UserName,this.newCompany.Password);
+  this.companyService.SignUp(this.newCompany).subscribe(companyId=>{
+   //לקבל את הקוד חברה שנכנס עכשיו ולשלוח אותו להוספת בחירה
+   this.newCompany.CompanyId=companyId; 
+   if(companyId!=0)
+     {
+       console.log("succesfuly");
+       this.router.navigate(['/AddElection',companyId]);
      }
-    else 
-    console.log("בחר שם אחר שם משתמש זה כבר קיים במערכת")
-    });
-    
-   }
+   else 
+   console.log("בחר שם אחר שם משתמש זה כבר קיים במערכת")
+   });
+   
+  }
 }

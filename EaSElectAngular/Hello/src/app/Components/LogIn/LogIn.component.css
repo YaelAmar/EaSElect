@@ -2,3 +2,11 @@
     color: red;
     
 }
+
+p {
+    font-family: Lato;
+  }
+
+  input.ng-touched.ng-invalid {
+    border: 1px solid red;
+  }

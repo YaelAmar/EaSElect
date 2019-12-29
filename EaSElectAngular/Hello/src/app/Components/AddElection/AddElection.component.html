@@ -1,4 +1,4 @@
-<form novalidate  (submit)="AddElection(frm)" #frm="ngForm">
+<form novalidate (submit)="AddElection(frm)" #frm="ngForm">
 <div>
     <label>שם בחירות</label>
     <input name="electionName" [(ngModel)]="newElection.ElectionName" type="text" #electionName="ngModel" required maxlength="50"/>
@@ -6,7 +6,7 @@
 </div>
 <div>
      <label>תאריך התחלה</label>
-    <input type="datetime-local" name="startDate" [(ngModel)]="newElection.StartDate" #startDate="ngModel" required [min="dateNow">
+    <input type="datetime-local" name="startDate" [(ngModel)]="newElection.StartDate" #startDate="ngModel" required [min]="dateNow">
     <span class="error" *ngIf="startDate.errors!=null && startDate.errors.required">שדה חובה</span>
     <span class="error" *ngIf="startDate.errors?.min">תאריך לא יכול להיות לפני התאריך הנוכחי</span>
 
