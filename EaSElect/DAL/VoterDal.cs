@@ -17,7 +17,7 @@ namespace DAL
             DB.SaveChanges();
         }
 
-        public bool IsVoterExists(int voterId, int electionId)
+        public bool IsVoterExists(int voterId, long electionId)
         {
             try
             {
@@ -31,6 +31,11 @@ namespace DAL
 
             }
             return false;
+        }
+
+        public long GetCodeVoterById(long voterId, long electionId)
+        {
+            return DB.Voters.Where(c => c.VoterId == voterId && c.ElectionId == electionId).Select(c => c.VoterCode).ToList()[0];
         }
     }
 }

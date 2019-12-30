@@ -8,14 +8,22 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
+  public class FileDetails
+    {
+        public string FilePath { get; set; }
+        public long ElectionId { get; set; }
+
+    }
     public class VoterController : ApiController
     {
         GeneralBL GeneralBL = new GeneralBL();
-        [HttpGet]
+        
+        [HttpPost]
         [Route("api/voters/loadDataVoters")]
-        public void LoadDataVoters(string path,int electionId)
+        public int LoadDataVoters(FileDetails fileDetails)
         {
-            GeneralBL.LoadDataVoters(path,electionId);
+            
+          return GeneralBL.LoadDataVoters(fileDetails.FilePath,fileDetails.ElectionId);
         }
 
       

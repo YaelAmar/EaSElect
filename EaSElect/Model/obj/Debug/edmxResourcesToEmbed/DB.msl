@@ -1,6 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ElectionsDBModelStoreContainer" CdmEntityContainer="ElectionsDBEntities">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="ElectionsDBModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailManager" ColumnName="EmailManager" />
+          <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Elections">
       <EntityTypeMapping TypeName="ElectionsDBModel.Election">
         <MappingFragment StoreEntitySet="Election">
@@ -27,7 +39,7 @@
       <EntityTypeMapping TypeName="ElectionsDBModel.ElectionResult">
         <MappingFragment StoreEntitySet="ElectionResult">
           <ScalarProperty Name="ElectionResultId" ColumnName="ElectionResultId" />
-          <ScalarProperty Name="VoterId" ColumnName="VoterId" />
+          <ScalarProperty Name="VoterCode" ColumnName="VoterCode" />
           <ScalarProperty Name="ElectionOptionId" ColumnName="ElectionOptionId" />
           <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
         </MappingFragment>
@@ -56,7 +68,7 @@
       <EntityTypeMapping TypeName="ElectionsDBModel.ValueToType">
         <MappingFragment StoreEntitySet="ValueToType">
           <ScalarProperty Name="ValueToTypeId" ColumnName="ValueToTypeId" />
-          <ScalarProperty Name="VoterId" ColumnName="VoterId" />
+          <ScalarProperty Name="VoterCode" ColumnName="VoterCode" />
           <ScalarProperty Name="TypeDetailsId" ColumnName="TypeDetailsId" />
           <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
         </MappingFragment>
@@ -65,6 +77,7 @@
     <EntitySetMapping Name="Voters">
       <EntityTypeMapping TypeName="ElectionsDBModel.Voter">
         <MappingFragment StoreEntitySet="Voter">
+          <ScalarProperty Name="VoterCode" ColumnName="VoterCode" />
           <ScalarProperty Name="VoterId" ColumnName="VoterId" />
           <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
           <ScalarProperty Name="Adress" ColumnName="Adress" />
@@ -76,16 +89,5 @@
     <FunctionImportMapping FunctionImportName="IsExistTypeDetails" FunctionName="ElectionsDBModel.Store.IsExistTypeDetails" />
     <FunctionImportMapping FunctionImportName="IsExistVoter" FunctionName="ElectionsDBModel.Store.IsExistVoter" />
     <FunctionImportMapping FunctionImportName="Login" FunctionName="ElectionsDBModel.Store.Login" />
-    <EntitySetMapping Name="Companies">
-      <EntityTypeMapping TypeName="ElectionsDBModel.Company">
-        <MappingFragment StoreEntitySet="Company">
-          <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

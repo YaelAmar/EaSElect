@@ -10,10 +10,9 @@ namespace BL
     public class ValueToTypeBL
     {
         ValueToTypeDal ValueToTypeDal = new ValueToTypeDal();
-        public void AddValueToType(string voterId, int typeDetailId)
+        public void AddValueToType(long voterCode, int typeDetailId)
         {
-            int VoterId = int.Parse(voterId);
-            Models.ValueToType newValueToType = new Models.ValueToType() { VoterId = VoterId, TypeDetailsId = typeDetailId };
+            Models.ValueToType newValueToType = new Models.ValueToType() { VoterCode = voterCode, TypeDetailsId = typeDetailId };
             ValueToTypeDal.AddValueToType(newValueToType);
         }
     }

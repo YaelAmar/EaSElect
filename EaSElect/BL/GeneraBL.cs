@@ -19,16 +19,20 @@ namespace BL
         VoterBL VoterBL = new VoterBL();
 
         //קליטה של נתונים כל אחד לטבלה המתאימה
-        public void LoadDataVoters(string path, int electionId)
+        public int LoadDataVoters(string path, long electionId)
         {
+            if(path=="")
+                return 0;
             List<string> g = new List<string>();
             using (var reader = new StreamReader(path, Encoding.Default))
             {
+               
                 List<string> types = new List<string>();
                 for (int i = 0, countWord = 0; !reader.EndOfStream; i++, countWord = 0)
                 {
                     var line = reader.ReadLine();
                     var values = line.Split(';');
+                    //אם זה הכותרת שמביעה קריטריונים
                     if (i == 0)
                     {
                         for (int j = values[0].IndexOf(',') + 1; j < values[0].Length; j++)
@@ -60,12 +64,14 @@ namespace BL
                         }
 
                     }
+                    //אם זה השורות בטבלה שמביעות בוחר\עובד
                     else
                     {
                         string typeDetailName = "";
                         string voterId = "";
                         for (int j = 0; j < values[0].Length; j++)
                         {
+                            //אם מדובר על קוד טביעת אצבע
                             if (j == 0)
                             {
                                 voterId = "";
@@ -81,7 +87,7 @@ namespace BL
                                     VoterBL.AddNewVoter(voterId, electionId);
                                 j += voterId.Length;
                             }
-
+                            //אם זה ערך של פרטי סווג
                             else
                             {
                                 int f = 0, k;
@@ -108,7 +114,11 @@ namespace BL
                                     countWord++;
                                 }
                                 int typeDetailId = TypeDetailsBL.GetTypeDetailIdByName(typeDetailName);
-                                ValueToTypeBL.AddValueToType(voterId, typeDetailId);
+                                //get voterCode from voters table
+                                long voterCode = VoterBL.GetCodeVoterById(voterId, electionId);
+
+                                /////
+                                ValueToTypeBL.AddValueToType(voterCode, typeDetailId);
                                 j += typeDetailName.Length;
 
                             }
@@ -116,7 +126,7 @@ namespace BL
                     }
                 }
             }
-
+            return 1;
         }
 
 

@@ -15,7 +15,7 @@ namespace Models
     public partial class ValueToType
     {
         public long ValueToTypeId { get; set; }
-        public long VoterId { get; set; }
+        public long VoterCode { get; set; }
         public long TypeDetailsId { get; set; }
         public bool DeleteRow { get; set; }
     

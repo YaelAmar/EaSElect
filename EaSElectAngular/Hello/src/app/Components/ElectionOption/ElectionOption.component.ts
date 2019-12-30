@@ -14,17 +14,19 @@ import { Router, ActivatedRoute } from "@angular/router";
     subscribe:any;
     newElectionOption:ElectionOption=new ElectionOption();
     subscripion:Subscription
+    countOptions:number=0
     @Input()
-    electionId=this.newElectionOption.ElectionId
+    electionId=0;
 
    constructor(private electionOptionService:ElectionOptionService,private route: ActivatedRoute,private router:Router){
-     //  this.electionOptionService.get().subscribe(d=>this.detailsAssociation=d);
    }
   
    ngOnInit() {
     this.subscripion=this.route.params.subscribe((params:any)=>{ 
         console.log(params['id'])
         this.newElectionOption.ElectionId=params['id']
+        this.electionId=this.newElectionOption.ElectionId
+
         });
    }
    AddElectionOption(frm:any){
@@ -34,7 +36,8 @@ import { Router, ActivatedRoute } from "@angular/router";
      if(electionOptionId!=0)
      {
        console.log("succesfuly");
-      // this.router.navigate(['/AddElectionOption',electionId]);
+       this.countOptions++;
+     
      }
    else 
    console.log("אופציית בחירה זו כבר קיימת בבחירות אלו")
@@ -43,6 +46,11 @@ import { Router, ActivatedRoute } from "@angular/router";
 
    }
 
+
+   AddVoters(electionId:number){
+     console.log("good"+electionId);
+      this.router.navigate(['/AddVoters',electionId]);
+   }
    ngOnDestroy()
    {
     this.subscripion.unsubscribe();

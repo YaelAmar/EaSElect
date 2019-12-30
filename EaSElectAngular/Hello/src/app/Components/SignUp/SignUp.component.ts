@@ -16,12 +16,10 @@ import { Router} from "@angular/router";
     res:boolean
   
    constructor(private  companyService:CompanyService,private router: Router){
-  
    }
   
    ngOnInit()
    {
-    console.log(this.newCompany.Password)
      
    }
    
