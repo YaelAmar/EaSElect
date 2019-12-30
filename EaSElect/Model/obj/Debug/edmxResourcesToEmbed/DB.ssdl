@@ -8,6 +8,7 @@
     <Property Name="CompanyName" Type="nvarchar" MaxLength="55" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailManager" Type="nvarchar" MaxLength="60" />
     <Property Name="DeleteRow" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Election">
@@ -35,7 +36,7 @@
       <PropertyRef Name="ElectionResultId" />
     </Key>
     <Property Name="ElectionResultId" Type="bigint" Nullable="false" />
-    <Property Name="VoterId" Type="bigint" Nullable="false" />
+    <Property Name="VoterCode" Type="bigint" Nullable="false" />
     <Property Name="ElectionOptionId" Type="bigint" Nullable="false" />
     <Property Name="DeleteRow" Type="bit" Nullable="false" />
   </EntityType>
@@ -61,14 +62,15 @@
       <PropertyRef Name="ValueToTypeId" />
     </Key>
     <Property Name="ValueToTypeId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="VoterId" Type="bigint" Nullable="false" />
+    <Property Name="VoterCode" Type="bigint" Nullable="false" />
     <Property Name="TypeDetailsId" Type="bigint" Nullable="false" />
     <Property Name="DeleteRow" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Voter">
     <Key>
-      <PropertyRef Name="VoterId" />
+      <PropertyRef Name="VoterCode" />
     </Key>
+    <Property Name="VoterCode" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="VoterId" Type="bigint" Nullable="false" />
     <Property Name="ElectionId" Type="bigint" Nullable="false" />
     <Property Name="Adress" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -134,15 +136,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_VoterId">
+  <Association Name="FK_VoterCode">
     <End Role="Voter" Type="Self.Voter" Multiplicity="1" />
     <End Role="ValueToType" Type="Self.ValueToType" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Voter">
-        <PropertyRef Name="VoterId" />
+        <PropertyRef Name="VoterCode" />
       </Principal>
       <Dependent Role="ValueToType">
-        <PropertyRef Name="VoterId" />
+        <PropertyRef Name="VoterCode" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -151,10 +153,10 @@
     <End Role="ElectionResult" Type="Self.ElectionResult" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Voter">
-        <PropertyRef Name="VoterId" />
+        <PropertyRef Name="VoterCode" />
       </Principal>
       <Dependent Role="ElectionResult">
-        <PropertyRef Name="VoterId" />
+        <PropertyRef Name="VoterCode" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -165,8 +167,8 @@
     <Parameter Name="typeDetailName" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="IsExistVoter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="voterId" Type="int" Mode="In" />
-    <Parameter Name="electionId" Type="int" Mode="In" />
+    <Parameter Name="voterId" Type="bigint" Mode="In" />
+    <Parameter Name="electionId" Type="bigint" Mode="In" />
   </Function>
   <Function Name="Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userName" Type="nvarchar" Mode="In" />
@@ -201,7 +203,7 @@
       <End Role="Type" EntitySet="Type" />
       <End Role="TypeDetails" EntitySet="TypeDetails" />
     </AssociationSet>
-    <AssociationSet Name="FK_VoterId" Association="Self.FK_VoterId">
+    <AssociationSet Name="FK_VoterCode" Association="Self.FK_VoterCode">
       <End Role="Voter" EntitySet="Voter" />
       <End Role="ValueToType" EntitySet="ValueToType" />
     </AssociationSet>

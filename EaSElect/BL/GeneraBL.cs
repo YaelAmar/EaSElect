@@ -32,6 +32,7 @@ namespace BL
                 {
                     var line = reader.ReadLine();
                     var values = line.Split(';');
+                    //אם זה הכותרת שמביעה קריטריונים
                     if (i == 0)
                     {
                         for (int j = values[0].IndexOf(',') + 1; j < values[0].Length; j++)
@@ -63,12 +64,14 @@ namespace BL
                         }
 
                     }
+                    //אם זה השורות בטבלה שמביעות בוחר\עובד
                     else
                     {
                         string typeDetailName = "";
                         string voterId = "";
                         for (int j = 0; j < values[0].Length; j++)
                         {
+                            //אם מדובר על קוד טביעת אצבע
                             if (j == 0)
                             {
                                 voterId = "";
@@ -84,7 +87,7 @@ namespace BL
                                     VoterBL.AddNewVoter(voterId, electionId);
                                 j += voterId.Length;
                             }
-
+                            //אם זה ערך של פרטי סווג
                             else
                             {
                                 int f = 0, k;
@@ -111,7 +114,11 @@ namespace BL
                                     countWord++;
                                 }
                                 int typeDetailId = TypeDetailsBL.GetTypeDetailIdByName(typeDetailName);
-                                ValueToTypeBL.AddValueToType(voterId, typeDetailId);
+                                //get voterCode from voters table
+                                long voterCode = VoterBL.GetCodeVoterById(voterId, electionId);
+
+                                /////
+                                ValueToTypeBL.AddValueToType(voterCode, typeDetailId);
                                 j += typeDetailName.Length;
 
                             }

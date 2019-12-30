@@ -21,6 +21,7 @@ namespace Models
             this.ValueToTypes = new HashSet<ValueToType>();
         }
     
+        public long VoterCode { get; set; }
         public long VoterId { get; set; }
         public long ElectionId { get; set; }
         public string Adress { get; set; }

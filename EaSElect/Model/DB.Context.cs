@@ -27,6 +27,7 @@ namespace Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<Election> Elections { get; set; }
         public virtual DbSet<ElectionOption> ElectionOptions { get; set; }
         public virtual DbSet<ElectionResult> ElectionResults { get; set; }
@@ -34,7 +35,6 @@ namespace Models
         public virtual DbSet<TypeDetail> TypeDetails { get; set; }
         public virtual DbSet<ValueToType> ValueToTypes { get; set; }
         public virtual DbSet<Voter> Voters { get; set; }
-        public virtual DbSet<Company> Companies { get; set; }
     
         public virtual ObjectResult<Nullable<int>> IsExistType(string typeName)
         {

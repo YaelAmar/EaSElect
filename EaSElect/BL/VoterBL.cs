@@ -21,5 +21,11 @@ namespace BL
         {
             return VoterDal.IsVoterExists(voterId, electionId);
         }
+
+        public long GetCodeVoterById(string voterId1, long electionId)
+        {
+            int voterId=int.Parse(voterId1);
+            return VoterDal.GetCodeVoterById(voterId, electionId);
+        }
     }
 }

@@ -15,7 +15,7 @@ export const appRoutes: Routes = [
    { path: 'AddElectionOption/:id', component: ElectionOptionComponent },
    { path: 'LogIn', component: LogInComponent },
    { path: 'SignUp', component: SignUpComponent },
-   { path:'AddVoters/:id',component:AddVotersComponent,pathMatch: 'full' }
+   { path:'AddVoters/:id',component:AddVotersComponent}
   ]
 
 @NgModule({

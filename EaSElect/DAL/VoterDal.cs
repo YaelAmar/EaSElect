@@ -32,5 +32,10 @@ namespace DAL
             }
             return false;
         }
+
+        public long GetCodeVoterById(long voterId, long electionId)
+        {
+            return DB.Voters.Where(c => c.VoterId == voterId && c.ElectionId == electionId).Select(c => c.VoterCode).ToList()[0];
+        }
     }
 }
