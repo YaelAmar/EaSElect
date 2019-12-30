@@ -19,7 +19,7 @@ import { HomeComponent } from './Components/Home/Home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
  
- import {CalendarModule} from 'primeng/calendar';
+// import {CalendarModule} from 'primeng/calendar';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import { HttpModule } from '@angular/http';
     AppComponent,AddElectionComponent,ElectionOptionComponent,LogInComponent,SignUpComponent,HomeComponent
   ],
   imports: [
-    BrowserModule,FormsModule,AppRoutingModule,HttpModule,HttpClientModule,BrowserAnimationsModule,CalendarModule
+    BrowserModule,FormsModule,AppRoutingModule,HttpModule,HttpClientModule,BrowserAnimationsModule//,CalendarModule
     
    ],
   providers: [CompanyService,ElectionOptionService,ElectionService,ElectionResult,TypeService,VoterService],
