@@ -11,7 +11,7 @@ import { Router} from "@angular/router";
   export class SignUpComponent {
    
     newCompany:Company=new Company();
-    confirmPass:string
+    confirmPass:string=this.newCompany.Password;
     subscribe:any;
     res:boolean
   
@@ -21,22 +21,23 @@ import { Router} from "@angular/router";
   
    ngOnInit()
    {
+    console.log(this.newCompany.Password)
      
    }
-   SignUp(frm:any){
-    console.log(this.newCompany.CompanyName,this.newCompany.UserName,this.newCompany.Password);
-    this.companyService.SignUp(this.newCompany).subscribe(companyId=>{
-     //לקבל את הקוד חברה שנכנס עכשיו ולשלוח אותו להוספת בחירה
-     this.newCompany.CompanyId=companyId; 
-     if(companyId!=0)
-       {
-         console.log("succesfuly");
-         this.router.navigate(['/AddElection',companyId]);
-       }
-     else 
-     console.log("בחר שם אחר שם משתמש זה כבר קיים במערכת")
-     });
-     
-    }
- 
+   
+SignUp(frm:any){
+  console.log(this.newCompany.CompanyName,this.newCompany.UserName,this.newCompany.Password);
+  this.companyService.SignUp(this.newCompany).subscribe(companyId=>{
+   //לקבל את הקוד חברה שנכנס עכשיו ולשלוח אותו להוספת בחירה
+   this.newCompany.CompanyId=companyId; 
+   if(companyId!=0)
+     {
+       console.log("succesfuly");
+       this.router.navigate(['/AddElection',companyId]);
+     }
+   else 
+   console.log("בחר שם אחר שם משתמש זה כבר קיים במערכת")
+   });
+   
+  }
 }
