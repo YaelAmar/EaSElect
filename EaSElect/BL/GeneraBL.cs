@@ -19,11 +19,14 @@ namespace BL
         VoterBL VoterBL = new VoterBL();
 
         //קליטה של נתונים כל אחד לטבלה המתאימה
-        public void LoadDataVoters(string path, int electionId)
+        public int LoadDataVoters(string path, long electionId)
         {
+            if(path=="")
+                return 0;
             List<string> g = new List<string>();
             using (var reader = new StreamReader(path, Encoding.Default))
             {
+               
                 List<string> types = new List<string>();
                 for (int i = 0, countWord = 0; !reader.EndOfStream; i++, countWord = 0)
                 {
@@ -116,7 +119,7 @@ namespace BL
                     }
                 }
             }
-
+            return 1;
         }
 
 

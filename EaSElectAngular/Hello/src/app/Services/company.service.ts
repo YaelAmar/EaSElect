@@ -20,7 +20,7 @@ export class CompanyService{
      return this.http.get<boolean>(`${this.url}/login/${userName}/${password}`)
     }
 
-    SignUp(newCompany:Company): Observable<number>
+    SignUp(newCompany:Company):Observable<number>
     {
     let  headers=new Headers({'Content-type':'application/json; charset=utf-8'});
     return this.http.post<number>(`${this.url}/signUp`,newCompany);

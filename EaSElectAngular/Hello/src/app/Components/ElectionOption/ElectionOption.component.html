@@ -6,5 +6,7 @@
    
 <input type="submit" value="הוסף אופציה" [disabled]="!frm.valid" >
 
+
+<input type="button" value="סיום" [disabled]="countOptions<2" (click)="AddVoters(electionId)">
 </form>
     

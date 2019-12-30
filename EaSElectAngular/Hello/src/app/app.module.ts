@@ -18,10 +18,11 @@ import { HomeComponent } from './Components/Home/Home.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
+import { AddVotersComponent } from './Components/AddVoters/AddVoters.component';
  
 @NgModule({
   declarations: [
-    AppComponent,AddElectionComponent,ElectionOptionComponent,LogInComponent,SignUpComponent,HomeComponent
+    AppComponent,AddElectionComponent,ElectionOptionComponent,LogInComponent,SignUpComponent,HomeComponent,AddVotersComponent
   ],
   imports: [
     BrowserModule,FormsModule,AppRoutingModule,HttpModule,HttpClientModule,BrowserAnimationsModule,ReactiveFormsModule

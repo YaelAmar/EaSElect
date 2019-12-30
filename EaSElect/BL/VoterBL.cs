@@ -10,14 +10,14 @@ namespace BL
     public class VoterBL
     {
         VoterDal VoterDal= new VoterDal(); 
-        public void AddNewVoter(string voterId,int electionId)
+        public void AddNewVoter(string voterId,long electionId)
         {
             int VoterId = int.Parse(voterId);
             Models.Voter newVoter = new Models.Voter() { ElectionId = electionId, VoterId = VoterId,Adress=""};
             VoterDal.AddNewVoter(newVoter);
         }
 
-        public bool IsVoterExists(int voterId,int electionId)
+        public bool IsVoterExists(int voterId,long electionId)
         {
             return VoterDal.IsVoterExists(voterId, electionId);
         }
