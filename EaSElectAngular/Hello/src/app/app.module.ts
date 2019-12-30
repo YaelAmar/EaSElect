@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +26,7 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,FormsModule,AppRoutingModule,HttpModule,HttpClientModule,BrowserAnimationsModule,ReactiveFormsModule
    ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [CompanyService,ElectionOptionService,ElectionService,ElectionResult,TypeService,VoterService],
   bootstrap: [AppComponent]
   

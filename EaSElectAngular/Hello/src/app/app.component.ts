@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Model, ToDoItem } from './model';
+import '@vaadin/vaadin-button';
+import '@vaadin/vaadin-grid';
+import '@vaadin/vaadin-text-field';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
