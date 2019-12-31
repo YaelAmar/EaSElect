@@ -7,7 +7,7 @@
 <a [routerLink]="['/SignUp']" routerLinkActive="active">הרשמה</a>
 <a [routerLink]="['/Home']" routerLinkActive="active">דף הבית</a>
 
-<form [formGroup]="form" (ngSubmit)="addPerson()"> 
+<form > 
   <vaadin-text-field
     label="First Name"
     formControlName="firstName"
@@ -18,7 +18,7 @@
     formControlName="lastName"
     ngDefaultControl>
   </vaadin-text-field>
-  <vaadin-button (click)="addPerson()"> Add </vaadin-button>
+  <vaadin-button > Add </vaadin-button>
  
 </form>
 
