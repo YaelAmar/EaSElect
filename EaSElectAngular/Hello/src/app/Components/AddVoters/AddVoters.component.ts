@@ -14,7 +14,7 @@ import { FileDetails } from "../../Models/FileDetails";
     subscribe:any;
     subscripion:Subscription
      electionId: number;
-    @ViewChild('fileInput', { static: false }) fileInput:ElementRef;
+    //@ViewChild('fileInput', {  }) fileInput:ElementRef;
      fileDetaild:FileDetails=new FileDetails();
 
     constructor(private voterService:VoterService,private route: ActivatedRoute,private router:Router){
@@ -27,10 +27,10 @@ import { FileDetails } from "../../Models/FileDetails";
           });
      }
   
-    public openFileDialog():void {
-       let event = new MouseEvent('click', {bubbles: false});
-       this.fileInput.nativeElement.dispatchEvent(event);
-      }
+    // public openFileDialog():void {
+    //    let event = new MouseEvent('click', {bubbles: false});
+    //    this.fileInput.nativeElement.dispatchEvent(event);
+    //   }
     LoadDataVoters(e){   
       ////////////לסדר זה לא אמור להיות ככה!!!!!!!!!!!!!!!!!!!!!!!!!!
      this.fileDetaild.FilePath=e.target.value;
