@@ -14,7 +14,7 @@ import { FileDetails } from "../../Models/FileDetails";
     subscribe:any;
     subscripion:Subscription
      electionId: number;
-    @ViewChild('fileInput') fileInput:ElementRef;
+    @ViewChild('fileInput', { static: false }) fileInput:ElementRef;
      fileDetaild:FileDetails=new FileDetails();
 
     constructor(private voterService:VoterService,private route: ActivatedRoute,private router:Router){
