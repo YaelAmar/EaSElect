@@ -33,8 +33,9 @@ import { FileDetails } from "../../Models/FileDetails";
       }
     LoadDataVoters(e){   
       ////////////לסדר זה לא אמור להיות ככה!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // this.fileDetaild.FilePath=e.target.value;
-    this.fileDetaild.FilePath="C:\\Users\\USER\\Desktop\\EaSElect\\tryfile.csv";
+     this.fileDetaild.FilePath=e.target.value;
+     console.log(this.fileDetaild.FilePath)
+    //this.fileDetaild.FilePath="C:\\Users\\USER\\Desktop\\EaSElect\\tryfile.csv";
     this.fileDetaild.ElectionId=this.electionId;
     this.voterService.LoadDataVoters(this.fileDetaild).subscribe(result=>{
       if(result!=0)
