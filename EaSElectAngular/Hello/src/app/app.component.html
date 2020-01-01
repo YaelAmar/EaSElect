@@ -7,7 +7,7 @@
 <a [routerLink]="['/SignUp']" routerLinkActive="active">הרשמה</a>
 <a [routerLink]="['/Home']" routerLinkActive="active">דף הבית</a>
 
-<form > 
+<!-- <form > 
   <vaadin-text-field
     label="First Name"
     formControlName="firstName"
@@ -20,8 +20,10 @@
   </vaadin-text-field>
   <vaadin-button > Add </vaadin-button>
  
-</form>
+</form> -->
 
-
+<input [matDatepicker]="myDatepicker">
+<mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+<mat-datepicker #myDatepicker></mat-datepicker>
 <router-outlet></router-outlet>
 
