@@ -3,27 +3,22 @@
   <h1>ברוכים הבאים ל{{title}}</h1>
 </div>
 
-<a [routerLink]="['/LogIn']" routerLinkActive="active">כניסה</a>
-<a [routerLink]="['/SignUp']" routerLinkActive="active">הרשמה</a>
-<a [routerLink]="['/Home']" routerLinkActive="active">דף הבית</a>
+<!-- <a [routerLink]="['/LogIn']" routerLinkActive="active">כניסה</a>
+<a [routerLink]="['/SignUp']" routerLinkActive="active">הרשמה</a> -->
 
-<!-- <form > 
-  <vaadin-text-field
-    label="First Name"
-    formControlName="firstName"
-    ngDefaultControl> 
-  </vaadin-text-field>
-  <vaadin-text-field
-    label="Last Name"
-    formControlName="lastName"
-    ngDefaultControl>
-  </vaadin-text-field>
-  <vaadin-button > Add </vaadin-button>
- 
-</form> -->
+<!-- <a [routerLink]="['/Home']" routerLinkActive="active">דף הבית</a> -->
 
-<input [matDatepicker]="myDatepicker">
-<mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
-<mat-datepicker #myDatepicker></mat-datepicker>
+
+<mat-form-field>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <input matInput [matDatepicker]="picker" placeholder="בחר תאריך התחלה">
+</mat-form-field>
+
+<mat-chip-list >
+  <mat-chip color="primary" selected [routerLink]="['/LogIn']" routerLinkActive="active">כניסה</mat-chip>
+  <mat-chip color="accent" selected [routerLink]="['/SignUp']" routerLinkActive="active">הרשמה</mat-chip>
+</mat-chip-list>
+
 <router-outlet></router-outlet>
 

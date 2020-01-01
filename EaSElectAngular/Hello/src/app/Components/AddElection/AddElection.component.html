@@ -9,8 +9,8 @@
     <input type="datetime-local" name="startDate" [(ngModel)]="newElection.StartDate" #startDate="ngModel" required [min]="dateNow">
     <span class="error" *ngIf="startDate.errors!=null && startDate.errors.required">שדה חובה</span>
     <span class="error" *ngIf="startDate.errors?.min">תאריך לא יכול להיות לפני התאריך הנוכחי</span>
-
 </div>
+
 <div>
     <label>תאריך סיום</label>
     <input type="datetime-local" name="endDate" [(ngModel)]="newElection.EndDate" #endDate="ngModel" required min="dateNow">

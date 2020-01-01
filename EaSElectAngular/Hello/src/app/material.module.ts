@@ -10,6 +10,8 @@ import {
   MatFormFieldModule,
   MatDatepickerModule,
   MatNativeDateModule, 
+  MatInputModule,MatChipsModule
+  
 
 } from '@angular/material';
 
@@ -22,7 +24,10 @@ import {
     MatCardModule,
     MatSliderModule,
     MatFormFieldModule,
-    MatDatepickerModule,MatNativeDateModule
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatChipsModule
   ],
   exports: [
     MatButtonModule,
@@ -32,7 +37,10 @@ import {
     MatCardModule,
     MatSliderModule,
     MatFormFieldModule,
-    MatDatepickerModule,MatNativeDateModule
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatChipsModule
   ]
 })
 export class MaterialModule {}

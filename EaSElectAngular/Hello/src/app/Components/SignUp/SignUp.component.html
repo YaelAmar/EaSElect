@@ -1,28 +1,33 @@
 <div>
   <form novalidate  (submit)="SignUp(frm)" #frm="ngForm">
     <div>
-      <label>שם חברה</label>
-      <input name="companyName" [(ngModel)]="newCompany.CompanyName" type="text" #companyName="ngModel" required/>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="שם חברה"  name="companyName" [(ngModel)]="newCompany.CompanyName" type="text" #companyName="ngModel" required>
+      </mat-form-field>
       <span class="error" *ngIf="companyName.errors!=null && companyName.errors.required">שדה חובה</span>
     </div>
+
      <div>
-          <label>שם משתמש</label>
-           <input name="userName" [(ngModel)]="newCompany.UserName" type="text" #userName="ngModel" required minlength="8" maxlength="20"/>
-           <span class="error" *ngIf="userName.errors!=null && userName.errors.required">שדה חובה</span>
-           <span class="error" *ngIf="userName.errors!=null && userName.errors.minlength">שם משתמש חייב להכיל בין 8 ל-20 תווים</span>     
+           <mat-form-field class="example-full-width">
+            <input matInput placeholder="שם משתמש" name="userName" [(ngModel)]="newCompany.UserName" type="text" #userName="ngModel" required minlength="8" maxlength="20">
+          </mat-form-field>
+          <span class="error" *ngIf="userName.errors!=null && userName.errors.required">שדה חובה</span>
+          <span class="error" *ngIf="userName.errors!=null && userName.errors.minlength">שם משתמש חייב להכיל בין 8 ל-20 תווים</span>    
           </div>
-      <div>
-          <label>סיסמה</label>
-          <input name="password" [(ngModel)]="newCompany.Password" type="password" #password="ngModel" required minlength="8"/>
+      <div>          
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="סיסמא" name="password" [(ngModel)]="newCompany.Password" type="password" #password="ngModel" required minlength="8">
+          </mat-form-field>
           <span class="error" *ngIf="password.errors!=null && password.errors.required">שדה חובה</span>
           <span class="error" *ngIf="password.errors!=null && password.errors.minlength">סיסמא חייבת להכיל לפחות 8 תווים</span>
-      </div>
+        </div>
       <div>
-        <label>אמת סיסמה</label>
-        <input name="passwordTrue" [(ngModel)]="confirmPass" type="password" #passwordTrue="ngModel" required/>
+        <mat-form-field class="example-full-width">
+        <input matInput placeholder="אימות סיסמא"  name="passwordTrue" [(ngModel)]="confirmPass" type="password" #passwordTrue="ngModel" required/>
+        </mat-form-field>
         <span class="error" *ngIf="passwordTrue.errors!=null && passwordTrue.errors.required">שדה חובה</span>
         <span class="error" *ngIf="passwordTrue.value!=newCompany.password">הסיסמאות לא זהות</span>
     </div>
-       <input type="submit" value="הבא" [disabled]="!frm.valid" >
+       <mat-chip  type="submit" [disabled]="!frm.valid" > רשום אותי</mat-chip>
   </form>
 </div>

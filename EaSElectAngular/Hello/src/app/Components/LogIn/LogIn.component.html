@@ -2,14 +2,16 @@
 <div>
   <form novalidate  (submit)="enter(frm)" #frm="ngForm" >
       <div>
-          <label>שם משתמש</label>
-           <input name="userName" [(ngModel)]="logIn.UserName" type="text" #userName="ngModel" required placeholder="הכנס שם משתמש"/>
+        <mat-form-field class="example-full-width">
+           <input matInput placeholder="שם משתמש" name="userName" [(ngModel)]="logIn.UserName" type="text" #userName="ngModel" required />
+        </mat-form-field>
            <span class="error font" *ngIf="userName.errors!=null && userName.errors.required">שדה חובה</span>
       </div>
       <div>
-          <label>סיסמא</label>
-          <input name="password" [(ngModel)]="logIn.Password" type="password" #password="ngModel" required placeholder="הכנס סיסמא"/>
-          <span class="error" *ngIf="password.errors!=null && password.errors.required">שדה חובה</span>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="סיסמא" name="password" [(ngModel)]="logIn.Password" type="password" #password="ngModel" required />
+        </mat-form-field>
+          <span class="error font" *ngIf="password.errors!=null && password.errors.required">שדה חובה</span>
         </div>
 
        <input type="submit" value="הכנס" [disabled]="!frm.valid" >
