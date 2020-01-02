@@ -4,7 +4,8 @@
       <div>
         <mat-form-field class="example-full-width">
            <input matInput placeholder="שם משתמש" name="userName" [(ngModel)]="logIn.UserName" type="text" #userName="ngModel" required />
-        </mat-form-field>
+          
+          </mat-form-field>
            <span class="error font" *ngIf="userName.errors!=null && userName.errors.required">שדה חובה</span>
       </div>
       <div>
