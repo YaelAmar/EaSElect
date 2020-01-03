@@ -1,23 +1,31 @@
 <form novalidate (submit)="AddElection(frm)" #frm="ngForm">
 <div>
-    <label>שם בחירות</label>
-    <input name="electionName" [(ngModel)]="newElection.ElectionName" type="text" #electionName="ngModel" required maxlength="50"/>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="שם בחירות" name="electionName" [(ngModel)]="newElection.ElectionName" type="text" #electionName="ngModel" required maxlength="50">
+    </mat-form-field>
     <span class="error" *ngIf="electionName.errors!=null && electionName.errors.required">שדה חובה</span>
 </div>
 <div>
-     <label>תאריך התחלה</label>
-    <input type="datetime-local" name="startDate" [(ngModel)]="newElection.StartDate" #startDate="ngModel" required [min]="dateNow">
+    <mat-form-field>
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <input matInput [matDatepicker]="picker1" placeholder="בחר תאריך התחלה" name="startDate" [(ngModel)]="newElection.StartDate" #startDate="ngModel" required [min]="dateNow">
+      </mat-form-field>
     <span class="error" *ngIf="startDate.errors!=null && startDate.errors.required">שדה חובה</span>
     <span class="error" *ngIf="startDate.errors?.min">תאריך לא יכול להיות לפני התאריך הנוכחי</span>
 </div>
 
 <div>
-    <label>תאריך סיום</label>
-    <input type="datetime-local" name="endDate" [(ngModel)]="newElection.EndDate" #endDate="ngModel" required min="dateNow">
+    <mat-form-field>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <input matInput [matDatepicker]="picker" placeholder="בחר תאריך סיום"  name="endDate" [(ngModel)]="newElection.EndDate" #endDate="ngModel" required min="dateNow">
+      </mat-form-field>
     <span class="error" *ngIf="endDate.errors!=null && endDate.errors.required">שדה חובה</span>
     <span class="error" *ngIf="endDate.errors?.min">תאריך לא יכול להיות לפני התאריך הנוכחי</span>
 
 </div>
-    <input type="submit" value="הבא" [disabled]="!frm.valid" >
+    <mat-chip  type="submit" [disabled]="!frm.valid" > רשום אותי</mat-chip>
+    
 </form>
     

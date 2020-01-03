@@ -1,24 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>ברוכים הבאים ל{{title}}</h1>
-</div>
 
 <!-- <a [routerLink]="['/LogIn']" routerLinkActive="active">כניסה</a>
 <a [routerLink]="['/SignUp']" routerLinkActive="active">הרשמה</a> -->
 
 <!-- <a [routerLink]="['/Home']" routerLinkActive="active">דף הבית</a> -->
 
-
-<mat-form-field>
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-  <input matInput [matDatepicker]="picker" placeholder="בחר תאריך התחלה">
-</mat-form-field>
-
-<mat-chip-list >
-  <mat-chip color="primary" selected [routerLink]="['/LogIn']" routerLinkActive="active">כניסה</mat-chip>
-  <mat-chip color="accent" selected [routerLink]="['/SignUp']" routerLinkActive="active">הרשמה</mat-chip>
-</mat-chip-list>
-
+<app-home></app-home>
 <router-outlet></router-outlet>
 
