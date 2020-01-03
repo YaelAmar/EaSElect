@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Models.ElectionsDBEntities">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgCBAAEAAEAAAAAAAAQEAAAAEAAgBCAAAAAQAAAAAAA=</HashCode>
+      <FileName>DB.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.Company">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAIAAAAACAAAAAAAAAAAACACAQAAAAAAAAQ=</HashCode>
+      <FileName>Company.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.Election">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAIEAAAIAAAAACAAEAAAgAAAAAAAAAAAABEAAAAA=</HashCode>
+      <FileName>Election.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.ElectionOption">
+    <Position X="2" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAECAAAAAAAAAAAACAAAAAAABAAAAA=</HashCode>
+      <FileName>ElectionOption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.ElectionResult">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAICAAEAAAAAAAAAAAAAAAAADAAAAA=</HashCode>
+      <FileName>ElectionResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.Type">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAACAAAAAAAAAAAABAgAAAAAAAAAAA=</HashCode>
+      <FileName>Type.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.TypeDetail">
+    <Position X="5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACBAAAAAAAAAAAACAAAAAAAAABAAAAgAQAAAAAAAAA=</HashCode>
+      <FileName>TypeDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.ValueToType">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAICAAEAAAAAABAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ValueToType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.Voter">
+    <Position X="3.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADAAIAAAAAAAAAICAAAAAAAAAgAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Voter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

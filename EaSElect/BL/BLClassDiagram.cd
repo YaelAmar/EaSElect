@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BL.CompanyBL">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAQAAAAAAA=</HashCode>
+      <FileName>CompanyBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.ElectionBL">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ElectionBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.ElectionOptionBL">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ElectionOptionBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.ElectionResultBL" Collapsed="true">
+    <Position X="5.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ElectionResultBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.GeneralBL">
+    <Position X="2.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBAAAAAAAAAABAAAAAAAAABAAAAAABAAICAAAABAAIA=</HashCode>
+      <FileName>GeneraBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.TypeBL">
+    <Position X="4" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQAAA=</HashCode>
+      <FileName>TypeBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.TypeDetailsBL">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAACAACAAADAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeDetailsBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.ValueToTypeBL">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ValueToTypeBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.VoterBL">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAgAAAAIAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VoterBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

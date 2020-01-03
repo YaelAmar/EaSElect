@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Company.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
@@ -107,6 +108,8 @@
     <None Include="DB.edmx.diagram">
       <DependentUpon>DB.edmx</DependentUpon>
     </None>
+    <None Include="EaSElectClassDiagram.cd" />
+    <None Include="ModelClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

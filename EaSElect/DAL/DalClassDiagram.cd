@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DAL.CompanyDal">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAQAAAAABA=</HashCode>
+      <FileName>CompanyDal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.ElectionDal">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>ElectionDal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.ElectionOptionDal">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>ElectionOptionDal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.ElectionResultDal" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ElectionResultDal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.TypeDal">
+    <Position X="2.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAQAAAAAAAAAAEAAAAAAAAAAABA=</HashCode>
+      <FileName>TypeDal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.TypeDetailsDal">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAACAAABAAAAAAAAAAAABA=</HashCode>
+      <FileName>TypeDetailsDal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.ValueToTypeDal">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>ValueToTypeDal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.VoterDal">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>VoterDal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
