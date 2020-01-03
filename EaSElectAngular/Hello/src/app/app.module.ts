@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,21 +15,46 @@ import { VoterService } from './Services/voter.service';
 import { SignUpComponent } from './Components/SignUp/SignUp.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Components/Home/Home.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { AddVotersComponent } from './Components/AddVoters/AddVoters.component';
- 
+import { MaterialModule } from './material.module';
+
+
+
 @NgModule({
   declarations: [
-    AppComponent,AddElectionComponent,ElectionOptionComponent,LogInComponent,SignUpComponent,HomeComponent,AddVotersComponent
+    AppComponent,
+    AddElectionComponent,
+    ElectionOptionComponent,
+    LogInComponent,
+    SignUpComponent,
+    HomeComponent,
+    AddVotersComponent
   ],
   imports: [
-    BrowserModule,FormsModule,AppRoutingModule,HttpModule,HttpClientModule,BrowserAnimationsModule,ReactiveFormsModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    BrowserAnimationsModule
    ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [CompanyService,ElectionOptionService,ElectionService,ElectionResult,TypeService,VoterService],
+
+  providers: [
+    CompanyService,
+    ElectionOptionService,
+    ElectionService,
+    ElectionResult,
+    TypeService,
+    VoterService],
+    
   bootstrap: [AppComponent]
   
 })
+
 export class AppModule { }
+

@@ -1,0 +1,17 @@
+img{
+display: inline-block;
+}
+.image{
+  text-align: center;
+  margin: auto;  
+}
+#logIn,#signUp{
+  width: 100%;
+  height: auto;
+  
+}
+.btns{
+    text-align: center;
+    width:40vh;
+    margin: auto; 
+}
