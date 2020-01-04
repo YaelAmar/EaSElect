@@ -18,10 +18,12 @@ namespace BL
         ValueToTypeBL ValueToTypeBL = new ValueToTypeBL();
         VoterBL VoterBL = new VoterBL();
 
-        //קליטה של נתונים כל אחד לטבלה המתאימה
+        //. חקליטה של נתוני הבוחרים מקובץ האקסל, כל אחד לטבלה המתאימה, סוגים, פרטי סוגים, בוחרים וערכים 
         public int LoadDataVoters(string path, long electionId)
         {
-            if(path=="")
+            //בדיקה אם נתיב הקובץ חוקי
+            bool possiblePath = path.IndexOfAny(Path.GetInvalidPathChars()) == -1;
+            if (possiblePath==false)
                 return 0;
             List<string> g = new List<string>();
             using (var reader = new StreamReader(path, Encoding.Default))
@@ -32,7 +34,7 @@ namespace BL
                 {
                     var line = reader.ReadLine();
                     var values = line.Split(';');
-                    //אם זה הכותרת שמביעה קריטריונים
+                    //אם זה הכותרת שמביעה קריטריונים לסוגי סווג 
                     if (i == 0)
                     {
                         for (int j = values[0].IndexOf(',') + 1; j < values[0].Length; j++)

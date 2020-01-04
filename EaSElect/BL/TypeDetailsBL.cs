@@ -20,7 +20,8 @@ namespace BL
         public void AddNewTypeDetail(string typeDetail, string type)
         {
             int typeId = TypeBL.GetTypeIdByName(type);
-            Models.TypeDetail newTypeDetail = new Models.TypeDetail() { TypeDetailsName=typeDetail,TypeId=typeId};
+            Models.TypeDetail newTypeDetail = new Models.TypeDetail()
+            { TypeDetailsName=typeDetail,TypeId=typeId};
             TypeDetailsDal.AddNewTypeDetail(newTypeDetail);
         }
 

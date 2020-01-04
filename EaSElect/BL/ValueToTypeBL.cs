@@ -12,7 +12,8 @@ namespace BL
         ValueToTypeDal ValueToTypeDal = new ValueToTypeDal();
         public void AddValueToType(long voterCode, int typeDetailId)
         {
-            Models.ValueToType newValueToType = new Models.ValueToType() { VoterCode = voterCode, TypeDetailsId = typeDetailId };
+            Models.ValueToType newValueToType = new Models.ValueToType()
+            { VoterCode = voterCode, TypeDetailsId = typeDetailId };
             ValueToTypeDal.AddValueToType(newValueToType);
         }
     }

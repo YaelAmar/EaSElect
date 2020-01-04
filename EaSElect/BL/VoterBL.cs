@@ -13,7 +13,8 @@ namespace BL
         public void AddNewVoter(string voterId,long electionId)
         {
             int VoterId = int.Parse(voterId);
-            Models.Voter newVoter = new Models.Voter() { ElectionId = electionId, VoterId = VoterId,Adress=""};
+            Models.Voter newVoter = new Models.Voter()
+            { ElectionId = electionId, VoterId = VoterId,Adress=""};
             VoterDal.AddNewVoter(newVoter);
         }
 
