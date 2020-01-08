@@ -21,5 +21,6 @@ namespace Models
     
         public virtual ElectionOption ElectionOption { get; set; }
         public virtual Voter Voter { get; set; }
+        public virtual ElectionOption ElectionOption { get; set; }
     }
 }
