@@ -23,10 +23,7 @@
         <AssociationConnector Association="ElectionsDBModel.FK_TypeId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_TypeDetailsId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_VoterCode" ManuallyRouted="false" />
-        <AssociationConnector Association="ElectionsDBModel.FK_ElectionIdResult" />
-        <EntityTypeShape EntityType="ElectionsDBModel.Email" Width="1.5" PointX="5.75" PointY="5.875" />
-        <AssociationConnector Association="ElectionsDBModel.FK_ElectionIdEmail" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
