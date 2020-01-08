@@ -198,8 +198,8 @@
     <Parameter Name="typeDetailName" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="IsExistVoter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="voterId" Type="int" Mode="In" />
-    <Parameter Name="electionId" Type="int" Mode="In" />
+    <Parameter Name="voterId" Type="bigint" Mode="In" />
+    <Parameter Name="electionId" Type="bigint" Mode="In" />
   </Function>
   <Function Name="Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userName" Type="nvarchar" Mode="In" />

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ElectionsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ElectionsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="CompanyId" />
@@ -257,8 +257,7 @@
             <End Role="ElectionResult" EntitySet="ElectionResult" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ElectionsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -518,10 +517,10 @@
             <End Role="ValueToType" EntitySet="ValueToTypes" />
           </AssociationSet>
           <FunctionImport Name="IsExistType" ReturnType="Collection(Int32)">
-            <Parameter Name="typeName" Mode="In" Type="String" />
+          <Parameter Name="typeName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="IsExistTypeDetails" ReturnType="Collection(Int32)">
-            <Parameter Name="typeDetailName" Mode="In" Type="String" />
+          <Parameter Name="typeDetailName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="IsExistVoter" ReturnType="Collection(Int32)">
             <Parameter Name="voterId" Mode="In" Type="Int64" />

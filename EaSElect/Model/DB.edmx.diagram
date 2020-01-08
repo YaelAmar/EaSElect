@@ -12,8 +12,8 @@
         <EntityTypeShape EntityType="ElectionsDBModel.Email" Width="1.5" PointX="1.125" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.Type" Width="1.5" PointX="6.625" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.TypeDetail" Width="1.5" PointX="7.375" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectionsDBModel.ValueToType" Width="1.5" PointX="6.125" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectionsDBModel.Voter" Width="1.5" PointX="3.625" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectionsDBModel.ValueToType" Width="1.5" PointX="5.625" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectionsDBModel.Voter" Width="1.5" PointX="3.375" PointY="4.375" IsExpanded="true" />
         <AssociationConnector Association="ElectionsDBModel.FK_CompanyId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_ElectionId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_ElectionIdEmail" ManuallyRouted="false" />
