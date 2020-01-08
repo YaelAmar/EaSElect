@@ -17,7 +17,7 @@ namespace DAL
             DB.SaveChanges();
         }
 
-        public bool IsVoterExists(int voterId, long electionId)
+        public bool IsVoterExists(int voterId, int electionId)
         {
             try
             {

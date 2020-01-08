@@ -25,6 +25,7 @@
     <NavigationProperty Name="Company" Relationship="Self.FK_CompanyId" FromRole="Election" ToRole="Company" />
     <NavigationProperty Name="ElectionOptions" Relationship="Self.FK_ElectionId" FromRole="Election" ToRole="ElectionOption" />
     <NavigationProperty Name="Voters" Relationship="Self.FK_ElectionIdVoter" FromRole="Election" ToRole="Voter" />
+    <NavigationProperty Name="Emails" Relationship="ElectionsDBModel.FK_ElectionIdEmail" FromRole="Election" ToRole="Email" />
   </EntityType>
   <EntityType Name="ElectionOption">
     <Key>
@@ -35,6 +36,7 @@
     <Property Name="ElectionId" Type="Int64" Nullable="false" />
     <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Election" Relationship="Self.FK_ElectionId" FromRole="ElectionOption" ToRole="Election" />
+    <NavigationProperty Name="ElectionResults" Relationship="ElectionsDBModel.FK_ElectionIdResult" FromRole="ElectionOption" ToRole="ElectionResult" />
   </EntityType>
   <EntityType Name="ElectionResult">
     <Key>
@@ -45,6 +47,7 @@
     <Property Name="ElectionOptionId" Type="Int64" Nullable="false" />
     <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Voter" Relationship="Self.FK_VoterIdResult" FromRole="ElectionResult" ToRole="Voter" />
+    <NavigationProperty Name="ElectionOption" Relationship="ElectionsDBModel.FK_ElectionIdResult" FromRole="ElectionResult" ToRole="ElectionOption" />
   </EntityType>
   <EntityType Name="Type">
     <Key>
@@ -218,12 +221,54 @@
       <Parameter Name="typeDetailName" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="IsExistVoter" ReturnType="Collection(Int32)">
-      <Parameter Name="voterId" Mode="In" Type="Int64" />
-      <Parameter Name="electionId" Mode="In" Type="Int64" />
+      <Parameter Name="voterId" Mode="In" Type="Int32" />
+      <Parameter Name="electionId" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Login" ReturnType="Collection(Int32)">
       <Parameter Name="userName" Mode="In" Type="String" />
       <Parameter Name="password" Mode="In" Type="String" />
     </FunctionImport>
+    <AssociationSet Name="FK_ElectionIdResult" Association="ElectionsDBModel.FK_ElectionIdResult">
+      <End Role="ElectionOption" EntitySet="ElectionOptions" />
+      <End Role="ElectionResult" EntitySet="ElectionResults" />
+    </AssociationSet>
+    <EntitySet Name="Emails" EntityType="ElectionsDBModel.Email" />
+    <AssociationSet Name="FK_ElectionIdEmail" Association="ElectionsDBModel.FK_ElectionIdEmail">
+      <End Role="Election" EntitySet="Elections" />
+      <End Role="Email" EntitySet="Emails" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_ElectionIdResult">
+    <End Type="ElectionsDBModel.ElectionOption" Role="ElectionOption" Multiplicity="1" />
+    <End Type="ElectionsDBModel.ElectionResult" Role="ElectionResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ElectionOption">
+        <PropertyRef Name="ElectionOptionId" />
+      </Principal>
+      <Dependent Role="ElectionResult">
+        <PropertyRef Name="ElectionOptionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="ElectionId" />
+      <PropertyRef Name="EmailVoter" />
+    </Key>
+    <Property Name="ElectionId" Type="Int64" Nullable="false" />
+    <Property Name="EmailVoter" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Election" Relationship="ElectionsDBModel.FK_ElectionIdEmail" FromRole="Email" ToRole="Election" />
+  </EntityType>
+  <Association Name="FK_ElectionIdEmail">
+    <End Type="ElectionsDBModel.Election" Role="Election" Multiplicity="1" />
+    <End Type="ElectionsDBModel.Email" Role="Email" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Election">
+        <PropertyRef Name="ElectionId" />
+      </Principal>
+      <Dependent Role="Email">
+        <PropertyRef Name="ElectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
