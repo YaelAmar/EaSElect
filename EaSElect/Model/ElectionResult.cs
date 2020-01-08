@@ -19,6 +19,7 @@ namespace Models
         public long ElectionOptionId { get; set; }
         public bool DeleteRow { get; set; }
     
+        public virtual ElectionOption ElectionOption { get; set; }
         public virtual Voter Voter { get; set; }
         public virtual ElectionOption ElectionOption { get; set; }
     }

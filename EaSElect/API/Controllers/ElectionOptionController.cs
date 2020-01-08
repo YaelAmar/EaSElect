@@ -13,9 +13,21 @@ namespace API.Controllers
         ElectionOptionBL ElectionOptionBL = new ElectionOptionBL();
         [HttpPost]
         [Route("api/electionOption/addElectionOption")]
+        //הוספת אופציית בחירה
         public long AddNewElectionOption(Models.ElectionOption electionOption)
         {
-          return  ElectionOptionBL.AddNewElectionOption(electionOption);
+            return ElectionOptionBL.AddNewElectionOption(electionOption);
         }
+        //מחיקת אופציית בחירה
+        public void Delete(int electionOptionId)
+        {
+
+        }
+        //עדכון אופצייה
+        public void Update(int electionOptionId)
+        {
+
+        }
+
     }
 }

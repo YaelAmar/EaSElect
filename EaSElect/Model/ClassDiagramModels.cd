@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Models.ElectionsDBEntities">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgCBAAEAAGAAAAAAAAQEAAAAEAAgBCAAAAAQAAAAAAA=</HashCode>
+      <FileName>DB.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.Company">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAIAAAAACAAAAAAAAAAAACACAQAAAAAAAAQ=</HashCode>
+      <FileName>Company.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.Election">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAIEAACIAAAAACAAEAAAgAAAAAAAAAAAABEAAAAA=</HashCode>
+      <FileName>Election.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.ElectionOption">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAIAAAAAAAAAECAAAAAAAAAAAACAAAAAAABAAAAA=</HashCode>
+      <FileName>ElectionOption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.ElectionResult">
+    <Position X="8" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAICAAEAAAAAAAAAAAAAAAAADAAAAA=</HashCode>
+      <FileName>ElectionResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.Email">
+    <Position X="3.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAEAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Email.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.Type">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAACAAAAAAAAAAAABAgAAAAAAAAAAA=</HashCode>
+      <FileName>Type.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.TypeDetail">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACBAAAAAAAAAAAACAAAAAAAAABAAAAgAQAAAAAAAAA=</HashCode>
+      <FileName>TypeDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.ValueToType">
+    <Position X="5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAICAAEAAAAAABAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ValueToType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.Voter">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADAAIAAAAAAAAAICAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Voter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.FileDetails">
+    <Position X="3.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>FileDetails.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.MessageGmail">
+    <Position X="6.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAIABACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MessageGmail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Models.SendMail">
+    <Position X="2" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAACAABAAAAAAAgAAAAQCAAAAAAAgABA=</HashCode>
+      <FileName>SendMail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
