@@ -106,11 +106,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <None Include="ClassDiagramModels.cd" />
     <EntityDeploy Include="DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ClassDiagramModels.cd" />
     <None Include="DB.edmx.diagram">
       <DependentUpon>DB.edmx</DependentUpon>
     </None>

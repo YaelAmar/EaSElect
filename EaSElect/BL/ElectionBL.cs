@@ -32,5 +32,5 @@ namespace BL
             return mailSend;
         }
     }
-    }
+    
 }

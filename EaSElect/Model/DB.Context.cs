@@ -36,7 +36,6 @@ namespace Models
         public virtual DbSet<TypeDetail> TypeDetails { get; set; }
         public virtual DbSet<ValueToType> ValueToTypes { get; set; }
         public virtual DbSet<Voter> Voters { get; set; }
-        public virtual DbSet<Email> Emails { get; set; }
     
         public virtual ObjectResult<Nullable<int>> IsExistType(string typeName)
         {
@@ -56,15 +55,15 @@ namespace Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("IsExistTypeDetails", typeDetailNameParameter);
         }
     
-        public virtual ObjectResult<Nullable<int>> IsExistVoter(Nullable<int> voterId, Nullable<int> electionId)
+        public virtual ObjectResult<Nullable<int>> IsExistVoter(Nullable<long> voterId, Nullable<long> electionId)
         {
             var voterIdParameter = voterId.HasValue ?
                 new ObjectParameter("voterId", voterId) :
-                new ObjectParameter("voterId", typeof(int));
+                new ObjectParameter("voterId", typeof(long));
     
             var electionIdParameter = electionId.HasValue ?
                 new ObjectParameter("electionId", electionId) :
-                new ObjectParameter("electionId", typeof(int));
+                new ObjectParameter("electionId", typeof(long));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("IsExistVoter", voterIdParameter, electionIdParameter);
         }

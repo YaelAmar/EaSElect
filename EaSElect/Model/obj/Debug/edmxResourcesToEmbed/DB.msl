@@ -45,6 +45,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Emails">
+      <EntityTypeMapping TypeName="ElectionsDBModel.Email">
+        <MappingFragment StoreEntitySet="Emails">
+          <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
+          <ScalarProperty Name="EmailVoter" ColumnName="EmailVoter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Types">
       <EntityTypeMapping TypeName="ElectionsDBModel.Type">
         <MappingFragment StoreEntitySet="Type">
@@ -80,7 +88,6 @@
           <ScalarProperty Name="VoterCode" ColumnName="VoterCode" />
           <ScalarProperty Name="VoterId" ColumnName="VoterId" />
           <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
-          <ScalarProperty Name="Adress" ColumnName="Adress" />
           <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
         </MappingFragment>
       </EntityTypeMapping>
