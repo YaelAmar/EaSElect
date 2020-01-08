@@ -22,7 +22,7 @@ import { AddVotersComponent } from './Components/AddVoters/AddVoters.component';
 import { MaterialModule } from './material.module';
 
 
-
+import { FlexLayoutModule } from "@angular/flex-layout";
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +41,8 @@ import { MaterialModule } from './material.module';
     HttpClientModule,
     ReactiveFormsModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlexLayoutModule,
    ],
 
   providers: [
@@ -50,7 +51,8 @@ import { MaterialModule } from './material.module';
     ElectionService,
     ElectionResult,
     TypeService,
-    VoterService],
+    VoterService,
+  ],
     
   bootstrap: [AppComponent]
   

@@ -96,5 +96,13 @@
     <FunctionImportMapping FunctionImportName="IsExistTypeDetails" FunctionName="ElectionsDBModel.Store.IsExistTypeDetails" />
     <FunctionImportMapping FunctionImportName="IsExistVoter" FunctionName="ElectionsDBModel.Store.IsExistVoter" />
     <FunctionImportMapping FunctionImportName="Login" FunctionName="ElectionsDBModel.Store.Login" />
+    <EntitySetMapping Name="Emails">
+      <EntityTypeMapping TypeName="ElectionsDBModel.Email">
+        <MappingFragment StoreEntitySet="Emails">
+          <ScalarProperty Name="EmailVoter" ColumnName="EmailVoter" />
+          <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
