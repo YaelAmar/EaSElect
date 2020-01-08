@@ -24,7 +24,6 @@ namespace Models
         public long VoterCode { get; set; }
         public long VoterId { get; set; }
         public long ElectionId { get; set; }
-        public string Adress { get; set; }
         public bool DeleteRow { get; set; }
     
         public virtual Election Election { get; set; }

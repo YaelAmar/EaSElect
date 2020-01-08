@@ -14,11 +14,19 @@ namespace Models
     
     public partial class ElectionOption
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ElectionOption()
+        {
+            this.ElectionResults = new HashSet<ElectionResult>();
+        }
+    
         public long ElectionOptionId { get; set; }
         public string ElectionOptionName { get; set; }
         public long ElectionId { get; set; }
         public bool DeleteRow { get; set; }
     
         public virtual Election Election { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ElectionResult> ElectionResults { get; set; }
     }
 }

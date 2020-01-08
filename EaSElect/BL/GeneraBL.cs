@@ -18,17 +18,15 @@ namespace BL
         ValueToTypeBL ValueToTypeBL = new ValueToTypeBL();
         VoterBL VoterBL = new VoterBL();
 
-        //. חקליטה של נתוני הבוחרים מקובץ האקסל, כל אחד לטבלה המתאימה, סוגים, פרטי סוגים, בוחרים וערכים 
+        //נתוני הבוחרים מקובץ האקסל, כל אחד לטבלה המתאימה, סוגים, פרטי סוגים, בוחרים וערכים לסווגים
         public int LoadDataVoters(string path, long electionId)
         {
             //בדיקה אם נתיב הקובץ חוקי
             bool possiblePath = path.IndexOfAny(Path.GetInvalidPathChars()) == -1;
             if (possiblePath==false)
                 return 0;
-            List<string> g = new List<string>();
             using (var reader = new StreamReader(path, Encoding.Default))
             {
-               
                 List<string> types = new List<string>();
                 for (int i = 0, countWord = 0; !reader.EndOfStream; i++, countWord = 0)
                 {
@@ -39,19 +37,13 @@ namespace BL
                     {
                         for (int j = values[0].IndexOf(',') + 1; j < values[0].Length; j++)
                         {
-                            string typeName = "";
-                            int k, f = 0;
-                            for (k = j; k < values[0].IndexOf(',', k); k++)
-                            {
-                                f = values[0].IndexOf(',', k);
-                                typeName += values[0].ElementAt(k);
-                            }
-                            if (j < values[0].Length && k > f)
+                           int k=j, tmp = 0;
+                           string typeName = SearchWord(values,j,out tmp);
+                            if (j < values[0].Length && k > tmp)
                             {
                                 for (int w = k; w < values[0].Length; w++)
                                 {
                                     typeName += values[0].ElementAt(w);
-
                                 }
                                 j = values[0].Length;
                             }
@@ -66,7 +58,7 @@ namespace BL
                         }
 
                     }
-                    //אם זה השורות בטבלה שמביעות בוחר\עובד
+                    //אם זה השורות בטבלה שמביעות בוחר
                     else
                     {
                         string typeDetailName = "";
@@ -77,13 +69,12 @@ namespace BL
                             if (j == 0)
                             {
                                 voterId = "";
-                                //save fingerprint at Azure
-                                //save in voters
+                               //מחפש את קוד הבוחר
                                 for (int k = 0; k < values[0].IndexOf(',', j); k++)
                                 {
                                     voterId += values[0].ElementAt(k);
                                 }
-                                //check if th e electionId exists in Election table.
+                                //בדיקה אם הבוחר הזה נמצא בבחירות אלו
                                 bool isVoterExists = VoterBL.IsVoterExists(int.Parse(voterId), electionId);
                                 if (isVoterExists == false)
                                     VoterBL.AddNewVoter(voterId, electionId);
@@ -92,14 +83,9 @@ namespace BL
                             //אם זה ערך של פרטי סווג
                             else
                             {
-                                int f = 0, k;
-                                typeDetailName = "";
-                                for (k = j; k < values[0].IndexOf(',', k); k++)
-                                {
-                                    f = values[0].IndexOf(',', k);
-                                    typeDetailName += values[0].ElementAt(k);
-                                }
-                                if (j < values[0].Length && k > f)
+                                int tmp = 0, k=j;
+                                typeDetailName =SearchWord(values,j,out tmp);
+                                if (j < values[0].Length && k > tmp)
                                 {
                                     for (int w = k; w < values[0].Length; w++)
                                     {
@@ -108,18 +94,15 @@ namespace BL
                                     j = values[0].Length;
                                 }
                                 bool isDetailExists = TypeDetailsBL.IsExistTypeDetails(typeDetailName);
-                                //if the row is not exist
+                                //בודק אם פריט סווג זה קיים
                                 if (isDetailExists == false)
                                 {
-                                    g.Add(typeDetailName);
                                     TypeDetailsBL.AddNewTypeDetail(typeDetailName, types[countWord]);
                                     countWord++;
                                 }
                                 int typeDetailId = TypeDetailsBL.GetTypeDetailIdByName(typeDetailName);
-                                //get voterCode from voters table
+                                //מקבל את קוד בוחר מטבלת בוחרים
                                 long voterCode = VoterBL.GetCodeVoterById(voterId, electionId);
-
-                                /////
                                 ValueToTypeBL.AddValueToType(voterCode, typeDetailId);
                                 j += typeDetailName.Length;
 
@@ -130,8 +113,18 @@ namespace BL
             }
             return 1;
         }
-
-
-
+        //מציאת מילה מתוך המחרוזת המבטאת סוכ או פריט סווג
+        private string SearchWord(string[] values, int j,out int tmp)
+        {
+            tmp = 0;
+            string word = "";
+            int k;
+            for (k = j; k < values[0].IndexOf(',', k); k++)
+            {
+                tmp = values[0].IndexOf(',', k);
+                word += values[0].ElementAt(k);
+            }
+            return word;
+        }
     }
 }

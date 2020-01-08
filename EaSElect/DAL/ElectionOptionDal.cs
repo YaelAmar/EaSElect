@@ -18,7 +18,6 @@ namespace DAL
             DB.ElectionOptions.Add(newElectionOption);
             DB.SaveChanges();
             return DB.ElectionOptions.Where(c => c.ElectionOptionName == newElectionOption.ElectionOptionName && c.ElectionId == newElectionOption.ElectionId).Select(l => l.ElectionId).ToList()[0];
-
         }
     }
 }

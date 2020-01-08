@@ -11,20 +11,17 @@ namespace DAL
     public class TypeDetailsDal
     {
         Models.ElectionsDBEntities DB = new Models.ElectionsDBEntities();
-
-     
         public void AddNewTypeDetail(TypeDetail newTypeDetail)
         {
             DB.TypeDetails.Add(newTypeDetail);
             DB.SaveChanges();
         }
-
         public bool IsExistTypeDetails(string typeDetail)
         {
             try
             {
               var resultnum= DB.IsExistTypeDetails(typeDetail).ToList()[0];
-                if (resultnum == 1)
+              if (resultnum == 1)
                     return true;
             }
             catch (Exception e)

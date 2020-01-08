@@ -12,14 +12,11 @@ namespace Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ElectionResult
+    public partial class Email
     {
-        public long ElectionResultId { get; set; }
-        public long VoterCode { get; set; }
-        public long ElectionOptionId { get; set; }
-        public bool DeleteRow { get; set; }
+        public long ElectionId { get; set; }
+        public string EmailVoter { get; set; }
     
-        public virtual ElectionOption ElectionOption { get; set; }
-        public virtual Voter Voter { get; set; }
+        public virtual Election Election { get; set; }
     }
 }

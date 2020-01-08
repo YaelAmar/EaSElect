@@ -16,7 +16,7 @@ namespace DAL
             DB.Voters.Add(newVoter);
             DB.SaveChanges();
         }
-
+        //מחזיר אם הבוחר קיים בטבלת הבוחרים בבחירות אלו
         public bool IsVoterExists(int voterId, long electionId)
         {
             try
@@ -32,7 +32,7 @@ namespace DAL
             }
             return false;
         }
-
+        //מחזיר את הקוד היחודי של בוחר מסויים
         public long GetCodeVoterById(long voterId, long electionId)
         {
             return DB.Voters.Where(c => c.VoterId == voterId && c.ElectionId == electionId).Select(c => c.VoterCode).ToList()[0];

@@ -23,12 +23,22 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("api/company/signUp")]
+        //הוספת חברה 
         public long SignUp(Models.Company company)
         {
             this.AddNewCompany(company);
             return company.CompanyId;
         }
+        //עדכון פרטי חברה
+        public void Update(int companyId)
+        {
 
+        }
+        //מחיקת חברה
+        public void Delete(int companyId)
+        {
+
+        }
         public void Options()
         { }
     }

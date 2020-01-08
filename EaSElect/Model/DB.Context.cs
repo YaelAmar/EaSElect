@@ -31,6 +31,7 @@ namespace Models
         public virtual DbSet<Election> Elections { get; set; }
         public virtual DbSet<ElectionOption> ElectionOptions { get; set; }
         public virtual DbSet<ElectionResult> ElectionResults { get; set; }
+        public virtual DbSet<Email> Emails { get; set; }
         public virtual DbSet<Type> Types { get; set; }
         public virtual DbSet<TypeDetail> TypeDetails { get; set; }
         public virtual DbSet<ValueToType> ValueToTypes { get; set; }

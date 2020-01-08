@@ -18,6 +18,7 @@ namespace Models
         public Election()
         {
             this.ElectionOptions = new HashSet<ElectionOption>();
+            this.Emails = new HashSet<Email>();
             this.Voters = new HashSet<Voter>();
         }
     
@@ -31,6 +32,8 @@ namespace Models
         public virtual Company Company { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ElectionOption> ElectionOptions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Email> Emails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Voter> Voters { get; set; }
     }

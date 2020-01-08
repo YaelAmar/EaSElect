@@ -14,7 +14,7 @@ namespace BL
         {
             int VoterId = int.Parse(voterId);
             Models.Voter newVoter = new Models.Voter()
-            { ElectionId = electionId, VoterId = VoterId,Adress=""};
+            { ElectionId = electionId, VoterId = VoterId};
             VoterDal.AddNewVoter(newVoter);
         }
 
