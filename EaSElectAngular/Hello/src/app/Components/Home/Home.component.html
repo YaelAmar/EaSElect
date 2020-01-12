@@ -5,7 +5,7 @@
 <div class="image">
         <img id="logo" src="assets/home/logo.png">      
         <div class="btns">
-                <img id="logIn"  src="assets/home/logIn.png" selected [routerLink]="['/LogIn']" routerLinkActive="active">
-                <img id="signUp" src="assets/home/signUp.png" selected [routerLink]="['/SignUp']" routerLinkActive="active">
+                <img id="logIn"  src="assets/home/logIn.png" selected  (click)="LogIn()" routerLinkActive="active">
+                <img id="signUp" src="assets/home/signUp.png" selected  (click)="SignUp()" routerLinkActive="active">
         </div>
 </div>

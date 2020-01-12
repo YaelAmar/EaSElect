@@ -25,7 +25,10 @@
     <span class="error" *ngIf="endDate.errors?.min">תאריך לא יכול להיות לפני התאריך הנוכחי</span>
 
 </div>
-    <mat-chip  type="submit" [disabled]="!frm.valid" > רשום אותי</mat-chip>
-    
+    <!-- <mat-chip  type="submit" [disabled]="!frm.valid" > רשום אותי</mat-chip> -->
+    <mat-chip-list aria-label="Fish selection">
+        <button mat-button type="submit" [disabled]="!frm.valid"  id="signUpBtn" selected>הבא</button>
+        <!-- <mat-chip id="signUpBtn" selected type="submit" [disabled]="!frm.valid" > רשום אותי</mat-chip> -->
+        </mat-chip-list>
 </form>
     

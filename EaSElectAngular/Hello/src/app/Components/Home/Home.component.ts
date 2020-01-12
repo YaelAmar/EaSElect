@@ -1,5 +1,6 @@
 
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,12 +11,18 @@ import { Component } from '@angular/core';
   
   export class HomeComponent {
     subscribe:any
-   constructor(){
+ 
+   constructor(private router:Router){
     }
   
    ngOnInit()
    {
     
    }
-   
+  LogIn(){
+    this.router.navigate(['/LogIn']);
+  }
+   SignUp(){
+    this.router.navigate(['/SignUp']);
+   }
 }
