@@ -16,7 +16,7 @@ namespace API.Controllers
         [Route("api/emails/loadEmails")]
         public long LoadEmails(string path,long electionId)
         {
-          //  return GeneralBL.LoadEmails(fileDetails.FilePath, fileDetails.ElectionId);
+         //  return GeneralBL.LoadEmails(fileDetails.FilePath, fileDetails.ElectionId);
            return  GeneralBL.LoadEmails(path, electionId);
         }
         public void Options()

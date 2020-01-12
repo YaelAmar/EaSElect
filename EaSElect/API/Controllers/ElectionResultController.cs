@@ -11,6 +11,7 @@ namespace API.Controllers
     public class ElectionResultController : ApiController
     {
        ElectionResultBL ElectionResultBL = new ElectionResultBL();
+        EmailBL EmailBL = new EmailBL();
         [HttpPost]
         [Route("api/electionResult/AddElectionResult")]
         public int AddElectionResult()
@@ -19,9 +20,9 @@ namespace API.Controllers
         }
        [HttpPost]
        [Route("api/electionResult/SendResult")]
-       public bool SendResults(int electionId)
+       public int SendResults(int electionId)
        {
-           return ElectionResultBL.SendResults(electionId);
+           return EmailBL.SendEmail(electionId,2);
        }
     }
 }

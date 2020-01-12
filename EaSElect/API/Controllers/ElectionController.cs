@@ -12,6 +12,7 @@ namespace API.Controllers
     public class ElectionController : ApiController
     {
         ElectionBL ElectionBL = new ElectionBL();
+        EmailBL EmailBL = new EmailBL(); 
         [HttpPost]
         [Route("api/election/addElection")]
         //הוספת בחירות
@@ -30,11 +31,11 @@ namespace API.Controllers
 
         }
         //פונקציה שולחת מייל לבוחרים עם לינק לאתר
-        [HttpPost]
+        [HttpPost,HttpGet]
         [Route("api/election/sendMail")]
-        public bool SendLinkEmail(int electionId)
+        public int SendLinkEmail(int electionId)
         {
-          return ElectionBL.SendLink(electionId);
+          return EmailBL.SendEmail(electionId,1);
         }
     }
 }

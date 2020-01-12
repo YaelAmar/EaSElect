@@ -58,6 +58,7 @@
     <Compile Include="ElectionBL.cs" />
     <Compile Include="ElectionOptionBL.cs" />
     <Compile Include="ElectionResultBL.cs" />
+    <Compile Include="EmailBL.cs" />
     <Compile Include="GeneraBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeBL.cs" />
