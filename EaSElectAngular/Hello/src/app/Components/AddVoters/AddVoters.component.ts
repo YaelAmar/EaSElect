@@ -15,7 +15,7 @@ import { FileDetails } from "../../Models/FileDetails";
     subscripion:Subscription
      electionId: number;
     //@ViewChild('fileInput', {  }) fileInput:ElementRef;
-     fileDetaild:FileDetails=new FileDetails();
+     fileDetails:FileDetails=new FileDetails();
 
     constructor(private voterService:VoterService,private route: ActivatedRoute,private router:Router){
       
@@ -26,18 +26,30 @@ import { FileDetails } from "../../Models/FileDetails";
          this.electionId=params['id']
           });
      }
-  
+     localUrl:any[];
     // public openFileDialog():void {
     //    let event = new MouseEvent('click', {bubbles: false});
     //    this.fileInput.nativeElement.dispatchEvent(event);
     //   }
-    LoadDataVoters(e){   
+    LoadDataVoters(event:any){   
+      
       ////////////לסדר זה לא אמור להיות ככה!!!!!!!!!!!!!!!!!!!!!!!!!!
-     this.fileDetaild.FilePath=e.target.value;
-     console.log(this.fileDetaild.FilePath)
-    this.fileDetaild.FilePath="C:\\Users\\USER\\Desktop\\EaSElect\\tryfile.csv";
-    this.fileDetaild.ElectionId=this.electionId;
-    this.voterService.LoadDataVoters(this.fileDetaild).subscribe(result=>{
+     //this.fileDetails.FilePath=e.target.value;
+     console.log(this.localUrl[0])
+    //this.fileDetaild.FilePath="C:\\Users\\USER\\Desktop\\EaSElect\\tryfile.csv";
+   
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+          this.localUrl = event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+  }
+   
+   
+   
+    this.fileDetails.ElectionId=this.electionId;
+    this.voterService.LoadDataVoters(this.fileDetails).subscribe(result=>{
       if(result!=0)
       {
         console.log("load data succesfuly");
