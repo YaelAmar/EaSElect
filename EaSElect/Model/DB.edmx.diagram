@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="01770d8054c64f6baf395041f41866c7" Name="Diagram1">
+      <Diagram DiagramId="01770d8054c64f6baf395041f41866c7" Name="Diagram1" ZoomLevel="82">
         <EntityTypeShape EntityType="ElectionsDBModel.Company" Width="1.5" PointX="0.625" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.Election" Width="1.5" PointX="2.875" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.ElectionOption" Width="1.5" PointX="4.625" PointY="0.75" IsExpanded="true" />
@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="ElectionsDBModel.Email" Width="1.5" PointX="1.125" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.Type" Width="1.5" PointX="6.625" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.TypeDetail" Width="1.5" PointX="7.375" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectionsDBModel.ValueToType" Width="1.5" PointX="5.625" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectionsDBModel.ValueToType" Width="1.5" PointX="9.375" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.Voter" Width="1.5" PointX="3.375" PointY="4.375" IsExpanded="true" />
         <AssociationConnector Association="ElectionsDBModel.FK_CompanyId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_ElectionId" ManuallyRouted="false" />

@@ -63,7 +63,7 @@
     <Compile Include="ElectionDal.cs" />
     <Compile Include="ElectionOptionDal.cs" />
     <Compile Include="ElectionResultDal.cs" />
-    <Compile Include="EmailsDal.cs" />
+    <Compile Include="EmailDal.cs" />
     <Compile Include="TypeDal.cs" />
     <Compile Include="TypeDetailsDal.cs" />
     <Compile Include="ValueToTypeDal.cs" />

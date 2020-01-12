@@ -221,6 +221,7 @@
     <Compile Include="Controllers\ElectionController.cs" />
     <Compile Include="Controllers\ElectionOptionController.cs" />
     <Compile Include="Controllers\ElectionResultController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TypeController.cs" />
     <Compile Include="Controllers\TypeDetailsController.cs" />
