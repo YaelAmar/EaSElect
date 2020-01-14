@@ -1,4 +1,4 @@
-<form novalidate  (submit)="AddElectionOption(frm)" #frm="ngForm">                
+<form novalidate (submit)="AddElectionOption(frm)" #frm="ngForm">                
       <div>  
       <mat-form-field class="example-full-width">
               <input matInput placeholder="שם אופציה" type="text" [(ngModel)]="newElectionOption.ElectionOptionName" type="text" #electionOptionName="ngModel" required [ngModelOptions]="{standalone: true}">

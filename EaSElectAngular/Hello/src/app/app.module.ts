@@ -21,6 +21,9 @@ import { HttpModule } from '@angular/http';
 import { AddVotersComponent } from './Components/AddVoters/AddVoters.component';
 import { MaterialModule } from './material.module';
 
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
+
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MainComponent } from './Components/Main/Main.component';
@@ -47,6 +50,7 @@ import { ElectionComponent } from './Components/Election/Election.component';
     MaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    NgxMaterialTimepickerModule
    ],
 
   providers: [

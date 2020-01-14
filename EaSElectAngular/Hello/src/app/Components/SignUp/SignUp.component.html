@@ -18,7 +18,7 @@
           </div>
      <div>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="מייל"  name="email" [(ngModel)]="newCompany.EmailManager" type="text" #email="ngModel" required>
+                <input matInput placeholder="מייל"  name="email" [(ngModel)]="newCompany.EmailManager" type="email" #email="ngModel" required>
               </mat-form-field>
               <span class="error" *ngIf="email.errors!=null && email.errors.required">שדה חובה</span>
      </div>
