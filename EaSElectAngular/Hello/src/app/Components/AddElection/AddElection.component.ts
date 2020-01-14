@@ -33,7 +33,10 @@ import {ActivatedRoute, Router } from "@angular/router";
        if(electionId!=0)
        {
          console.log("succesfuly");
-         this.router.navigate(['/AddElectionOption',electionId]);
+         sessionStorage.setItem('whichPage', '2');
+         const electionIdString =electionId+"";
+         sessionStorage.setItem('electionIdNum', 'electionIdString');
+     //    this.router.navigate(['/AddElectionOption',electionId]);
        }
      else 
      console.log("בחירות אלו כבר קיימות במערכת")

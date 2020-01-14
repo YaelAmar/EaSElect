@@ -1,0 +1,21 @@
+<div>
+        <button mat-button [matMenuTriggerFor]="afterMenu">בחירות חדשות</button>
+        <mat-menu #afterMenu="matMenu" xPosition="after">
+        </mat-menu>
+
+        <button mat-button [matMenuTriggerFor]="afterMenu">בחירות קיימות</button>
+        <mat-menu #afterMenu="matMenu" xPosition="after">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
+
+        <button mat-button [matMenuTriggerFor]="afterMenu">בחירות עכשיו</button>
+        <mat-menu #afterMenu="matMenu" xPosition="after">
+        </mat-menu>
+</div>
+
+<app-add-election></app-add-election>
+
+<app-electionOption *ngIf="getWhichStreen()==2 || getWhichStreen()==3"></app-electionOption>
+
+<app-add-voters *ngIf="getWhichStreen()==3"></app-add-voters>

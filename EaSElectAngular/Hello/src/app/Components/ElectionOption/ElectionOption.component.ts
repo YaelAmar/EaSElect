@@ -22,12 +22,12 @@ import { Router, ActivatedRoute } from "@angular/router";
    }
   
    ngOnInit() {
-    this.subscripion=this.route.params.subscribe((params:any)=>{ 
-        console.log(params['id'])
-        this.newElectionOption.ElectionId=params['id']
-        this.electionId=this.newElectionOption.ElectionId
-
-        });
+    //this.subscripion=this.route.params.subscribe((params:any)=>{ 
+      //  console.log(params['id'])
+      //  this.newElectionOption.ElectionId=params['id']
+        var value = sessionStorage.getItem('electionIdNum');
+        this.electionId=+value;
+   //     });
    }
    AddElectionOption(frm:any){
     console.log(this.newElectionOption.ElectionOptionName,this.newElectionOption.ElectionId);
@@ -36,6 +36,7 @@ import { Router, ActivatedRoute } from "@angular/router";
      if(electionOptionId!=0)
      {
        console.log("succesfuly");
+       sessionStorage.setItem('whichPage', '3');
        this.countOptions++;
      
      }

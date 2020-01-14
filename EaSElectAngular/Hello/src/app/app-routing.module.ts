@@ -6,6 +6,7 @@ import { AddElectionComponent } from './Components/AddElection/AddElection.compo
 import { SignUpComponent } from './Components/SignUp/SignUp.component';
 import { HomeComponent } from './Components/Home/Home.component';
 import { AddVotersComponent } from './Components/AddVoters/AddVoters.component';
+import { ElectionComponent } from './Components/Election/Election.component';
 
 
 
@@ -15,7 +16,9 @@ export const appRoutes: Routes = [
    { path: 'AddElectionOption/:id', component: ElectionOptionComponent },
    { path: 'LogIn', component: LogInComponent },
    { path: 'SignUp', component: SignUpComponent },
-   { path:'AddVoters/:id',component:AddVotersComponent}
+   { path:'AddVoters/:id',component:AddVotersComponent},
+   { path:'Election/:id',component:ElectionComponent,pathMatch:'full'}
+   
   ]
 
 @NgModule({

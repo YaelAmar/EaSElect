@@ -23,9 +23,13 @@ import { MaterialModule } from './material.module';
 
 
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { MainComponent } from './Components/Main/Main.component';
+import { ElectionComponent } from './Components/Election/Election.component';
 @NgModule({
   declarations: [
     AppComponent,
+    MainComponent,
+    ElectionComponent,
     AddElectionComponent,
     ElectionOptionComponent,
     LogInComponent,

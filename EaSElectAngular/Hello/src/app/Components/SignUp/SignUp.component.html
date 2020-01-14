@@ -1,3 +1,6 @@
+<div class="image">
+    <img id="logo" src="assets/home/logo.png">      
+</div>
 <div>
   <form novalidate  (submit)="SignUp(frm)" #frm="ngForm">
     <div>
@@ -9,22 +12,25 @@
 
      <div>
            <mat-form-field class="example-full-width">
-            <input matInput placeholder="שם משתמש" name="userName" [(ngModel)]="newCompany.UserName" type="text" #userName="ngModel" required minlength="8" maxlength="20">
+            <input matInput placeholder="שם משתמש" name="userName" [(ngModel)]="newCompany.UserName" type="text" #userName="ngModel" required  maxlength="20">
           </mat-form-field>
           <span class="error" *ngIf="userName.errors!=null && userName.errors.required">שדה חובה</span>
-          <span class="error" *ngIf="userName.errors!=null && userName.errors.minlength">שם משתמש חייב להכיל בין 8 ל-20 תווים</span>    
           </div>
-      
+     <div>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="מייל"  name="email" [(ngModel)]="newCompany.EmailManager" type="text" #email="ngModel" required>
+              </mat-form-field>
+              <span class="error" *ngIf="email.errors!=null && email.errors.required">שדה חובה</span>
+     </div>
       
       <div class="example-container">  
         <mat-form-field>
-          <input matInput placeholder="סיסמא" name="password" [(ngModel)]="newCompany.Password" type="password" #password="ngModel" required minlength="8" [type]="hide ? 'text' : 'password'">
+          <input matInput placeholder="סיסמא" name="password" [(ngModel)]="newCompany.Password" type="password" #password="ngModel" required [type]="hide ? 'text' : 'password'">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
           </button>
         </mat-form-field>        
           <span class="error" *ngIf="password.errors!=null && password.errors.required">שדה חובה</span>
-          <span class="error" *ngIf="password.errors!=null && password.errors.minlength">סיסמא חייבת להכיל לפחות 8 תווים</span> 
         </div>
 
       <div class="example-container">
@@ -38,7 +44,7 @@
         <span class="error" *ngIf="passwordTrue.value!=newCompany.password">הסיסמאות לא זהות</span>
     </div>
     <mat-chip-list aria-label="Fish selection">
-      <button mat-button type="submit" [disabled]="!frm.valid"  id="signUpBtn" selected>רשום אותי</button>
+      <button mat-button type="submit" [disabled]="!frm.valid"  class="btnOK" selected>רשום אותי</button>
       <!-- <mat-chip id="signUpBtn" selected type="submit" [disabled]="!frm.valid" > רשום אותי</mat-chip> -->
       </mat-chip-list>
       </form>
