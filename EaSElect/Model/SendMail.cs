@@ -54,7 +54,6 @@ namespace Models
 
             //מצרף את כתובות המייל לשליחה
             msg.To.Add(message.sendTo);
-
             return msg;
         }
         //התממשקות ל-gmail

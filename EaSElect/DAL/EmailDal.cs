@@ -26,9 +26,9 @@ namespace DAL
             return countEmails;
         }
 
-        public List<Email> GetAllEmails(int electionId)
+        public List<string> GetAllEmails(int electionId)
         {
-            throw new NotImplementedException();
+          return DB.Emails.Where(e => e.ElectionId == electionId).Select(n => n.EmailVoter).ToList();
         }
     }
 }

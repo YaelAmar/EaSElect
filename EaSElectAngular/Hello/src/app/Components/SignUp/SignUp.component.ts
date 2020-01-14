@@ -31,7 +31,7 @@ SignUp(frm:any){
    if(companyId!=0)
      {
        console.log("succesfuly");
-       this.router.navigate(['/AddElection',companyId]);
+       this.router.navigate(['/Election',companyId]);
      }
    else 
    console.log("בחר שם אחר שם משתמש זה כבר קיים במערכת")

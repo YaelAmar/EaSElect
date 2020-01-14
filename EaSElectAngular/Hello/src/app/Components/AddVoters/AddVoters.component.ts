@@ -13,7 +13,7 @@ import { FileDetails } from "../../Models/FileDetails";
   
     subscribe:any;
     subscripion:Subscription
-     electionId: number;
+    electionId: number;
     //@ViewChild('fileInput', {  }) fileInput:ElementRef;
      fileDetails:FileDetails=new FileDetails();
 
