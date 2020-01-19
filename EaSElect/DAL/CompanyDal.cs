@@ -10,9 +10,12 @@ namespace DAL
 {
     public class CompanyDal
     {
+       
         Models.ElectionsDBEntities DB = new Models.ElectionsDBEntities();
         public long AddNewCompany(Company newCompany)
         {
+           
+            
             if (DB.Companies.Any(c => c.UserName == newCompany.UserName))
                 return 0;
             DB.Companies.Add(newCompany);

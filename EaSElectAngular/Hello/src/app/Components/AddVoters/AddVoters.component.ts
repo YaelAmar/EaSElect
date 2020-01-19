@@ -16,6 +16,8 @@ import { FileDetails } from "../../Models/FileDetails";
     electionId: number;
     //@ViewChild('fileInput', {  }) fileInput:ElementRef;
      fileDetails:FileDetails=new FileDetails();
+     uploadUrl:string;
+
 
     constructor(private voterService:VoterService,private route: ActivatedRoute,private router:Router){
       
@@ -24,6 +26,7 @@ import { FileDetails } from "../../Models/FileDetails";
          this.subscripion=this.route.params.subscribe((params:any)=>{ 
          console.log(params['id'])
          this.electionId=params['id']
+        this.uploadUrl = `http://localhost:55866/api/voters/loadDataVoters/${this.electionId}`
           });
      }
      localUrl:any[];
