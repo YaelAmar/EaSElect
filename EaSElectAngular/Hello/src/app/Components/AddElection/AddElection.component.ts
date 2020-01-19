@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from "@angular/core";
+import { Component, Input, OnInit, OnDestroy, Output, EventEmitter } from "@angular/core";
 import { Election } from "../../Models/election.model";
 import { ElectionService } from "../../Services/election.service";
 import { Subscription } from "rxjs/Subscription";
@@ -15,7 +15,10 @@ import {ActivatedRoute, Router } from "@angular/router";
     subscribe:any;
     dateNow=new Date();
     subscripion:Subscription
+   @Output() addElection=new EventEmitter<number>();
+  
 
+ 
     constructor(private  electionService:ElectionService,private route: ActivatedRoute,private router:Router){
     }
   
@@ -33,9 +36,10 @@ import {ActivatedRoute, Router } from "@angular/router";
        if(electionId!=0)
        {
          console.log("succesfuly");
-         sessionStorage.setItem('whichPage', '2');
-         const electionIdString =electionId+"";
-         sessionStorage.setItem('electionIdNum', 'electionIdString');
+         console.log(electionId);
+
+         this.addElection.emit(electionId);
+
      //    this.router.navigate(['/AddElectionOption',electionId]);
        }
      else 
