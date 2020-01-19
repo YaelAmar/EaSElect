@@ -23,7 +23,7 @@ import { MaterialModule } from './material.module';
 
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
-
+//import { Injectable ,ElementRef} from '@angular/core';
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MainComponent } from './Components/Main/Main.component';
@@ -41,6 +41,8 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     SignUpComponent,
     HomeComponent,
     AddVotersComponent
+    // Injectable,
+    // ElementRef
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     FlexLayoutModule,
     NgxMaterialTimepickerModule,
     MatFileUploadModule
+  
    ],
 
   providers: [
@@ -62,7 +65,9 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     ElectionService,
     ElectionResult,
     TypeService,
-    VoterService,
+    VoterService
+
+    
   ],
     
   bootstrap: [AppComponent]
