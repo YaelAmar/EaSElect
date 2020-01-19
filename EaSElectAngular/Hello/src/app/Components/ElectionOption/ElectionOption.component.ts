@@ -15,19 +15,18 @@ import { Router, ActivatedRoute } from "@angular/router";
     newElectionOption:ElectionOption=new ElectionOption();
     subscripion:Subscription
     countOptions:number=0
-    @Input()
-    electionId=0;
-
+    @Input() electionId:number
+  
    constructor(private electionOptionService:ElectionOptionService,private route: ActivatedRoute,private router:Router){
    }
   
    ngOnInit() {
-    this.subscripion=this.route.params.subscribe((params:any)=>{ 
-        console.log(params['id'])
-        this.newElectionOption.ElectionId=params['id']
-       // var value = sessionStorage.getItem('electionIdNum');
-       // this.electionId=+value;
-        });
+    //this.subscripion=this.route.params.subscribe((params:any)=>{ 
+      //  console.log(params['id'])
+      //  this.newElectionOption.ElectionId=params['id']
+   //     });
+   console.log(this.electionId)
+  this.newElectionOption.ElectionId=this.electionId;
    }
    AddElectionOption(frm:any){
     console.log(this.newElectionOption.ElectionOptionName,this.newElectionOption.ElectionId);
@@ -36,9 +35,7 @@ import { Router, ActivatedRoute } from "@angular/router";
      if(electionOptionId!=0)
      {
        console.log("succesfuly");
-       sessionStorage.setItem('whichPage', '3');
        this.countOptions++;
-       this.router.navigate(['/AddVoters',electionOptionId]);
      
      }
    else 
@@ -51,7 +48,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 
    AddVoters(electionId:number){
      console.log("good"+electionId);
-      this.router.navigate(['/AddVoters',electionId]);
+     // this.router.navigate(['/AddVoters',electionId]);
    }
    ngOnDestroy()
    {

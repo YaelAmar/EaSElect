@@ -14,8 +14,8 @@
         </mat-menu>
 </div>
 
-<app-add-election></app-add-election>
+<app-add-election (addElection)="OnElectionAdded($event)"></app-add-election>
 
-<app-electionOption></app-electionOption>
+<app-electionOption [electionId]="getElectionId()"></app-electionOption>
 
 <app-add-voters></app-add-voters>

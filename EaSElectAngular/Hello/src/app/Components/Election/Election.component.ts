@@ -6,13 +6,21 @@ import { Component, Input } from "@angular/core";
     styleUrls: ['./election.component.css']
   })
   export class ElectionComponent {
-  
- //  whichPage:number=1;
- // var value = sessionStorage.getItem('KEY');
-  //sessionStorage.clear('KEY');
+  electionId:number;
+ 
   ngOnInit()
   {
-   // sessionStorage.setItem('whichPage', '1');
+
   }
- 
+  OnElectionAdded(electionId)
+  {
+    console.log(this.electionId+"  "+electionId)
+   this.electionId=electionId;
+   console.log(this.electionId+"  "+electionId)
+
+  }
+  getElectionId()
+  {
+    return this.electionId;
+  }
 }
