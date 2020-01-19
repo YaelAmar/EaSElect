@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace API.Controllers
@@ -13,11 +14,13 @@ namespace API.Controllers
         GeneralBL GeneralBL = new GeneralBL();
         
         [HttpPost]
-        [Route("api/voters/loadDataVoters")]
-        public int LoadDataVoters(Models.FileDetails fileDetails)
+        [Route("api/voters/loadDataVoters/{electionId}")]
+        public int LoadDataVoters(int electionId)
         {
-            
-          return GeneralBL.LoadDataVoters(fileDetails.FilePath,fileDetails.ElectionId);
+            HttpPostedFile file = HttpContext.Current.Request.Files[0];
+            file.SaveAs("path"+file.FileName);
+
+          return GeneralBL.LoadDataVoters(file.FileName, electionId);
         }
 
       

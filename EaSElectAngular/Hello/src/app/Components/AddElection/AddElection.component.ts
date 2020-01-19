@@ -36,7 +36,7 @@ import {ActivatedRoute, Router } from "@angular/router";
          sessionStorage.setItem('whichPage', '2');
          const electionIdString =electionId+"";
          sessionStorage.setItem('electionIdNum', 'electionIdString');
-     //    this.router.navigate(['/AddElectionOption',electionId]);
+        this.router.navigate(['/AddElectionOption',electionId]);
        }
      else 
      console.log("בחירות אלו כבר קיימות במערכת")

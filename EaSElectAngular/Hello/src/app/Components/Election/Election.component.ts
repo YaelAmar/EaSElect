@@ -12,11 +12,7 @@ import { Component, Input } from "@angular/core";
   //sessionStorage.clear('KEY');
   ngOnInit()
   {
-    sessionStorage.setItem('whichPage', '1');
+   // sessionStorage.setItem('whichPage', '1');
   }
-  getWhichStreen()
-  {
-  var value = sessionStorage.getItem('whichPage');
-  return value;
-  }
+ 
 }

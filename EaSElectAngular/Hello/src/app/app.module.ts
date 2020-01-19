@@ -28,6 +28,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MainComponent } from './Components/Main/Main.component';
 import { ElectionComponent } from './Components/Election/Election.component';
+import { MatFileUploadModule } from 'angular-material-fileupload';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,8 @@ import { ElectionComponent } from './Components/Election/Election.component';
     MaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
+    MatFileUploadModule
    ],
 
   providers: [
