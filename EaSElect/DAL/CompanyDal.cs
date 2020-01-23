@@ -25,12 +25,12 @@ namespace DAL
                                         Select(l => l.CompanyId).ToList()[0];
         }
         
-        public bool Login(string userName, string password)
+        public long Login(string userName, string password)
         {
             int? result = DB.Login(userName, password).ToList()[0];
             if(result==1)
-                return true;
-            return false;
+                return DB.Companies.Where(c=>c.UserName==userName &&c.Password==password).Select(c=>c.CompanyId).ToList()[0];
+            return 0;
         }
         public Company GetCompanyDetailsByElectionId(int electionId)
         {

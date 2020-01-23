@@ -20,6 +20,8 @@ namespace API.Controllers
         {
           return  ElectionBL.AddNewElection(newElection);
         }
+
+
         //מחיקת בחירות
         public void Delete(int electionId)
         {
@@ -30,12 +32,15 @@ namespace API.Controllers
         {
 
         }
-        //פונקציה שולחת מייל לבוחרים עם לינק לאתר
-        [HttpPost,HttpGet]
-        [Route("api/election/sendMail")]
-        public int SendLinkEmail(int electionId)
+
+        [HttpGet]
+        [Route("api/election/getAllElections")]
+        public List<Election> GetAllElections(long companyId)
         {
-          return EmailBL.SendEmail(electionId,1);
+            List<Election> l= ElectionBL.GetAllElections(companyId);
+            return ElectionBL.GetAllElections(companyId);
         }
+        public void Options()
+        { }
     }
 }

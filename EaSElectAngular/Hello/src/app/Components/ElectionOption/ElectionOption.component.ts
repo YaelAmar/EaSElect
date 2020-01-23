@@ -1,9 +1,7 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { ElectionOptionService } from "../../Services/electionOption.service";
 import { ElectionOption } from "../../Models/electionOption.model";
 import { Subscription } from "rxjs/Subscription";
-import { Router, ActivatedRoute } from "@angular/router";
-
 @Component({
     selector: 'app-electionOption',
     templateUrl: './electionOption.component.html',
@@ -15,28 +13,24 @@ import { Router, ActivatedRoute } from "@angular/router";
     newElectionOption:ElectionOption=new ElectionOption();
     subscripion:Subscription
     countOptions:number=0
-    @Input() electionId:number
-  
-   constructor(private electionOptionService:ElectionOptionService,private route: ActivatedRoute,private router:Router){
+    @Input()  electionId:number
+    @Output() isElectionAdded=new EventEmitter<boolean>();
+
+   constructor(private electionOptionService:ElectionOptionService){
    }
   
    ngOnInit() {
-    //this.subscripion=this.route.params.subscribe((params:any)=>{ 
-      //  console.log(params['id'])
-      //  this.newElectionOption.ElectionId=params['id']
-   //     });
-   console.log(this.electionId)
-  this.newElectionOption.ElectionId=this.electionId;
+    this.newElectionOption.ElectionId=this.electionId;
    }
+  
+
+
    AddElectionOption(frm:any){
-    console.log(this.newElectionOption.ElectionOptionName,this.newElectionOption.ElectionId);
     this.electionOptionService.AddNewElectionOption(this.newElectionOption).subscribe(electionOptionId=>{
     this.newElectionOption.ElectionOptionId=electionOptionId;
      if(electionOptionId!=0)
      {
-       console.log("succesfuly");
        this.countOptions++;
-     
      }
    else 
    console.log("אופציית בחירה זו כבר קיימת בבחירות אלו")
@@ -44,11 +38,8 @@ import { Router, ActivatedRoute } from "@angular/router";
     });
 
    }
-
-
-   AddVoters(electionId:number){
-     console.log("good"+electionId);
-     // this.router.navigate(['/AddVoters',electionId]);
+   AddVoters(){
+     this.isElectionAdded.emit(true)
    }
    ngOnDestroy()
    {

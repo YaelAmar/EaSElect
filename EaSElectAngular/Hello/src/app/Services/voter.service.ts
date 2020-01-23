@@ -7,7 +7,7 @@ import { FileDetails } from '../Models/FileDetails';
 @Injectable()
 export class VoterService{
 
-    url='http://localhost:55866/api/voters'
+    url='http://localhost:55866/api/voter'
     constructor(private http:HttpClient){
 
 
@@ -17,4 +17,10 @@ export class VoterService{
         let headers=new Headers({'Content-type':'application/json; charset=utf-8'});
         return this.http.post<number>(`${this.url}/loadDataVoters`,fileDetails);
     }
+
+    public uploadImage (image: File): Observable<Object>{
+     let formData = new FormData();
+     formData.append('image',image);
+     return this.http.post(`${this.url}/addSale`,formData);
+  }
 }

@@ -253,3 +253,11 @@ C:\Users\USER\Desktop\EaSElect\EaSElect\API\bin\Microsoft.Extensions.Options.xml
 C:\Users\USER\Desktop\EaSElect\EaSElect\API\bin\Microsoft.Extensions.Primitives.xml
 C:\Users\USER\Desktop\EaSElect\EaSElect\API\bin\Microsoft.Net.Http.Headers.xml
 C:\Users\USER\Desktop\EaSElect\EaSElect\API\bin\System.Text.Encodings.Web.xml
+C:\Users\User\Desktop\EaSElect\EaSElect\API\bin\Microsoft.AspNetCore.Hosting.Abstractions.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\API\bin\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\API\bin\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\API\bin\Microsoft.Extensions.WebEncoders.dll
+C:\Users\User\Desktop\EaSElect\EaSElect\API\bin\Microsoft.AspNetCore.Hosting.Abstractions.xml
+C:\Users\User\Desktop\EaSElect\EaSElect\API\bin\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml
+C:\Users\User\Desktop\EaSElect\EaSElect\API\bin\Microsoft.Extensions.Hosting.Abstractions.xml
+C:\Users\User\Desktop\EaSElect\EaSElect\API\bin\Microsoft.Extensions.WebEncoders.xml

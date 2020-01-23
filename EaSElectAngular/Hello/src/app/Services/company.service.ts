@@ -15,9 +15,9 @@ export class CompanyService{
     }
     
 
-    Login(userName:string, password:string):Observable<boolean>
+    Login(userName:string, password:string):Observable<number>
     {
-     return this.http.get<boolean>(`${this.url}/login/${userName}/${password}`)
+     return this.http.get<number>(`${this.url}/login/${userName}/${password}`)
     }
 
     SignUp(newCompany:Company):Observable<number>

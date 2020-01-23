@@ -1,21 +1,11 @@
-<div>
-        <button mat-button [matMenuTriggerFor]="afterMenu">בחירות חדשות</button>
-        <mat-menu #afterMenu="matMenu" xPosition="after">
-        </mat-menu>
+<app-menu></app-menu>
 
-        <button mat-button [matMenuTriggerFor]="afterMenu">בחירות קיימות</button>
-        <mat-menu #afterMenu="matMenu" xPosition="after">
-          <button mat-menu-item>Item 1</button>
-          <button mat-menu-item>Item 2</button>
-        </mat-menu>
-
-        <button mat-button [matMenuTriggerFor]="afterMenu">בחירות עכשיו</button>
-        <mat-menu #afterMenu="matMenu" xPosition="after">
-        </mat-menu>
+<div class="add">
+    <app-add-election (addElection)="OnElectionAdded($event)"></app-add-election>
 </div>
-
-<app-add-election (addElection)="OnElectionAdded($event)"></app-add-election>
-
-<app-electionOption [electionId]="getElectionId()"></app-electionOption>
-
-<app-add-voters></app-add-voters>
+<div class="add">
+<app-electionOption *ngIf="electionId!=null" [electionId]="electionId" (isElectionAdded)="OnElectionOptionAdded($event)"></app-electionOption>
+</div>
+<div class="add">
+<app-add-voters *ngIf="electionId!=null&&isElelctionAdded==true" [electionId]="electionId"></app-add-voters>
+</div>

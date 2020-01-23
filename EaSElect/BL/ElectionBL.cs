@@ -12,10 +12,16 @@ namespace BL
     {
         ElectionDal ElectionDal = new ElectionDal();
         CompanyDal CompanyDal = new CompanyDal();
-        public long AddNewElection(Models.Election newElection)
+        public long AddNewElection(Election newElection)
         {
+       //   newElection.CompanyId= ElectionDal.FindCompanyId((int)newElection.CompanyId);
           return ElectionDal.AddNewElection(newElection);
              
+        }
+
+        public List<Election> GetAllElections(long companyId)
+        {
+           return ElectionDal.GetAllElections(companyId);
         }
     }
     

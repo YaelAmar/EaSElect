@@ -7,20 +7,16 @@ import { Component, Input } from "@angular/core";
   })
   export class ElectionComponent {
   electionId:number;
- 
+ isElelctionAdded:boolean
   ngOnInit()
   {
 
   }
   OnElectionAdded(electionId)
   {
-    console.log(this.electionId+"  "+electionId)
    this.electionId=electionId;
-   console.log(this.electionId+"  "+electionId)
-
   }
-  getElectionId()
-  {
-    return this.electionId;
+  OnElectionOptionAdded(isElelctionAdded:boolean){
+    this.isElelctionAdded=isElelctionAdded;
   }
 }

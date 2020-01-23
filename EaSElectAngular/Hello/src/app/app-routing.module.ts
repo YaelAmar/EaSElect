@@ -7,6 +7,7 @@ import { SignUpComponent } from './Components/SignUp/SignUp.component';
 import { HomeComponent } from './Components/Home/Home.component';
 import { AddVotersComponent } from './Components/AddVoters/AddVoters.component';
 import { ElectionComponent } from './Components/Election/Election.component';
+import { EditElectionComponent } from './Components/EditElection/EditElection.component';
 
 
 
@@ -17,7 +18,9 @@ export const appRoutes: Routes = [
    { path: 'LogIn', component: LogInComponent },
    { path: 'SignUp', component: SignUpComponent },
    { path:'AddVoters/:id',component:AddVotersComponent},
-   { path:'Election/:id',component:ElectionComponent,pathMatch:'full'}
+   { path:'Election/:id',component:ElectionComponent,pathMatch:'full'},
+   { path:'EditElection/:id',component:EditElectionComponent,pathMatch:'full'}
+
    
   ]
 

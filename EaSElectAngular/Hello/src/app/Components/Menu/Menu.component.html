@@ -1,0 +1,8 @@
+<div>
+    <button mat-button>בחירות חדשות</button>
+    <button mat-button [matMenuTriggerFor]="afterMenu">בחירות קיימות</button>
+    <mat-menu #afterMenu="matMenu" xPosition="before">
+      <button mat-menu-item *ngFor="let item of ElectionsList" (click)="SelectedElection()">{{item.ElectionName}}</button>
+    </mat-menu>
+    <button mat-button>בחירות עכשיו</button>
+</div>

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   })
   
   export class MainComponent {
-
+   // time = {hour: 13, minute: 30};
    constructor(private router:Router){
      }
   ngOnInit()

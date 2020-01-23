@@ -29,6 +29,13 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { MainComponent } from './Components/Main/Main.component';
 import { ElectionComponent } from './Components/Election/Election.component';
 import { MatFileUploadModule } from 'angular-material-fileupload';
+import { MenuComponent } from './Components/Menu/Menu.component';
+import { IdentifyVoterComponent } from './Components/IdentifyVoter/IdentifyVoter.component';
+import { EditElectionComponent } from './Components/EditElection/EditElection.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { Election } from './Models/election.model';
+import { EmailService } from './Services/email.service';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +47,10 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     LogInComponent,
     SignUpComponent,
     HomeComponent,
-    AddVotersComponent
+    AddVotersComponent,
+    MenuComponent,
+    IdentifyVoterComponent,
+    EditElectionComponent
     // Injectable,
     // ElementRef
   ],
@@ -55,7 +65,9 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     BrowserAnimationsModule,
     FlexLayoutModule,
     NgxMaterialTimepickerModule,
-    MatFileUploadModule
+    MatFileUploadModule,
+    NgbModule
+  //  NgbdTimepickerBasic
   
    ],
 
@@ -65,7 +77,9 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     ElectionService,
     ElectionResult,
     TypeService,
-    VoterService
+    VoterService,
+    Election,
+    EmailService
 
     
   ],
