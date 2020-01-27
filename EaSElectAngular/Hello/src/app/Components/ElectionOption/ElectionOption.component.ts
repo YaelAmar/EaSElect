@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { ElectionOptionService } from "../../Services/electionOption.service";
 import { ElectionOption } from "../../Models/electionOption.model";
-import { Subscription } from "rxjs/Subscription";
+
 @Component({
     selector: 'app-electionOption',
     templateUrl: './electionOption.component.html',
@@ -9,9 +9,7 @@ import { Subscription } from "rxjs/Subscription";
   })
   export class ElectionOptionComponent {
   
-    subscribe:any;
     newElectionOption:ElectionOption=new ElectionOption();
-    subscripion:Subscription
     countOptions:number=0
     @Input()  electionId:number
     @Output() isElectionAdded=new EventEmitter<boolean>();
@@ -22,8 +20,6 @@ import { Subscription } from "rxjs/Subscription";
    ngOnInit() {
     this.newElectionOption.ElectionId=this.electionId;
    }
-  
-
 
    AddElectionOption(frm:any){
     this.electionOptionService.AddNewElectionOption(this.newElectionOption).subscribe(electionOptionId=>{
@@ -41,8 +37,5 @@ import { Subscription } from "rxjs/Subscription";
    AddVoters(){
      this.isElectionAdded.emit(true)
    }
-   ngOnDestroy()
-   {
-    this.subscripion.unsubscribe();
-   }
+  
 }

@@ -16,12 +16,14 @@ namespace API.Controllers
         GeneralBL GeneralBL = new GeneralBL();
         
         [HttpPost]
-        [Route("api/voter/loadDataVoters/{electionId}")]
-        public int LoadDataVoters(int electionId)
+        [Route("api/voter/loadDataVoters")]
+        public int LoadDataVoters()
         {
             HttpPostedFile file = HttpContext.Current.Request.Files[0];
-            file.SaveAs("path"+file.FileName);
-           return GeneralBL.LoadDataVoters(file.FileName, electionId);
+            string path = HttpContext.Current.Server.MapPath("~/Content/Files/" + file.FileName);
+            file.SaveAs(path);
+            int electionId = int.Parse(HttpContext.Current.Request.Params["electionId"]);
+           return GeneralBL.LoadDataVoters(path, electionId);
         }
         public void UploadFile()
         {

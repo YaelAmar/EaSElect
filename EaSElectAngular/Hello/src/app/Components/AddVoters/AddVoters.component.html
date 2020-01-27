@@ -1,22 +1,12 @@
 <div>
-    <input type="file" (click)="upload()" value="טען פרטי בוחרים">
-
+    <input type="file" (change)="upload(fileUpload)" #fileUpload value="טען פרטי בוחרים">
+<br>
     <label>פרטי בוחרים יופיעו בקובץ אקסל שישמר בשם .csvקובץ ( יופיעו קוד טביעת Aבעמודה הראשונה ) האצבע של הבוחרים. בעמודה האחרונה יופיעו כתובות המייל שלהם. בעמודה השלישית ואילך יופיעו סיווגים שלפיהם אתם מעוניינים לסווג את הבוחרים. השורה הראשונה תכיל את כותרות הסיווגים.</label>
     <br>
-    <input type="file" (click)="upload()" value="טען מיילים">
+    <input type="file" (change)="uploadEmailList(emailUpload)" #emailUpload value="טען מיילים">
     <br>
     <input type="button" value="שלח מיילים לבוחרים" (click)="SendEmailsToVoters()">
-    <!-- <input type="file"  (change)="LoadDataEmails($event)">
-
-
-
-
-     <input id="singleFile" type="file" [fileUploadInputFor]= "fileUploadQueue"/>
-    <mat-file-upload-queue #fileUploadQueue
-    [fileAlias]="'file'"
-    [httpUrl]="uploadUrl">
- 
-    <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index"></mat-file-upload>
-</mat-file-upload-queue> -->
-
+    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKBROILoIY2uOIHu3dmzxpioBKlXruPYGXJzuLJueUglwdoRtMJDdAZlbuuREYY7UsgL95HEvjKSc3/pub?output=csv">לחץ כדי לצפות בקובץ לדוגמא</a>
+<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKBROILoIY2uOIHu3dmzxpioBKlXruPYGXJzuLJueUglwdoRtMJDdAZlbuuREYY7UsgL95HEvjKSc3/pubhtml?widget=true&amp;headers=false">kkk</a>
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKBROILoIY2uOIHu3dmzxpioBKlXruPYGXJzuLJueUglwdoRtMJDdAZlbuuREYY7UsgL95HEvjKSc3/pubhtml?widget=true&amp;headers=false">ifrff</iframe>
 </div>

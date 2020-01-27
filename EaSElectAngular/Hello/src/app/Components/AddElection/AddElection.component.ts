@@ -1,16 +1,14 @@
-import { Component, Input, OnInit, OnDestroy, Output, EventEmitter } from "@angular/core";
+import { Component, Output, EventEmitter } from "@angular/core";
 import { Election } from "../../Models/election.model";
 import { ElectionService } from "../../Services/election.service";
 import { Subscription } from "rxjs/Subscription";
-import {ActivatedRoute, Router } from "@angular/router";
-
 
 @Component({
     selector: 'app-add-election',
     templateUrl: './addElection.component.html',
     styleUrls: ['./addElection.component.css']
   })
-  export class AddElectionComponent implements OnInit,OnDestroy  {
+  export class AddElectionComponent  {
     newElection:Election=new Election();
     subscribe:any;
     dateNow=new Date();
@@ -19,15 +17,12 @@ import {ActivatedRoute, Router } from "@angular/router";
   
 
  
-    constructor(private  electionService:ElectionService,private route: ActivatedRoute,private router:Router){
+    constructor(private  electionService:ElectionService){
     }
   
    ngOnInit()
    {
-      this.subscripion=this.route.params.subscribe((params:any)=>{ 
-      console.log(params['id'])
-      this.newElection.CompanyId=params['id']
-    });
+    this.newElection.CompanyId=+sessionStorage.getItem('companyId');
    }
    AddElection(frm:any){
       console.log(this.newElection.CompanyId,this.newElection.ElectionName,this.newElection.StartDate,this.newElection.EndDate);
@@ -35,20 +30,11 @@ import {ActivatedRoute, Router } from "@angular/router";
       this.newElection.ElectionId=electionId;
        if(electionId!=0)
        {
-         console.log("succesfuly");
-         console.log(electionId);
-
          this.addElection.emit(electionId);
-
-     //    this.router.navigate(['/AddElectionOption',electionId]);
        }
      else 
      console.log("בחירות אלו כבר קיימות במערכת")
   
       });
-   }
-   ngOnDestroy()
-   {
-    this.subscripion.unsubscribe();
    }
 }

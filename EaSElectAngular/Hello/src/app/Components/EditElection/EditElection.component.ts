@@ -18,10 +18,6 @@ import { Subscription } from 'rxjs';
      }
   ngOnInit()
   {
-    this.subscripion=this.route.params.subscribe((params:any)=>{ 
-      console.log(params['id'])
-      this.companyId=params['id']
-    });
-  
+      this.companyId=+sessionStorage.getItem('companyId')
   }
 }

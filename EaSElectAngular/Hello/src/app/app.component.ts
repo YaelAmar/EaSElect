@@ -14,19 +14,9 @@ export class AppComponent {
   model = new Model();
   title = 'אתר הבחירות שיחסוך לכם זמן וכח';
 
- 
-  getName() {
-    return this.model.user;
-  }
-
-  getToDoItems() {
-    return  this.model.items.filter(item => !item.done);
-  }
-
-  addItem(newItem) {
-    if (newItem !== '') {
-      this.model.items.push(new ToDoItem(newItem, false));
-    }
+  isRegistered()
+  {
+    return (sessionStorage.getItem('companyId')!=null)
   }
 
   

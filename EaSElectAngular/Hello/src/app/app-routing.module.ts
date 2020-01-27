@@ -12,14 +12,13 @@ import { EditElectionComponent } from './Components/EditElection/EditElection.co
 
 
 export const appRoutes: Routes = [
-   { path:'Home',component:HomeComponent},
    { path: 'AddElection/:id', component: AddElectionComponent,pathMatch: 'full' },
-   { path: 'AddElectionOption/:id', component: ElectionOptionComponent },
+   { path: 'AddElectionOption', component: ElectionOptionComponent },
    { path: 'LogIn', component: LogInComponent },
    { path: 'SignUp', component: SignUpComponent },
-   { path:'AddVoters/:id',component:AddVotersComponent},
-   { path:'Election/:id',component:ElectionComponent,pathMatch:'full'},
-   { path:'EditElection/:id',component:EditElectionComponent,pathMatch:'full'}
+   { path:'AddVoters',component:AddVotersComponent},
+   { path:'Election',component:ElectionComponent,pathMatch:'full'},
+   { path:'EditElection',component:EditElectionComponent,pathMatch:'full'}
 
    
   ]

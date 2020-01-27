@@ -34,8 +34,9 @@ import { Router } from '@angular/router';
     {
     if(companyId!=0)
      {
-       console.log("yes");
-       this.router.navigate(['/EditElection',companyId]);
+
+      sessionStorage.setItem("companyId",companyId.toString())
+      this.router.navigate(['/EditElection']);
      }
      else
   console.log("no");

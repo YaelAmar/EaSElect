@@ -11,3 +11,5 @@ C:\Users\USER\Desktop\EaSElect\EaSElect\Model\obj\Debug\Models.csproj.CopyComple
 C:\Users\USER\Desktop\EaSElect\EaSElect\Model\obj\Debug\Models.dll
 C:\Users\USER\Desktop\EaSElect\EaSElect\Model\obj\Debug\Models.pdb
 C:\Users\USER\Desktop\EaSElect\EaSElect\Model\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\USER\Desktop\EaSElect\EaSElect\Model\bin\Debug\Newtonsoft.Json.dll
+C:\Users\USER\Desktop\EaSElect\EaSElect\Model\bin\Debug\Newtonsoft.Json.xml

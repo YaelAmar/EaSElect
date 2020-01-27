@@ -33,12 +33,12 @@ namespace API.Controllers
 
         }
 
+        
+        [Route("api/election/getAllElections/{companyId}")]
         [HttpGet]
-        [Route("api/election/getAllElections")]
-        public List<Election> GetAllElections(long companyId)
+        public IHttpActionResult GetAllElections(long companyId)
         {
-            List<Election> l= ElectionBL.GetAllElections(companyId);
-            return ElectionBL.GetAllElections(companyId);
+            return Ok(ElectionBL.GetAllElections(companyId));
         }
         public void Options()
         { }

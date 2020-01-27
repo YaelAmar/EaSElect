@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
     selector: 'app-election',
@@ -8,8 +8,10 @@ import { Component, Input } from "@angular/core";
   export class ElectionComponent {
   electionId:number;
  isElelctionAdded:boolean
+ companyId:number
   ngOnInit()
   {
+    this.companyId=+sessionStorage.getItem('companyId');
 
   }
   OnElectionAdded(electionId)

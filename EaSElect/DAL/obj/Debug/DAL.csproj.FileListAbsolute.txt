@@ -30,3 +30,5 @@ C:\Users\USER\Desktop\my project\EaSElect\DAL\bin\Debug\EntityFramework.SqlServe
 C:\Users\USER\Desktop\my project\EaSElect\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\USER\Desktop\my project\EaSElect\DAL\obj\Debug\DAL.dll
 C:\Users\USER\Desktop\my project\EaSElect\DAL\obj\Debug\DAL.pdb
+C:\Users\USER\Desktop\EaSElect\EaSElect\DAL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\USER\Desktop\EaSElect\EaSElect\DAL\bin\Debug\Newtonsoft.Json.xml

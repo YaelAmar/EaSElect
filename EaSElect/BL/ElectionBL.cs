@@ -21,7 +21,8 @@ namespace BL
 
         public List<Election> GetAllElections(long companyId)
         {
-           return ElectionDal.GetAllElections(companyId);
+           var res= ElectionDal.GetAllElections(companyId);
+            return res;
         }
     }
     

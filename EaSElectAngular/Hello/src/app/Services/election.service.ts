@@ -20,9 +20,7 @@ export class ElectionService{
  
     GetAllElections(companyId:number):Observable<Election[]>
     {
-        var _url=this.url+'/getAllElections?';
-        _url+=`companyId=${companyId}`;
-        return this.http.get<Election[]>(`${_url}`);
+        return this.http.get<Election[]>(`${this.url}/getAllElections/${companyId}`);
     }
 
 }

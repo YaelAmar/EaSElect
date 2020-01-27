@@ -23,10 +23,7 @@ import { MaterialModule } from './material.module';
 
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
-//import { Injectable ,ElementRef} from '@angular/core';
-
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { MainComponent } from './Components/Main/Main.component';
 import { ElectionComponent } from './Components/Election/Election.component';
 import { MatFileUploadModule } from 'angular-material-fileupload';
 import { MenuComponent } from './Components/Menu/Menu.component';
@@ -40,7 +37,6 @@ import { EmailService } from './Services/email.service';
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
     ElectionComponent,
     AddElectionComponent,
     ElectionOptionComponent,
@@ -51,8 +47,6 @@ import { EmailService } from './Services/email.service';
     MenuComponent,
     IdentifyVoterComponent,
     EditElectionComponent
-    // Injectable,
-    // ElementRef
   ],
   imports: [
     BrowserModule,

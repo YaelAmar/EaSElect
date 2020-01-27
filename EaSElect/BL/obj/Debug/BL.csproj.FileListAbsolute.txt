@@ -17,3 +17,5 @@ C:\Users\USER\Desktop\EaSElect\EaSElect\BL\bin\Debug\BL.dll.config
 C:\Users\USER\Desktop\EaSElect\EaSElect\BL\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\USER\Desktop\EaSElect\EaSElect\BL\bin\Debug\System.Data.SqlServerCe.dll
 C:\Users\USER\Desktop\EaSElect\EaSElect\BL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\USER\Desktop\EaSElect\EaSElect\BL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\USER\Desktop\EaSElect\EaSElect\BL\bin\Debug\Newtonsoft.Json.xml

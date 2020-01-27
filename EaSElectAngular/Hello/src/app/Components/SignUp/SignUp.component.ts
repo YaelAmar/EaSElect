@@ -12,9 +12,6 @@ import { Router} from "@angular/router";
    
     newCompany:Company=new Company();
     confirmPass:string=this.newCompany.Password;
-    subscribe:any;
-    res:boolean
-  
    constructor(private  companyService:CompanyService,private router: Router){
    }
   
@@ -30,8 +27,8 @@ SignUp(frm:any){
    this.newCompany.CompanyId=companyId; 
    if(companyId!=0)
      {
-       console.log("succesfuly");
-       this.router.navigate(['/Election',companyId]);
+       sessionStorage.setItem("companyId",companyId.toString())
+       this.router.navigate(['/Election']);
      }
    else 
    console.log("בחר שם אחר שם משתמש זה כבר קיים במערכת")
