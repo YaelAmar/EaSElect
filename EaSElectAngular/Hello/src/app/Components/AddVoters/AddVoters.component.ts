@@ -1,6 +1,8 @@
 import { Component, Input } from "@angular/core";
 import { VoterService } from "../../Services/voter.service";
 import { EmailService } from '../../Services/email.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
     selector: 'app-add-voters',
@@ -11,7 +13,7 @@ import { EmailService } from '../../Services/email.service';
 
      @Input() electionId:number
 
-    constructor(private voterService:VoterService,private emailService:EmailService){
+    constructor(private voterService:VoterService,private emailService:EmailService,private router:Router){
       
     }
     ngOnInit() {
@@ -32,6 +34,10 @@ import { EmailService } from '../../Services/email.service';
   }
   uploadEmailList(fileInput){
       this.emailService.uploadEmails(fileInput.files[0],this.electionId).subscribe();
+}
+
+next(){
+  this.router.navigate(['/EditElection']);
 }
 
 }

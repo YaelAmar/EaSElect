@@ -32,6 +32,9 @@ import { EditElectionComponent } from './Components/EditElection/EditElection.co
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Election } from './Models/election.model';
 import { EmailService } from './Services/email.service';
+import { EditElectionDetailsComponent } from './Components/EditElectionDetails/EditElectionDetails.component';
+import { EditElectionOptionsComponent } from './Components/EditElectionOptions/EditElectionOptions.component';
+import { EditVotersComponent } from './Components/EditVoters/EditVoters.component';
 
 
 @NgModule({
@@ -46,7 +49,10 @@ import { EmailService } from './Services/email.service';
     AddVotersComponent,
     MenuComponent,
     IdentifyVoterComponent,
-    EditElectionComponent
+    EditElectionComponent,
+    EditElectionDetailsComponent,
+    EditElectionOptionsComponent,
+    EditVotersComponent
   ],
   imports: [
     BrowserModule,
