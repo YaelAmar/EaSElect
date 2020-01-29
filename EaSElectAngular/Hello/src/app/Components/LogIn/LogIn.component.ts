@@ -35,7 +35,7 @@ import { Router } from '@angular/router';
     if(companyId!=0)
      {
 
-      sessionStorage.setItem("companyId",companyId.toString())
+      sessionStorage.setItem('companyId',companyId.toString())
       this.router.navigate(['/EditElection']);
      }
      else

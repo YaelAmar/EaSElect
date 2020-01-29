@@ -19,12 +19,10 @@ import { EditElectionDetailsComponent } from '../EditElectionDetails/EditElectio
     companyId:number
     ElectionsList: Election[];
     election:Election=new Election();
-  //  @Output() electionToEdit=new EventEmitter<Election>() 
     constructor(private router:Router,private route:ActivatedRoute,private electionService:ElectionService){
      }
   ngOnInit()
   {
-//@ViewChild(EditElectionDetailsComponent) set electio
       this.companyId=+sessionStorage.getItem('companyId')
       this.electionService.GetAllElections(this.companyId).subscribe((list:Election[])=>
       {

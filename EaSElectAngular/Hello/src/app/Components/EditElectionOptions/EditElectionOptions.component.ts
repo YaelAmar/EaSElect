@@ -17,7 +17,9 @@ import { ElectionOptionService } from '../../Services/electionOption.service';
     }
   ngOnInit()
   {
+    console.log(sessionStorage.getItem('electionToEdit'))
     this.electionIdToEdit=+sessionStorage.getItem('electionToEdit')
+    console.log(this.electionIdToEdit);
     this.electionOptionService.GetAllElectionOption(this.electionIdToEdit).subscribe(list=>
       {
         this.electionOptionList=list;
@@ -31,5 +33,5 @@ import { ElectionOptionService } from '../../Services/electionOption.service';
      var f=this.newElectionOptionList.push((value))
      console.log(f)
     }
-     }
+    }
 }

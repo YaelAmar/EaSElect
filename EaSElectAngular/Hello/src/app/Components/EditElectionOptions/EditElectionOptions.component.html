@@ -3,8 +3,11 @@
 <label>אופציות הבחירה</label>
      <table>
             <tr *ngFor="let item of electionOptionList">
+              <!-- <td>{{item.ElectionOptionName}}</td> -->
               <td><input type="text" value="{{item.ElectionOptionName}}"></td>
-              <!-- <td><input type="text" #addOption></td>  -->
+            </tr>
+            <tr>
+              <td *ngIf="addStatus==true"><input type="text"  #addOption></td> 
             </tr>
    </table>
 <input type="button" value="+" (click)="showAndAddOption(addOption)"> 
