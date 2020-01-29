@@ -79,7 +79,8 @@ import { EditVotersComponent } from './Components/EditVoters/EditVoters.componen
     TypeService,
     VoterService,
     Election,
-    EmailService
+    EmailService,
+    
 
     
   ],

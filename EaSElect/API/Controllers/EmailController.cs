@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace API.Controllers
@@ -12,14 +13,16 @@ namespace API.Controllers
     {
         GeneralBL GeneralBL = new GeneralBL();
         EmailBL EmailBL = new EmailBL();
-        [HttpPost,HttpGet]
+        [HttpPost, HttpGet]
         [Route("api/email/loadEmails")]
-        public long LoadEmails(string path,long electionId)
+        public long LoadEmails()
         {
-         //  return GeneralBL.LoadEmails(fileDetails.FilePath, fileDetails.ElectionId);
-           return  GeneralBL.LoadEmails(path, electionId);
+            HttpPostedFile file = HttpContext.Current.Request.Files[0];
+            string path = HttpContext.Current.Server.MapPath("~/Content/Files/" + file.FileName);
+            file.SaveAs(path);
+            int electionId = int.Parse(HttpContext.Current.Request.Params["electionId"]);
+            return GeneralBL.LoadEmails(path, electionId);
         }
-
 
         //פונקציה שולחת מייל לבוחרים עם לינק לבחור
         [HttpPost]

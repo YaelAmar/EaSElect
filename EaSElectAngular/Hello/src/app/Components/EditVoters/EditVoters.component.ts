@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { Election } from '../../Models/election.model';
 
 @Component({
     selector: 'app-editVoters',
@@ -6,10 +7,12 @@ import { Component } from "@angular/core";
     styleUrls: ['./editVoters.component.css']
   })
   export class EditVotersComponent {
- 
+    electionToEdit:number
   ngOnInit()
   {
-
+    this.electionToEdit=+sessionStorage.getItem('electionToEdit')
+    console.log(this.electionToEdit)
+    
   }
  
 }

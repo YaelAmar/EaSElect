@@ -1,15 +1,18 @@
-import { Component } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Election } from '../../Models/election.model';
 
 @Component({
     selector: 'app-editElectionDetails',
-    templateUrl: './editElectionDetails.component.html',
-    styleUrls: ['./editElectionDetails.component.css']
+    templateUrl: './EditElectionDetails.component.html',
+    styleUrls: ['./EditElectionDetails.component.css']
   })
   export class EditElectionDetailsComponent {
  
+    @Input() electionToEdit:Election=new Election()
   ngOnInit()
   {
-
+    
+    console.log(this.electionToEdit)
   }
- 
+
 }
