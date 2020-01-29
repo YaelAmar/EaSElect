@@ -1,19 +1,12 @@
-.error{
-    color: red;
-    
-}
 
-p {
-    font-family: Lato;
-  }
-/* 
-  input.ng-touched.ng-invalid {
-    border: 1px solid red;
-  } */
-  .image{
-    text-align: center;
-    margin: auto;  
-  }
+
+  
   #loginBtn{
       background-color:#00ffff;
+  }
+  #frm{
+      height: 250px;
+      top:10vh;
+      border-radius: 15%;
+      width: 250px;
   }

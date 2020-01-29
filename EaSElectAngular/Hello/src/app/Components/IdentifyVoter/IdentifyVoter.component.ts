@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
 
 
 @Component({
-    selector: 'app-IdentifyVoter',
-    templateUrl: './IdentifyVoter.component.html',
-    styleUrls: ['./IdentifyVoter.component.css']
+    selector: 'app-identifyVoter',
+    templateUrl: './identifyVoter.component.html',
+    styleUrls: ['./identifyVoter.component.css']
   })
   
   export class IdentifyVoterComponent {

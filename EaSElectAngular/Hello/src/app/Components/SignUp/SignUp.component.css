@@ -2,7 +2,19 @@
     background-color:#00ffff;
     
 }
-.image{
-    text-align: center;
-    margin: auto;  
+
+.gradient{
+    background-image: linear-gradient(to right, #008bfb,#00ffff );
+  }
+ 
+  .example-full-width{
+    font-family: Stanga AAA;
+  }
+
+  
+  #frm{
+    height: 450px;
+    top:5vh;
+    border-radius: 15%;
+    width: 400px;
   }

@@ -2,11 +2,60 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css'; 
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Stanga AAA;
     direction: rtl;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.image{
+    padding-top: 10vh;
+    text-align: center;
+    margin: auto;  
+  }
+
+
+
+
+/* דפי כניסה*/
 .btnOK{
     background-color:#00ffff;
+    font-family: Stanga AAA;
+    font-size: 20px;
 }
+.btnfrm{
+width: 25%;
+align-items: center;
+margin: auto;
+position: relative;
+left: -5%;
+top:25px;
+}
+.error{
+    color: #008bfb;
+    font-family: Stanga AAA;
+}
+.example-full-width{
+    font-family: Stanga AAA;
+ font-size:20px;
+  }
+  .gradient{
+    background-image: linear-gradient(to right, #008bfb,#00ffff );
+  }
+  .frm{
+   
+    background-color: white;
+   
+    margin:auto;
+    padding: 2%;
+    position: relative;
+    text-align: center;  
+  
+  }
+  .input{
+    margin: -3%;
+  }
+  form{
+    margin-top: 25px;
+  }
+
+  /* דפי מנהל עריכה הצגה וכד'*/

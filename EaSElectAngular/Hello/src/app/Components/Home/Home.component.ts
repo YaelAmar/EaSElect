@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
   
    ngOnInit()
    {
-    
+   sessionStorage.setItem('enter','1')
    }
   LogIn(){
     this.router.navigate(['/LogIn']);
