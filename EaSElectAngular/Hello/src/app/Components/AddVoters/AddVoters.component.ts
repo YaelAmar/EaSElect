@@ -31,13 +31,16 @@ import { Route } from '@angular/compiler/src/core';
 
     upload(fileInput) {
     this.voterService.uploadFile(fileInput.files[0],this.electionId).subscribe();
+    console.log("הבוחרים נטענו בהצלחה")
   }
   uploadEmailList(fileInput){
       this.emailService.uploadEmails(fileInput.files[0],this.electionId).subscribe();
+  console.log("מיילי הבוחרים נטענו בהצלחה")
+
 }
 
 next(){
-  this.router.navigate(['/EditElection']);
+  this.router.navigate(['/EditElection',this.electionId]);
 }
 
 }

@@ -17,7 +17,7 @@ import { Subscription } from "rxjs/Subscription";
   
 
  
-    constructor(private  electionService:ElectionService){
+    constructor(private electionService:ElectionService){
     }
   
    ngOnInit()

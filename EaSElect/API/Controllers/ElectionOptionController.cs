@@ -18,6 +18,12 @@ namespace API.Controllers
         {
             return ElectionOptionBL.AddNewElectionOption(electionOption);
         }
+        [Route("api/electionOption/getAllElectionOptions/{electionId}")]
+        [HttpGet]
+        public IHttpActionResult GetAllElectionOptions(long electionId)
+        {
+            return Ok(ElectionOptionBL.GetAllElectionOptions(electionId));
+        }
         //מחיקת אופציית בחירה
         public void Delete(int electionOptionId)
         {

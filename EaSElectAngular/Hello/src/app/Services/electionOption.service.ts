@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ElectionOptionService{
-
+ 
     url='http://localhost:55866/api/electionOption'
     constructor(private http:HttpClient){
     }
@@ -13,4 +13,10 @@ export class ElectionOptionService{
         let  headers=new Headers({'Content-type':'application/json; charset=utf-8'});
         return this.http.post<number>(`${this.url}/addElectionOption`,newElectionOption);
     }
+
+    GetAllElectionOption(electionId:number):Observable<ElectionOption[]> {
+        return this.http.get<ElectionOption[]>(`${this.url}/getAllElectionOptions/${electionId}`);
+
+    }
+    
 }
