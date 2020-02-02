@@ -11,15 +11,25 @@ namespace BL
     public class ElectionOptionBL
     {
         ElectionOptionDal ElectionOptionDal = new ElectionOptionDal();
-        public long AddNewElectionOption(Models.ElectionOption electionOption)
+        public long Add(ElectionOption electionOption)
         {
-          return  ElectionOptionDal.AddNewElectionOption(electionOption);
+          return  ElectionOptionDal.Add(electionOption);
         }
 
-        public List<ElectionOption> GetAllElectionOptions(long electionId)
+        public List<ElectionOption> Get(long electionId)
         {
-            var res= ElectionOptionDal.GetAllElectionOptions(electionId);
+            var res= ElectionOptionDal.Get(electionId);
             return res;
+        }
+
+        public void Delete(long electionOptionId)
+        {
+            ElectionOptionDal.Delete(electionOptionId);
+        }
+
+        public void Edit(ElectionOption electionOption)
+        {
+            ElectionOptionDal.Edit(electionOption);
         }
     }
 }

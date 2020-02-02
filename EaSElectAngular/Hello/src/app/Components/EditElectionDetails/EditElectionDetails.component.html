@@ -1,7 +1,7 @@
 <div>
     <label>פרטי בחירות, לחץ לשינוי</label>
 
-    <form novalidate #frm="ngForm">
+    <form novalidate #frm="ngForm" (submit)="EditElection(frm)">
             <div>
                 <mat-form-field class="example-full-width">
                     <input matInput placeholder="שם בחירות" name="electionName" [(ngModel)]="electionToEdit.ElectionName" type="text" #electionName="ngModel" required maxlength="50">
@@ -34,11 +34,10 @@
                 <ngx-material-timepicker-toggle [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
                 <ngx-material-timepicker #toggleTimepicker></ngx-material-timepicker>
             </div>
-                <!-- <mat-chip-list aria-label="Fish selection">
-                    <button mat-button type="submit" [disabled]="!frm.valid" class="btnOK"  selected>הבא</button>
-                    </mat-chip-list> -->
+                <mat-chip-list aria-label="Fish selection">
+                    <button mat-button type="submit" [disabled]="!frm.valid" class="btnOK"  selected>שמור שינויים</button>
+                    </mat-chip-list>
             </form>
-
 
 
 </div>

@@ -43,4 +43,5 @@ next(){
   this.router.navigate(['/EditElection',this.electionId]);
 }
 
+
 }

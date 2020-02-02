@@ -1,4 +1,5 @@
 ﻿using BL;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,27 +13,31 @@ namespace API.Controllers
     {
         ElectionOptionBL ElectionOptionBL = new ElectionOptionBL();
         [HttpPost]
-        [Route("api/electionOption/addElectionOption")]
+        [Route("api/electionOption/add")]
         //הוספת אופציית בחירה
-        public long AddNewElectionOption(Models.ElectionOption electionOption)
+        public long AddNewElectionOption(ElectionOption electionOption)
         {
-            return ElectionOptionBL.AddNewElectionOption(electionOption);
+            return ElectionOptionBL.Add(electionOption);
         }
-        [Route("api/electionOption/getAllElectionOptions/{electionId}")]
+        [Route("api/electionOption/get/{electionId}")]
         [HttpGet]
-        public IHttpActionResult GetAllElectionOptions(long electionId)
+        public IHttpActionResult Get(long electionId)
         {
-            return Ok(ElectionOptionBL.GetAllElectionOptions(electionId));
+            return Ok(ElectionOptionBL.Get(electionId));
         }
         //מחיקת אופציית בחירה
-        public void Delete(int electionOptionId)
+        [Route("api/electionOption/delete/{electionOptionId}")]
+        [HttpGet]
+        public void Delete(long electionOptionId)
         {
-
+             ElectionOptionBL.Delete(electionOptionId);
         }
         //עדכון אופצייה
-        public void Update(int electionOptionId)
+        [HttpPost]
+        [Route("api/electionOption/edit")]
+        public void Edit(ElectionOption electionOption)
         {
-
+             ElectionOptionBL.Edit(electionOption);
         }
 
     }
