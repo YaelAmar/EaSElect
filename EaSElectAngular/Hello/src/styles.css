@@ -14,8 +14,6 @@ html, body { height: 100%; }
   }
 
 
-
-
 /* דפי כניסה*/
 .btnOK{
     background-color:#00ffff;
@@ -34,7 +32,7 @@ top:25px;
     color: #008bfb;
     font-family: Stanga AAA;
 }
-.example-full-width,mat-form-field{
+.example-full-width{
     font-family: Stanga AAA;
  font-size:20px;
   }
@@ -55,13 +53,6 @@ top:25px;
     margin: -3%;
   }
  
-  .part{
-    border-width: 1px;
-    border-radius: 15%;
-  /*  border-image: linear-gradient(to right, #008bfb,#00ffff );*/
-  border-color: #008bfb;
-   border-style: solid;
-   width: 350px;
-}
+ 
 
   /* דפי מנהל עריכה הצגה וכד'*/
