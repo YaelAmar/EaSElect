@@ -6,7 +6,7 @@ import { Election } from '../Models/election.model';
 
 @Injectable()
 export class ElectionService{
- 
+
     url='http://localhost:55866/api/election'
     constructor(private http:HttpClient){
 
@@ -15,12 +15,15 @@ export class ElectionService{
     AddNewElection(newElection:Election):Observable<number>
     {
         let  headers=new Headers({'Content-type':'application/json; charset=utf-8'});
-        return this.http.post<number>(`${this.url}/addElection`,newElection);
+        return this.http.post<number>(`${this.url}/add`,newElection);
     }
  
     GetAllElections(companyId:number):Observable<Election[]>
     {
-        return this.http.get<Election[]>(`${this.url}/getAllElections/${companyId}`);
+        return this.http.get<Election[]>(`${this.url}/get/${companyId}`);
     }
-
+    EditElection(electionToEdit: Election):Observable<void> {
+        return this.http.post<void>(`${this.url}/edit`,electionToEdit);
+      }
+     
 }

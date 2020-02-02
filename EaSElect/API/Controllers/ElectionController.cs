@@ -14,9 +14,9 @@ namespace API.Controllers
         ElectionBL ElectionBL = new ElectionBL();
         EmailBL EmailBL = new EmailBL(); 
         [HttpPost]
-        [Route("api/election/addElection")]
+        [Route("api/election/add")]
         //הוספת בחירות
-        public long AddNewElection(Models.Election newElection)
+        public long Add(Election newElection)
         {
           return  ElectionBL.AddNewElection(newElection);
         }
@@ -28,15 +28,17 @@ namespace API.Controllers
            
         }
         //עדכון פרטי בחירות
-        public void Update(int electionId)
+        [HttpPost]
+        [Route("api/election/add")]
+        public void Edit(Election election)
         {
-
+            ElectionBL.Edit(election);
         }
 
         
-        [Route("api/election/getAllElections/{companyId}")]
         [HttpGet]
-        public IHttpActionResult GetAllElections(long companyId)
+        [Route("api/election/get/{companyId}")]
+        public IHttpActionResult Get(long companyId)
         {
             return Ok(ElectionBL.GetAllElections(companyId));
         }

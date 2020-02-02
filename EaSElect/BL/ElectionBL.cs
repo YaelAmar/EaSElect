@@ -15,14 +15,19 @@ namespace BL
         public long AddNewElection(Election newElection)
         {
        //   newElection.CompanyId= ElectionDal.FindCompanyId((int)newElection.CompanyId);
-          return ElectionDal.AddNewElection(newElection);
+          return ElectionDal.Add(newElection);
              
         }
 
         public List<Election> GetAllElections(long companyId)
         {
-           var res= ElectionDal.GetAllElections(companyId);
+           var res= ElectionDal.Get(companyId);
             return res;
+        }
+
+        public void Edit(Election election)
+        {
+            ElectionDal.Edit(election);
         }
     }
     

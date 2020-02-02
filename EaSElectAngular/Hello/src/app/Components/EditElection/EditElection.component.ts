@@ -32,7 +32,7 @@ import { EditElectionDetailsComponent } from '../EditElectionDetails/EditElectio
         for(let item of this.ElectionsList)
             {
             var tmp=new Date(item.StartDate);
-            if(tmp>currentDate)
+         //   if(tmp>currentDate)
                {
                  this.election=item
                  sessionStorage.setItem('electionToEdit',this.election.ElectionId.toString())

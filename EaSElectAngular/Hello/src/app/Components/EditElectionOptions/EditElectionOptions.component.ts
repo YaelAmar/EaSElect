@@ -10,14 +10,13 @@ import { ElectionOptionService } from '../../Services/electionOption.service';
   export class EditElectionOptionsComponent {
     electionIdToEdit:number
     electionOptionList:ElectionOption[]
-    newElectionOptionList:string[]
     addStatus:boolean=false
+    newOption:ElectionOption=new ElectionOption()
     constructor(private electionOptionService:ElectionOptionService){
     
     }
   ngOnInit()
   {
-    console.log(sessionStorage.getItem('electionToEdit'))
     this.electionIdToEdit=+sessionStorage.getItem('electionToEdit')
     console.log(this.electionIdToEdit);
     this.electionOptionService.GetAllElectionOption(this.electionIdToEdit).subscribe(list=>
@@ -25,13 +24,31 @@ import { ElectionOptionService } from '../../Services/electionOption.service';
         this.electionOptionList=list;
         console.log(this.electionOptionList)
       });
+      this.newOption.ElectionId=this.electionIdToEdit;
   }
-  showAndAddOption(value:string){
+  showAndAddOption(electionOptionName:string){
     this.addStatus=true
-    if(value!=null)
-    {
-     var f=this.newElectionOptionList.push((value))
-     console.log(f)
+    if(electionOptionName!=null)
+     {
+     this.electionOptionService.AddNewElectionOption(this.newOption).subscribe(electionOptionId=>
+      {
+        this.newOption.ElectionOptionId=electionOptionId;
+        console.log("yes "+this.newOption.ElectionOptionName,this.newOption.ElectionOptionId)
+     this.ngOnInit()
+    })
+     this.newOption=new ElectionOption()
+    
+
+      }
     }
+    editOption(electionOption:ElectionOption,optionName:string){
+  
+   electionOption.ElectionOptionName=optionName;
+   this.electionOptionService.Edit(electionOption).subscribe();
+    }
+     deleteOption(electionOption:ElectionOption){
+        this.electionOptionService.DeleteOption(electionOption.ElectionOptionId).subscribe();
+        this.ngOnInit()
+        console.log("delete")
     }
 }

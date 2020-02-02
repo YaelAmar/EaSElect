@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace DAL
     public class ElectionDal
     {
         ElectionsDBEntities DB = new ElectionsDBEntities();
-        public long AddNewElection(Election newElection)
+        public long Add(Election newElection)
         {
             if (DB.Elections.Any(c => c.ElectionName == newElection.ElectionName && c.StartDate == newElection.StartDate && c.EndDate==newElection.EndDate))
                 return 0;
@@ -19,7 +20,14 @@ namespace DAL
             return DB.Elections.Where((c) => c.ElectionName== newElection.ElectionName && c.StartDate == newElection.StartDate && c.EndDate == newElection.EndDate).Select(l => l.ElectionId).ToList()[0];
          }
 
-        public List<Election> GetAllElections(long companyId)
+        public void Edit(Election election)
+        {
+            DB.Entry(election).State = EntityState.Modified;
+            DB.SaveChanges();
+
+        }
+
+        public List<Election> Get(long companyId)
         {
             return DB.Elections.Where(c => c.CompanyId == companyId).ToList();
         }
