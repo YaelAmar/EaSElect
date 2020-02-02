@@ -1,5 +1,7 @@
 
-
+img{
+    width: 50%;
+}
   
   #loginBtn{
       background-color:#00ffff;
@@ -8,5 +10,8 @@
       height: 250px;
       top:10vh;
       border-radius: 15%;
-      width: 250px;
+      width: 270px;
+  }
+  form{
+    margin-top: 25px;
   }

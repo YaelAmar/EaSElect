@@ -1,11 +1,2 @@
 
 
-.part{
-    border-width: 1px;
-    border-radius: 15%;
-  /*  border-image: linear-gradient(to right, #008bfb,#00ffff );*/
-  border-color: #008bfb;
-   border-style: solid;
-   width: 28vh;
-
-}

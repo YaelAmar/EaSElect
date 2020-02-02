@@ -31,6 +31,7 @@ import { IdentifyVoterComponent } from './Components/IdentifyVoter/IdentifyVoter
 import { EditElectionComponent } from './Components/EditElection/EditElection.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Election } from './Models/election.model';
+//import { NgbdTimepickerBasic } from './timepicker-basic';
 import { EmailService } from './Services/email.service';
 import { EditElectionDetailsComponent } from './Components/EditElectionDetails/EditElectionDetails.component';
 import { EditElectionOptionsComponent } from './Components/EditElectionOptions/EditElectionOptions.component';
@@ -53,6 +54,8 @@ import { EditVotersComponent } from './Components/EditVoters/EditVoters.componen
     EditElectionDetailsComponent,
     EditElectionOptionsComponent,
     EditVotersComponent
+   
+  
   ],
   imports: [
     BrowserModule,
@@ -67,8 +70,7 @@ import { EditVotersComponent } from './Components/EditVoters/EditVoters.componen
     NgxMaterialTimepickerModule,
     MatFileUploadModule,
     NgbModule
-  //  NgbdTimepickerBasic
-  
+    
    ],
 
   providers: [

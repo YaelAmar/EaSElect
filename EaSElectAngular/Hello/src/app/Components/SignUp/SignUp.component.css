@@ -1,5 +1,6 @@
 #signUpBtn{
     background-color:#00ffff;
+ 
     
 }
 
@@ -10,11 +11,21 @@
   .example-full-width{
     font-family: Stanga AAA;
   }
-
+.btnOK{
+  top:-27px
+}
   
   #frm{
-    height: 450px;
-    top:5vh;
+    height: 370px;
+    top:1vh;
     border-radius: 15%;
-    width: 400px;
+    width: 350px;
   }
+  img{
+    width: 35%;
+  }
+  form{
+   margin-top: -10px;
+   height: 350px;
+  }
+ 

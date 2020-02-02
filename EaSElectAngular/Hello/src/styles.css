@@ -8,7 +8,7 @@ body{
 html, body { height: 100%; }
 
 .image{
-    padding-top: 10vh;
+    padding-top: 7vh;
     text-align: center;
     margin: auto;  
   }
@@ -34,14 +34,14 @@ top:25px;
     color: #008bfb;
     font-family: Stanga AAA;
 }
-.example-full-width{
+.example-full-width,mat-form-field{
     font-family: Stanga AAA;
  font-size:20px;
   }
   .gradient{
     background-image: linear-gradient(to right, #008bfb,#00ffff );
   }
-  .frm{
+.frm{
    
     background-color: white;
    
@@ -54,8 +54,14 @@ top:25px;
   .input{
     margin: -3%;
   }
-  form{
-    margin-top: 25px;
-  }
+ 
+  .part{
+    border-width: 1px;
+    border-radius: 15%;
+  /*  border-image: linear-gradient(to right, #008bfb,#00ffff );*/
+  border-color: #008bfb;
+   border-style: solid;
+   width: 350px;
+}
 
   /* דפי מנהל עריכה הצגה וכד'*/

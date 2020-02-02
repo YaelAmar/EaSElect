@@ -1,12 +1,11 @@
 <body>
-<div class="part">
+
     
     <app-add-election (addElection)="OnElectionAdded($event)"></app-add-election>
-</div>
-<div class="part">
+
 <app-electionOption *ngIf="electionId!=null" [electionId]="electionId" (isElectionAdded)="OnElectionOptionAdded($event)"></app-electionOption>
-</div>
-<div class="part">
+
+
 <app-add-voters *ngIf="electionId!=null&&isElelctionAdded==true" [electionId]="electionId"></app-add-voters>
-</div>
+
 </body>
