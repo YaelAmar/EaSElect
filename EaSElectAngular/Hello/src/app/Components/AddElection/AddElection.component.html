@@ -1,5 +1,5 @@
-<div class="part">
-<form novalidate (submit)="AddElection(frm)" #frm="ngForm" class="frm">
+<div >
+<form novalidate (submit)="AddElection(frm)" #frm="ngForm" class="frm part">
 <div>
     <mat-form-field class="example-full-width">
         <input matInput placeholder="שם בחירות" name="electionName" [(ngModel)]="newElection.ElectionName" type="text" #electionName="ngModel" required maxlength="50">
@@ -36,10 +36,11 @@
 
 
 
-
+<div  class="btnfrm">
     <mat-chip-list aria-label="Fish selection">
         <button mat-button type="submit" [disabled]="!frm.valid" class="btnOK"  selected>הבא</button>
         </mat-chip-list>
+</div>
     </form>
     
 </div>
