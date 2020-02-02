@@ -35,6 +35,7 @@ import { EditElectionDetailsComponent } from '../EditElectionDetails/EditElectio
          //   if(tmp>currentDate)
                {
                  this.election=item
+                 debugger
                  sessionStorage.setItem('electionToEdit',this.election.ElectionId.toString())
                }
             }
