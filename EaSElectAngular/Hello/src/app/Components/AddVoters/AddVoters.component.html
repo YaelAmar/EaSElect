@@ -1,4 +1,7 @@
-<div>
+<div >
+    <div class="vertical"></div>
+<div class="frm part">
+    
     <input type="file" (change)="upload(fileUpload)" #fileUpload value="טען פרטי בוחרים">
 <br>
     <label>פרטי בוחרים יופיעו בקובץ אקסל שישמר בשם .csvקובץ ( יופיעו קוד טביעת Aבעמודה הראשונה ) האצבע של הבוחרים. בעמודה האחרונה יופיעו כתובות המייל שלהם. בעמודה השלישית ואילך יופיעו סיווגים שלפיהם אתם מעוניינים לסווג את הבוחרים. השורה הראשונה תכיל את כותרות הסיווגים.</label>
@@ -14,4 +17,5 @@
 <mat-chip-list aria-label="Fish selection">
     <button mat-button type="button" class="btnOK" selected (click)="next()">סיימתי</button>
     </mat-chip-list>
+</div>
 </div>

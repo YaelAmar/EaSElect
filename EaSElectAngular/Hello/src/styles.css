@@ -26,7 +26,7 @@ align-items: center;
 margin: auto;
 position: relative;
 left: -5%;
-bottom: -25px;
+bottom: -50px;
 }
 .error{
     color: #008bfb;
@@ -53,6 +53,26 @@ bottom: -25px;
    height: 70px;
   }
  
- 
+  .part{
+    padding-top: 30px;
+    border-width: 2px;
+    border-radius: 15%;
+  /*  border-image: linear-gradient(to right, #008bfb,#00ffff );*/
+  border-color: #008bfb;
+   border-style: solid;
+   width: 350px;
+   margin-right: 15px;
+   height: 450px;
+   float: right;
+  }
+  .vertical{
+      margin-top: 70px;
+      margin-right: 25px;
+      margin-left: 10px;
+      border-left: 3px solid #00ffff;
+      height:300px;
+      float: right;
+
+  }
 
   /* דפי מנהל עריכה הצגה וכד'*/

@@ -32,9 +32,9 @@ import { Subscription } from "rxjs/Subscription";
     
     console.log(this.newElection.CompanyId,this.newElection.ElectionName,this.newElection.StartDate,this.newElection.EndDate);
       this.electionService.AddNewElection(this.newElection).subscribe(electionId=>{
-        console.log(this.newElection);
-        
+      
       this.newElection.ElectionId=electionId;
+      
        if(electionId!=0)
        {
          this.addElection.emit(electionId);
@@ -43,5 +43,6 @@ import { Subscription } from "rxjs/Subscription";
      console.log("בחירות אלו כבר קיימות במערכת")
   
       });
+
    }
 }
