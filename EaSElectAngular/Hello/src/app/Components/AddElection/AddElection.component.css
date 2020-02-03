@@ -3,16 +3,7 @@
         background-color:#00ffff;
 }
 
-.part{
-    border-width: 2px;
-    border-radius: 15%;
-  /*  border-image: linear-gradient(to right, #008bfb,#00ffff );*/
-  border-color: #008bfb;
-   border-style: solid;
-   width: 350px;
-   margin-right: 15px;
-   height: 550px;
-  }
+
   .timer{
     height: 25% !important;
     line-height: 25% !important;
@@ -22,7 +13,8 @@
     direction: ltr;
   }
   .item{
-      margin:-10%;
-      align-items: center;
+      margin:-7% auto;
+      
   }
+  
   
