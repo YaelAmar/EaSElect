@@ -15,8 +15,8 @@ import { Subscription } from "rxjs/Subscription";
     subscripion:Subscription
    @Output() addElection=new EventEmitter<number>();
   
-  startTime1 = {hour: 0, minute: 8};
-  endTime1={hour:0,minute:22}
+  startTime1 = {hour: 8, minute: 0};
+  endTime1={hour:22,minute:0}
   startDate1:Date
   endDate1:Date
     constructor(private electionService:ElectionService){
@@ -27,11 +27,13 @@ import { Subscription } from "rxjs/Subscription";
     this.newElection.CompanyId=+sessionStorage.getItem('companyId');
    }
    AddElection(frm:any){
-    this.newElection.StartDate=new Date(this.startDate1.getFullYear(),this.startDate1.getMonth(),this.startDate1.getDay(),this.startTime1.minute,this.startTime1.hour)  
-    this.newElection.EndDate=new Date(this.endDate1.getFullYear(),this.endDate1.getMonth(),this.endDate1.getDay(),this.endTime1.minute,this.endTime1.hour)  
+    this.newElection.StartDate=new Date(this.startDate1.getFullYear(),this.startDate1.getMonth(),this.startDate1.getDate(),this.startTime1.hour,this.startTime1.minute)  
+    this.newElection.EndDate=new Date(this.endDate1.getFullYear(),this.endDate1.getMonth(),this.endDate1.getDate(),this.endTime1.hour,this.endTime1.minute)  
     
     console.log(this.newElection.CompanyId,this.newElection.ElectionName,this.newElection.StartDate,this.newElection.EndDate);
       this.electionService.AddNewElection(this.newElection).subscribe(electionId=>{
+        console.log(this.newElection);
+        
       this.newElection.ElectionId=electionId;
        if(electionId!=0)
        {

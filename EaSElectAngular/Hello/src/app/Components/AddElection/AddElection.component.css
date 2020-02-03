@@ -19,6 +19,7 @@
     width: 25% !important;
     line-height: 25% !important ;
     margin: auto;
+    direction: ltr;
   }
   .item{
       margin:-10%;
