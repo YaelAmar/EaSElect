@@ -26,13 +26,13 @@ align-items: center;
 margin: auto;
 position: relative;
 left: -5%;
-top:25px;
+bottom: -25px;
 }
 .error{
     color: #008bfb;
     font-family: Stanga AAA;
 }
-.example-full-width{
+.example-full-width,.date{
     font-family: Stanga AAA;
  font-size:20px;
   }
@@ -50,7 +50,7 @@ top:25px;
   
   }
   .input{
-    margin: -3%;
+   height: 70px;
   }
  
  
