@@ -29,12 +29,11 @@ import { Router } from '@angular/router';
    {
    }
    enter(frm:any){
-   let res=false;
-   this.companyService.Login(this.logIn.UserName,this.logIn.Password).subscribe(companyId=>
+      this.companyService.Login(this.logIn.UserName,this.logIn.Password).subscribe(companyId=>
     {
     if(companyId!=0)
      {
-
+debugger
       sessionStorage.setItem('companyId',companyId.toString())
       this.router.navigate(['/EditElection']);
      }
