@@ -25,5 +25,10 @@ namespace BL
         {
             return TypeDal.IsExistType(typeName);
         }
+
+        public void EmptyTypeDetails(List<long> typeCodes)
+        {
+            TypeDal.EmptyTypeDetails(typeCodes);
+        }
     }
 }

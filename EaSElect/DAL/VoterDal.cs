@@ -21,8 +21,8 @@ namespace DAL
         {
             try
             {
-              var resultnum = DB.IsExistVoter(voterId,electionId).ToList()[0];
-              if (resultnum == 1)
+                var resultnum = DB.IsExistVoter(voterId, electionId).ToList()[0];
+                if (resultnum == 1)
                     return true;
             }
             catch (Exception e)
@@ -36,6 +36,22 @@ namespace DAL
         public long GetCodeVoterById(long voterId, long electionId)
         {
             return DB.Voters.Where(c => c.VoterId == voterId && c.ElectionId == electionId).Select(c => c.VoterCode).ToList()[0];
+        }
+
+        public void EmptyVoters(long electionId)
+        {
+          foreach (Voter item in DB.Voters)
+          {
+                if (item.ElectionId == electionId)
+                {
+                    DB.Voters.Remove(item);
+                    DB.SaveChanges();
+                }
+          }
+        }
+        public List<long> GetAllVoters(long electionId)
+        {
+            return DB.Voters.Where(l => l.ElectionId == electionId).Select(e => e.VoterCode).ToList();
         }
     }
 }

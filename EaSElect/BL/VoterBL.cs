@@ -28,5 +28,15 @@ namespace BL
             int voterId=int.Parse(voterId1);
             return VoterDal.GetCodeVoterById(voterId, electionId);
         }
+
+        public List<long> GetAllVoters(long electionId)
+        {
+           return VoterDal.GetAllVoters(electionId);
+        }
+
+        public void EmptyVoters(long electionId)
+        {
+            VoterDal.EmptyVoters(electionId);
+        }
     }
 }

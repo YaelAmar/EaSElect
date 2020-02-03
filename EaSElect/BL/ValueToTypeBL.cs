@@ -16,5 +16,10 @@ namespace BL
             { VoterCode = voterCode, TypeDetailsId = typeDetailId };
             ValueToTypeDal.AddValueToType(newValueToType);
         }
+
+        public List<long> EmptyValueToTypeAndGetTypeDetailsCodes(List<long> voterCodes)
+        {
+            return ValueToTypeDal.EmptyValueToTypeAndGetTypeDetailsCodes(voterCodes);
+        }
     }
 }

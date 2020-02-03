@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace DAL
 {
     public class TypeDal
     {
-        Models.ElectionsDBEntities DB = new Models.ElectionsDBEntities();
+        ElectionsDBEntities DB = new ElectionsDBEntities();
         public void Add(Models.Type type)
         {
             DB.Types.Add(type);
@@ -35,6 +36,23 @@ namespace DAL
 
             }
             return false;
+        }
+
+        public void EmptyTypeDetails(List<long> typeCodes)
+        {
+            for (int i = 0; i < typeCodes.Count; i++)
+            {
+                foreach (Models.Type type in DB.Types)
+                {
+                    if (type.TypeId == typeCodes[i])
+                    {
+                        DB.Types.Remove(type);
+                        DB.SaveChanges();
+                    }
+                }
+            }
+           
+            
         }
     }
 }

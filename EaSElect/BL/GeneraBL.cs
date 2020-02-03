@@ -23,6 +23,8 @@ namespace BL
         //נתוני הבוחרים מקובץ האקסל, כל אחד לטבלה המתאימה, סוגים, פרטי סוגים, בוחרים וערכים לסווגים
         public int LoadDataVoters(string path, long electionId)
         {
+            //שליחה לונקציה שתרוקן את הטבלאות לני הטענת הקובץ
+            EmptyAllTables(electionId);
             //בדיקה אם נתיב הקובץ חוקי
             bool possiblePath = path.IndexOfAny(Path.GetInvalidPathChars()) == -1;
             if (possiblePath==false)
@@ -116,6 +118,17 @@ namespace BL
             }
             return 1;
         }
+
+        private void EmptyAllTables(long electionId)
+        {
+           List<long> voterCodes= VoterBL.GetAllVoters(electionId);//מחזיר את כל הבוחרים ששיכים לבחירות האלו 
+           List<long> typeDetailsCodes=ValueToTypeBL.EmptyValueToTypeAndGetTypeDetailsCodes(voterCodes);//מחזיר את הקודים של פרטי סיווג ומוחק את ערכים לסווג 
+           List<long> typeCodes=TypeDetailsBL.EmptyTypeDetailsAndGetTypeCodes(typeDetailsCodes);//מחזיר את הקודים של סיווגים ומוחק את פרטי סווג 
+           TypeBL.EmptyTypeDetails(typeCodes);//מוחק את הסוגים
+           VoterBL.EmptyVoters(electionId);//מוחק את הבוחרים
+
+        }
+
         //מציאת מילה מתוך המחרוזת המבטאת סוכ או פריט סווג
         private string SearchWord(string[] values, int j,out int tmp)
         {

@@ -29,5 +29,10 @@ namespace BL
         {
            return TypeDetailsDal.GetTypeDetailIdByName(typeDetail);
         }
+
+        public List<long> EmptyTypeDetailsAndGetTypeCodes(List<long> typeDetailsCodes)
+        {
+            return TypeDetailsDal.EmptyTypeDetailsAndGetTypeCodes(typeDetailsCodes);
+        }
     }
 }
