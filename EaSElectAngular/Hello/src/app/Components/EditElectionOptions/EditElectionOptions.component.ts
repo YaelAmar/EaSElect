@@ -30,11 +30,11 @@ import { ElectionOptionService } from '../../Services/electionOption.service';
     this.addStatus=true
     if(electionOptionName!=null)
      {
-     this.electionOptionService.AddNewElectionOption(this.newOption).subscribe(electionOptionId=>
+     this.electionOptionService.AddOneElectionOption(this.newOption).subscribe(electionOptionId=>
       {
         this.newOption.ElectionOptionId=electionOptionId;
         console.log("yes "+this.newOption.ElectionOptionName,this.newOption.ElectionOptionId)
-     this.ngOnInit()
+        this.ngOnInit()
     })
      this.newOption=new ElectionOption()
     

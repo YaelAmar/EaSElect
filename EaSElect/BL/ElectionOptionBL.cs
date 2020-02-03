@@ -11,11 +11,14 @@ namespace BL
     public class ElectionOptionBL
     {
         ElectionOptionDal ElectionOptionDal = new ElectionOptionDal();
+        public void Add(List<ElectionOption> electionOptionsList)
+        {
+           ElectionOptionDal.Add(electionOptionsList);
+        }
         public long Add(ElectionOption electionOption)
         {
-          return  ElectionOptionDal.Add(electionOption);
+           return ElectionOptionDal.Add(electionOption);
         }
-
         public List<ElectionOption> Get(long electionId)
         {
             var res= ElectionOptionDal.Get(electionId);

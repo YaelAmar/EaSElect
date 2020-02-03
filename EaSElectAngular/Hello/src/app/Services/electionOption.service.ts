@@ -11,9 +11,13 @@ export class ElectionOptionService{
     url='http://localhost:55866/api/electionOption'
     constructor(private http:HttpClient){
     }
-    AddNewElectionOption(newElectionOption:ElectionOption):Observable<number>{
+    AddNewElectionOption(newElectionOption:ElectionOption[]):Observable<void>{
         let  headers=new Headers({'Content-type':'application/json; charset=utf-8'});
-        return this.http.post<number>(`${this.url}/add`,newElectionOption);
+        return this.http.post<void>(`${this.url}/addList`,newElectionOption);
+    }
+    AddOneElectionOption(newElectionOption:ElectionOption):Observable<number>{
+        let  headers=new Headers({'Content-type':'application/json; charset=utf-8'});
+        return this.http.post<number>(`${this.url}/addOne`,newElectionOption);
     }
 
     GetAllElectionOption(electionId:number):Observable<ElectionOption[]> {

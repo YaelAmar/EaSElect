@@ -1,11 +1,18 @@
 <div class="vertical"></div>
-<form novalidate (submit)="AddElectionOption(frm)" #frm="ngForm" class="frm part">                
+<form novalidate (submit)="AddElectionOption(frm)" #frm="ngForm" class="frm part">          
+    
       <div>  
       <mat-form-field class="example-full-width">
               <input matInput placeholder="שם אופציה" type="text" [(ngModel)]="newElectionOption.ElectionOptionName" type="text" #electionOptionName="ngModel" required [ngModelOptions]="{standalone: true}">
         </mat-form-field>
         </div>
+<!--       
 
+      <table *ngIf="newElectionOption!=null">
+        <tr *ngFor="let item of electionOptionList">
+          <td>{{item.ElectionOptionName}}</td>
+        </tr>
+    </table>    -->
 <mat-chip-list aria-label="Fish selection">
                 <button mat-button type="submit" [disabled]="!frm.valid"  id="electionOptionBtn" selected>הוסף אופציה</button>
 </mat-chip-list>

@@ -11,6 +11,7 @@ import { ElectionOption } from "../../Models/electionOption.model";
   
     newElectionOption:ElectionOption=new ElectionOption();
     countOptions:number=0
+    electionOptionList:ElectionOption[]
     @Input()  electionId:number
     @Output() isElectionAdded=new EventEmitter<boolean>();
 
@@ -22,19 +23,11 @@ import { ElectionOption } from "../../Models/electionOption.model";
    }
 
    AddElectionOption(frm:any){
-    this.electionOptionService.AddNewElectionOption(this.newElectionOption).subscribe(electionOptionId=>{
-    this.newElectionOption.ElectionOptionId=electionOptionId;
-     if(electionOptionId!=0)
-     {
-       this.countOptions++;
+     this.electionOptionList.push(this.newElectionOption)
+     console.log(this.electionOptionList)
      }
-   else 
-   console.log("אופציית בחירה זו כבר קיימת בבחירות אלו")
-
-    });
-
-   }
    AddVoters(){
+    this.electionOptionService.AddNewElectionOption(this.electionOptionList).subscribe()     
      this.isElectionAdded.emit(true)
    }
   

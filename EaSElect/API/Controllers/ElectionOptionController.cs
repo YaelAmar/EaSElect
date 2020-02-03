@@ -13,12 +13,21 @@ namespace API.Controllers
     {
         ElectionOptionBL ElectionOptionBL = new ElectionOptionBL();
         [HttpPost]
-        [Route("api/electionOption/add")]
+        [Route("api/electionOption/addList")]
         //הוספת אופציית בחירה
-        public long AddNewElectionOption(ElectionOption electionOption)
+        public void AddNewElectionOption(List<ElectionOption> electionOptionsList)
         {
-            return ElectionOptionBL.Add(electionOption);
+           ElectionOptionBL.Add(electionOptionsList);
         }
+
+        [HttpPost]
+        [Route("api/electionOption/addOne")]
+        //הוספת אופציית בחירה
+        public long AddOneElectionOption(ElectionOption electionOption)
+        {
+           return ElectionOptionBL.Add(electionOption);
+        }
+
         [Route("api/electionOption/get/{electionId}")]
         [HttpGet]
         public IHttpActionResult Get(long electionId)

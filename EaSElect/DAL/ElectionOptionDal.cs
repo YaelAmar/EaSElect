@@ -11,16 +11,26 @@ namespace DAL
     public class ElectionOptionDal
     {
         Models.ElectionsDBEntities DB = new ElectionsDBEntities();
-        public long Add(ElectionOption newElectionOption)
+        public void Add(List<ElectionOption> electionOptionsList)
         {
-            if (DB.ElectionOptions.Any(c => c.ElectionOptionName == newElectionOption.ElectionOptionName && c.ElectionId == newElectionOption.ElectionId && c.DeleteRow==false))
-                return 0;
-
-            DB.ElectionOptions.Add(newElectionOption);
-            DB.SaveChanges();
-            return DB.ElectionOptions.Where(c => c.ElectionOptionName == newElectionOption.ElectionOptionName && c.ElectionId == newElectionOption.ElectionId).Select(l => l.ElectionOptionId).ToList()[0];
+            for (int i = 0; i < electionOptionsList.Count; i++)
+            {
+                if (DB.ElectionOptions.Any(c => c.ElectionOptionName == electionOptionsList[i].ElectionOptionName && c.ElectionId == electionOptionsList[i].ElectionId && c.DeleteRow == false))
+                    continue;
+                DB.ElectionOptions.Add(electionOptionsList[i]);
+                DB.SaveChanges();
+            }
         }
+        public long Add(ElectionOption electionOption)
+        {
+            if (DB.ElectionOptions.Any(c => c.ElectionOptionName == electionOption.ElectionOptionName && c.ElectionId == electionOption.ElectionId && c.DeleteRow == false))
+                    return 0;
+            DB.ElectionOptions.Add(electionOption);
+            DB.SaveChanges();
+            return DB.ElectionOptions.Where(c => c.ElectionOptionName == electionOption.ElectionOptionName && c.ElectionId == electionOption.ElectionId).Select(l => l.ElectionOptionId).ToList()[0];
 
+        }
+   
         public void Edit(ElectionOption electionOption)
         {
             DB.Entry(electionOption).State = EntityState.Modified;
