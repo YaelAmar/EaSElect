@@ -20,10 +20,13 @@ export class ElectionService{
  
     GetAllElections(companyId:number):Observable<Election[]>
     {
-        return this.http.get<Election[]>(`${this.url}/get/${companyId}`);
+        return this.http.get<Election[]>(`${this.url}/getByCompanyCode/${companyId}`);
     }
     EditElection(electionToEdit: Election):Observable<void> {
         return this.http.post<void>(`${this.url}/edit`,electionToEdit);
       }
-     
+    GetElectionByCode(electionId:number):Observable<Election>
+    {
+        return this.http.get<Election>(`${this.url}/getByElectionCode/${electionId}`);
+    }
 }

@@ -27,7 +27,12 @@ namespace DAL
 
         }
 
-        public List<Election> Get(long companyId)
+        public Election GetElectionByElectionCode(long electionId)
+        {
+            return DB.Elections.Where(e => e.ElectionId == electionId).ToList()[0];
+        }
+
+        public List<Election> GetElectionsByCompanyCode(long companyId)
         {
             return DB.Elections.Where(c => c.CompanyId == companyId).ToList();
         }

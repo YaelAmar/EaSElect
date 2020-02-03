@@ -19,15 +19,20 @@ namespace BL
              
         }
 
-        public List<Election> GetAllElections(long companyId)
+        public List<Election> GetElectionsByCompanyCode(long companyId)
         {
-           var res= ElectionDal.Get(companyId);
+           var res= ElectionDal.GetElectionsByCompanyCode(companyId);
             return res;
         }
 
         public void Edit(Election election)
         {
             ElectionDal.Edit(election);
+        }
+
+        public Election GetElectionByElectionCode(long electionId)
+        {
+            return ElectionDal.GetElectionByElectionCode(electionId);
         }
     }
     

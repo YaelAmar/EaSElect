@@ -29,7 +29,7 @@ namespace API.Controllers
         }
         //עדכון פרטי בחירות
         [HttpPost]
-        [Route("api/election/add")]
+        [Route("api/election/edit")]
         public void Edit(Election election)
         {
             ElectionBL.Edit(election);
@@ -37,10 +37,17 @@ namespace API.Controllers
 
         
         [HttpGet]
-        [Route("api/election/get/{companyId}")]
-        public IHttpActionResult Get(long companyId)
+        [Route("api/election/getByCompanyCode/{companyId}")]
+        public IHttpActionResult GetElectionsByCompanyCode(long companyId)
         {
-            return Ok(ElectionBL.GetAllElections(companyId));
+            return Ok(ElectionBL.GetElectionsByCompanyCode(companyId));
+        }
+
+        [HttpGet]
+        [Route("api/election/getByElectionCode/{electionId}")]
+        public IHttpActionResult GetByElectionCode(long electionId)
+        {
+            return Ok(ElectionBL.GetElectionByElectionCode(electionId));
         }
         public void Options()
         { }
