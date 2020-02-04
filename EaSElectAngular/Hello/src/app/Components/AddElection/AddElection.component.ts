@@ -29,8 +29,6 @@ import { Subscription } from "rxjs/Subscription";
    AddElection(frm:any){
     this.newElection.StartDate=new Date(this.startDate1.getFullYear(),this.startDate1.getMonth(),this.startDate1.getDate(),this.startTime1.hour,this.startTime1.minute)  
     this.newElection.EndDate=new Date(this.endDate1.getFullYear(),this.endDate1.getMonth(),this.endDate1.getDate(),this.endTime1.hour,this.endTime1.minute)  
-    
-    console.log(this.newElection.CompanyId,this.newElection.ElectionName,this.newElection.StartDate,this.newElection.EndDate);
       this.electionService.AddNewElection(this.newElection).subscribe(electionId=>{
       
       this.newElection.ElectionId=electionId;

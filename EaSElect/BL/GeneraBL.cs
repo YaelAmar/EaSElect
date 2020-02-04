@@ -18,7 +18,7 @@ namespace BL
         TypeDetailsBL TypeDetailsBL = new TypeDetailsBL();
         ValueToTypeBL ValueToTypeBL = new ValueToTypeBL();
         VoterBL VoterBL = new VoterBL();
-        EmailDal EmailDal = new EmailDal();
+        EmailBL EmailBL = new EmailBL();
 
         //נתוני הבוחרים מקובץ האקסל, כל אחד לטבלה המתאימה, סוגים, פרטי סוגים, בוחרים וערכים לסווגים
         public int LoadDataVoters(string path, long electionId)
@@ -144,6 +144,7 @@ namespace BL
         }
         public long LoadEmails(string path, long electionId)
         {
+            EmailBL.EmptyEmails(electionId);
             List<string> emails = new List<string>();
             bool possiblePath = path.IndexOfAny(Path.GetInvalidPathChars()) == -1;
             if(possiblePath)
@@ -157,7 +158,7 @@ namespace BL
                         emails.Add(line);
                     }
                 }
-              return EmailDal.LoadEmails(emails, electionId);
+              return EmailBL.LoadEmails(emails, electionId);
             }
              return -1;
         }

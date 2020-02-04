@@ -21,11 +21,11 @@ export class EmailService{
     SendMessage(electionId:number):Observable<number>
     {
     let  headers=new Headers({'Content-type':'application/json; charset=utf-8'});
-    return this.http.post<number>(`${this.url}/sendMessage`,electionId);
+    return this.http.get<number>(`${this.url}/sendMessage/${electionId}`);
     }
     SendResult(electionId:number):Observable<number>
     {
     let  headers=new Headers({'Content-type':'application/json; charset=utf-8'});
-    return this.http.post<number>(`${this.url}/sendResult`,electionId);
+    return this.http.get<number>(`${this.url}/sendResult/${electionId}`);
     }
 }

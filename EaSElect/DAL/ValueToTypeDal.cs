@@ -21,7 +21,8 @@ namespace DAL
             List<long> typeDetailsCodes = new List<long>();
             for (int i = 0; i < voterCodes.Count; i++)
             {
-                List<ValueToType> valueToType = DB.ValueToTypes.Where(code => code.VoterCode == voterCodes[i]).ToList();
+                long voterCode = voterCodes[i];
+                List<ValueToType> valueToType = DB.ValueToTypes.Where(code => code.VoterCode == voterCode).ToList();
                 for (int j = 0; j < valueToType.Count; j++)
                 {
                     typeDetailsCodes.Add(valueToType[j].TypeDetailsId);

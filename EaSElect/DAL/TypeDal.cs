@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Type = Models.Type;
 
 namespace DAL
 {
@@ -42,17 +43,17 @@ namespace DAL
         {
             for (int i = 0; i < typeCodes.Count; i++)
             {
-                foreach (Models.Type type in DB.Types)
+                long typeId = typeCodes[i];
+                List<Type> types = DB.Types.Where(t => t.TypeId == typeId).ToList();
+                for (int j = 0; j < types.Count; j++)
                 {
-                    if (type.TypeId == typeCodes[i])
+                    if (types[j].TypeId == typeId)
                     {
-                        DB.Types.Remove(type);
+                        DB.Types.Remove(types[j]);
                         DB.SaveChanges();
                     }
                 }
             }
-           
-            
         }
     }
 }

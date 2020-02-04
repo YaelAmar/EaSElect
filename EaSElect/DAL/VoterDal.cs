@@ -40,14 +40,13 @@ namespace DAL
 
         public void EmptyVoters(long electionId)
         {
-          foreach (Voter item in DB.Voters)
-          {
-                if (item.ElectionId == electionId)
-                {
-                    DB.Voters.Remove(item);
+            List<Voter> voters = DB.Voters.Where(t => t.ElectionId == electionId).ToList();
+            for (int i = 0; i < voters.Count; i++)
+               { 
+                    DB.Voters.Remove(voters[i]);
                     DB.SaveChanges();
                 }
-          }
+         
         }
         public List<long> GetAllVoters(long electionId)
         {

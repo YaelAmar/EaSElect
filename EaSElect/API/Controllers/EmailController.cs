@@ -25,15 +25,15 @@ namespace API.Controllers
         }
 
         //פונקציה שולחת מייל לבוחרים עם לינק לבחור
-        [HttpPost]
-        [Route("api/email/sendMessage")]
+        [HttpGet]
+        [Route("api/email/sendMessage/{electionId}")]
         public int SendMessage(int electionId)
         {
             return EmailBL.SendEmail(electionId, 1);
         }
         //פונקציה שולחת מייל לבוחרים עם תוצאות 
         [HttpPost]
-        [Route("api/email/sendResult")]
+        [Route("api/email/sendResult/{electionId}")]
         public int SendResult(int electionId)
         {
             return EmailBL.SendEmail(electionId, 2);

@@ -8,11 +8,12 @@
     <br>
     <input type="file" (change)="uploadEmailList(emailUpload)" #emailUpload value="טען מיילים">
     <br>
-    <input type="button" value="שלח מיילים לבוחרים" (click)="SendEmailsToVoters()">
-<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMhAjoggKQiiJakqflbyZvvpAfjzmm1DTY1Ya7DpKAxgKRh1J0hwUpaFDlxdAmWF920B4UVLuXHWx_/pubhtml?widget=true&amp;headers=false">לחץ כדי לצפות בקובץ לדוגמא</a>
-<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMhAjoggKQiiJakqflbyZvvpAfjzmm1DTY1Ya7DpKAxgKRh1J0hwUpaFDlxdAmWF920B4UVLuXHWx_/pub?output=csv">הורדה</a>
-<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMhAjoggKQiiJakqflbyZvvpAfjzmm1DTY1Ya7DpKAxgKRh1J0hwUpaFDlxdAmWF920B4UVLuXHWx_/pubhtml">דף אינטרנט</a>
-<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMhAjoggKQiiJakqflbyZvvpAfjzmm1DTY1Ya7DpKAxgKRh1J0hwUpaFDlxdAmWF920B4UVLuXHWx_/pub?output=pdf">pdf</a>
+    <input type="button" value="שלח מיילים לבוחרים" (click)="SendMessageToVoters()">
+
+    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMhAjoggKQiiJakqflbyZvvpAfjzmm1DTY1Ya7DpKAxgKRh1J0hwUpaFDlxdAmWF920B4UVLuXHWx_/pubhtml?widget=true&amp;headers=false">לחץ כדי לצפות בקובץ לדוגמא</a>
+<br>
+    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMhAjoggKQiiJakqflbyZvvpAfjzmm1DTY1Ya7DpKAxgKRh1J0hwUpaFDlxdAmWF920B4UVLuXHWx_/pub?output=csv">הורדה</a>
+<br>
 
 <mat-chip-list aria-label="Fish selection">
     <button mat-button type="button" class="btnOK" selected (click)="next()">סיימתי</button>

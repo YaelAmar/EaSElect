@@ -6,13 +6,13 @@
               <input matInput placeholder="שם אופציה" type="text" [(ngModel)]="newElectionOption.ElectionOptionName" type="text" #electionOptionName="ngModel" required [ngModelOptions]="{standalone: true}">
         </mat-form-field>
         </div>
-<!--       
+      
 
-      <table *ngIf="newElectionOption!=null">
+      <table *ngIf="countOptions>=1">
         <tr *ngFor="let item of electionOptionList">
           <td>{{item.ElectionOptionName}}</td>
         </tr>
-    </table>    -->
+    </table>   
 <mat-chip-list aria-label="Fish selection">
                 <button mat-button type="submit" [disabled]="!frm.valid"  id="electionOptionBtn" selected>הוסף אופציה</button>
 </mat-chip-list>

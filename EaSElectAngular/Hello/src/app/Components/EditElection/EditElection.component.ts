@@ -23,23 +23,35 @@ import { EditElectionDetailsComponent } from '../EditElectionDetails/EditElectio
      }
   ngOnInit()
   {
-      this.companyId=+sessionStorage.getItem('companyId')
-      this.electionService.GetAllElections(this.companyId).subscribe((list:Election[])=>
+      this.election.ElectionId=+sessionStorage.getItem('electionToEdit')
+      if(this.election.ElectionId!=null)
       {
-        this.ElectionsList=list;
-        var minDate:Date=new Date();
-        var currentDate:Date=new Date()
-        for(let item of this.ElectionsList)
-            {
-            var tmp=new Date(item.StartDate);
-         //   if(tmp>currentDate)
-               {
-                 this.election=item
-                 console.log(this.election.ElectionId)
-                 sessionStorage.setItem('electionToEdit',this.election.ElectionId.toString())
-               }
-            }
-      });
+       
+      }
+      else
+      {
+        this.searchElection();
+      }
+      
+   }
+   searchElection(){
+    this.companyId=+sessionStorage.getItem('companyId')
+    this.electionService.GetAllElections(this.companyId).subscribe((list:Election[])=>
+    {
+      this.ElectionsList=list;
+      var minDate:Date=new Date();
+      var currentDate:Date=new Date()
+      for(let item of this.ElectionsList)
+          {
+          var tmp=new Date(item.StartDate);
+       //   if(tmp>currentDate)
+             {
+               this.election=item
+               console.log(this.election.ElectionId)
+               sessionStorage.setItem('electionToEdit',this.election.ElectionId.toString())
+             }
+          }
+    });
    }
    }
      

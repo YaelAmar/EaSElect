@@ -15,7 +15,8 @@ namespace DAL
         {
             for (int i = 0; i < electionOptionsList.Count; i++)
             {
-                if (DB.ElectionOptions.Any(c => c.ElectionOptionName == electionOptionsList[i].ElectionOptionName && c.ElectionId == electionOptionsList[i].ElectionId && c.DeleteRow == false))
+                var electionOption = electionOptionsList[i];
+                if (DB.ElectionOptions.Any(c => c.ElectionOptionName == electionOption.ElectionOptionName && c.ElectionId == electionOption.ElectionId && c.DeleteRow == false))
                     continue;
                 DB.ElectionOptions.Add(electionOptionsList[i]);
                 DB.SaveChanges();

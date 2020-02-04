@@ -30,5 +30,15 @@ namespace DAL
         {
           return DB.Emails.Where(e => e.ElectionId == electionId).Select(n => n.EmailVoter).ToList();
         }
+
+        public void EmptyEmails(long electionId)
+        {
+            List<Email> emails = DB.Emails.Where(e => e.ElectionId == electionId).ToList();
+            for (int i = 0; i < emails.Count; i++)
+            {
+                DB.Emails.Remove(emails[i]);
+                DB.SaveChanges();
+            }
+        }
     }
 }

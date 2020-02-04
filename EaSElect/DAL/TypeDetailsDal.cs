@@ -42,7 +42,8 @@ namespace DAL
             List<long> typeCodes = new List<long>();
             for (int i = 0; i < typeDetailsCodes.Count; i++)
             {
-                List<TypeDetail> typeDetail = DB.TypeDetails.Where(code => code.TypeDetailsId == typeDetailsCodes[i]).ToList();
+                long typeDetailId = typeDetailsCodes[i];
+                List<TypeDetail> typeDetail = DB.TypeDetails.Where(code => code.TypeDetailsId == typeDetailId).ToList();
                 for (int j = 0; j < typeDetail.Count; j++)
                 {
                     typeCodes.Add(typeDetail[j].TypeId);

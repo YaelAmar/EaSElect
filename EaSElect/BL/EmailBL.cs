@@ -14,6 +14,10 @@ namespace BL
         CompanyDal CompanyDal = new CompanyDal();
         ElectionResultDal ElectionResultDal = new ElectionResultDal();
         ElectionDal ElectionDal = new ElectionDal();
+        public long LoadEmails(List<string> emails, long electionId)
+        {
+           return EmailDal.LoadEmails(emails, electionId);
+        }
         public int SendEmail(int electionId,int typeEmail)
         {
             int notSuccessed = 0;
@@ -53,6 +57,11 @@ namespace BL
 
             }
              return notSuccessed;
+        }
+
+        public void EmptyEmails(long electionId)
+        {
+            EmailDal.EmptyEmails(electionId);
         }
     }
 }

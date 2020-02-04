@@ -40,6 +40,7 @@ import { Route } from '@angular/compiler/src/core';
 }
 
 next(){
+  sessionStorage.setItem('electionToEdit',this.electionId.toString());
   this.router.navigate(['/EditElection',this.electionId]);
 }
 
