@@ -31,6 +31,7 @@ namespace BL
             if (typeEmail==1)//שליחת לינק לבוחרים בשביל לבחור
             {
                 body = "הנה הקישור לאתר הבחירות";
+                body +=string.Format("\n http://localhost:4200/ItentifyVoter/{0}",electionId);
                 subject = string.Format(" הצבעה לבחירות {0}", electionName);
             }
             else if(typeEmail==2)//שליחת לינק לבוחרים בשביל לצפות בתוצאות בחירה

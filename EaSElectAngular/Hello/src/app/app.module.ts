@@ -36,6 +36,7 @@ import { EditElectionDetailsComponent } from './Components/EditElectionDetails/E
 import { EditElectionOptionsComponent } from './Components/EditElectionOptions/EditElectionOptions.component';
 import { EditVotersComponent } from './Components/EditVoters/EditVoters.component';
 import { ResultsComponent } from './Components/Results/Results.component';
+import { ChooseVoterComponent } from './Components/ChooseVoter/ChooseVoter.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { ResultsComponent } from './Components/Results/Results.component';
     EditElectionDetailsComponent,
     EditElectionOptionsComponent,
     EditVotersComponent,
-    ResultsComponent
+    ResultsComponent,
+    ChooseVoterComponent
    
   
   ],
