@@ -23,6 +23,7 @@ import { Election } from '../../Models/election.model';
   {
       this.subscribe = this.route.paramMap.subscribe(params => {
       this.electionId = +params.get("id") });
+      
       console.log(this.electionId)
   this.electionService.GetElectionByCode(this.electionId).subscribe(election=>
     {
