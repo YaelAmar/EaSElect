@@ -22,18 +22,13 @@ import { EditElectionDetailsComponent } from '../EditElectionDetails/EditElectio
     constructor(private router:Router,private route:ActivatedRoute,private electionService:ElectionService){
      }
   ngOnInit()
-  {
-      this.election.ElectionId=+sessionStorage.getItem('electionToEdit')
-      if(this.election.ElectionId!=null)
-      {
+     {
        
-      }
-      else
-      {
-        this.searchElection();
+       this.election.ElectionId=+sessionStorage.getItem('electionToEdit')
+       this.searchElection();
       }
       
-   }
+   
    searchElection(){
     this.companyId=+sessionStorage.getItem('companyId')
     this.electionService.GetAllElections(this.companyId).subscribe((list:Election[])=>

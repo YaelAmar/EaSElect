@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="ElectionsDBModel.Email" Width="1.5" PointX="1.125" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.Type" Width="1.5" PointX="7.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.TypeDetail" Width="1.5" PointX="9.625" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectionsDBModel.ValueToType" Width="1.5" PointX="7.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectionsDBModel.ValueToType" Width="1.5" PointX="7.875" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.Voter" Width="1.5" PointX="4.25" PointY="3.375" IsExpanded="true" />
         <AssociationConnector Association="ElectionsDBModel.FK_CompanyId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_ElectionId" ManuallyRouted="false" />

@@ -18,15 +18,13 @@ import { Time } from '../../Models/time.model';
     constructor(private electionService:ElectionService){}
 ngOnInit()
 {
-  
-  //debugger
   this.electionToEdit.ElectionId=+sessionStorage.getItem('electionToEdit');
   this.electionService.GetElectionByCode(this.electionToEdit.ElectionId).subscribe(election=>{
-    this.electionToEdit=election 
-  //  debugger
-   console.log("----------------------"+this.electionToEdit)
+   this.electionToEdit=election
     this.startDate1=this.electionToEdit.StartDate
     this.endDate1=this.electionToEdit.EndDate
+    console.log(this.startDate1)
+    console.log(this.endDate1)
     this.startTime1.hour=this.startDate1.getHours()
     this.startTime1.minute=this.startDate1.getMinutes()
     this.endTime1.hour=this.endDate1.getUTCHours()

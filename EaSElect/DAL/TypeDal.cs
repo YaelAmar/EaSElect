@@ -23,13 +23,14 @@ namespace DAL
             return int.Parse((DB.Types.Where(n => n.TypeName == typeName).Select(c => c.TypeId).ToList()[0].ToString()));
         }
 
-        public bool IsExistType(string typeName)
+        public bool IsExistType(string typeName,long electionId)
         {
             try
             {
-            var resultnum =DB.IsExistType(typeName).ToList()[0];
-            if (resultnum == 1)
-                    return true;
+             if (DB.Types.Any(c => c.TypeName == typeName))
+            //var resultnum =DB.IsExistType(typeName).ToList()[0];
+            //if (resultnum == 1)
+                 return true;
             }
             catch (Exception e)
             {

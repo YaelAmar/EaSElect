@@ -47,7 +47,10 @@ namespace API.Controllers
         [Route("api/election/getByElectionCode/{electionId}")]
         public IHttpActionResult GetByElectionCode(long electionId)
         {
-            return Ok(ElectionBL.GetElectionByElectionCode(electionId));
+            if (electionId != 0)
+                return Ok(ElectionBL.GetElectionByElectionCode(electionId));
+            else
+                return Ok(0);
         }
         public void Options()
         { }

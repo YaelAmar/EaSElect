@@ -21,8 +21,9 @@ namespace DAL
         {
             try
             {
-                var resultnum = DB.IsExistVoter(voterId, electionId).ToList()[0];
-                if (resultnum == 1)
+                if (DB.Voters.Any(c => c.VoterId == voterId && c.ElectionId==electionId))
+                 //   var resultnum = DB.IsExistVoter(voterId, electionId).ToList()[0];
+               // if (resultnum == 1)
                     return true;
             }
             catch (Exception e)

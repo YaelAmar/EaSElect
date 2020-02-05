@@ -4,7 +4,7 @@
 }
 
 
-  .timer{
+.timer{
     height: 25% !important;
     line-height: 25% !important;
     width: 25% !important;
@@ -12,7 +12,7 @@
     margin: auto;
     direction: ltr;
   }
-  .item{
+.item{
       margin:-7% auto;
       
   }

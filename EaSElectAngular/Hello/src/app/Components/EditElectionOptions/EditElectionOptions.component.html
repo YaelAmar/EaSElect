@@ -1,16 +1,17 @@
 
-<div>
-<label>אופציות הבחירה</label>
-     <table>
-            <tr *ngFor="let item of electionOptionList">
-              <input type="button" value="-" (click)="deleteOption(item)">
-              <td><input type="text" value="{{item.ElectionOptionName}}" (keyup.enter)="editOption(item,optionName.value)" #optionName ></td>
-            </tr>
-            <tr>
-              <td *ngIf="addStatus==true"><input type="text" [(ngModel)]="newOption.ElectionOptionName" placeholder="הכנס אופציה חדשה"></td> 
-            </tr>
-   </table>
-   <input type="button" value="+" (click)="showAndAddOption(newOption.ElectionOptionName)"> 
+<div class="frm part">
 
+    <label>אופציות הבחירה</label>
+    <table>
+           <tr *ngFor="let item of electionOptionList">
+             <input type="button" value="-" (click)="deleteOption(item)">
+             <td><input type="text" value="{{item.ElectionOptionName}}" (keyup.enter)="editOption(item,optionName.value)" #optionName ></td>
+           </tr>
+           <tr>
+             <td *ngIf="addStatus==true"><input type="text" [(ngModel)]="newOption.ElectionOptionName" placeholder="הכנס אופציה חדשה"></td> 
+           </tr>
+  </table>
+  <input type="button" value="+" (click)="showAndAddOption(newOption.ElectionOptionName)"> 
 
 </div>
+

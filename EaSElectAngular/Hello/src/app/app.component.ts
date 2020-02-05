@@ -12,26 +12,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  model = new Model();
-  title = 'אתר הבחירות שיחסוך לכם זמן וכח';
-
+  companyId:number
+  enter:number
   WhichScreen()
   {
   
    if(sessionStorage.getItem('companyId')!=null)
-   return 2
-   else if(sessionStorage.getItem('enter')!=null)
-   return 3
-   else if(sessionStorage.getItem('voter')!=null)
-   return 4
+      return 2
    else 
-   return 1
+     if(sessionStorage.getItem('enter')!=null)
+      return 3
+       else
+        if(sessionStorage.getItem('voter')!=null)
+          return 4
+       else 
+          return 1
    
   }
  ngOnInit()
  {
-   
- //  sessionStorage.clear();
+  sessionStorage.setItem('enter','1')
+ // sessionStorage.setItem('companyId','0')
+  this.companyId=+sessionStorage.getItem('companyId')
+  this.enter=+sessionStorage.getItem('enter')
+
+  
+ //sessionStorage.clear();
  }
   
 }

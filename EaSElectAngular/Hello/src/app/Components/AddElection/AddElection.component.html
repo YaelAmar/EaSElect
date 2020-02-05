@@ -1,4 +1,4 @@
-<div >
+<div>
 <form novalidate (submit)="AddElection(frm)" #frm="ngForm" class="frm part">
 <div class="item"> 
     <mat-form-field class="example-full-width">
@@ -18,7 +18,6 @@
 
 <div class="timer item">
 <ngb-timepicker [(ngModel)]="startTime1" name="firstTime" #startTime="ngModel">שעת התחלה</ngb-timepicker>
-
 </div>
 
 <div class="item">
@@ -31,16 +30,16 @@
     <span class="error" *ngIf="endDate.errors?.min">תאריך לא יכול להיות לפני התאריך הנוכחי</span>
 
 </div>
-<div  class="timer item">
+<div class="timer item">
 <ngb-timepicker [(ngModel)]="endTime1" name="endTime" #endTime="ngModel">שעת סיום</ngb-timepicker>
 </div>
 
 
-<div  class="btnfrm">
+<div class="btnfrm">
     <mat-chip-list aria-label="Fish selection">
-        <button mat-button type="submit" [disabled]="!frm.valid" class="btnOK"  selected>הבא</button>
+        <button mat-button type="submit" [disabled]="!frm.valid" class="btnOK" selected>הבא</button>
         </mat-chip-list>
 </div>
-    </form>
+</form>
     
 </div>

@@ -51,10 +51,9 @@ namespace BL
                                 }
                                 j = values[0].Length;
                             }
-                            bool isTypeExists = TypeBL.IsTypeExists(typeName);
+                            bool isTypeExists = TypeBL.IsTypeExists(typeName,electionId);
                             if (isTypeExists == false)
                             {
-
                                 TypeBL.AddNewType(typeName);
                             }
                             types.Add(typeName);

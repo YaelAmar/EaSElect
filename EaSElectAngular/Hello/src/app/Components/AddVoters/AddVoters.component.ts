@@ -30,6 +30,7 @@ import { Route } from '@angular/compiler/src/core';
     }
 
     upload(fileInput) {
+    
     this.voterService.uploadFile(fileInput.files[0],this.electionId).subscribe();
     console.log("הבוחרים נטענו בהצלחה")
   }

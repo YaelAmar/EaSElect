@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { Election } from '../../Models/election.model';
 import { ElectionService } from '../../Services/election.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-menu',
@@ -13,7 +14,7 @@ import { ElectionService } from '../../Services/election.service';
     
     ElectionsList:Election[];  
     companyId:number
-    constructor(private electionService:ElectionService){
+    constructor(private electionService:ElectionService,private router:Router){
      
     }
  
@@ -26,9 +27,17 @@ import { ElectionService } from '../../Services/election.service';
    
   
   }
+  addElection(){
+    this.router.navigate(['/Election']);
 
-  SelectedElection(){
-    //this.router.navigate();
   }
 
+  selectedElection(election:Election){
+    sessionStorage.setItem('electionToEdit',election.ElectionId.toString())
+    this.router.navigate(['/EditElection']);
+  }
+  showReslut(){
+    this.router.navigate(['/Results']);
+
+  }
 }

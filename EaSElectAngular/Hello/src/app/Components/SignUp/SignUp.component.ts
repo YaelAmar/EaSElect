@@ -17,6 +17,7 @@ import { Router} from "@angular/router";
   
    ngOnInit()
    {
+   // sessionStorage.setItem('enter','0');
      
    }
    
@@ -26,10 +27,10 @@ SignUp(frm:any){
    //לקבל את הקוד חברה שנכנס עכשיו ולשלוח אותו להוספת בחירה
    this.newCompany.CompanyId=companyId; 
    if(companyId!=0)
-     {
-       sessionStorage.setItem("companyId",companyId.toString())
-       this.router.navigate(['/Election']);
-     }
+    {
+      sessionStorage.setItem('companyId',companyId.toString())
+      this.router.navigate(['/Election']);
+    }
    else 
    console.log("בחר שם אחר שם משתמש זה כבר קיים במערכת")
    });

@@ -21,19 +21,15 @@ import { Router } from '@angular/router';
    
    constructor(private  companyService:CompanyService,private router: Router){
      }
-  
-   
-    
-  
    ngOnInit()
    {
-   }
+ //   sessionStorage.setItem('enter','0');
+     }
    enter(frm:any){
       this.companyService.Login(this.logIn.UserName,this.logIn.Password).subscribe(companyId=>
     {
     if(companyId!=0)
      {
-debugger
       sessionStorage.setItem('companyId',companyId.toString())
       this.router.navigate(['/EditElection']);
      }

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   
   export class HomeComponent {
     subscribe:any
+     
  
    constructor(private router:Router){
     }

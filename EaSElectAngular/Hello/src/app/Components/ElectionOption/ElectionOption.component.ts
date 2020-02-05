@@ -15,7 +15,7 @@ import { ElectionOption } from "../../Models/electionOption.model";
     electionOptionList:Array<ElectionOption>=new Array<ElectionOption>();
     @Input()  electionId:number
     @Output() isElectionAdded=new EventEmitter<boolean>();
-  i:number=0;
+   i:number=0;
    constructor(private electionOptionService:ElectionOptionService){
    }
   
@@ -30,7 +30,8 @@ import { ElectionOption } from "../../Models/electionOption.model";
      this.countOptions++;
      this.i++;
       console.log(this.electionOptionList)
-      this.newElectionOption=new ElectionOption();
+     this.newElectionOption=new ElectionOption();
+     debugger
     this.newElectionOption.ElectionId=this.electionId;
 
      }
