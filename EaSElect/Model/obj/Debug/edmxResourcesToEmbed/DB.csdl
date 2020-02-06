@@ -8,7 +8,7 @@
     <Property Name="CompanyName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="EmailManager" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="EmailManager" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Elections" Relationship="Self.FK_CompanyId" FromRole="Company" ToRole="Election" />
   </EntityType>

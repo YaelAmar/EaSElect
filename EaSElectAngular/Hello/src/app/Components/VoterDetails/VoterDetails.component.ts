@@ -5,6 +5,10 @@ import { ElectionService } from '../../Services/election.service';
 import { Election } from '../../Models/election.model';
 import { ElectionOption } from '../../Models/electionOption.model';
 import { ElectionOptionService } from '../../Services/electionOption.service';
+import { CompanyService } from '../../Services/company.service';
+import { ValueToTypeService } from '../../Services/valueToType.service';
+import { TypeDetails } from '../../Models/typeDetails.model';
+import { ElectionResultService } from '../../Services/electionResult.service';
 
 
 
@@ -17,24 +21,60 @@ import { ElectionOptionService } from '../../Services/electionOption.service';
   export class VoterDetailsComponent {
    subscribe: any;
    selectedOptionItem:ElectionOption=new ElectionOption()// בחורה אופציה
-   constructor(private electionOptionService:ElectionOptionService, private router:Router,private route:ActivatedRoute){
+   companyName:string
+   voterCode:number
+   typeDetailsList:TypeDetails[]
+   finish:boolean=false
+     constructor(private electionOptionService:ElectionOptionService,private companyService:CompanyService,
+     private valueToTypeService:ValueToTypeService,private eletionResultService:ElectionResultService,
+     private router:Router,private route:ActivatedRoute){
      }
      ngOnInit()
       {
-       console.log(this.selectedOptionItem)
-
-        sessionStorage.setItem('enter','0');
         this.subscribe = this.route.paramMap.subscribe(params => {
-          this.selectedOptionItem.ElectionOptionId= +params.get("id") });
-       
-       console.log(this.selectedOptionItem)
+        this.selectedOptionItem.ElectionOptionId= +params.get("id") });
+        sessionStorage.setItem('enter','0');
+      
 
-        }
+      this.getCompanyName();//מחזיר את החברה שבה נמצא עכשיו
+      this.GetValueToTypeOfCurrentVoter();
+
+     
+      }
+     
+  GetValueToTypeOfCurrentVoter() {
+    this.voterCode=+sessionStorage.getItem('voterCode');
+   this.valueToTypeService.GetValueToTypeOfVoter(this.voterCode).subscribe(typeDetailsIdList=>
+    {
+      if(typeDetailsIdList==null)
+         console.log("אין סיווג")
+     this.typeDetailsList=typeDetailsIdList
+     
+    })
+  }
   
 
   changeChoose(){
     sessionStorage.setItem('enter','0');
-    this.router.navigate(['/ChooseVoter',this.selectedOptionItem.ElectionId])
+    this.electionOptionService.GetElectionIdByElectionOptionId(this.selectedOptionItem.ElectionOptionId).subscribe(electionId=>
+      {
+        this.selectedOptionItem.ElectionId=electionId
+        this.router.navigate(['/ChooseVoter',this.selectedOptionItem.ElectionId])
+      })
+  }
+  getCompanyName()
+  {
+    let companyId:number=+sessionStorage.getItem('companyId');
+    this.companyService.GetCompanyNameById(companyId).subscribe(companyName=>{
+    this.companyName=companyName;
+    });
+  }
+  emptyCheckBox(typeDetails:TypeDetails){
+    console.log(typeDetails)
+  }
+  sendResult(){
+    this.eletionResultService.sendChoose(this.voterCode,this.selectedOptionItem.ElectionOptionId).subscribe();
+    this.finish=true
 
   }
 }

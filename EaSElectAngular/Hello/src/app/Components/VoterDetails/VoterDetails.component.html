@@ -1,1 +1,15 @@
-<input type="button" value="אני רוצה לבחור משהו אחר" *ngIf="selectedOptionItem" (click)="changeChoose()">
+<input type="button" value="אני רוצה לבחור משהו אחר" *ngIf="selectedOptionItem&&finish==false" (click)="changeChoose()">
+
+<div>
+   <p>אתה מוסר למנהל הבחירות:{{companyName}} את הפרטים הבאים עליך לצורך סטטיסקות אנונימיות:</p>
+
+<div *ngIf="typeDetailsList">
+   <div *ngFor="let item of typeDetailsList">
+       <mat-checkbox class="example-margin" [checked]="emptyCheckBox(item)" [checked]="true" [disabled]="finish">{{item.TypeDetailsName}}</mat-checkbox>
+       <!-- <mat-checkbox class="example-margin" [checked]="true" [(ngModel)]="checked" >{{item.TypeDetailsName}}</mat-checkbox> -->
+   </div>
+</div>
+<input type="button" value="סיים" (click)="sendResult()" [disabled]="finish"> 
+<br>
+<label *ngIf="finish==true">תודה שבחרת בEaSelect</label>
+</div>

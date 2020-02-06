@@ -24,7 +24,8 @@ import { VoterService } from '../../Services/voter.service';
   //3-בחירה אחרי זמן הבחירות
   //4-בחר כבר
   fingerPrint:string=""
-
+  companyId:number
+  voterCode: number;
    constructor(private electionService:ElectionService,private voterService:VoterService, private router:Router,private route:ActivatedRoute){
      }
   ngOnInit()
@@ -32,8 +33,14 @@ import { VoterService } from '../../Services/voter.service';
       sessionStorage.setItem('enter','0');
       this.subscribe = this.route.paramMap.subscribe(params => {
       this.electionId = +params.get("id") });
-      
-      console.log(this.electionId)
+debugger
+      this.electionService.GetCompanyIdByElectionId(this.electionId).subscribe(companyId=>
+        {
+         this.companyId=companyId;
+         sessionStorage.setItem('companyId',this.companyId.toString())
+        });
+
+
      this.electionService.GetElectionByCode(this.electionId).subscribe(election=>
     {
         this.electionToChoose=election;
@@ -43,16 +50,21 @@ import { VoterService } from '../../Services/voter.service';
   );
   }
 RecognizeVoterFingerPrint(fingerPrint:string,electionId:number){
-
+ 
+  this.voterService.GetVoterCodeByVoterIdInCurrentElection(fingerPrint,electionId).subscribe(voterCode=>
+    {
+       this.voterCode=voterCode;
+       console.log(this.voterCode)
+       sessionStorage.setItem('voterCode',this.voterCode.toString());
+    });
   this.voterService.CheckVoter(fingerPrint,electionId).subscribe(result=>
     {
-      debugger
       this.result=result
       console.log(result)
-     if(this.result==0)//בוחר בתנאים מתאימים ביחס לבוחר עצמו ולבחירות הנוכחיות
-      {
+      if(this.result==0)//בוחר בתנאים מתאימים ביחס לבוחר עצמו ולבחירות הנוכחיות
+       {
          this.router.navigate(['ChooseVoter',this.electionId]);
-        }     
+       }     
     });
  
 }

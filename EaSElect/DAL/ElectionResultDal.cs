@@ -10,7 +10,7 @@ namespace DAL
     {
         ElectionsDBEntities DB = new ElectionsDBEntities();
 
-        public string GetResults(int electionId)
+        public string GetResults(long electionId)
         {
             throw new NotImplementedException();
         }
@@ -20,6 +20,15 @@ namespace DAL
             if (DB.ElectionResults.Any(c => c.VoterCode == voterCode))
               return  DB.ElectionResults.Where(c => c.VoterCode == voterCode).Select(o => o.ElectionOptionId).ToList();
             return null;
+        }
+
+        public void SendChoose(ElectionResult electionResult)
+        {
+            if (!(DB.ElectionResults.Any(c=>c.ElectionOptionId==electionResult.ElectionOptionId&&c.VoterCode==electionResult.VoterCode)))
+            {
+                DB.ElectionResults.Add(electionResult);
+                DB.SaveChanges();
+            }
         }
     }
 }

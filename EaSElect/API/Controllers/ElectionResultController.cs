@@ -18,9 +18,15 @@ namespace API.Controllers
         {
             return 3;
         }
+        [HttpGet]
+        [Route("api/electionResult/sendChoose/{voterCode}/{electionOptionId}")]
+        public void SendChoose(long voterCode,long electionOptionId)
+        {
+            ElectionResultBL.SendChoose(voterCode,electionOptionId);
+        }
        [HttpPost]
        [Route("api/electionResult/SendResult")]
-       public int SendResults(int electionId)
+       public int SendResults(long electionId)
        {
            return EmailBL.SendEmail(electionId,2);
        }

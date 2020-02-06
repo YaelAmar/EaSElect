@@ -52,6 +52,12 @@ namespace API.Controllers
             else
                 return Ok(0);
         }
+        [HttpGet]
+        [Route("api/election/GetCompanyIdByElectionId/{electionId}")]
+        public long GetCompanyIdByElectionId(long electionId)
+        {
+            return ElectionBL.GetCompanyIdByElectionId(electionId);
+        }
         public void Options()
         { }
     }

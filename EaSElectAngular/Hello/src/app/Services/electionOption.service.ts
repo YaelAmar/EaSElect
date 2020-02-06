@@ -28,7 +28,10 @@ export class ElectionOptionService{
         return this.http.get<void>(`${this.url}/delete/${electionOptionId}`);
       }
      Edit(electionOption: ElectionOption):Observable<void> {
-         debugger
-        return this.http.post<void>(`${this.url}/edit`,electionOption)
+       return this.http.post<void>(`${this.url}/edit`,electionOption)
       }
+     GetElectionIdByElectionOptionId(electionOptionId:number):Observable<number> {
+        return this.http.get<number>(`${this.url}/getElectionIdByElectionOptionId/${electionOptionId}`);
+
+    } 
 }

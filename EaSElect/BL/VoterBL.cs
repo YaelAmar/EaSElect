@@ -23,10 +23,10 @@ namespace BL
             return VoterDal.IsVoterExists(voterId, electionId);
         }
 
-        public long GetCodeVoterById(string voterId1, long electionId)
+        public long GetVoterCodeByVoterIdInCurrentElection(string fingerPrint, long electionId)
         {
-            int voterId=int.Parse(voterId1);
-            return VoterDal.GetCodeVoterById(voterId, electionId);
+            int voterId=int.Parse(fingerPrint);
+            return VoterDal.GetVoterCodeByVoterIdInCurrentElection(voterId, electionId);
         }
 
         public List<long> GetAllVoters(long electionId)

@@ -32,5 +32,19 @@ namespace DAL
             }
             return typeDetailsCodes;
         }
+
+        public List<TypeDetail> GetValueToTypeOfVoter(long voterCode)
+        {
+           List<long> typeDetailsIds= DB.ValueToTypes.Where(v => v.VoterCode == voterCode).Select(d => d.TypeDetailsId).ToList();
+           List<TypeDetail> typeDetails = new List<TypeDetail>();
+
+            for (int i = 0; i < typeDetailsIds.Count; i++)
+            {
+                long typeDetailsId = typeDetailsIds[i];
+                typeDetails.Add(DB.TypeDetails.Where(d => d.TypeDetailsId == typeDetailsId).ToList()[0]);
+                 
+            }
+            return typeDetails;
+        }
     }
 }

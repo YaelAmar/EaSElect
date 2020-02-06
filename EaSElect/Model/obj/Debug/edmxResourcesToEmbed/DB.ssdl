@@ -8,7 +8,7 @@
     <Property Name="CompanyName" Type="nvarchar" MaxLength="55" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="EmailManager" Type="nvarchar" MaxLength="60" />
+    <Property Name="EmailManager" Type="nvarchar" MaxLength="60" Nullable="false" />
     <Property Name="DeleteRow" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Election">
@@ -35,7 +35,7 @@
     <Key>
       <PropertyRef Name="ElectionResultId" />
     </Key>
-    <Property Name="ElectionResultId" Type="bigint" Nullable="false" />
+    <Property Name="ElectionResultId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="VoterCode" Type="bigint" Nullable="false" />
     <Property Name="ElectionOptionId" Type="bigint" Nullable="false" />
     <Property Name="DeleteRow" Type="bit" Nullable="false" />

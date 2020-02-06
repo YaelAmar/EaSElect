@@ -24,7 +24,12 @@ namespace DAL
                                         c.Password == newCompany.Password).
                                         Select(l => l.CompanyId).ToList()[0];
         }
-        
+
+        public string GetCompanyNameById(int companyId)
+        {
+            return DB.Companies.Where(c => c.CompanyId == companyId).Select(n => n.CompanyName).ToList()[0];
+        }
+
         public long Login(string userName, string password)
         {
             int? result = DB.Login(userName, password).ToList()[0];
@@ -32,7 +37,7 @@ namespace DAL
                 return DB.Companies.Where(c=>c.UserName==userName &&c.Password==password).Select(c=>c.CompanyId).ToList()[0];
             return 0;
         }
-        public Company GetCompanyDetailsByElectionId(int electionId)
+        public Company GetCompanyDetailsByElectionId(long electionId)
         {
             long companyId = DB.Elections.Where(id => id.ElectionId == electionId).Select(i => i.CompanyId).ToList()[0];
             return DB.Companies.Where(c => c.CompanyId == companyId).ToList()[0];

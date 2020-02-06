@@ -16,5 +16,10 @@ namespace BL
            return ElectionResultDal.GetElectionOptionIdByVoterCode(voterCode);
         }
 
+        public void SendChoose(long voterCode, long electionOptionId)
+        {
+            ElectionResult newElectionResult = new ElectionResult() { VoterCode=voterCode, ElectionOptionId=electionOptionId};
+            ElectionResultDal.SendChoose(newElectionResult);
+        }
     }
 }

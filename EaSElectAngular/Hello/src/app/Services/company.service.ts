@@ -7,6 +7,7 @@ import { Headers } from '@angular/http';
     
 @Injectable()
 export class CompanyService{
+ 
 
     url='http://localhost:55866/api/company'
     constructor(private http:HttpClient){
@@ -25,4 +26,7 @@ export class CompanyService{
     let  headers=new Headers({'Content-type':'application/json; charset=utf-8'});
     return this.http.post<number>(`${this.url}/signUp`,newCompany);
     }
+    GetCompanyNameById(companyId: number):Observable<string> {
+        return this.http.get<string>(`${this.url}/GetCompanyNameById/${companyId}`);
+      }
 }

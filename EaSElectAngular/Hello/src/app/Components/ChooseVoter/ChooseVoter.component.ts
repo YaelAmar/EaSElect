@@ -25,7 +25,6 @@ import { ElectionOptionService } from '../../Services/electionOption.service';
   {
     sessionStorage.setItem('enter','0');
  
-    
     this.subscribe = this.route.paramMap.subscribe(params => {
       this.electionId = +params.get("id") });
       console.log(this.electionId)

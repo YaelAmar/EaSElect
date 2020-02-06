@@ -34,6 +34,12 @@ namespace API.Controllers
         {
 
         }
+        [HttpGet]
+        [Route("api/company/GetCompanyNameById/{companyId}")]
+        public string GetCompanyNameById(int companyId)
+        {
+            return CompanyBL.GetCompanyNameById(companyId);
+        }
         //מחיקת חברה
         public void Delete(int companyId)
         {

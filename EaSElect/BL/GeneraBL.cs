@@ -106,7 +106,7 @@ namespace BL
                                 }
                                 int typeDetailId = TypeDetailsBL.GetTypeDetailIdByName(typeDetailName);
                                 //מקבל את קוד בוחר מטבלת בוחרים
-                                long voterCode = VoterBL.GetCodeVoterById(voterId, electionId);
+                                long voterCode = VoterBL.GetVoterCodeByVoterIdInCurrentElection(voterId, electionId);
                                 ValueToTypeBL.AddValueToType(voterCode, typeDetailId);
                                 j += typeDetailName.Length;
 
@@ -121,7 +121,7 @@ namespace BL
         public int CheckVoter(string fingerPrint,long electionId)
         {
             //int voterId = int.Parse(fingerPrint);
-            long voterCode = VoterBL.GetCodeVoterById(fingerPrint, electionId);
+            long voterCode = VoterBL.GetVoterCodeByVoterIdInCurrentElection(fingerPrint, electionId);
             if (voterCode == 0)
                 return 1;//בוחר לא קיים במאגר
             Election election = ElectionBL.GetElectionByElectionCode(electionId);

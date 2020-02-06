@@ -34,7 +34,7 @@ namespace DAL
             return false;
         }
         //מחזיר את הקוד היחודי של בוחר מסויים
-        public long GetCodeVoterById(long voterId, long electionId)
+        public long GetVoterCodeByVoterIdInCurrentElection(long voterId, long electionId)
         {
             if (DB.Voters.Any(c => c.VoterId == voterId && c.ElectionId == electionId))
                 return DB.Voters.Where(c => c.VoterId == voterId && c.ElectionId == electionId).Select(c => c.VoterCode).ToList()[0];

@@ -32,12 +32,17 @@ namespace DAL
             return DB.Elections.Where(e => e.ElectionId == electionId).ToList()[0];
         }
 
+        public long GetCompanyIdByElectionId(long electionId)
+        {
+            return DB.Elections.Where(e => e.ElectionId == electionId).Select(c => c.CompanyId).ToList()[0];
+        }
+
         public List<Election> GetElectionsByCompanyCode(long companyId)
         {
             return DB.Elections.Where(c => c.CompanyId == companyId).ToList();
         }
 
-        public string GetElectionNameById(int electionId)
+        public string GetElectionNameById(long electionId)
         {
             return DB.Elections.Where(c => c.ElectionId == electionId).Select(n => n.ElectionName).ToList()[0];
         }

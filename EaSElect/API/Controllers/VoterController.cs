@@ -14,7 +14,7 @@ namespace API.Controllers
     public class VoterController : ApiController
     {
         GeneralBL GeneralBL = new GeneralBL();
-      
+        VoterBL VoterBL = new VoterBL();
         [HttpPost]
         [Route("api/voter/loadDataVoters")]
         public int LoadDataVoters()
@@ -34,6 +34,13 @@ namespace API.Controllers
            
         }
 
+        [HttpGet]
+        [Route("api/voter/GetVoterCodeByVoterIdInCurrentElection/{fingerPrint}/{electionId}")]
+        public long GetVoterCodeByVoterIdInCurrentElection(string fingerPrint, long electionId)
+        {
 
+            return VoterBL.GetVoterCodeByVoterIdInCurrentElection(fingerPrint, electionId);
+
+        }
     }
 }

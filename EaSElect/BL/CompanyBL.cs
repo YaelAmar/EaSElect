@@ -22,6 +22,9 @@ namespace BL
            return CompanyDal.Login(userName, password);
         }
 
-       
+        public string GetCompanyNameById(int companyId)
+        {
+            return CompanyDal.GetCompanyNameById(companyId);
+        }
     }
 }

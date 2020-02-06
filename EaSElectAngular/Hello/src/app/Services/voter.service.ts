@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class VoterService{
-
+  
     url='http://localhost:55866/api/voter'
     constructor(private http:HttpClient){
 
@@ -19,8 +19,13 @@ export class VoterService{
      return this.http.post(`${this.url}/loadDataVoters`,formData);
   }
 
-CheckVoter(fingerPrint: string, electionId: number):Observable<number> {
+   CheckVoter(fingerPrint: string, electionId: number):Observable<number> {
      return this.http.get<number>(`${this.url}/CheckVoter/${fingerPrint}/${electionId}`);
- }
+   }
+
+ GetVoterCodeByVoterIdInCurrentElection(fingerPrint: string, electionId: number) {
+    return this.http.get<number>(`${this.url}/GetVoterCodeByVoterIdInCurrentElection/${fingerPrint}/${electionId}`);
+  
+}
 
 }

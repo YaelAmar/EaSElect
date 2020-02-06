@@ -18,7 +18,7 @@ namespace BL
         {
            return EmailDal.LoadEmails(emails, electionId);
         }
-        public int SendEmail(int electionId,int typeEmail)
+        public int SendEmail(long electionId,int typeEmail)
         {
             int notSuccessed = 0;
             Company company = CompanyDal.GetCompanyDetailsByElectionId(electionId);//מביא את פרטי החברה השולחת את המייל

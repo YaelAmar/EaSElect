@@ -34,6 +34,11 @@ namespace BL
         {
             return ElectionDal.GetElectionByElectionCode(electionId);
         }
+
+        public long GetCompanyIdByElectionId(long electionId)
+        {
+            return ElectionDal.GetCompanyIdByElectionId(electionId);
+        }
     }
     
 }

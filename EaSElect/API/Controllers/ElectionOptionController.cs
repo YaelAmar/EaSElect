@@ -48,6 +48,12 @@ namespace API.Controllers
         {
              ElectionOptionBL.Edit(electionOption);
         }
+        [HttpGet]
+        [Route("api/electionOption/getElectionIdByElectionOptionId/{electionOptionId}")]
 
+        public long GetElectionIdByElectionOptionId(long electionOptionId)
+        {
+            return ElectionOptionBL.GetElectionIdByElectionOptionId(electionOptionId);
+        }
     }
 }

@@ -38,8 +38,10 @@ import { EditVotersComponent } from './Components/EditVoters/EditVoters.componen
 import { ResultsComponent } from './Components/Results/Results.component';
 import { ChooseVoterComponent } from './Components/ChooseVoter/ChooseVoter.component';
 import { VoterDetailsComponent } from './Components/VoterDetails/VoterDetails.component';
+import { ValueToTypeService } from './Services/valueToType.service';
 
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ElectionResultService } from './Services/electionResult.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +76,8 @@ import { VoterDetailsComponent } from './Components/VoterDetails/VoterDetails.co
     FlexLayoutModule,
     NgxMaterialTimepickerModule,
     MatFileUploadModule,
-    NgbModule
+    NgbModule,
+    MatCheckboxModule
     
    ],
 
@@ -87,6 +90,8 @@ import { VoterDetailsComponent } from './Components/VoterDetails/VoterDetails.co
     VoterService,
     Election,
     EmailService,
+    ValueToTypeService,
+    ElectionResultService
     
 
     
