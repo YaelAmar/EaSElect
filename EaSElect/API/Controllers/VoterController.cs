@@ -14,7 +14,7 @@ namespace API.Controllers
     public class VoterController : ApiController
     {
         GeneralBL GeneralBL = new GeneralBL();
-        
+      
         [HttpPost]
         [Route("api/voter/loadDataVoters")]
         public int LoadDataVoters()
@@ -25,10 +25,15 @@ namespace API.Controllers
             int electionId = int.Parse(HttpContext.Current.Request.Params["electionId"]);
            return GeneralBL.LoadDataVoters(path, electionId);
         }
-        public void UploadFile()
+        [HttpGet]
+        [Route("api/voter/CheckVoter/{fingerPrint}/{electionId}")]
+        public int CheckVoter(string fingerPrint,long electionId)
         {
-         
+
+         return GeneralBL.CheckVoter(fingerPrint,electionId);
+           
         }
-       
+
+
     }
 }

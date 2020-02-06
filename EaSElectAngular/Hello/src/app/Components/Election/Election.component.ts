@@ -12,6 +12,7 @@ import { Component } from "@angular/core";
   ngOnInit()
   {
     this.companyId=+sessionStorage.getItem('companyId');
+    sessionStorage.setItem('enter','3');
 
   }
   OnElectionAdded(electionId)

@@ -17,7 +17,7 @@ import { Router} from "@angular/router";
   
    ngOnInit()
    {
-   // sessionStorage.setItem('enter','0');
+  sessionStorage.setItem('enter','0');
      
    }
    

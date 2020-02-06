@@ -10,6 +10,7 @@ import { EditElectionComponent } from './Components/EditElection/EditElection.co
 import { ResultsComponent } from './Components/Results/Results.component';
 import { IdentifyVoterComponent } from './Components/IdentifyVoter/IdentifyVoter.component';
 import { ChooseVoterComponent } from './Components/ChooseVoter/ChooseVoter.component';
+import { VoterDetailsComponent } from './Components/VoterDetails/VoterDetails.component';
 
 
 
@@ -24,7 +25,8 @@ export const appRoutes: Routes = [
    { path:'EditElection/:id',component:EditElectionComponent,pathMatch:'full'},
    { path:'Results',component:ResultsComponent,pathMatch:'full'},
    { path:'IdentifyVoter/:id',component:IdentifyVoterComponent,pathMatch:'full'},
-   { path:'ChooseVoter/:id',component:ChooseVoterComponent,pathMatch:'full'}
+   { path:'ChooseVoter/:id',component:ChooseVoterComponent,pathMatch:'full'},
+   { path:'VoterDetails/:id',component:VoterDetailsComponent}
 
 
    

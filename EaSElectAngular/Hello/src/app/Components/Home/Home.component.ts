@@ -18,12 +18,15 @@ import { Router } from '@angular/router';
   
    ngOnInit()
    {
-   sessionStorage.setItem('enter','1')
+   // sessionStorage.setItem('companyId','0');
+
    }
   LogIn(){
+sessionStorage.setItem('enter','3')
     this.router.navigate(['/LogIn']);
   }
    SignUp(){
+sessionStorage.setItem('enter','3')
     this.router.navigate(['/SignUp']);
    }
 }

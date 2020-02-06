@@ -14,5 +14,8 @@ import { Router } from '@angular/router';
   })
   
   export class ResultsComponent {
-   
+   ngOmInit(){
+    sessionStorage.setItem('enter','3');
+
+   }
 }

@@ -14,5 +14,12 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public List<long> GetElectionOptionIdByVoterCode(long voterCode)
+        {
+            if (DB.ElectionResults.Any(c => c.VoterCode == voterCode))
+              return  DB.ElectionResults.Where(c => c.VoterCode == voterCode).Select(o => o.ElectionOptionId).ToList();
+            return null;
+        }
     }
 }

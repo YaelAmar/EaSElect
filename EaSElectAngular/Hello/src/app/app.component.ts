@@ -12,32 +12,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  companyId:number
-  enter:number
-  WhichScreen()
-  {
   
-   if(sessionStorage.getItem('companyId')!=null)
-      return 2
-   else 
-     if(sessionStorage.getItem('enter')!=null)
-      return 3
-       else
-        if(sessionStorage.getItem('voter')!=null)
-          return 4
-       else 
-          return 1
+  // constructor(private cdRef : ChangeDetectorRef){
+
+  // }
+  ngOnInit()
+  {
+//   sessionStorage.setItem('companyId','null')
+   sessionStorage.setItem('enter','1');
+   
+  // this.ngAfterViewChecked();
+  }
+  //  ngAfterViewChecked() {
+  //  sessionStorage.setItem('enter','1');
+  //     this.cdRef.detectChanges();
+  //   }
+  
+
+  getCompanyId(){
+    return sessionStorage.getItem('companyId')
    
   }
- ngOnInit()
- {
-  sessionStorage.setItem('enter','1')
- // sessionStorage.setItem('companyId','0')
-  this.companyId=+sessionStorage.getItem('companyId')
-  this.enter=+sessionStorage.getItem('enter')
-
-  
- //sessionStorage.clear();
- }
-  
+  getEnter(){
+    return sessionStorage.getItem('enter')
+   
+  }
 }

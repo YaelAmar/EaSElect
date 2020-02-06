@@ -23,6 +23,7 @@ import { EditElectionDetailsComponent } from '../EditElectionDetails/EditElectio
      }
   ngOnInit()
      {
+  sessionStorage.setItem('enter','3');
        
        this.election.ElectionId=+sessionStorage.getItem('electionToEdit')
        this.searchElection();

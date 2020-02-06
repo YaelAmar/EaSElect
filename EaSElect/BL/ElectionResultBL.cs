@@ -10,7 +10,11 @@ namespace BL
 {
     public class ElectionResultBL
     {
-   
-       
+        ElectionResultDal ElectionResultDal = new ElectionResultDal();
+        public List<long> GetElectionOptionIdByVoterCode(long voterCode)
+        {
+           return ElectionResultDal.GetElectionOptionIdByVoterCode(voterCode);
+        }
+
     }
 }

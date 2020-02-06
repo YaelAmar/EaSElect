@@ -1,6 +1,14 @@
 <div>
-    ברוך הבא, הנח את האצבע בקורא טביעת האצבע כדי להצביע בבחירות ל
-    <span>{{electionToChoose.ElectionName}}</span>
+ברוך הבא, הנח את האצבע בקורא טביעת האצבע כדי להצביע בבחירות ל
+<span>{{electionToChoose.ElectionName}}</span>
 
-    
+  
+<input type="text" placeholder="קוד טביעת אצבע" #fingerPrint1 (input)="getFingerPrint()" >
+<br>
+<input type="button" *ngIf="fingerPrint" (click)="next(fingerPrint1.value)" value="שלח">
+<br>
+<label *ngIf="result==1">אינך רשום בתור בוחר במערכת</label>
+<label *ngIf="result==2">זמן ההצבעה עדיין לא הגיע...</label>
+<label *ngIf="result==3">זמן הבחירות עבר</label>
+<label *ngIf="result==4">כבר בחרת...</label>
 </div>

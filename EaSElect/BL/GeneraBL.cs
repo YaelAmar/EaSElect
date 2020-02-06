@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -117,6 +118,29 @@ namespace BL
             }
             return 1;
         }
+        public int CheckVoter(string fingerPrint,long electionId)
+        {
+            //int voterId = int.Parse(fingerPrint);
+            long voterCode = VoterBL.GetCodeVoterById(fingerPrint, electionId);
+            if (voterCode == 0)
+                return 1;//בוחר לא קיים במאגר
+            Election election = ElectionBL.GetElectionByElectionCode(electionId);
+          //  if (!(election.StartDate < DateTime.Now && election.EndDate > DateTime.Now))
+            if (election.StartDate > DateTime.Now)
+                return 2;//בחירה לפני הזמן
+            if (election.EndDate < DateTime.Now)
+                return 3;//בחירה אחרי זמן הבחירות
+            List<long> electionOptionsAlreadySelected = ElectionResultBL.GetElectionOptionIdByVoterCode(voterCode);//מחזיר את אופציות הבחירה שבוחר זה כבר בחר
+            if (electionOptionsAlreadySelected!=null)//אם קיימות כבר אופציות בתוצאות
+                for (int i = 0; i < electionOptionsAlreadySelected.Count; i++)
+                {
+                    //בדיקה אם זה אופציות ששיכות לבחירה הנוכחית
+                    if (ElectionOptionBL.GetElectionIdByElectionOptionId(electionOptionsAlreadySelected[i]) == electionId)
+                        return 4;//בחרת כבר
+                }
+            return 0;//אתה אחלה
+        }
+
 
         private void EmptyAllTables(long electionId)
         {

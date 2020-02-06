@@ -18,4 +18,9 @@ export class VoterService{
      formData.append('electionId',electionId.toString());
      return this.http.post(`${this.url}/loadDataVoters`,formData);
   }
+
+CheckVoter(fingerPrint: string, electionId: number):Observable<number> {
+     return this.http.get<number>(`${this.url}/CheckVoter/${fingerPrint}/${electionId}`);
+ }
+
 }

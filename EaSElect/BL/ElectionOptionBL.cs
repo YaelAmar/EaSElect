@@ -34,5 +34,10 @@ namespace BL
         {
             ElectionOptionDal.Edit(electionOption);
         }
+
+        public long GetElectionIdByElectionOptionId(long electionOptionId)
+        {
+           return ElectionOptionDal.GetElectionIdByElectionOptionId(electionOptionId);
+        }
     }
 }

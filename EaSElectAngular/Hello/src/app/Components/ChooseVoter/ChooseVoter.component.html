@@ -1,7 +1,7 @@
 <div class="frm">
-    <li *ngFor="let item of electionOptions">
-        <ul><input type="button" value="item.ElectionOptionName" (click)="selectedOption(item)"></ul>
-    </li>
-
-    <input type="button" (click)="next()" value="המשך">
+     <div *ngFor="let item of electionOptions">
+        <input type="button" value="{{item.ElectionOptionName}}" (click)="selectedOption(item)">
+    </div>
+<br>
+    <input type="button" *ngIf="selectedOptionItem" (click)="next()" value="המשך">
 </div>

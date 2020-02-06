@@ -18,11 +18,14 @@ import { ElectionOptionService } from '../../Services/electionOption.service';
    electionId:number
   subscribe: any;
   electionOptions:ElectionOption[]
-  selectedOptionItem:ElectionOption=new ElectionOption()
+  selectedOptionItem:ElectionOption//=new ElectionOption()
    constructor(private electionOptionService:ElectionOptionService, private router:Router,private route:ActivatedRoute){
      }
   ngOnInit()
   {
+    sessionStorage.setItem('enter','0');
+ 
+    
     this.subscribe = this.route.paramMap.subscribe(params => {
       this.electionId = +params.get("id") });
       console.log(this.electionId)
@@ -37,11 +40,15 @@ import { ElectionOptionService } from '../../Services/electionOption.service';
   }
   selectedOption(electionOption:ElectionOption)
   {
+    this.selectedOptionItem=new ElectionOption()
     console.log(electionOption);
     this.selectedOptionItem=electionOption
-   
   }
   next(){
-   // this.router.navigate()
-  }
+    sessionStorage.setItem('enter','0');
+
+     this.router.navigate(['/VoterDetails',this.selectedOptionItem.ElectionOptionId])
+ 
+    }
+ 
 }

@@ -23,8 +23,10 @@ import { Router } from '@angular/router';
      }
    ngOnInit()
    {
- //   sessionStorage.setItem('enter','0');
-     }
+ // sessionStorage.setItem('companyId','0');
+  sessionStorage.setItem('enter','0');
+   
+}
    enter(frm:any){
       this.companyService.Login(this.logIn.UserName,this.logIn.Password).subscribe(companyId=>
     {

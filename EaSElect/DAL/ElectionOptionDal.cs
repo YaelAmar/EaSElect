@@ -31,7 +31,12 @@ namespace DAL
             return DB.ElectionOptions.Where(c => c.ElectionOptionName == electionOption.ElectionOptionName && c.ElectionId == electionOption.ElectionId).Select(l => l.ElectionOptionId).ToList()[0];
 
         }
-   
+
+        public long GetElectionIdByElectionOptionId(long electionOptionId)
+        {
+            return DB.ElectionOptions.Where(c => c.ElectionOptionId == electionOptionId).Select(i => i.ElectionId).ToList()[0];
+        }
+
         public void Edit(ElectionOption electionOption)
         {
             DB.Entry(electionOption).State = EntityState.Modified;
