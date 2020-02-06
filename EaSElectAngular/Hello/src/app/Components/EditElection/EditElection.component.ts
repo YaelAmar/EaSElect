@@ -21,10 +21,9 @@ import { EditElectionDetailsComponent } from '../EditElectionDetails/EditElectio
     election:Election=new Election();
     constructor(private router:Router,private route:ActivatedRoute,private electionService:ElectionService){
      }
-  ngOnInit()
+    ngOnInit()
      {
-  sessionStorage.setItem('enter','3');
-       
+      sessionStorage.setItem('enter','3');
        this.election.ElectionId=+sessionStorage.getItem('electionToEdit')
        this.searchElection();
       }
@@ -35,21 +34,21 @@ import { EditElectionDetailsComponent } from '../EditElectionDetails/EditElectio
     this.electionService.GetAllElections(this.companyId).subscribe((list:Election[])=>
     {
       this.ElectionsList=list;
-      var minDate:Date=new Date();
-      var currentDate:Date=new Date()
       for(let item of this.ElectionsList)
           {
-          var tmp=new Date(item.StartDate);
-       //   if(tmp>currentDate)
-             {
+          if(new Date(item.StartDate)<new Date()&&new Date(item.EndDate)>new Date()) 
+            {
                this.election=item
+               console.log(new Date(item.StartDate))
+               console.log(new Date(item.EndDate))
+               
                console.log(this.election.ElectionId)
                sessionStorage.setItem('electionToEdit',this.election.ElectionId.toString())
-             }
+            }
           }
-    });
-   }
-   }
+      });
+    }
+  }
      
      
    
