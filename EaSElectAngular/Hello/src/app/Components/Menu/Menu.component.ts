@@ -33,14 +33,16 @@ import { Router } from '@angular/router';
   }
 
   selectedElection(election:Election){
-    if(new Date(election.StartDate)<new Date()&&new Date(election.EndDate)>new Date()) 
+    if(new Date(election.StartDate)<new Date()&&new Date(election.EndDate)<new Date()) 
         {
          console.log("לא בזמן")
+         
         }
     else
      {
       sessionStorage.setItem('electionToEdit',election.ElectionId.toString())
       this.router.navigate(['/EditElection']);
+      window.location.reload();
       }
      }
   showReslut(){

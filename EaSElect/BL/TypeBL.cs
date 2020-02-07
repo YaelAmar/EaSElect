@@ -21,9 +21,9 @@ namespace BL
             return TypeDal.GetIdByName(typeName);
         }
 
-        public bool IsTypeExists(string typeName,long electionId)
+        public bool IsTypeExists(string typeName)
         {
-            return TypeDal.IsExistType(typeName,electionId);
+            return TypeDal.IsExistType(typeName);
         }
 
         public void EmptyTypeDetails(List<long> typeCodes)

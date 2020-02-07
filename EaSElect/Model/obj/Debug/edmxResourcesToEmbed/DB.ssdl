@@ -79,7 +79,7 @@
       <PropertyRef Name="VoterCode" />
     </Key>
     <Property Name="VoterCode" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="VoterId" Type="bigint" Nullable="false" />
+    <Property Name="VoterId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ElectionId" Type="bigint" Nullable="false" />
     <Property Name="DeleteRow" Type="bit" Nullable="false" />
   </EntityType>
@@ -191,16 +191,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="IsExistType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="typeName" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="IsExistTypeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="typeDetailName" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="IsExistVoter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="voterId" Type="bigint" Mode="In" />
-    <Parameter Name="electionId" Type="bigint" Mode="In" />
-  </Function>
   <Function Name="Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userName" Type="nvarchar" Mode="In" />
     <Parameter Name="password" Type="nvarchar" Mode="In" />

@@ -12,7 +12,8 @@ import { Route } from '@angular/compiler/src/core';
   export class AddVotersComponent{
 
      @Input() electionId:number
-
+voters:boolean=true
+send:boolean=true
     constructor(private voterService:VoterService,private emailService:EmailService,private router:Router){
       
     }
@@ -33,10 +34,12 @@ import { Route } from '@angular/compiler/src/core';
     
     this.voterService.uploadFile(fileInput.files[0],this.electionId).subscribe();
     console.log("הבוחרים נטענו בהצלחה")
+    this.voters=false
   }
   uploadEmailList(fileInput){
       this.emailService.uploadEmails(fileInput.files[0],this.electionId).subscribe();
   console.log("מיילי הבוחרים נטענו בהצלחה")
+  this.send=false
 
 }
 

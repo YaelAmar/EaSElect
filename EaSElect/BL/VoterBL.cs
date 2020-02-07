@@ -12,21 +12,19 @@ namespace BL
         VoterDal VoterDal= new VoterDal(); 
         public void AddNewVoter(string voterId,long electionId)
         {
-            int VoterId = int.Parse(voterId);
             Models.Voter newVoter = new Models.Voter()
-            { ElectionId = electionId, VoterId = VoterId};
+            { ElectionId = electionId, VoterId = voterId};
             VoterDal.AddNewVoter(newVoter);
         }
 
-        public bool IsVoterExists(int voterId,long electionId)
+        public bool IsVoterExists(string voterId,long electionId)
         {
             return VoterDal.IsVoterExists(voterId, electionId);
         }
 
         public long GetVoterCodeByVoterIdInCurrentElection(string fingerPrint, long electionId)
         {
-            int voterId=int.Parse(fingerPrint);
-            return VoterDal.GetVoterCodeByVoterIdInCurrentElection(voterId, electionId);
+           return VoterDal.GetVoterCodeByVoterIdInCurrentElection(fingerPrint, electionId);
         }
 
         public List<long> GetAllVoters(long electionId)

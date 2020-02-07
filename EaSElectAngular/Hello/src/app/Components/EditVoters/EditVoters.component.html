@@ -1,7 +1,16 @@
 <div class="frm part">
     בוחרים
+    <br>
+    <label>טען מחדש פרטי בוחרים</label>
+    <br>
+    <input type="file" value="טען מחדש פרטי בוחרים" (change)="reUploadVoters(votersUpload)" #votersUpload>
+    <br>
+    <label>טען מחדש מיילי בוחרים</label>
+   <br>
+    <input type="file" value="טען מחדש מיילי בוחרים" (change)="reUploadEmails(emailsUpload)" #emailsUpload [disabled]="voters" >
+ <br>
+    <input type="button" value="שלח מיילים לבוחרים" (click)="SendMessageToVoters()" [disabled]="send">  
+    <br>
+<label *ngIf="send==null">שליחת המיילים נעשתה בהצלחה</label>
 
-    <input type="file" value="טען מחדש פרטי בוחרים" (change)="reUploadVoters(votersUpload)" #votersUpload >
-    <input type="file" value="טען מחדש מיילי בוחרים" (change)="reUploadEmails(emailsUpload)" #emailsUpload >
-    <!-- <iframe src="getUrl()" frameborder="0"></iframe> -->
 </div>

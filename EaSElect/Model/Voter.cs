@@ -22,7 +22,7 @@ namespace Models
         }
     
         public long VoterCode { get; set; }
-        public long VoterId { get; set; }
+        public string VoterId { get; set; }
         public long ElectionId { get; set; }
         public bool DeleteRow { get; set; }
     

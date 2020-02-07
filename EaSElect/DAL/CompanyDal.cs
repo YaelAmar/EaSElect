@@ -32,9 +32,8 @@ namespace DAL
 
         public long Login(string userName, string password)
         {
-            int? result = DB.Login(userName, password).ToList()[0];
-            if(result==1)
-                return DB.Companies.Where(c=>c.UserName==userName &&c.Password==password).Select(c=>c.CompanyId).ToList()[0];
+            if (DB.Companies.Any(c => c.UserName == userName && c.Password == password))
+                  return DB.Companies.Where(c=>c.UserName==userName &&c.Password==password).Select(c=>c.CompanyId).ToList()[0];
             return 0;
         }
         public Company GetCompanyDetailsByElectionId(long electionId)

@@ -37,48 +37,5 @@ namespace Models
         public virtual DbSet<ValueToType> ValueToTypes { get; set; }
         public virtual DbSet<Voter> Voters { get; set; }
     
-        public virtual ObjectResult<Nullable<int>> IsExistType(string typeName)
-        {
-            var typeNameParameter = typeName != null ?
-                new ObjectParameter("typeName", typeName) :
-                new ObjectParameter("typeName", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("IsExistType", typeNameParameter);
         }
-    
-        public virtual ObjectResult<Nullable<int>> IsExistTypeDetails(string typeDetailName)
-        {
-            var typeDetailNameParameter = typeDetailName != null ?
-                new ObjectParameter("typeDetailName", typeDetailName) :
-                new ObjectParameter("typeDetailName", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("IsExistTypeDetails", typeDetailNameParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<int>> IsExistVoter(Nullable<long> voterId, Nullable<long> electionId)
-        {
-            var voterIdParameter = voterId.HasValue ?
-                new ObjectParameter("voterId", voterId) :
-                new ObjectParameter("voterId", typeof(long));
-    
-            var electionIdParameter = electionId.HasValue ?
-                new ObjectParameter("electionId", electionId) :
-                new ObjectParameter("electionId", typeof(long));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("IsExistVoter", voterIdParameter, electionIdParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<int>> Login(string userName, string password)
-        {
-            var userNameParameter = userName != null ?
-                new ObjectParameter("userName", userName) :
-                new ObjectParameter("userName", typeof(string));
-    
-            var passwordParameter = password != null ?
-                new ObjectParameter("password", password) :
-                new ObjectParameter("password", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Login", userNameParameter, passwordParameter);
-        }
-    }
 }
