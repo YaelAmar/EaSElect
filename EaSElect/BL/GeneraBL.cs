@@ -124,18 +124,6 @@ namespace BL
         }
 
         //מציאת מילה מתוך המחרוזת המבטאת סוכ או פריט סווג
-        private string SearchWord(string[] values, int j,out int tmp)
-        {
-            tmp = 0;
-            string word = "";
-            int k;
-            for (k = j; k < values[0].IndexOf(',', k); k++)
-            {
-                tmp = values[0].IndexOf(',', k);
-                word += values[0].ElementAt(k);
-            }
-            return word;
-        }
         public long LoadEmails(string path, long electionId)
         {
             EmailBL.EmptyEmails(electionId);
