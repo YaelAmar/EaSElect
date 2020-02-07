@@ -1,5 +1,5 @@
 <body>
-    <div>
+    <div class="txt">
 ברוך הבא, הנח את האצבע בקורא טביעת האצבע כדי להצביע בבחירות ל
 <span>{{electionToChoose.ElectionName}}</span>
 
@@ -8,9 +8,9 @@
 <br>
 <input type="button" *ngIf="fingerPrint" (click)="next(fingerPrint1.value)" value="שלח">
 <br>
-<label *ngIf="result==1">אינך רשום בתור בוחר במערכת</label>
-<label *ngIf="result==2">זמן ההצבעה עדיין לא הגיע...</label>
-<label *ngIf="result==3">זמן הבחירות עבר</label>
-<label *ngIf="result==4">כבר בחרת...</label>
+<label *ngIf="result==1" class="error"> מצטערים, אך אינך רשום בתור בוחר במערכת</label>
+<label *ngIf="result==2" class="error">זמן ההצבעה עדיין לא הגיע...</label>
+<label *ngIf="result==3" class="error">זמן הבחירות עבר</label>
+<label *ngIf="result==4" class="error">כבר בחרת...</label>
 </div>
 </body>
