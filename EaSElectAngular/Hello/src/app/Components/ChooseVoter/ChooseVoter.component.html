@@ -1,3 +1,4 @@
+<body>
 <div class="frm">
      <div *ngFor="let item of electionOptions">
         <input type="button" value="{{item.ElectionOptionName}}" (click)="selectedOption(item)">
@@ -5,3 +6,4 @@
 <br>
     <input type="button" *ngIf="selectedOptionItem" (click)="next()" value="המשך">
 </div>
+</body>

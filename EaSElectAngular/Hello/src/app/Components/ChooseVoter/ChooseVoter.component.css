@@ -1,0 +1,6 @@
+body{
+    background-image: url( assets/voter/Asset3.png);
+    background-image: url( assets/voter/v1.png);
+    background-size: cover;
+     display: flex;
+}
