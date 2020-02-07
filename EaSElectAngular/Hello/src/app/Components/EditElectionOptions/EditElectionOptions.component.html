@@ -2,6 +2,8 @@
 <div class="frm part">
 
     <label>אופציות הבחירה</label>
+    <br>
+    <label>לחץ enter לאחר השינוי</label>
     <table>
            <tr *ngFor="let item of electionOptionList">
              <input type="button" value="-" (click)="deleteOption(item)">

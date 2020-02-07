@@ -20,9 +20,8 @@ namespace DAL
         {
             try
             {
-              var resultnum= DB.IsExistTypeDetails(typeDetail).ToList()[0];
-              if (resultnum == 1)
-                    return true;
+                if (DB.TypeDetails.Any(t=>t.TypeDetailsName==typeDetail))
+                   return true;
             }
             catch (Exception e)
             {

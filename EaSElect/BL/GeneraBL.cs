@@ -36,29 +36,19 @@ namespace BL
                 for (int i = 0, countWord = 0; !reader.EndOfStream; i++, countWord = 0)
                 {
                     var line = reader.ReadLine();
-                    var values = line.Split(';');
+                    var values = line.Split(',');
                     //אם זה הכותרת שמביעה קריטריונים לסוגי סווג 
                     if (i == 0)
                     {
-                        for (int j = values[0].IndexOf(',') + 1; j < values[0].Length; j++)
+                        for (int j = 1; j < values.Length; j++)
                         {
-                           int k=j, tmp = 0;
-                           string typeName = SearchWord(values,j,out tmp);
-                            if (j < values[0].Length && k > tmp)
-                            {
-                                for (int w = k; w < values[0].Length; w++)
-                                {
-                                    typeName += values[0].ElementAt(w);
-                                }
-                                j = values[0].Length;
-                            }
-                            bool isTypeExists = TypeBL.IsTypeExists(typeName,electionId);
+                            string typeName = values[j];
+                            bool isTypeExists = TypeBL.IsTypeExists(typeName);
                             if (isTypeExists == false)
                             {
                                 TypeBL.AddNewType(typeName);
                             }
                             types.Add(typeName);
-                            j += typeName.Length;
                         }
 
                     }
@@ -67,38 +57,23 @@ namespace BL
                     {
                         string typeDetailName = "";
                         string voterId = "";
-                        for (int j = 0; j < values[0].Length; j++)
+                        for (int j = 0; j < values.Length; j++)
                         {
                             //אם מדובר על קוד טביעת אצבע
                             if (j == 0)
                             {
-                                voterId = "";
-                               //מחפש את קוד הבוחר
-                                for (int k = 0; k < values[0].IndexOf(',', j); k++)
-                                {
-                                    voterId += values[0].ElementAt(k);
-                                }
-                                //בדיקה אם הבוחר הזה נמצא בבחירות אלו
-                                bool isVoterExists = VoterBL.IsVoterExists(int.Parse(voterId), electionId);
+                                voterId = values[j];
+                               //בדיקה אם הבוחר הזה נמצא בבחירות אלו
+                                bool isVoterExists = VoterBL.IsVoterExists(voterId, electionId);
                                 if (isVoterExists == false)
                                     VoterBL.AddNewVoter(voterId, electionId);
-                                j += voterId.Length;
                             }
                             //אם זה ערך של פרטי סווג
                             else
                             {
-                                int tmp = 0, k=j;
-                                typeDetailName =SearchWord(values,j,out tmp);
-                                if (j < values[0].Length && k > tmp)
-                                {
-                                    for (int w = k; w < values[0].Length; w++)
-                                    {
-                                        typeDetailName += values[0].ElementAt(w);
-                                    }
-                                    j = values[0].Length;
-                                }
-                                bool isDetailExists = TypeDetailsBL.IsExistTypeDetails(typeDetailName);
+                                typeDetailName = values[j];
                                 //בודק אם פריט סווג זה קיים
+                                bool isDetailExists = TypeDetailsBL.IsExistTypeDetails(typeDetailName);
                                 if (isDetailExists == false)
                                 {
                                     TypeDetailsBL.AddNewTypeDetail(typeDetailName, types[countWord]);
@@ -108,8 +83,6 @@ namespace BL
                                 //מקבל את קוד בוחר מטבלת בוחרים
                                 long voterCode = VoterBL.GetVoterCodeByVoterIdInCurrentElection(voterId, electionId);
                                 ValueToTypeBL.AddValueToType(voterCode, typeDetailId);
-                                j += typeDetailName.Length;
-
                             }
                         }
                     }
@@ -120,12 +93,10 @@ namespace BL
         }
         public int CheckVoter(string fingerPrint,long electionId)
         {
-            //int voterId = int.Parse(fingerPrint);
             long voterCode = VoterBL.GetVoterCodeByVoterIdInCurrentElection(fingerPrint, electionId);
             if (voterCode == 0)
                 return 1;//בוחר לא קיים במאגר
             Election election = ElectionBL.GetElectionByElectionCode(electionId);
-          //  if (!(election.StartDate < DateTime.Now && election.EndDate > DateTime.Now))
             if (election.StartDate > DateTime.Now)
                 return 2;//בחירה לפני הזמן
             if (election.EndDate < DateTime.Now)

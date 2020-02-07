@@ -6,9 +6,9 @@
 <br>
     <label>פרטי בוחרים יופיעו בקובץ אקסל שישמר בשם .csvקובץ ( יופיעו קוד טביעת Aבעמודה הראשונה ) האצבע של הבוחרים. בעמודה האחרונה יופיעו כתובות המייל שלהם. בעמודה השלישית ואילך יופיעו סיווגים שלפיהם אתם מעוניינים לסווג את הבוחרים. השורה הראשונה תכיל את כותרות הסיווגים.</label>
     <br>
-    <input type="file"  (change)="uploadEmailList(emailUpload)" #emailUpload value="טען מיילים">
+    <input type="file"  (change)="uploadEmailList(emailUpload)" #emailUpload value="טען מיילים" [disabled]="voters">
     <br>
-    <input type="button" value="שלח מיילים לבוחרים" (click)="SendMessageToVoters()">
+    <input type="button" value="שלח מיילים לבוחרים" (click)="SendMessageToVoters()" [disabled]="send">
 <br>
     <a target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMhAjoggKQiiJakqflbyZvvpAfjzmm1DTY1Ya7DpKAxgKRh1J0hwUpaFDlxdAmWF920B4UVLuXHWx_/pubhtml?widget=true&amp;headers=false">לחץ כדי לצפות בקובץ לדוגמא</a>
 <br>

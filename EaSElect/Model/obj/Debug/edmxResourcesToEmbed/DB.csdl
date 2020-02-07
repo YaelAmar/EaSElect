@@ -42,7 +42,7 @@
     <Key>
       <PropertyRef Name="ElectionResultId" />
     </Key>
-    <Property Name="ElectionResultId" Type="Int64" Nullable="false" />
+    <Property Name="ElectionResultId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="VoterCode" Type="Int64" Nullable="false" />
     <Property Name="ElectionOptionId" Type="Int64" Nullable="false" />
     <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
@@ -94,7 +94,7 @@
       <PropertyRef Name="VoterCode" />
     </Key>
     <Property Name="VoterCode" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="VoterId" Type="Int64" Nullable="false" />
+    <Property Name="VoterId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ElectionId" Type="Int64" Nullable="false" />
     <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Election" Relationship="Self.FK_ElectionIdVoter" FromRole="Voter" ToRole="Election" />
@@ -255,16 +255,6 @@
       <End Role="Voter" EntitySet="Voters" />
       <End Role="ValueToType" EntitySet="ValueToTypes" />
     </AssociationSet>
-    <FunctionImport Name="IsExistType" ReturnType="Collection(Int32)">
-      <Parameter Name="typeName" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="IsExistTypeDetails" ReturnType="Collection(Int32)">
-      <Parameter Name="typeDetailName" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="IsExistVoter" ReturnType="Collection(Int32)">
-      <Parameter Name="voterId" Mode="In" Type="Int64" />
-      <Parameter Name="electionId" Mode="In" Type="Int64" />
-    </FunctionImport>
     <FunctionImport Name="Login" ReturnType="Collection(Int32)">
       <Parameter Name="userName" Mode="In" Type="String" />
       <Parameter Name="password" Mode="In" Type="String" />

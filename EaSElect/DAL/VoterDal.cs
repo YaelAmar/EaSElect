@@ -17,14 +17,12 @@ namespace DAL
             DB.SaveChanges();
         }
         //מחזיר אם הבוחר קיים בטבלת הבוחרים בבחירות אלו
-        public bool IsVoterExists(int voterId, long electionId)
+        public bool IsVoterExists(string voterId, long electionId)
         {
             try
             {
                 if (DB.Voters.Any(c => c.VoterId == voterId && c.ElectionId==electionId))
-                 //   var resultnum = DB.IsExistVoter(voterId, electionId).ToList()[0];
-               // if (resultnum == 1)
-                    return true;
+                       return true;
             }
             catch (Exception e)
             {
@@ -34,7 +32,7 @@ namespace DAL
             return false;
         }
         //מחזיר את הקוד היחודי של בוחר מסויים
-        public long GetVoterCodeByVoterIdInCurrentElection(long voterId, long electionId)
+        public long GetVoterCodeByVoterIdInCurrentElection(string voterId, long electionId)
         {
             if (DB.Voters.Any(c => c.VoterId == voterId && c.ElectionId == electionId))
                 return DB.Voters.Where(c => c.VoterId == voterId && c.ElectionId == electionId).Select(c => c.VoterCode).ToList()[0];
