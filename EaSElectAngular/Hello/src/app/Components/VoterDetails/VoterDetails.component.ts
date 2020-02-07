@@ -25,9 +25,9 @@ import { ElectionResultService } from '../../Services/electionResult.service';
    voterCode:number
    typeDetailsList:TypeDetails[]
    finish:boolean=false
-     constructor(private electionOptionService:ElectionOptionService,private companyService:CompanyService,
-     private valueToTypeService:ValueToTypeService,private eletionResultService:ElectionResultService,
-     private router:Router,private route:ActivatedRoute){
+  constructor(private electionOptionService:ElectionOptionService ,private companyService:CompanyService,
+              private valueToTypeService:ValueToTypeService, private eletionResultService:ElectionResultService,
+              private router:Router, private route:ActivatedRoute){
      }
      ngOnInit()
       {

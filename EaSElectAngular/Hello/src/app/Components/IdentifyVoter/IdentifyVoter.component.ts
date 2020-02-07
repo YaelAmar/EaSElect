@@ -33,7 +33,7 @@ import { VoterService } from '../../Services/voter.service';
       sessionStorage.setItem('enter','0');
       this.subscribe = this.route.paramMap.subscribe(params => {
       this.electionId = +params.get("id") });
-debugger
+//debugger
       this.electionService.GetCompanyIdByElectionId(this.electionId).subscribe(companyId=>
         {
          this.companyId=companyId;
