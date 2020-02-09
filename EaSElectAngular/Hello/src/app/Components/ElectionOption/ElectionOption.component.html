@@ -17,7 +17,7 @@
                 <button mat-button type="submit" [disabled]="!frm.valid"  id="electionOptionBtn" selected>הוסף אופציה</button>
 </mat-chip-list>
 <mat-chip-list aria-label="Fish selection">
-   <button mat-button type="button" [disabled]="countOptions<2" class="btnOK" selected (click)="AddVoters()">הבא</button>
+   <button mat-button type="button" *ngIf="countOptions>=2" class="btnOK" selected (click)="AddVoters()">הבא</button>
  </mat-chip-list>
 </form>
     

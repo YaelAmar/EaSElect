@@ -9,6 +9,7 @@
 
 namespace Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -25,8 +26,10 @@ namespace Models
         public string TypeDetailsName { get; set; }
         public bool DeleteRow { get; set; }
     
+        [JsonIgnore]
         public virtual Type Type { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<ValueToType> ValueToTypes { get; set; }
     }
 }

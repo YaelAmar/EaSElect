@@ -11,7 +11,6 @@ import { ElectionOption } from "../../Models/electionOption.model";
   
     newElectionOption:ElectionOption=new ElectionOption();
     countOptions:number=0
-    //electionOptionList:ElectionOption[]
     electionOptionList:Array<ElectionOption>=new Array<ElectionOption>();
     @Input()  electionId:number
     @Output() isElectionAdded=new EventEmitter<boolean>();
@@ -29,9 +28,7 @@ import { ElectionOption } from "../../Models/electionOption.model";
      this.electionOptionList[this.i]=(this.newElectionOption)
      this.countOptions++;
      this.i++;
-      console.log(this.electionOptionList)
      this.newElectionOption=new ElectionOption();
-     debugger
     this.newElectionOption.ElectionId=this.electionId;
 
      }

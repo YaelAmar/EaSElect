@@ -13,21 +13,11 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   
-  // constructor(private cdRef : ChangeDetectorRef){
 
-  // }
   ngOnInit()
   {
-//   sessionStorage.setItem('companyId','null')
    sessionStorage.setItem('enter','1');
-   
-  // this.ngAfterViewChecked();
   }
-  //  ngAfterViewChecked() {
-  //  sessionStorage.setItem('enter','1');
-  //     this.cdRef.detectChanges();
-  //   }
-  
 
   getCompanyId(){
     return sessionStorage.getItem('companyId')

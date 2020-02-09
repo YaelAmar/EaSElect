@@ -18,7 +18,6 @@ import { EmailService } from '../../Services/email.service';
   ngOnInit()
   {
     this.electionToEdit=+sessionStorage.getItem('electionToEdit')
-    console.log(this.electionToEdit)
     
   }
   reUploadVoters(fileInput){

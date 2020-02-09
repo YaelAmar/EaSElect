@@ -6,6 +6,7 @@ import { TypeDetails } from '../Models/typeDetails.model';
 
 @Injectable()
 export class ValueToTypeService{
+ 
   
     url='http://localhost:55866/api/valueToType'
     constructor(private http:HttpClient){
@@ -14,4 +15,8 @@ export class ValueToTypeService{
           return this.http.get<TypeDetails[]>(`${this.url}/getVoterCodeByVoterIdInCurrentElection/${voterCode}`);
         
       }
+
+    DeleteValueToType(voterCode: number,typeDetailsId: number,checked1:boolean):Observable<void> {
+        return this.http.get<void>(`${this.url}/deleteValueToType/${voterCode}/${typeDetailsId}/${checked1}`);
+      } 
 }

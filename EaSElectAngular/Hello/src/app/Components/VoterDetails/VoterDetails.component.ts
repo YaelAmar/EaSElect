@@ -37,7 +37,7 @@ import { ElectionResultService } from '../../Services/electionResult.service';
       
 
       this.getCompanyName();//מחזיר את החברה שבה נמצא עכשיו
-      this.GetValueToTypeOfCurrentVoter();
+      this.GetValueToTypeOfCurrentVoter();//מחזיר את הערכי סווג של בוחר זה
 
      
       }
@@ -69,8 +69,8 @@ import { ElectionResultService } from '../../Services/electionResult.service';
     this.companyName=companyName;
     });
   }
-  emptyCheckBox(typeDetails:TypeDetails){
-    console.log(typeDetails)
+  emptyCheckBox(typeDetail:TypeDetails,checked1:boolean){
+       this.valueToTypeService.DeleteValueToType(this.voterCode,typeDetail.TypeDetailsId,checked1).subscribe();
   }
   sendResult(){
     this.eletionResultService.sendChoose(this.voterCode,this.selectedOptionItem.ElectionOptionId).subscribe();
