@@ -1,7 +1,44 @@
-example-section {
+/* example-section {
     display: flex;
     align-content: center;
     align-items: center;
     height: 60px;
-  }
+  } */
+  body{
+    background-image: url( assets/voter/details.png);
+    background-size: cover;
+}
+mat-checkbox{
+  font-family: Stanga AAA;
+  color:#000000;
+  zoom:1.5;
+  font-size: 17.5px;;
+
   
+}
+.return{
+  margin: 30px;
+  font-size: 20px;
+}
+.txt{
+  font-family: Stanga AAA;
+font-size: 30px;
+}
+p{
+  width: 300px;
+  margin: auto;
+  text-align: center;
+}
+.list{
+  margin: auto;
+  width: 200px;
+  overflow:hidden;
+  overflow-y:scroll;
+  max-height: 200px;
+  text-align: right;
+}
+.btn{
+margin:auto;
+left: 150px;
+bottom: -100px;
+}
