@@ -26,6 +26,12 @@ namespace BL
             return typeDetails;
         }
 
+        public void DeleteValueToType(long voterCode, long typeDetailsId,bool checked1)
+        {
+           // ValueToType newValueToType = new ValueToType() { VoterCode = voterCode, TypeDetailsId = typeDetailsId, DeleteRow = true };
+            ValueToTypeDal.DeleteValueToType(voterCode, typeDetailsId,checked1);
+        }
+
         public List<long> EmptyValueToTypeAndGetTypeDetailsCodes(List<long> voterCodes)
         {
             return ValueToTypeDal.EmptyValueToTypeAndGetTypeDetailsCodes(voterCodes);

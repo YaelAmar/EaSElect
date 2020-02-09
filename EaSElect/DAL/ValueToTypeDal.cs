@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,14 @@ namespace DAL
                 }
             }
             return typeDetailsCodes;
+        }
+
+        public void DeleteValueToType(long voterCode, long typeDetailsId,bool checked1)
+        {
+          ValueToType valueToTypes= DB.ValueToTypes.Where(v => v.VoterCode == voterCode && v.TypeDetailsId == typeDetailsId).ToList()[0];
+            valueToTypes.DeleteRow = !checked1;
+            DB.Entry(valueToTypes).State = EntityState.Modified;
+            DB.SaveChanges();
         }
 
         public List<TypeDetail> GetValueToTypeOfVoter(long voterCode)

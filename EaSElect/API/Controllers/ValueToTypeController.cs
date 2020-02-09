@@ -19,5 +19,12 @@ namespace API.Controllers
         {
             return ValueToTypeBL.GetValueToTypeOfVoter(voterCode);
         }
+        [HttpGet]
+        [Route("api/valueToType/deleteValueToType/{voterCode}/{typeDetailsId}/{checked1}")]
+
+        public void DeleteValueToType(long voterCode,long typeDetailsId,bool checked1)
+        {
+            ValueToTypeBL.DeleteValueToType(voterCode, typeDetailsId,checked1);
+        }
     }
 }

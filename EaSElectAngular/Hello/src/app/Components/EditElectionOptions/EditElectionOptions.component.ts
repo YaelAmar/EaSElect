@@ -22,6 +22,7 @@ import { ElectionOptionService } from '../../Services/electionOption.service';
     this.electionOptionService.GetAllElectionOption(this.electionIdToEdit).subscribe(list=>
       {
         this.electionOptionList=list;
+     
       });
       this.newOption.ElectionId=this.electionIdToEdit;
   }

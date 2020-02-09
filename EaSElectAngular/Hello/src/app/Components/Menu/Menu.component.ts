@@ -42,11 +42,14 @@ import { Router } from '@angular/router';
      {
       sessionStorage.setItem('electionToEdit',election.ElectionId.toString())
       this.router.navigate(['/EditElection']);
-      window.location.reload();
+     // window.location.reload();
       }
      }
-  showReslut(){
+     
+   ResultElection(election:Election){
+    console.log(election)
+    sessionStorage.setItem('electionResult',election.ElectionId.toString())
     this.router.navigate(['/Results']);
-
+      
   }
 }
