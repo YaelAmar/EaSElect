@@ -42,6 +42,7 @@ import { ValueToTypeService } from './Services/valueToType.service';
 
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ElectionResultService } from './Services/electionResult.service';
+import { MatTabsModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +78,8 @@ import { ElectionResultService } from './Services/electionResult.service';
     NgxMaterialTimepickerModule,
     MatFileUploadModule,
     NgbModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule
     
    ],
 

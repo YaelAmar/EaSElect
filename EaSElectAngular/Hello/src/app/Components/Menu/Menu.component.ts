@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
     
     ElectionsList:Election[];  
     companyId:number
+    ResultElectionsList:Election[]
     constructor(private electionService:ElectionService,private router:Router){
      
     }
@@ -23,6 +24,7 @@ import { Router } from '@angular/router';
    this.companyId=+sessionStorage.getItem('companyId')
    this.electionService.GetAllElections(this.companyId).subscribe((list:Election[])=>{
    this.ElectionsList=list;
+   this.ResultElectionsList=list
       });
    
   
@@ -33,23 +35,29 @@ import { Router } from '@angular/router';
   }
 
   selectedElection(election:Election){
-    if(new Date(election.StartDate)<new Date()&&new Date(election.EndDate)<new Date()) 
+   // if(new Date(election.StartDate)<new Date()&&new Date(election.EndDate)<new Date()) 
         {
-         console.log("לא בזמן")
+    //     console.log("לא בזמן")
          
         }
-    else
+ ////   else
      {
       sessionStorage.setItem('electionToEdit',election.ElectionId.toString())
-      this.router.navigate(['/EditElection']);
+      console.log(election)
+      console.log(sessionStorage.getItem('electionToEdit'))
+     debugger
+     this.router.navigate(['/EditElection']);
      // window.location.reload();
       }
      }
-     
+
    ResultElection(election:Election){
     console.log(election)
     sessionStorage.setItem('electionResult',election.ElectionId.toString())
     this.router.navigate(['/Results']);
       
+  }
+  home(){
+    this.router.navigate(['/Home']);
   }
 }

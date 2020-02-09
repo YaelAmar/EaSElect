@@ -11,6 +11,7 @@ import { ResultsComponent } from './Components/Results/Results.component';
 import { IdentifyVoterComponent } from './Components/IdentifyVoter/IdentifyVoter.component';
 import { ChooseVoterComponent } from './Components/ChooseVoter/ChooseVoter.component';
 import { VoterDetailsComponent } from './Components/VoterDetails/VoterDetails.component';
+import { HomeComponent } from './Components/Home/Home.component';
 
 
 
@@ -22,11 +23,12 @@ export const appRoutes: Routes = [
    { path:'AddVoters',component:AddVotersComponent},
    { path:'Election',component:ElectionComponent,pathMatch:'full'},
    { path:'EditElection',component:EditElectionComponent,pathMatch:'full'},
-   { path:'EditElection/:id',component:EditElectionComponent,pathMatch:'full'},
+   { path:'EditElection',component:EditElectionComponent,pathMatch:'full'},
    { path:'Results',component:ResultsComponent,pathMatch:'full'},
    { path:'IdentifyVoter/:id',component:IdentifyVoterComponent,pathMatch:'full'},
    { path:'ChooseVoter/:id',component:ChooseVoterComponent,pathMatch:'full'},
-   { path:'VoterDetails/:id',component:VoterDetailsComponent}
+   { path:'VoterDetails/:id',component:VoterDetailsComponent},
+   { path:'Home',component:HomeComponent} 
 
 
    

@@ -5,7 +5,11 @@ import { CompanyService } from '../../Services/company.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Election } from '../../Models/election.model';
-
+import { ElectionOptionService } from '../../Services/electionOption.service';
+import { ElectionOption } from '../../Models/electionOption.model';
+import { ElectionResultService } from '../../Services/electionResult.service';
+import { ElectionResult } from '../../Models/electionResult.model';
+ 
 
 
 @Component({
@@ -15,10 +19,27 @@ import { Election } from '../../Models/election.model';
   })
   
   export class ResultsComponent {
-    electionResult:Election=new Election()
+    electionResults:Election=new Election()
+    electionOptionList:ElectionOption[]
+    resultList:ElectionResult[]
+    constructor(private electionOptionService:ElectionOptionService,private electionResultService:ElectionResultService){
+
+    }
    ngOnInit(){
+ 
     sessionStorage.setItem('enter','3');
-  this.electionResult.ElectionId=+ sessionStorage.getItem('electionResult')
-  console.log(this.electionResult)
+    this.electionResults.ElectionId=+ sessionStorage.getItem('electionResult')
+    console.log(this.electionResults)
+
+     this.electionOptionService.GetAllElectionOption(this.electionResults.ElectionId).subscribe(list=>{
+       this.electionOptionList=list;
+       console.log(this.electionOptionList)
+     })
+
+     this.electionResultService.GetResult(this.electionOptionList).subscribe(list=>
+      {
+       this.resultList=list;
+       console.log(this.resultList)
+     });
    }
 }

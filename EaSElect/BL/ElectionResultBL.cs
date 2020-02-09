@@ -16,10 +16,15 @@ namespace BL
            return ElectionResultDal.GetElectionOptionIdByVoterCode(voterCode);
         }
 
-        public void SendChoose(long voterCode, long electionOptionId)
+        public void AddElectionResult(long voterCode, long electionOptionId)
         {
             ElectionResult newElectionResult = new ElectionResult() { VoterCode=voterCode, ElectionOptionId=electionOptionId};
-            ElectionResultDal.SendChoose(newElectionResult);
+            ElectionResultDal.AddElectionResult(newElectionResult);
+        }
+
+        public List<ElectionResult> GetResult(List<ElectionOption> electionOptions)
+        {
+           return ElectionResultDal.GetResult(electionOptions);
         }
     }
 }

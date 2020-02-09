@@ -18,8 +18,6 @@ import { Router } from '@angular/router';
   
    ngOnInit()
    {
-   // sessionStorage.setItem('companyId','0');
-
    }
   LogIn(){
 sessionStorage.setItem('enter','3')

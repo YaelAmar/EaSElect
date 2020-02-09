@@ -1,4 +1,5 @@
 ﻿using BL;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,23 +13,20 @@ namespace API.Controllers
     {
        ElectionResultBL ElectionResultBL = new ElectionResultBL();
         EmailBL EmailBL = new EmailBL();
-        [HttpPost]
-        [Route("api/electionResult/AddElectionResult")]
-        public int AddElectionResult()
+    
+        [HttpGet]
+        [Route("api/electionResult/addElectionResult/{voterCode}/{electionOptionId}")]
+        public void AddElectionResult(long voterCode,long electionOptionId)
         {
-            return 3;
+            ElectionResultBL.AddElectionResult(voterCode,electionOptionId);
         }
         [HttpGet]
-        [Route("api/electionResult/sendChoose/{voterCode}/{electionOptionId}")]
-        public void SendChoose(long voterCode,long electionOptionId)
+        [Route("api/electionResult/getResult/{electionOptions}")]
+        public List<ElectionResult> GetResult(List<ElectionOption> electionOptions)
         {
-            ElectionResultBL.SendChoose(voterCode,electionOptionId);
+           return ElectionResultBL.GetResult(electionOptions);
         }
-       [HttpPost]
-       [Route("api/electionResult/SendResult")]
-       public int SendResults(long electionId)
-       {
-           return EmailBL.SendEmail(electionId,2);
-       }
+        public void Options()
+        { }
     }
 }
