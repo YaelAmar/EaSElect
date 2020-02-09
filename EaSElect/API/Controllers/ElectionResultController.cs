@@ -13,7 +13,7 @@ namespace API.Controllers
     {
        ElectionResultBL ElectionResultBL = new ElectionResultBL();
         EmailBL EmailBL = new EmailBL();
-    
+        GeneralBL GeneralBL = new GeneralBL();
         [HttpGet]
         [Route("api/electionResult/addElectionResult/{voterCode}/{electionOptionId}")]
         public void AddElectionResult(long voterCode,long electionOptionId)
@@ -21,10 +21,10 @@ namespace API.Controllers
             ElectionResultBL.AddElectionResult(voterCode,electionOptionId);
         }
         [HttpGet]
-        [Route("api/electionResult/getResult/{electionOptions}")]
-        public List<ElectionResult> GetResult(List<ElectionOption> electionOptions)
+        [Route("api/electionResult/getResult/{electionId}")]
+        public List<ResultOfOption> GetResult(long electionId)
         {
-           return ElectionResultBL.GetResult(electionOptions);
+            return GeneralBL.GetResult(electionId);
         }
         public void Options()
         { }

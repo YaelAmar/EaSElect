@@ -123,7 +123,6 @@ namespace BL
 
         }
 
-        //מציאת מילה מתוך המחרוזת המבטאת סוכ או פריט סווג
         public long LoadEmails(string path, long electionId)
         {
             EmailBL.EmptyEmails(electionId);
@@ -143,6 +142,21 @@ namespace BL
              return EmailBL.LoadEmails(emails, electionId);
             }
              return -1;
+        }
+
+        public List<ResultOfOption> GetResult(long electionId)
+        {
+            List<ResultOfOption> resultOfOption = new List<ResultOfOption>(); 
+            long electionOptionId;
+            int sumOption = 0;
+            List<ElectionOption> electionOptions= ElectionOptionBL.Get(electionId);
+            for (int i = 0; i < electionOptions.Count; i++)
+            {
+                electionOptionId = electionOptions[i].ElectionOptionId;
+                sumOption=ElectionResultBL.GetResultOfOption(electionOptionId);
+                resultOfOption.Add(new ResultOfOption() { ElectionOptionId = electionOptionId, CountOfChoose = sumOption });
+            }
+            return resultOfOption;
         }
     }
 }

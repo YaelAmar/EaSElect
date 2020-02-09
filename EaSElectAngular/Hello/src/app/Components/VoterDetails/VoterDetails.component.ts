@@ -49,8 +49,7 @@ import { ElectionResultService } from '../../Services/electionResult.service';
       if(typeDetailsIdList==null)
          console.log("אין סיווג")
      this.typeDetailsList=typeDetailsIdList
-     
-    })
+  })
   }
   
 

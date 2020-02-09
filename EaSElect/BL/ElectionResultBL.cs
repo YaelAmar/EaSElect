@@ -22,9 +22,9 @@ namespace BL
             ElectionResultDal.AddElectionResult(newElectionResult);
         }
 
-        public List<ElectionResult> GetResult(List<ElectionOption> electionOptions)
+        public int GetResultOfOption(long electionOptionId)
         {
-           return ElectionResultDal.GetResult(electionOptions);
+           return ElectionResultDal.GetResultOfOption(electionOptionId);
         }
     }
 }

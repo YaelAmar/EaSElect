@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ElectionOption } from '../Models/electionOption.model';
 import { ElectionResult } from '../Models/electionResult.model';
+import { ResultOfOption } from '../Models/resultOfOption';
 
 const httpOptions={
     headers:new HttpHeaders({'Content-type':'application/json'})}
@@ -17,7 +18,7 @@ export class ElectionResultService{
     sendChoose(voterCode: number, electionOptionId: number):Observable<void> {
       return this.http.get<void>(`${this.url}/addElectionResult/${voterCode}/${electionOptionId}`);
       }
-      GetResult(electionOptions: ElectionOption[]):Observable<ElectionResult[]> {
-          return this.http.get<ElectionResult[]>(`${this.url}/getResult/${electionOptions}`);
+      GetResult(electionId: number):Observable<ResultOfOption[]> {
+          return this.http.get<ResultOfOption[]>(`${this.url}/getResult/${electionId}`);
           }
     }

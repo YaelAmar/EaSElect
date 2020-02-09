@@ -35,16 +35,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ElectionResults">
-      <EntityTypeMapping TypeName="ElectionsDBModel.ElectionResult">
-        <MappingFragment StoreEntitySet="ElectionResult">
-          <ScalarProperty Name="ElectionResultId" ColumnName="ElectionResultId" />
-          <ScalarProperty Name="VoterCode" ColumnName="VoterCode" />
-          <ScalarProperty Name="ElectionOptionId" ColumnName="ElectionOptionId" />
-          <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Emails">
       <EntityTypeMapping TypeName="ElectionsDBModel.Email">
         <MappingFragment StoreEntitySet="Emails">
@@ -92,6 +82,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="Login" FunctionName="ElectionsDBModel.Store.Login" />
+    <EntitySetMapping Name="ElectionResults">
+      <EntityTypeMapping TypeName="ElectionsDBModel.ElectionResult">
+        <MappingFragment StoreEntitySet="ElectionResult">
+          <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
+          <ScalarProperty Name="ElectionOptionId" ColumnName="ElectionOptionId" />
+          <ScalarProperty Name="VoterCode" ColumnName="VoterCode" />
+          <ScalarProperty Name="ElectionResultId" ColumnName="ElectionResultId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

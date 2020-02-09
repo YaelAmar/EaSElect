@@ -8,7 +8,6 @@
         <EntityTypeShape EntityType="ElectionsDBModel.Company" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.Election" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.ElectionOption" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectionsDBModel.ElectionResult" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.Email" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.Type" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectionsDBModel.TypeDetail" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
@@ -18,11 +17,12 @@
         <AssociationConnector Association="ElectionsDBModel.FK_ElectionId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_ElectionIdEmail" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_ElectionIdVoter" ManuallyRouted="false" />
-        <AssociationConnector Association="ElectionsDBModel.FK_ElectionIdResult" ManuallyRouted="false" />
-        <AssociationConnector Association="ElectionsDBModel.FK_VoterIdResult" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_TypeId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_TypeDetailsId" ManuallyRouted="false" />
         <AssociationConnector Association="ElectionsDBModel.FK_VoterCode" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ElectionsDBModel.ElectionResult" Width="1.5" PointX="7.5" PointY="4" />
+        <AssociationConnector Association="ElectionsDBModel.FK_ElectionIdResult" />
+        <AssociationConnector Association="ElectionsDBModel.FK_VoterIdResult" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

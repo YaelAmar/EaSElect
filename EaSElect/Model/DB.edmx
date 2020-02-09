@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ElectionsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ElectionsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="CompanyId" />
@@ -196,10 +196,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="userName" Type="nvarchar" Mode="In" />
-          <Parameter Name="password" Type="nvarchar" Mode="In" />
-        </Function>
         <EntityContainer Name="ElectionsDBModelStoreContainer">
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Election" EntityType="Self.Election" Schema="dbo" store:Type="Tables" />
@@ -247,8 +243,7 @@
             <End Role="ElectionResult" EntitySet="ElectionResult" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ElectionsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -288,18 +283,7 @@
           <Property Name="ElectionId" Type="Int64" Nullable="false" />
           <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Election" Relationship="Self.FK_ElectionId" FromRole="ElectionOption" ToRole="Election" />
-          <NavigationProperty Name="ElectionResults" Relationship="Self.FK_ElectionIdResult" FromRole="ElectionOption" ToRole="ElectionResult" />
-        </EntityType>
-        <EntityType Name="ElectionResult">
-          <Key>
-            <PropertyRef Name="ElectionResultId" />
-          </Key>
-          <Property Name="ElectionResultId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="VoterCode" Type="Int64" Nullable="false" />
-          <Property Name="ElectionOptionId" Type="Int64" Nullable="false" />
-          <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="ElectionOption" Relationship="Self.FK_ElectionIdResult" FromRole="ElectionResult" ToRole="ElectionOption" />
-          <NavigationProperty Name="Voter" Relationship="Self.FK_VoterIdResult" FromRole="ElectionResult" ToRole="Voter" />
+          <NavigationProperty Name="ElectionResults" Relationship="ElectionsDBModel.FK_ElectionIdResult" FromRole="ElectionOption" ToRole="ElectionResult" />
         </EntityType>
         <EntityType Name="Email">
           <Key>
@@ -350,8 +334,8 @@
           <Property Name="ElectionId" Type="Int64" Nullable="false" />
           <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Election" Relationship="Self.FK_ElectionIdVoter" FromRole="Voter" ToRole="Election" />
-          <NavigationProperty Name="ElectionResults" Relationship="Self.FK_VoterIdResult" FromRole="Voter" ToRole="ElectionResult" />
           <NavigationProperty Name="ValueToTypes" Relationship="Self.FK_VoterCode" FromRole="Voter" ToRole="ValueToType" />
+          <NavigationProperty Name="ElectionResults" Relationship="ElectionsDBModel.FK_VoterIdResult" FromRole="Voter" ToRole="ElectionResult" />
         </EntityType>
         <Association Name="FK_CompanyId">
           <End Role="Company" Type="Self.Company" Multiplicity="1" />
@@ -401,30 +385,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ElectionIdResult">
-          <End Role="ElectionOption" Type="Self.ElectionOption" Multiplicity="1" />
-          <End Role="ElectionResult" Type="Self.ElectionResult" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ElectionOption">
-              <PropertyRef Name="ElectionOptionId" />
-            </Principal>
-            <Dependent Role="ElectionResult">
-              <PropertyRef Name="ElectionOptionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VoterIdResult">
-          <End Role="Voter" Type="Self.Voter" Multiplicity="1" />
-          <End Role="ElectionResult" Type="Self.ElectionResult" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Voter">
-              <PropertyRef Name="VoterCode" />
-            </Principal>
-            <Dependent Role="ElectionResult">
-              <PropertyRef Name="VoterCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TypeId">
           <End Role="Type" Type="Self.Type" Multiplicity="1" />
           <End Role="TypeDetails" Type="Self.TypeDetail" Multiplicity="*" />
@@ -465,7 +425,6 @@
           <EntitySet Name="Companies" EntityType="Self.Company" />
           <EntitySet Name="Elections" EntityType="Self.Election" />
           <EntitySet Name="ElectionOptions" EntityType="Self.ElectionOption" />
-          <EntitySet Name="ElectionResults" EntityType="Self.ElectionResult" />
           <EntitySet Name="Emails" EntityType="Self.Email" />
           <EntitySet Name="Types" EntityType="Self.Type" />
           <EntitySet Name="TypeDetails" EntityType="Self.TypeDetail" />
@@ -487,14 +446,6 @@
             <End Role="Election" EntitySet="Elections" />
             <End Role="Voter" EntitySet="Voters" />
           </AssociationSet>
-          <AssociationSet Name="FK_ElectionIdResult" Association="Self.FK_ElectionIdResult">
-            <End Role="ElectionOption" EntitySet="ElectionOptions" />
-            <End Role="ElectionResult" EntitySet="ElectionResults" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VoterIdResult" Association="Self.FK_VoterIdResult">
-            <End Role="Voter" EntitySet="Voters" />
-            <End Role="ElectionResult" EntitySet="ElectionResults" />
-          </AssociationSet>
           <AssociationSet Name="FK_TypeId" Association="Self.FK_TypeId">
             <End Role="Type" EntitySet="Types" />
             <End Role="TypeDetails" EntitySet="TypeDetails" />
@@ -511,7 +462,51 @@
             <Parameter Name="userName" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="ElectionResults" EntityType="ElectionsDBModel.ElectionResult" />
+          <AssociationSet Name="FK_ElectionIdResult" Association="ElectionsDBModel.FK_ElectionIdResult">
+            <End Role="ElectionOption" EntitySet="ElectionOptions" />
+            <End Role="ElectionResult" EntitySet="ElectionResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VoterIdResult" Association="ElectionsDBModel.FK_VoterIdResult">
+            <End Role="Voter" EntitySet="Voters" />
+            <End Role="ElectionResult" EntitySet="ElectionResults" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="ElectionResult">
+          <Key>
+            <PropertyRef Name="ElectionResultId" />
+          </Key>
+          <Property Name="ElectionResultId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VoterCode" Type="Int64" Nullable="false" />
+          <Property Name="ElectionOptionId" Type="Int64" Nullable="false" />
+          <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ElectionOption" Relationship="ElectionsDBModel.FK_ElectionIdResult" FromRole="ElectionResult" ToRole="ElectionOption" />
+          <NavigationProperty Name="Voter" Relationship="ElectionsDBModel.FK_VoterIdResult" FromRole="ElectionResult" ToRole="Voter" />
+        </EntityType>
+        <Association Name="FK_ElectionIdResult">
+          <End Type="ElectionsDBModel.ElectionOption" Role="ElectionOption" Multiplicity="1" />
+          <End Type="ElectionsDBModel.ElectionResult" Role="ElectionResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ElectionOption">
+              <PropertyRef Name="ElectionOptionId" />
+            </Principal>
+            <Dependent Role="ElectionResult">
+              <PropertyRef Name="ElectionOptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VoterIdResult">
+          <End Type="ElectionsDBModel.Voter" Role="Voter" Multiplicity="1" />
+          <End Type="ElectionsDBModel.ElectionResult" Role="ElectionResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voter">
+              <PropertyRef Name="VoterCode" />
+            </Principal>
+            <Dependent Role="ElectionResult">
+              <PropertyRef Name="VoterCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -548,16 +543,6 @@
                 <ScalarProperty Name="ElectionOptionId" ColumnName="ElectionOptionId" />
                 <ScalarProperty Name="ElectionOptionName" ColumnName="ElectionOptionName" />
                 <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
-                <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ElectionResults">
-            <EntityTypeMapping TypeName="ElectionsDBModel.ElectionResult">
-              <MappingFragment StoreEntitySet="ElectionResult">
-                <ScalarProperty Name="ElectionResultId" ColumnName="ElectionResultId" />
-                <ScalarProperty Name="VoterCode" ColumnName="VoterCode" />
-                <ScalarProperty Name="ElectionOptionId" ColumnName="ElectionOptionId" />
                 <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -609,7 +594,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="Login" FunctionName="ElectionsDBModel.Store.Login" />
+          <EntitySetMapping Name="ElectionResults">
+            <EntityTypeMapping TypeName="ElectionsDBModel.ElectionResult">
+              <MappingFragment StoreEntitySet="ElectionResult">
+                <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
+                <ScalarProperty Name="ElectionOptionId" ColumnName="ElectionOptionId" />
+                <ScalarProperty Name="VoterCode" ColumnName="VoterCode" />
+                <ScalarProperty Name="ElectionResultId" ColumnName="ElectionResultId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

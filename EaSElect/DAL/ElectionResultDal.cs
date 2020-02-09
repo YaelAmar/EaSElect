@@ -27,6 +27,11 @@ namespace DAL
             }
         }
 
+        public int GetResultOfOption(long electionOptionId)
+        {
+            return DB.ElectionResults.Count(o=>o.ElectionOptionId==electionOptionId);
+        }
+
         //public long GetResult(List<ElectionOption> electionOptions)
         //{
         // //   List<ElectionResult> electionResults = new List<ElectionResult>();

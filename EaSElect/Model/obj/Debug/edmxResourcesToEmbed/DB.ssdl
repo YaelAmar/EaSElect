@@ -191,10 +191,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="userName" Type="nvarchar" Mode="In" />
-    <Parameter Name="password" Type="nvarchar" Mode="In" />
-  </Function>
   <EntityContainer Name="ElectionsDBModelStoreContainer">
     <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Election" EntityType="Self.Election" Schema="dbo" store:Type="Tables" />
