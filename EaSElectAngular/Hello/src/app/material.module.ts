@@ -11,7 +11,9 @@ import {
   MatDatepickerModule,
   MatNativeDateModule, 
   MatInputModule,
-  MatChipsModule
+  MatChipsModule,
+  MatListModule,
+  
 
   
 
@@ -29,7 +31,8 @@ import {
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
-    MatChipsModule
+    MatChipsModule,
+    MatListModule
   ],
   exports: [
     MatButtonModule,
@@ -42,7 +45,9 @@ import {
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
-    MatChipsModule
+    MatChipsModule,
+    MatListModule
+  
   ]
 })
 export class MaterialModule {}

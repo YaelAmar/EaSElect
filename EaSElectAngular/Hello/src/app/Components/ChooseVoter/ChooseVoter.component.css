@@ -3,3 +3,32 @@ body{
      display: flex;
      background-image: url(assets/voter/choose.png);
 }
+.list{
+  /* top:150px; */
+    display: block;
+   max-height: 350px;
+   overflow:hidden;
+    overflow-y:scroll;
+    width: 300px;
+    margin: auto;
+}
+.btn{   
+color: #000000; 
+display: inline-block;
+left: 120px;
+bottom: -30px;  
+
+}
+
+
+.listItem{  
+font-family: Stanga AAA;
+font-size: 30px;
+background-color:#008bfb;  
+color: #000000;
+/* color:#008bfb; */
+}
+
+.y{
+    margin: auto;
+}
