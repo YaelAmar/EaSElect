@@ -1,9 +1,17 @@
 <body>
-<div class="frm">
-     <div *ngFor="let item of electionOptions">
+    <div class="y">
+<div class="frm list">
+    <mat-action-list >
+        <mat-list-item *ngFor="let item of electionOptions"  selected (click)="selectedOption(item)" class="listItem">
+          {{item.ElectionOptionName}}
+        </mat-list-item>
+    </mat-action-list>
+      
+    <!-- <div *ngFor="let item of electionOptions">
         <input type="button" value="{{item.ElectionOptionName}}" (click)="selectedOption(item)">
-    </div>
-<br>
-    <input type="button" *ngIf="selectedOptionItem" (click)="next()" value="המשך">
+    </div> -->
+</div>
+
+<button mat-button class="btnOK btn" selected type="button" [disabled]="selectedOptionItem==null" (click)="next()" > המשך</button>
 </div>
 </body>
