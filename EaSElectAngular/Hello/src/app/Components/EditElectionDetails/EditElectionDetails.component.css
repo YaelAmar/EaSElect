@@ -13,3 +13,14 @@
       margin:-7% auto;
       
   }
+  button{
+    right: 100px;
+    bottom: -25px;
+  }
+  form{
+   padding-top:0px;
+  }
+  label{
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
