@@ -22,11 +22,11 @@ namespace Models
     
         public long TypeId { get; set; }
         public string TypeName { get; set; }
-        public bool DeleteRow { get; set; }
         public Nullable<long> ElectionId { get; set; }
+        public bool DeleteRow { get; set; }
     
+        public virtual Election Election { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TypeDetail> TypeDetails { get; set; }
-        public virtual Election Election { get; set; }
     }
 }
