@@ -1,6 +1,7 @@
 <div>
     <form novalidate (submit)="EditElection(frm)" #frm="ngForm" class="frm part">
             <label>פרטי בחירות, לחץ לשינוי</label>
+            <br>
     <div class="item">
         <mat-form-field class="example-full-width">
             <input matInput placeholder="שם בחירות" name="electionName" [(ngModel)]="electionToEdit.ElectionName" type="text" #electionName="ngModel" required maxlength="50">
@@ -37,7 +38,7 @@
     
     
     
-    <div  class="btnfrm">
+    <div >
         <mat-chip-list aria-label="Fish selection">
             <button mat-button type="submit" [disabled]="!frm.valid" class="btnOK" selected>שמור שינויים</button>
             </mat-chip-list>

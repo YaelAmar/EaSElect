@@ -6,7 +6,7 @@
     <label>בעמודה השניה ואילך יופיעו סיווגים שלפיהם אתם מעוניינים לסווג את הבוחרים. השורה הראשונה תכיל את כותרות הסיווגים.</label>
     <div class="upload">
           <label class="span">  טען פרטי בוחרים</label>
-         <input type="file" class="up" (change)="upload(fileUpload)" #fileUpload value="טען פרטי בוחרים">
+         <input type="file" class="up" (change)="upload(fileUpload)" #fileUpload >
     </div>
     <a target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMhAjoggKQiiJakqflbyZvvpAfjzmm1DTY1Ya7DpKAxgKRh1J0hwUpaFDlxdAmWF920B4UVLuXHWx_/pubhtml?widget=true&amp;headers=false">לחץ כדי לצפות בקובץ לדוגמא</a>
     <br>
@@ -14,15 +14,15 @@
     
     <div class="upload">
          <label class="span">  טען כתובות מייל</label>
-         <input type="file"  (change)="uploadEmailList(emailUpload)" #emailUpload value="טען מיילים" [disabled]="voters">
+         <input type="file"  (change)="uploadEmailList(emailUpload)" #emailUpload >
     </div>
     <mat-chip-list aria-label="Fish selection">
-    <button mat-button type="button" class="btnOK next" value="שלח הודעות לבוחרים" (click)="SendMessageToVoters()" [disabled]="send"></button>
+    <button mat-button type="button" class="btnOK next" value="שלח הודעות לבוחרים" (click)="SendMessageToVoters()" [disabled]="voters"></button>
 </mat-chip-list>
     <br>
  
 <mat-chip-list aria-label="Fish selection">
-    <button mat-button type="button" class="btnOK next" selected (click)="next()">סיימתי</button>
+    <button mat-button type="button" class="btnOK next" selected (click)="next()" [disabled]="send">סיימתי</button>
     </mat-chip-list>
 </div>
 </div>
