@@ -20,6 +20,7 @@ namespace Models
             this.ElectionOptions = new HashSet<ElectionOption>();
             this.Emails = new HashSet<Email>();
             this.Voters = new HashSet<Voter>();
+            this.Types = new HashSet<Type>();
         }
     
         public long ElectionId { get; set; }
@@ -36,5 +37,7 @@ namespace Models
         public virtual ICollection<Email> Emails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Voter> Voters { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Type> Types { get; set; }
     }
 }
