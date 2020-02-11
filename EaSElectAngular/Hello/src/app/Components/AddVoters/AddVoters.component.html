@@ -1,22 +1,28 @@
 <div >
     <div class="vertical"></div>
 <div class="frm part">
-    
-    <input type="file" (change)="upload(fileUpload)" #fileUpload value="טען פרטי בוחרים">
-<br>
-    <label>פרטי בוחרים יופיעו בקובץ אקסל שישמר בשם .csvקובץ ( יופיעו קוד טביעת Aבעמודה הראשונה ) האצבע של הבוחרים. בעמודה האחרונה יופיעו כתובות המייל שלהם. בעמודה השלישית ואילך יופיעו סיווגים שלפיהם אתם מעוניינים לסווג את הבוחרים. השורה הראשונה תכיל את כותרות הסיווגים.</label>
-    <br>
-    <input type="file"  (change)="uploadEmailList(emailUpload)" #emailUpload value="טען מיילים" [disabled]="voters">
-    <br>
-    <input type="button" value="שלח מיילים לבוחרים" (click)="SendMessageToVoters()" [disabled]="send">
-<br>
+    <label> פרטי בוחרים יופיעו בקובץ אקסל שישמר בשם קובץ </label><span>csv</span>
+    <label>בעמודה הראשונה</label><span>(A)</span><label>יופיעו קוד טביעת האצבע של הבוחרים. </label>
+    <label>בעמודה השניה ואילך יופיעו סיווגים שלפיהם אתם מעוניינים לסווג את הבוחרים. השורה הראשונה תכיל את כותרות הסיווגים.</label>
+    <div class="upload">
+          <label class="span">  טען פרטי בוחרים</label>
+         <input type="file" class="up" (change)="upload(fileUpload)" #fileUpload value="טען פרטי בוחרים">
+    </div>
     <a target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMhAjoggKQiiJakqflbyZvvpAfjzmm1DTY1Ya7DpKAxgKRh1J0hwUpaFDlxdAmWF920B4UVLuXHWx_/pubhtml?widget=true&amp;headers=false">לחץ כדי לצפות בקובץ לדוגמא</a>
-<br>
-    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMhAjoggKQiiJakqflbyZvvpAfjzmm1DTY1Ya7DpKAxgKRh1J0hwUpaFDlxdAmWF920B4UVLuXHWx_/pub?output=csv">לחץ כאן כדי להוריד קובץ לדוגמא</a>
-<br>
-
+    <br>
+        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMhAjoggKQiiJakqflbyZvvpAfjzmm1DTY1Ya7DpKAxgKRh1J0hwUpaFDlxdAmWF920B4UVLuXHWx_/pub?output=csv">לחץ כאן כדי להוריד קובץ לדוגמא</a>
+    
+    <div class="upload">
+         <label class="span">  טען כתובות מייל</label>
+         <input type="file"  (change)="uploadEmailList(emailUpload)" #emailUpload value="טען מיילים" [disabled]="voters">
+    </div>
+    <mat-chip-list aria-label="Fish selection">
+    <button mat-button type="button" class="btnOK next" value="שלח הודעות לבוחרים" (click)="SendMessageToVoters()" [disabled]="send"></button>
+</mat-chip-list>
+    <br>
+ 
 <mat-chip-list aria-label="Fish selection">
-    <button mat-button type="button" class="btnOK" selected (click)="next()">סיימתי</button>
+    <button mat-button type="button" class="btnOK next" selected (click)="next()">סיימתי</button>
     </mat-chip-list>
 </div>
 </div>

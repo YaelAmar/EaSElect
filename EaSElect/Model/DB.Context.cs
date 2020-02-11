@@ -30,12 +30,24 @@ namespace Models
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<Election> Elections { get; set; }
         public virtual DbSet<ElectionOption> ElectionOptions { get; set; }
-        public virtual DbSet<ElectionResult> ElectionResults { get; set; }
         public virtual DbSet<Email> Emails { get; set; }
         public virtual DbSet<Type> Types { get; set; }
         public virtual DbSet<TypeDetail> TypeDetails { get; set; }
         public virtual DbSet<ValueToType> ValueToTypes { get; set; }
         public virtual DbSet<Voter> Voters { get; set; }
+        public virtual DbSet<ElectionResult> ElectionResults { get; set; }
     
+        public virtual ObjectResult<Nullable<int>> Login(string userName, string password)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Login", userNameParameter, passwordParameter);
         }
+    }
 }

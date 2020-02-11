@@ -29,14 +29,7 @@ p{
   margin: auto;
   text-align: center;
 }
-.list{
-  margin: auto;
-  width: 200px;
-  overflow:hidden;
-  overflow-y:scroll;
-  max-height: 200px;
-  text-align: right;
-}
+
 .btn{
 margin:auto;
 left: 150px;

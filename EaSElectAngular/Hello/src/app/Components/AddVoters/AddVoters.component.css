@@ -1,3 +1,21 @@
-.error{
-    color: red;
+
+.span{
+    color:#008bfb;
+    font-size: 20px;
+    display: inline-block;
+}
+.upload{
+    margin: auto;
+    width: 250px;
+    border-radius: 7.5px;
+    border-color: #008bfb;
+    border-style: solid;
+    border-width: 1px;
+    padding-bottom: 10px;
+}
+.up{
+    display: inline-block;
+}
+label{
+font-size: 17px;
 }

@@ -3,6 +3,7 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css'; 
 body{
     font-family: Stanga AAA;
+    /* font-family: Almoni DL AAA; */
     direction: rtl;
 }
 html, body { height: 100%; }
@@ -74,5 +75,19 @@ bottom: -50px;
       float: right;
 
   }
+  .list{
+   
+    margin: auto;
+    max-width: 200px;
+    overflow-x: auto;
+    /* overflow:hidden; */
+    overflow-y:auto;
+    max-height: 200px;
+    text-align: right;
+  }
 
-  /* דפי מנהל עריכה הצגה וכד'*/
+  .next{
+    right: 125px; 
+    
+    }
+      /* דפי מנהל עריכה הצגה וכד'*/
