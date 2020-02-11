@@ -148,13 +148,15 @@ namespace BL
         {
             List<ResultOfOption> resultOfOption = new List<ResultOfOption>(); 
             long electionOptionId;
+            string electionOptionName;
             int sumOption = 0;
             List<ElectionOption> electionOptions= ElectionOptionBL.Get(electionId);
             for (int i = 0; i < electionOptions.Count; i++)
             {
                 electionOptionId = electionOptions[i].ElectionOptionId;
+                electionOptionName = electionOptions[i].ElectionOptionName;
                 sumOption=ElectionResultBL.GetResultOfOption(electionOptionId);
-                resultOfOption.Add(new ResultOfOption() { ElectionOptionId = electionOptionId, CountOfChoose = sumOption });
+                resultOfOption.Add(new ResultOfOption() { ElectionOptionId = electionOptionId, CountOfChoose = sumOption,ElectionOptionName= electionOptionName});
             }
             return resultOfOption;
         }

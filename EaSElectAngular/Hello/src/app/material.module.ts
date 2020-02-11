@@ -13,7 +13,9 @@ import {
   MatInputModule,
   MatChipsModule,
   MatListModule,
-  
+  MatSelectModule,
+  MatOptionModule
+ 
 
   
 
@@ -32,7 +34,9 @@ import {
     MatNativeDateModule,
     MatInputModule,
     MatChipsModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   exports: [
     MatButtonModule,
@@ -46,7 +50,9 @@ import {
     MatNativeDateModule,
     MatInputModule,
     MatChipsModule,
-    MatListModule
+    MatListModule,
+    MatOptionModule,
+    MatSelectModule
   
   ]
 })

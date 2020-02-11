@@ -43,6 +43,11 @@ import { ValueToTypeService } from './Services/valueToType.service';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ElectionResultService } from './Services/electionResult.service';
 import { MatTabsModule } from '@angular/material';
+
+import { ChartsModule } from 'ng2-charts';
+import { ChartComponent } from './Components/chart/chart.component';
+import { PieComponent } from './Components/pie/pie.component';
+import { TypeDetailsService } from './Services/typeDetails.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +66,9 @@ import { MatTabsModule } from '@angular/material';
     EditVotersComponent,
     ResultsComponent,
     ChooseVoterComponent,
-    VoterDetailsComponent
+    VoterDetailsComponent,
+    ChartComponent,
+    PieComponent
    
   
   ],
@@ -79,7 +86,8 @@ import { MatTabsModule } from '@angular/material';
     MatFileUploadModule,
     NgbModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    ChartsModule
     
    ],
 
@@ -93,7 +101,8 @@ import { MatTabsModule } from '@angular/material';
     Election,
     EmailService,
     ValueToTypeService,
-    ElectionResultService
+    ElectionResultService,
+    TypeDetailsService
     
 
     

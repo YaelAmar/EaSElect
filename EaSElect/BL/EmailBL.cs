@@ -32,7 +32,7 @@ namespace BL
             {
                 
                 body = "\nהנה הקישור לאתר הבחירות";
-                body += "http://localhost:4200/ItentifyVoter/"+electionId;
+                body += "http://localhost:4200/IdentifyVoter/" + electionId;
                 subject = string.Format(" הצבעה לבחירות {0}", electionName);
             }
             else if(typeEmail==2)//שליחת לינק לבוחרים בשביל לצפות בתוצאות בחירה

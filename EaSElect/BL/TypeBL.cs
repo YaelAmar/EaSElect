@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using Models;
 
 namespace BL
 {
@@ -14,6 +15,11 @@ namespace BL
         {
             Models.Type newType=new Models.Type() { TypeName=type};
             TypeDal.Add(newType);
+        }
+
+        public List<Models.Type> Get()
+        {
+            return TypeDal.Get();
         }
 
         public int GetTypeIdByName(string typeName)

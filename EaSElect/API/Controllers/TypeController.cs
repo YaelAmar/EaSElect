@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,5 +10,12 @@ namespace API.Controllers
 {
     public class TypeController : ApiController
     {
+        TypeBL TypeBL = new TypeBL();
+        [HttpGet]
+        [Route("api/type/get")]
+        public List<Models.Type> Get()
+        {
+            return TypeBL.Get();
+        }
     }
 }

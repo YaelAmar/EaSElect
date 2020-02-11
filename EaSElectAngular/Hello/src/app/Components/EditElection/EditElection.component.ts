@@ -1,9 +1,11 @@
 
-import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Election } from '../../Models/election.model';
 import { ElectionService } from '../../Services/election.service';
 import { EditElectionDetailsComponent } from '../EditElectionDetails/EditElectionDetails.component';
+import { EditElectionOptionsComponent } from '../EditElectionOptions/EditElectionOptions.component';
+import { EditVotersComponent } from '../EditVoters/EditVoters.component';
 
 
 
@@ -14,19 +16,43 @@ import { EditElectionDetailsComponent } from '../EditElectionDetails/EditElectio
     styleUrls: ['./editElection.component.css']
   })
   
-  export class EditElectionComponent {
+  export class EditElectionComponent  implements OnInit,AfterViewInit{
 
     companyId:number
     ElectionsList: Election[];
     election:Election=new Election();
     constructor(private router:Router,private route:ActivatedRoute,private electionService:ElectionService){
      }
-    ngOnInit()
-     {
+     @ViewChild(EditElectionDetailsComponent,{static:false}) electionDetails:EditElectionDetailsComponent;
+     @ViewChild(EditElectionOptionsComponent,{static:false}) option:EditElectionOptionsComponent;
+     @ViewChild(EditVotersComponent,{static:false}) voters:EditVotersComponent;
+
+
+
+     ngOnInit() {
       sessionStorage.setItem('enter','3');
-       this.election.ElectionId=+sessionStorage.getItem('electionToEdit')
-       this.searchElection();
       }
+
+      ngAfterViewInit() {
+         this.route.params.subscribe(e=>
+         
+            {
+               this.election.ElectionId=e.id;
+               if(sessionStorage.getItem('electionToEdit')!=e.id)
+               {
+                  sessionStorage.setItem('electionToEdit',e.id.toString())
+                  this.electionDetails.ngOnInit();
+                  this.option.ngOnInit();
+                  this.voters.ngOnInit();
+   
+   
+               }
+   
+               this.searchElection();
+            }) 
+
+      }
+
       
    
    searchElection(){

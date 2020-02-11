@@ -36,6 +36,11 @@ namespace DAL
             return int.Parse(DB.TypeDetails.Where(n => n.TypeDetailsName.Equals(typeDetail)).Select(c => c.TypeDetailsId).ToList()[0].ToString());
         }
 
+        public List<TypeDetail> Get(long typeId)
+        {
+            return DB.TypeDetails.Where(t => t.TypeId == typeId).ToList();
+        }
+
         public List<long> EmptyTypeDetailsAndGetTypeCodes(List<long> typeDetailsCodes)
         {
             List<long> typeCodes = new List<long>();

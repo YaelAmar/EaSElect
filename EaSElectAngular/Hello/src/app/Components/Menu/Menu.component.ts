@@ -16,45 +16,32 @@ import { Router } from '@angular/router';
     companyId:number
     ResultElectionsList:Election[]
     constructor(private electionService:ElectionService,private router:Router){
-     
     }
  
-    ngOnInit()
-    {
+  ngOnInit()
+  {
    this.companyId=+sessionStorage.getItem('companyId')
    this.electionService.GetAllElections(this.companyId).subscribe((list:Election[])=>{
    this.ElectionsList=list;
    this.ResultElectionsList=list
       });
-   
-  
   }
   addElection(){
     this.router.navigate(['/Election']);
-
   }
-
   selectedElection(election:Election){
-   // if(new Date(election.StartDate)<new Date()&&new Date(election.EndDate)<new Date()) 
-        {
-    //     console.log("לא בזמן")
-         
-        }
- ////   else
      {
-      sessionStorage.setItem('electionToEdit',election.ElectionId.toString())
       console.log(election)
       console.log(sessionStorage.getItem('electionToEdit'))
      debugger
-     this.router.navigate(['/EditElection']);
-     // window.location.reload();
+     this.router.navigate(['/EditElection',election.ElectionId]);
       }
      }
 
    ResultElection(election:Election){
     console.log(election)
     sessionStorage.setItem('electionResult',election.ElectionId.toString())
-    this.router.navigate(['/Results']);
+     this.router.navigate(['/Results',election.ElectionId.toString()]);
       
   }
   home(){

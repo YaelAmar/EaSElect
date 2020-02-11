@@ -23,6 +23,11 @@ namespace DAL
             return int.Parse((DB.Types.Where(n => n.TypeName == typeName).Select(c => c.TypeId).ToList()[0].ToString()));
         }
 
+        public List<Type> Get()
+        {
+            return DB.Types.ToList();
+        }
+
         public bool IsExistType(string typeName)
         {
             try

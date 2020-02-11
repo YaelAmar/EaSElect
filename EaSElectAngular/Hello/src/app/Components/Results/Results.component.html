@@ -1,1 +1,16 @@
-<label>תוצאות</label>
+<body>
+<h1>תוצאות לבחירות ל{{electionName}}</h1>
+
+<h4>תוצאות על פי סווג</h4>
+<mat-form-field>
+  <mat-label>בחר סווג</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let type of types" [value]="type" (click)="selectType(type)">
+      {{type.TypeName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<app-chart *ngIf="selectedType!=null&&resultOfOption!=null"  [options]="resultOfOption" [type]="selectedType"></app-chart>
+<!-- <app-pie *ngIf="resultOfOption!=null" [data]="resultOfOption"></app-pie> -->
+</body>

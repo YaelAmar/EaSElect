@@ -1,5 +1,6 @@
 export class ResultOfOption
 {
-  ElectionOption:number
+  ElectionOptionId:number
+  ElectionOptionName:string
   CountOfChoose:number
 }
