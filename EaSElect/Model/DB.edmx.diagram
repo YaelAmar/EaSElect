@@ -23,6 +23,7 @@
         <EntityTypeShape EntityType="ElectionsDBModel.ElectionResult" Width="1.5" PointX="7.5" PointY="4.375" />
         <AssociationConnector Association="ElectionsDBModel.FK_ElectionIdResult" />
         <AssociationConnector Association="ElectionsDBModel.FK_VoterIdResult" />
+        <AssociationConnector Association="ElectionsDBModel.FK_ElectionIdType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

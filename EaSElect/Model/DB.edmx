@@ -13,7 +13,7 @@
           <Property Name="CompanyName" Type="nvarchar" MaxLength="55" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="EmailManager" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="EmailManager" Type="nvarchar" MaxLength="60" />
           <Property Name="DeleteRow" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Election">
@@ -40,7 +40,7 @@
           <Key>
             <PropertyRef Name="ElectionResultId" />
           </Key>
-          <Property Name="ElectionResultId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ElectionResultId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="VoterCode" Type="bigint" Nullable="false" />
           <Property Name="ElectionOptionId" Type="bigint" Nullable="false" />
           <Property Name="DeleteRow" Type="bit" Nullable="false" />
@@ -59,6 +59,7 @@
           </Key>
           <Property Name="TypeId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ElectionId" Type="bigint" />
           <Property Name="DeleteRow" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TypeDetails">
@@ -133,6 +134,18 @@
             </Principal>
             <Dependent Role="ElectionResult">
               <PropertyRef Name="ElectionOptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ElectionIdType">
+          <End Role="Election" Type="Self.Election" Multiplicity="0..1" />
+          <End Role="Type" Type="Self.Type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Election">
+              <PropertyRef Name="ElectionId" />
+            </Principal>
+            <Dependent Role="Type">
+              <PropertyRef Name="ElectionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -222,6 +235,10 @@
             <End Role="ElectionOption" EntitySet="ElectionOption" />
             <End Role="ElectionResult" EntitySet="ElectionResult" />
           </AssociationSet>
+          <AssociationSet Name="FK_ElectionIdType" Association="Self.FK_ElectionIdType">
+            <End Role="Election" EntitySet="Election" />
+            <End Role="Type" EntitySet="Type" />
+          </AssociationSet>
           <AssociationSet Name="FK_ElectionIdVoter" Association="Self.FK_ElectionIdVoter">
             <End Role="Election" EntitySet="Election" />
             <End Role="Voter" EntitySet="Voter" />
@@ -255,7 +272,7 @@
           <Property Name="CompanyName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EmailManager" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailManager" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Elections" Relationship="Self.FK_CompanyId" FromRole="Company" ToRole="Election" />
         </EntityType>
@@ -273,6 +290,7 @@
           <NavigationProperty Name="ElectionOptions" Relationship="Self.FK_ElectionId" FromRole="Election" ToRole="ElectionOption" />
           <NavigationProperty Name="Emails" Relationship="Self.FK_ElectionIdEmail" FromRole="Election" ToRole="Emails" />
           <NavigationProperty Name="Voters" Relationship="Self.FK_ElectionIdVoter" FromRole="Election" ToRole="Voter" />
+          <NavigationProperty Name="Types" Relationship="ElectionsDBModel.FK_ElectionIdType" FromRole="Election" ToRole="Type" />
         </EntityType>
         <EntityType Name="ElectionOption">
           <Key>
@@ -302,6 +320,8 @@
           <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TypeDetails" Relationship="Self.FK_TypeId" FromRole="Type" ToRole="TypeDetails" />
+          <Property Name="ElectionId" Type="Int64" />
+          <NavigationProperty Name="Election" Relationship="ElectionsDBModel.FK_ElectionIdType" FromRole="Type" ToRole="Election" />
         </EntityType>
         <EntityType Name="TypeDetail">
           <Key>
@@ -471,6 +491,10 @@
             <End Role="Voter" EntitySet="Voters" />
             <End Role="ElectionResult" EntitySet="ElectionResults" />
           </AssociationSet>
+          <AssociationSet Name="FK_ElectionIdType" Association="ElectionsDBModel.FK_ElectionIdType">
+            <End Role="Election" EntitySet="Elections" />
+            <End Role="Type" EntitySet="Types" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ElectionResult">
           <Key>
@@ -504,6 +528,18 @@
             </Principal>
             <Dependent Role="ElectionResult">
               <PropertyRef Name="VoterCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ElectionIdType">
+          <End Type="ElectionsDBModel.Election" Role="Election" Multiplicity="0..1" />
+          <End Type="ElectionsDBModel.Type" Role="Type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Election">
+              <PropertyRef Name="ElectionId" />
+            </Principal>
+            <Dependent Role="Type">
+              <PropertyRef Name="ElectionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -558,6 +594,7 @@
           <EntitySetMapping Name="Types">
             <EntityTypeMapping TypeName="ElectionsDBModel.Type">
               <MappingFragment StoreEntitySet="Type">
+                <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
                 <ScalarProperty Name="TypeId" ColumnName="TypeId" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
