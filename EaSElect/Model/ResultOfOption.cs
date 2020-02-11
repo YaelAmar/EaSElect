@@ -9,6 +9,7 @@ namespace Models
     public class ResultOfOption
     {
         public long ElectionOptionId { get; set; }
+        public string ElectionOptionName { get; set; }
         public int CountOfChoose { get; set; }
     }
 }

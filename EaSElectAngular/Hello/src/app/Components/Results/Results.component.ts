@@ -1,18 +1,15 @@
 
-import { Component } from '@angular/core';
-import { LogIn } from '../../Models/Login.model';
-import { CompanyService } from '../../Services/company.service';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component,AfterViewInit, ViewChild } from '@angular/core';
 import { Election } from '../../Models/election.model';
 import { ElectionOptionService } from '../../Services/electionOption.service';
-import { ElectionOption } from '../../Models/electionOption.model';
 import { ElectionResultService } from '../../Services/electionResult.service';
-import { ElectionResult } from '../../Models/electionResult.model';
 import { ResultOfOption } from '../../Models/resultOfOption';
+import { ChartComponent } from '../chart/chart.component';
+import { ActivatedRoute } from '@angular/router';
+import { ElectionService } from '../../Services/election.service';
+import { Type } from '../../Models/type.model';
+import { TypeService } from '../../Services/type.service';
  
-
-
 @Component({
     selector: 'app-Results',
     templateUrl: './Results.component.html',
@@ -21,29 +18,57 @@ import { ResultOfOption } from '../../Models/resultOfOption';
   
   export class ResultsComponent {
     electionResults:Election=new Election()
-    // electionOptionList:ElectionOption[]
-    // resultIdsList:ElectionResult[]
+    electionName:string
     resultOfOption:ResultOfOption[]
-    constructor(private electionOptionService:ElectionOptionService,private electionResultService:ElectionResultService){
-
+    types:Type[]
+    selectedType:Type=new Type()
+     constructor(private route:ActivatedRoute,private electionService:ElectionService,private typeService:TypeService,
+      private electionOptionService:ElectionOptionService,private electionResultService:ElectionResultService){
     }
    ngOnInit(){
     sessionStorage.setItem('enter','3');
-    this.electionResults.ElectionId=+ sessionStorage.getItem('electionResult')
-    console.log(this.electionResults)
 
-      //  this.electionOptionService.GetAllElectionOption(this.electionResults.ElectionId).subscribe(list=>{
-      //  this.electionOptionList=list;
-      //  console.log(this.electionOptionList)
-      //  for(let i=0; i<this.electionOptionList.length;i++)
-      //  {
-          this.electionResultService.GetResult(this.electionResults.ElectionId).subscribe(list=>
-          {
-            this.resultOfOption=list;
-    console.log(this.resultOfOption)
+    this.route.params.subscribe(e=>
+      {
+        console.log(e.id)
+         this.electionResults.ElectionId=e.id;
+         if(sessionStorage.getItem('electionResult')!=e.id)
+         {
+            sessionStorage.setItem('electionResult',e.id.toString())
+         }
+      console.log(this.electionResults)    
+      })
+    this.getResult();
+    this.getElectionName();
+    this.getTypes();
+     }
+    
+     getResult(){
+      this.electionResultService.GetResult(this.electionResults.ElectionId).subscribe(list=>
+        {
+          this.resultOfOption=list;
+        })
+     }
+     getElectionName(){
+      this.electionService.GetElectionByCode(this.electionResults.ElectionId).subscribe(election=>{
+        this.electionName=election.ElectionName;
+      })
+     }
+     getTypes(){
+      this.typeService.Get().subscribe(typeList=>
+        {
+          this.types=typeList;
+          console.log(this.types)
+          this.selectedType=new Type()
+          this.selectedType=this.types[0]
+          console.log(this.selectedType)
+        })
+    }
 
-          })
-       }
-      
-
-   }
+    selectType(type:Type)
+    {
+      this.selectedType=new Type()
+      console.log(type)
+      this.selectedType=type
+    } 
+  }
