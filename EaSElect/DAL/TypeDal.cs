@@ -13,9 +13,14 @@ namespace DAL
         ElectionsDBEntities DB = new ElectionsDBEntities();
         public void Add(Models.Type type)
         {
-            DB.Types.Add(type);
-            DB.SaveChanges();
-
+            if (!(DB.Types.Any(c => c.TypeName == type.TypeName && c.ElectionId == type.ElectionId)))
+            {
+                DB.Types.Add(type);
+                DB.SaveChanges();
+            }
+            else
+                Console.WriteLine("קיים סווג זה בבחירות אלו");
+          
         }
 
         public int GetIdByName(string typeName)
@@ -28,27 +33,12 @@ namespace DAL
             return DB.Types.ToList();
         }
 
-        public bool IsExistType(string typeName)
-        {
-            try
-            {
-             if (DB.Types.Any(c => c.TypeName == typeName))
-                 return true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("not good!" + e.ToString());
-
-            }
-            return false;
-        }
-
-        public void EmptyTypeDetails(List<long> typeCodes)
+        public void EmptyTypes(List<long> typeCodes, long electionId)
         {
             for (int i = 0; i < typeCodes.Count; i++)
             {
                 long typeId = typeCodes[i];
-                List<Type> types = DB.Types.Where(t => t.TypeId == typeId).ToList();
+                List<Type> types = DB.Types.Where(t => t.TypeId == typeId&&t.ElectionId==electionId).ToList();
                 for (int j = 0; j < types.Count; j++)
                 {
                     if (types[j].TypeId == typeId)

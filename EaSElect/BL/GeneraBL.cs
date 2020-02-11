@@ -43,11 +43,7 @@ namespace BL
                         for (int j = 1; j < values.Length; j++)
                         {
                             string typeName = values[j];
-                            bool isTypeExists = TypeBL.IsTypeExists(typeName);
-                            if (isTypeExists == false)
-                            {
-                                TypeBL.AddNewType(typeName);
-                            }
+                            TypeBL.AddNewType(typeName,electionId);
                             types.Add(typeName);
                         }
 
@@ -63,22 +59,14 @@ namespace BL
                             if (j == 0)
                             {
                                 voterId = values[j];
-                               //בדיקה אם הבוחר הזה נמצא בבחירות אלו
-                                bool isVoterExists = VoterBL.IsVoterExists(voterId, electionId);
-                                if (isVoterExists == false)
-                                    VoterBL.AddNewVoter(voterId, electionId);
+                                VoterBL.AddNewVoter(voterId, electionId);
                             }
                             //אם זה ערך של פרטי סווג
                             else
                             {
                                 typeDetailName = values[j];
-                                //בודק אם פריט סווג זה קיים
-                                bool isDetailExists = TypeDetailsBL.IsExistTypeDetails(typeDetailName);
-                                if (isDetailExists == false)
-                                {
-                                    TypeDetailsBL.AddNewTypeDetail(typeDetailName, types[countWord]);
-                                    countWord++;
-                                }
+                                TypeDetailsBL.AddNewTypeDetail(typeDetailName, types[countWord]);
+                                 countWord++;
                                 int typeDetailId = TypeDetailsBL.GetTypeDetailIdByName(typeDetailName);
                                 //מקבל את קוד בוחר מטבלת בוחרים
                                 long voterCode = VoterBL.GetVoterCodeByVoterIdInCurrentElection(voterId, electionId);
@@ -117,8 +105,8 @@ namespace BL
         {
            List<long> voterCodes= VoterBL.GetAllVoters(electionId);//מחזיר את כל הבוחרים ששיכים לבחירות האלו 
         List<long> typeDetailsCodes=ValueToTypeBL.EmptyValueToTypeAndGetTypeDetailsCodes(voterCodes);//מחזיר את הקודים של פרטי סיווג ומוחק את ערכים לסווג 
-      //     List<long> typeCodes=TypeDetailsBL.EmptyTypeDetailsAndGetTypeCodes(typeDetailsCodes);//מחזיר את הקודים של סיווגים ומוחק את פרטי סווג 
-       //    TypeBL.EmptyTypeDetails(typeCodes);//מוחק את הסוגים
+          List<long> typeCodes=TypeDetailsBL.EmptyTypeDetailsAndGetTypeCodes(typeDetailsCodes);//מחזיר את הקודים של סיווגים ומוחק את פרטי סווג 
+          TypeBL.EmptyTypes(typeCodes,electionId);//מוחק את הסוגים
            VoterBL.EmptyVoters(electionId);//מוחק את הבוחרים
 
         }

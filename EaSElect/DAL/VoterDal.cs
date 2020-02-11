@@ -13,24 +13,18 @@ namespace DAL
 
         public void AddNewVoter(Voter newVoter)
         {
-            DB.Voters.Add(newVoter);
-            DB.SaveChanges();
-        }
-        //מחזיר אם הבוחר קיים בטבלת הבוחרים בבחירות אלו
-        public bool IsVoterExists(string voterId, long electionId)
-        {
-            try
+            if (!(DB.Voters.Any(c => c.VoterId == newVoter.VoterId&& c.ElectionId == newVoter.ElectionId)))
             {
-                if (DB.Voters.Any(c => c.VoterId == voterId && c.ElectionId==electionId))
-                       return true;
+                DB.Voters.Add(newVoter);
+                DB.SaveChanges();
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine("not good!" + e.ToString());
-
+                Console.WriteLine("קיים בוחר זה בבחירות אלו");
             }
-            return false;
+            
         }
+        
         //מחזיר את הקוד היחודי של בוחר מסויים
         public long GetVoterCodeByVoterIdInCurrentElection(string voterId, long electionId)
         {
