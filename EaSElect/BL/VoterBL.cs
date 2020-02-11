@@ -17,11 +17,7 @@ namespace BL
             VoterDal.AddNewVoter(newVoter);
         }
 
-        public bool IsVoterExists(string voterId,long electionId)
-        {
-            return VoterDal.IsVoterExists(voterId, electionId);
-        }
-
+      
         public long GetVoterCodeByVoterIdInCurrentElection(string fingerPrint, long electionId)
         {
            return VoterDal.GetVoterCodeByVoterIdInCurrentElection(fingerPrint, electionId);

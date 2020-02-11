@@ -13,24 +13,14 @@ namespace DAL
         Models.ElectionsDBEntities DB = new Models.ElectionsDBEntities();
         public void AddNewTypeDetail(TypeDetail newTypeDetail)
         {
-            DB.TypeDetails.Add(newTypeDetail);
-            DB.SaveChanges();
-        }
-        public bool IsExistTypeDetails(string typeDetail)
-        {
-            try
+            if (!(DB.TypeDetails.Any(t => t.TypeDetailsName == newTypeDetail.TypeDetailsName && t.TypeId==newTypeDetail.TypeId)))
             {
-                if (DB.TypeDetails.Any(t=>t.TypeDetailsName==typeDetail))
-                   return true;
+                DB.TypeDetails.Add(newTypeDetail);
+                DB.SaveChanges();
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("not good!" + e.ToString());
-               
-            }
-            return false;
+            Console.WriteLine("פריט סיווג זה קיים לבחירות אלו");
         }
-
+       
         public int GetTypeDetailIdByName(string typeDetail)
         {
             return int.Parse(DB.TypeDetails.Where(n => n.TypeDetailsName.Equals(typeDetail)).Select(c => c.TypeDetailsId).ToList()[0].ToString());

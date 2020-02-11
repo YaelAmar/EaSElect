@@ -11,9 +11,9 @@ namespace BL
   public  class TypeBL
     {
         TypeDal TypeDal = new TypeDal();
-        public void AddNewType(string type)
+        public void AddNewType(string type, long electionId)
         {
-            Models.Type newType=new Models.Type() { TypeName=type};
+            Models.Type newType=new Models.Type() { TypeName=type,ElectionId=electionId};
             TypeDal.Add(newType);
         }
 
@@ -27,14 +27,10 @@ namespace BL
             return TypeDal.GetIdByName(typeName);
         }
 
-        public bool IsTypeExists(string typeName)
+      
+        public void EmptyTypes(List<long> typeCodes, long electionId)
         {
-            return TypeDal.IsExistType(typeName);
-        }
-
-        public void EmptyTypeDetails(List<long> typeCodes)
-        {
-            TypeDal.EmptyTypeDetails(typeCodes);
+            TypeDal.EmptyTypes(typeCodes,electionId);
         }
     }
 }

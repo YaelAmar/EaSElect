@@ -1,43 +1,31 @@
-<div class="frm">
 
-    <!-- <button mat-button (click)="home()" ></button>
-    <button mat-button (click)="addElection()" >בחירות חדשות</button>
-    <button mat-button [matMenuTriggerFor]="afterMenu">בחירות קיימות</button>
-    <mat-menu #afterMenu="matMenu" xPosition="before">
-      <button mat-menu-item *ngFor="let item of ElectionsList" (click)="selectedElection(item)">{{item.ElectionName}}</button>
-    </mat-menu>
-    <button mat-button [matMenuTriggerFor]="afterMenu">בחירות עכשיו</button>
-    <mat-menu #afterMenu1="matMenu" xPosition="before">
-        <button mat-menu-item *ngFor="let item of ElectionsList" (click)="ResultElection(item)">{{item.ElectionName}}</button>
-      </mat-menu>
-      -->
-      
-      <mat-tab-group>
-          <mat-tab>
-              <ng-template mat-tab-label>
-                  <button mat-button (click)="home()"><img src="assets/home/icon.png"></button>
-              </ng-template>
-          </mat-tab>
-          <mat-tab>
-              <ng-template mat-tab-label>
-                 <button mat-button (click)="addElection()">בחירות חדשות</button>
-               </ng-template>
-          </mat-tab>
-          <mat-tab>
-              <ng-template mat-tab-label>
-                 <button mat-button [matMenuTriggerFor]="afterMenu">בחירות קיימות</button>
-                 <mat-menu #afterMenu="matMenu" xPosition="before">
-                    <button mat-menu-item *ngFor="let item of ElectionsList" (click)="selectedElection(item)">{{item.ElectionName}}</button>
-                  </mat-menu>
-               </ng-template>
-          </mat-tab>
-          <mat-tab>
-              <ng-template mat-tab-label>
-                 <button mat-button [matMenuTriggerFor]="afterMenu1">בחירות עכשיו</button>
-                 <mat-menu #afterMenu1="matMenu" xPosition="before">
-                    <button mat-menu-item *ngFor="let item of ElectionsList" (click)="ResultElection(item)">{{item.ElectionName}}</button>
-                  </mat-menu>
-               </ng-template>
-          </mat-tab>
-      </mat-tab-group>
-</div>
+    <div class="frm">      
+        <mat-tab-group>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <button mat-button (click)="home()"><img src="assets/home/icon.png"></button>
+                </ng-template>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                   <button mat-button (click)="addElection()">בחירות חדשות</button>
+                 </ng-template>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                   <button mat-button [matMenuTriggerFor]="afterMenu">בחירות קיימות</button>
+                   <mat-menu #afterMenu="matMenu" xPosition="before">
+                      <button mat-menu-item *ngFor="let item of ElectionsList" (click)="selectedElection(item)">{{item.ElectionName}}</button>
+                    </mat-menu>
+                 </ng-template>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                   <button mat-button [matMenuTriggerFor]="afterMenu1">בחירות עכשיו</button>
+                   <mat-menu #afterMenu1="matMenu" xPosition="before">
+                      <button mat-menu-item *ngFor="let item of ElectionsList" (click)="ResultElection(item)">{{item.ElectionName}}</button>
+                    </mat-menu>
+                 </ng-template>
+            </mat-tab>
+        </mat-tab-group>
+  </div>
