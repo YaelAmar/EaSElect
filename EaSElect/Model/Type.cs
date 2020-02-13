@@ -9,7 +9,6 @@
 
 namespace Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -25,10 +24,9 @@ namespace Models
         public string TypeName { get; set; }
         public Nullable<long> ElectionId { get; set; }
         public bool DeleteRow { get; set; }
-    [JsonIgnore]
+    
         public virtual Election Election { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    [JsonIgnore]
         public virtual ICollection<TypeDetail> TypeDetails { get; set; }
     }
 }

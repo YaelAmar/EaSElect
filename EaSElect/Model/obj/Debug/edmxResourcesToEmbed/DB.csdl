@@ -8,7 +8,7 @@
     <Property Name="CompanyName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="EmailManager" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailManager" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
     <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Elections" Relationship="Self.FK_CompanyId" FromRole="Company" ToRole="Election" />
   </EntityType>
@@ -25,8 +25,8 @@
     <NavigationProperty Name="Company" Relationship="Self.FK_CompanyId" FromRole="Election" ToRole="Company" />
     <NavigationProperty Name="ElectionOptions" Relationship="Self.FK_ElectionId" FromRole="Election" ToRole="ElectionOption" />
     <NavigationProperty Name="Emails" Relationship="Self.FK_ElectionIdEmail" FromRole="Election" ToRole="Emails" />
-    <NavigationProperty Name="Types" Relationship="Self.FK_ElectionIdType" FromRole="Election" ToRole="Type" />
     <NavigationProperty Name="Voters" Relationship="Self.FK_ElectionIdVoter" FromRole="Election" ToRole="Voter" />
+    <NavigationProperty Name="Types" Relationship="ElectionsDBModel.FK_ElectionIdType" FromRole="Election" ToRole="Type" />
   </EntityType>
   <EntityType Name="ElectionOption">
     <Key>
@@ -37,18 +37,7 @@
     <Property Name="ElectionId" Type="Int64" Nullable="false" />
     <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Election" Relationship="Self.FK_ElectionId" FromRole="ElectionOption" ToRole="Election" />
-    <NavigationProperty Name="ElectionResults" Relationship="Self.FK_ElectionIdResult" FromRole="ElectionOption" ToRole="ElectionResult" />
-  </EntityType>
-  <EntityType Name="ElectionResult">
-    <Key>
-      <PropertyRef Name="ElectionResultId" />
-    </Key>
-    <Property Name="ElectionResultId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="VoterCode" Type="Int64" Nullable="false" />
-    <Property Name="ElectionOptionId" Type="Int64" Nullable="false" />
-    <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="ElectionOption" Relationship="Self.FK_ElectionIdResult" FromRole="ElectionResult" ToRole="ElectionOption" />
-    <NavigationProperty Name="Voter" Relationship="Self.FK_VoterIdResult" FromRole="ElectionResult" ToRole="Voter" />
+    <NavigationProperty Name="ElectionResults" Relationship="ElectionsDBModel.FK_ElectionIdResult" FromRole="ElectionOption" ToRole="ElectionResult" />
   </EntityType>
   <EntityType Name="Email">
     <Key>
@@ -65,10 +54,10 @@
     </Key>
     <Property Name="TypeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ElectionId" Type="Int64" />
     <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Election" Relationship="Self.FK_ElectionIdType" FromRole="Type" ToRole="Election" />
     <NavigationProperty Name="TypeDetails" Relationship="Self.FK_TypeId" FromRole="Type" ToRole="TypeDetails" />
+    <Property Name="ElectionId" Type="Int64" />
+    <NavigationProperty Name="Election" Relationship="ElectionsDBModel.FK_ElectionIdType" FromRole="Type" ToRole="Election" />
   </EntityType>
   <EntityType Name="TypeDetail">
     <Key>
@@ -101,8 +90,8 @@
     <Property Name="ElectionId" Type="Int64" Nullable="false" />
     <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Election" Relationship="Self.FK_ElectionIdVoter" FromRole="Voter" ToRole="Election" />
-    <NavigationProperty Name="ElectionResults" Relationship="Self.FK_VoterIdResult" FromRole="Voter" ToRole="ElectionResult" />
     <NavigationProperty Name="ValueToTypes" Relationship="Self.FK_VoterCode" FromRole="Voter" ToRole="ValueToType" />
+    <NavigationProperty Name="ElectionResults" Relationship="ElectionsDBModel.FK_VoterIdResult" FromRole="Voter" ToRole="ElectionResult" />
   </EntityType>
   <Association Name="FK_CompanyId">
     <End Role="Company" Type="Self.Company" Multiplicity="1" />
@@ -140,18 +129,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ElectionIdType">
-    <End Role="Election" Type="Self.Election" Multiplicity="0..1" />
-    <End Role="Type" Type="Self.Type" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Election">
-        <PropertyRef Name="ElectionId" />
-      </Principal>
-      <Dependent Role="Type">
-        <PropertyRef Name="ElectionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ElectionIdVoter">
     <End Role="Election" Type="Self.Election" Multiplicity="1" />
     <End Role="Voter" Type="Self.Voter" Multiplicity="*" />
@@ -161,30 +138,6 @@
       </Principal>
       <Dependent Role="Voter">
         <PropertyRef Name="ElectionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ElectionIdResult">
-    <End Role="ElectionOption" Type="Self.ElectionOption" Multiplicity="1" />
-    <End Role="ElectionResult" Type="Self.ElectionResult" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ElectionOption">
-        <PropertyRef Name="ElectionOptionId" />
-      </Principal>
-      <Dependent Role="ElectionResult">
-        <PropertyRef Name="ElectionOptionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_VoterIdResult">
-    <End Role="Voter" Type="Self.Voter" Multiplicity="1" />
-    <End Role="ElectionResult" Type="Self.ElectionResult" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Voter">
-        <PropertyRef Name="VoterCode" />
-      </Principal>
-      <Dependent Role="ElectionResult">
-        <PropertyRef Name="VoterCode" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -228,7 +181,6 @@
     <EntitySet Name="Companies" EntityType="Self.Company" />
     <EntitySet Name="Elections" EntityType="Self.Election" />
     <EntitySet Name="ElectionOptions" EntityType="Self.ElectionOption" />
-    <EntitySet Name="ElectionResults" EntityType="Self.ElectionResult" />
     <EntitySet Name="Emails" EntityType="Self.Email" />
     <EntitySet Name="Types" EntityType="Self.Type" />
     <EntitySet Name="TypeDetails" EntityType="Self.TypeDetail" />
@@ -246,21 +198,9 @@
       <End Role="Election" EntitySet="Elections" />
       <End Role="Emails" EntitySet="Emails" />
     </AssociationSet>
-    <AssociationSet Name="FK_ElectionIdType" Association="Self.FK_ElectionIdType">
-      <End Role="Election" EntitySet="Elections" />
-      <End Role="Type" EntitySet="Types" />
-    </AssociationSet>
     <AssociationSet Name="FK_ElectionIdVoter" Association="Self.FK_ElectionIdVoter">
       <End Role="Election" EntitySet="Elections" />
       <End Role="Voter" EntitySet="Voters" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ElectionIdResult" Association="Self.FK_ElectionIdResult">
-      <End Role="ElectionOption" EntitySet="ElectionOptions" />
-      <End Role="ElectionResult" EntitySet="ElectionResults" />
-    </AssociationSet>
-    <AssociationSet Name="FK_VoterIdResult" Association="Self.FK_VoterIdResult">
-      <End Role="Voter" EntitySet="Voters" />
-      <End Role="ElectionResult" EntitySet="ElectionResults" />
     </AssociationSet>
     <AssociationSet Name="FK_TypeId" Association="Self.FK_TypeId">
       <End Role="Type" EntitySet="Types" />
@@ -274,5 +214,69 @@
       <End Role="Voter" EntitySet="Voters" />
       <End Role="ValueToType" EntitySet="ValueToTypes" />
     </AssociationSet>
+    <FunctionImport Name="Login" ReturnType="Collection(Int32)">
+      <Parameter Name="userName" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="ElectionResults" EntityType="ElectionsDBModel.ElectionResult" />
+    <AssociationSet Name="FK_ElectionIdResult" Association="ElectionsDBModel.FK_ElectionIdResult">
+      <End Role="ElectionOption" EntitySet="ElectionOptions" />
+      <End Role="ElectionResult" EntitySet="ElectionResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoterIdResult" Association="ElectionsDBModel.FK_VoterIdResult">
+      <End Role="Voter" EntitySet="Voters" />
+      <End Role="ElectionResult" EntitySet="ElectionResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ElectionIdType" Association="ElectionsDBModel.FK_ElectionIdType">
+      <End Role="Election" EntitySet="Elections" />
+      <End Role="Type" EntitySet="Types" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="ElectionResult">
+    <Key>
+      <PropertyRef Name="ElectionResultId" />
+    </Key>
+    <Property Name="ElectionResultId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VoterCode" Type="Int64" Nullable="false" />
+    <Property Name="ElectionOptionId" Type="Int64" Nullable="false" />
+    <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ElectionOption" Relationship="ElectionsDBModel.FK_ElectionIdResult" FromRole="ElectionResult" ToRole="ElectionOption" />
+    <NavigationProperty Name="Voter" Relationship="ElectionsDBModel.FK_VoterIdResult" FromRole="ElectionResult" ToRole="Voter" />
+  </EntityType>
+  <Association Name="FK_ElectionIdResult">
+    <End Type="ElectionsDBModel.ElectionOption" Role="ElectionOption" Multiplicity="1" />
+    <End Type="ElectionsDBModel.ElectionResult" Role="ElectionResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ElectionOption">
+        <PropertyRef Name="ElectionOptionId" />
+      </Principal>
+      <Dependent Role="ElectionResult">
+        <PropertyRef Name="ElectionOptionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoterIdResult">
+    <End Type="ElectionsDBModel.Voter" Role="Voter" Multiplicity="1" />
+    <End Type="ElectionsDBModel.ElectionResult" Role="ElectionResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voter">
+        <PropertyRef Name="VoterCode" />
+      </Principal>
+      <Dependent Role="ElectionResult">
+        <PropertyRef Name="VoterCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ElectionIdType">
+    <End Type="ElectionsDBModel.Election" Role="Election" Multiplicity="0..1" />
+    <End Type="ElectionsDBModel.Type" Role="Type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Election">
+        <PropertyRef Name="ElectionId" />
+      </Principal>
+      <Dependent Role="Type">
+        <PropertyRef Name="ElectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

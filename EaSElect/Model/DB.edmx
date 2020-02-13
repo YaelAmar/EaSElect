@@ -13,7 +13,7 @@
           <Property Name="CompanyName" Type="nvarchar" MaxLength="55" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="EmailManager" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="EmailManager" Type="nvarchar" MaxLength="60" />
           <Property Name="DeleteRow" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Election">
@@ -40,7 +40,7 @@
           <Key>
             <PropertyRef Name="ElectionResultId" />
           </Key>
-          <Property Name="ElectionResultId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ElectionResultId" Type="bigint" Nullable="false" />
           <Property Name="VoterCode" Type="bigint" Nullable="false" />
           <Property Name="ElectionOptionId" Type="bigint" Nullable="false" />
           <Property Name="DeleteRow" Type="bit" Nullable="false" />
@@ -273,7 +273,7 @@
           <Property Name="CompanyName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EmailManager" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailManager" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Elections" Relationship="Self.FK_CompanyId" FromRole="Company" ToRole="Election" />
         </EntityType>
@@ -308,7 +308,7 @@
           <Key>
             <PropertyRef Name="ElectionResultId" />
           </Key>
-          <Property Name="ElectionResultId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ElectionResultId" Type="Int64" Nullable="false" />
           <Property Name="VoterCode" Type="Int64" Nullable="false" />
           <Property Name="ElectionOptionId" Type="Int64" Nullable="false" />
           <Property Name="DeleteRow" Type="Boolean" Nullable="false" />
