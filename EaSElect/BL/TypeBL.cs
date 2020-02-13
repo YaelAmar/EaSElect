@@ -17,14 +17,14 @@ namespace BL
             TypeDal.Add(newType);
         }
 
-        public List<Models.Type> Get()
+        public List<Models.Type> Get(long electionId)
         {
-            return TypeDal.Get();
+            return TypeDal.Get(electionId);
         }
 
-        public int GetTypeIdByName(string typeName)
+        public int GetTypeIdByName(string typeName, long electionId)
         {
-            return TypeDal.GetIdByName(typeName);
+            return TypeDal.GetIdByName(typeName,electionId);
         }
 
       

@@ -13,9 +13,9 @@ namespace BL
         TypeBL TypeBL = new TypeBL();
         TypeDetailsDal TypeDetailsDal = new TypeDetailsDal();
      
-        public void AddNewTypeDetail(string typeDetail, string type)
+        public void AddNewTypeDetail(string typeDetail, string type, long electionId)
         {
-            int typeId = TypeBL.GetTypeIdByName(type);
+            int typeId = TypeBL.GetTypeIdByName(type,electionId);
             TypeDetail newTypeDetail = new TypeDetail()
             { TypeDetailsName=typeDetail,TypeId=typeId};
             TypeDetailsDal.AddNewTypeDetail(newTypeDetail);

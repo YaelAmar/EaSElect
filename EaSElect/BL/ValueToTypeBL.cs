@@ -36,5 +36,11 @@ namespace BL
         {
             return ValueToTypeDal.EmptyValueToTypeAndGetTypeDetailsCodes(voterCodes);
         }
+
+        public ResultOfOption[] GetValueToTypeByTypeDetails(List<TypeDetail> typeDetails, List<long> voterCodes)
+        {
+           return  ValueToTypeDal.GetValueToTypeByTypeDetails(typeDetails, voterCodes);
+        }
+            
     }
 }

@@ -32,6 +32,11 @@ namespace DAL
             return DB.ElectionResults.Count(o=>o.ElectionOptionId==electionOptionId);
         }
 
+        public List<long> GetVotersCodesByOptionSelected(long electionOptionId)
+        {
+            return DB.ElectionResults.Where(e => e.ElectionOptionId == electionOptionId).Select(voter => voter.VoterCode).ToList();
+        }
+
         //public long GetResult(List<ElectionOption> electionOptions)
         //{
         // //   List<ElectionResult> electionResults = new List<ElectionResult>();

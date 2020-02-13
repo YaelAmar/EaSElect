@@ -15,8 +15,8 @@ export class TypeService{
 
 
     }
-    Get():Observable<Type[]> {
-    return this.http.get<Type[]>(`${this.url}/get`);
+    Get(electionId:number):Observable<Type[]> {
+    return this.http.get<Type[]>(`${this.url}/get/${electionId}`);
         
       }
    
