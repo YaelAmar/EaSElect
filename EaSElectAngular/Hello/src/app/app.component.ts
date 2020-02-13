@@ -4,7 +4,7 @@ import '@vaadin/vaadin-button';
 import '@vaadin/vaadin-grid';
 import '@vaadin/vaadin-text-field';
 import { Router } from '@angular/router';
-
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,9 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   
-
+constructor(private titleService:Title){
+  this.titleService.setTitle("EaSElect");
+}
   ngOnInit()
   {
    sessionStorage.setItem('enter','1');

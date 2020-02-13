@@ -6,9 +6,9 @@
   <form novalidate  (submit)="SignUp(frm)" #frm="ngForm">
     <div class="input">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="שם חברה"  name="companyName" [(ngModel)]="newCompany.CompanyName" type="text" #companyName="ngModel" required>
+        <input matInput placeholder="שם חברה"  name="companyName" [(ngModel)]="newCompany.CompanyName" type="text" #companyName="ngModel" required maxlength="30">
       </mat-form-field>
-      <span class="error" *ngIf="companyName.errors!=null && companyName.errors.required && companyName.touched">שדה חובה</span>
+      <span class="error" *ngIf="companyName.errors!=null && companyName.errors.required && companyName.touched">שדה חובה</span>  
     </div>
 
      <div  class="input"> 
@@ -19,10 +19,12 @@
           </div>
      <div  class="input">
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="מייל"  name="email" [(ngModel)]="newCompany.EmailManager" type="email" #email="ngModel" required>
+                <input matInput  placeholder="מייל"  name="email" [(ngModel)]="newCompany.EmailManager" type="email" #email="ngModel" email required>
               </mat-form-field>
               <span class="error" *ngIf="email.errors!=null && email.errors.required && email.touched">שדה חובה</span>
-     </div>
+              <span class="error" *ngIf="email.errors!=null && email.errors.email && email.touched"> פורמט שגוי</span>
+   
+            </div>
       
       <div class="example-container input"  >  
         <mat-form-field class="example-full-width">
