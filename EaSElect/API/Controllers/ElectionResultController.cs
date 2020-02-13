@@ -26,6 +26,12 @@ namespace API.Controllers
         {
             return GeneralBL.GetResult(electionId);
         }
+        [HttpGet]
+        [Route("api/electionResult/getResultOptionByType/{typeId}/{electionOptionId}")]
+        public ResultOfOption[] GetResultByType(long typeId,long electionOptionId)
+        {
+            return GeneralBL.GetResultByType(typeId,electionOptionId);
+        }
         public void Options()
         { }
     }

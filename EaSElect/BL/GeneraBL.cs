@@ -65,7 +65,7 @@ namespace BL
                             else
                             {
                                 typeDetailName = values[j];
-                                TypeDetailsBL.AddNewTypeDetail(typeDetailName, types[countWord]);
+                                TypeDetailsBL.AddNewTypeDetail(typeDetailName, types[countWord],electionId);
                                  countWord++;
                                 int typeDetailId = TypeDetailsBL.GetTypeDetailIdByName(typeDetailName);
                                 //מקבל את קוד בוחר מטבלת בוחרים
@@ -79,6 +79,14 @@ namespace BL
             }
             return 1;
         }
+
+        public ResultOfOption[] GetResultByType(long typeId, long electionOptionId)
+        {
+           List<TypeDetail> typeDetails= TypeDetailsBL.Get(typeId);
+           List<long> voterCodes = ElectionResultBL.GetVotersCodesByOptionSelected(electionOptionId);
+          return ValueToTypeBL.GetValueToTypeByTypeDetails(typeDetails, voterCodes);
+        }
+
         public int CheckVoter(string fingerPrint,long electionId)
         {
             long voterCode = VoterBL.GetVoterCodeByVoterIdInCurrentElection(fingerPrint, electionId);

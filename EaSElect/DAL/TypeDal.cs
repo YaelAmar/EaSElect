@@ -23,14 +23,14 @@ namespace DAL
           
         }
 
-        public int GetIdByName(string typeName)
+        public int GetIdByName(string typeName,long electionId)
         {
-            return int.Parse((DB.Types.Where(n => n.TypeName == typeName).Select(c => c.TypeId).ToList()[0].ToString()));
+            return int.Parse((DB.Types.Where(n => n.TypeName == typeName &&n.ElectionId==electionId).Select(c => c.TypeId).ToList()[0].ToString()));
         }
 
-        public List<Type> Get()
+        public List<Type> Get(long electionId)
         {
-            return DB.Types.ToList();
+            return DB.Types.Where(t=>t.ElectionId==electionId).ToList();
         }
 
         public void EmptyTypes(List<long> typeCodes, long electionId)

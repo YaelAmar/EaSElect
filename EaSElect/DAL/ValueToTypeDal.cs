@@ -23,20 +23,21 @@ namespace DAL
             for (int i = 0; i < voterCodes.Count; i++)
             {
                 long voterCode = voterCodes[i];
-                List<ValueToType> valueToType = DB.ValueToTypes.Where(code => code.VoterCode == voterCode).ToList();
-                for (int j = 0; j < valueToType.Count; j++)
+                List<ValueToType> valuesToType = DB.ValueToTypes.Where(code => code.VoterCode == voterCode).ToList();
+                for (int j = 0; j < valuesToType.Count; j++)
                 {
-                    typeDetailsCodes.Add(valueToType[j].TypeDetailsId);
-                    DB.ValueToTypes.Remove(valueToType[j]);
+                    ValueToType valueToType = valuesToType[j];
+                    typeDetailsCodes.Add(valueToType.TypeDetailsId);
+                    DB.ValueToTypes.Remove(valueToType);
                     DB.SaveChanges();
                 }
             }
             return typeDetailsCodes;
         }
 
-        public void DeleteValueToType(long voterCode, long typeDetailsId,bool checked1)
+        public void DeleteValueToType(long voterCode, long typeDetailsId, bool checked1)
         {
-          ValueToType valueToTypes= DB.ValueToTypes.Where(v => v.VoterCode == voterCode && v.TypeDetailsId == typeDetailsId).ToList()[0];
+            ValueToType valueToTypes = DB.ValueToTypes.Where(v => v.VoterCode == voterCode && v.TypeDetailsId == typeDetailsId).ToList()[0];
             valueToTypes.DeleteRow = !checked1;
             DB.Entry(valueToTypes).State = EntityState.Modified;
             DB.SaveChanges();
@@ -44,16 +45,35 @@ namespace DAL
 
         public List<TypeDetail> GetValueToTypeOfVoter(long voterCode)
         {
-           List<long> typeDetailsIds= DB.ValueToTypes.Where(v => v.VoterCode == voterCode).Select(d => d.TypeDetailsId).ToList();
-           List<TypeDetail> typeDetails = new List<TypeDetail>();
+            List<long> typeDetailsIds = DB.ValueToTypes.Where(v => v.VoterCode == voterCode).Select(d => d.TypeDetailsId).ToList();
+            List<TypeDetail> typeDetails = new List<TypeDetail>();
 
             for (int i = 0; i < typeDetailsIds.Count; i++)
             {
                 long typeDetailsId = typeDetailsIds[i];
                 typeDetails.Add(DB.TypeDetails.Where(d => d.TypeDetailsId == typeDetailsId).ToList()[0]);
-                 
+
             }
             return typeDetails;
+        }
+
+        public ResultOfOption[] GetValueToTypeByTypeDetails(List<TypeDetail> typeDetails, List<long> voterCodes)
+        {
+            long typeDetailsId;
+            ResultOfOption[] sumValueToTypeByTypeDetails = new ResultOfOption[typeDetails.Count];
+            for (int i = 0; i < typeDetails.Count; i++)
+            {
+                sumValueToTypeByTypeDetails[i] = new ResultOfOption();
+               typeDetailsId = typeDetails[i].TypeDetailsId;
+                sumValueToTypeByTypeDetails[i].ElectionOptionId = typeDetailsId;
+                sumValueToTypeByTypeDetails[i].ElectionOptionName = typeDetails[i].TypeDetailsName;
+                for (int j = 0; j < voterCodes.Count; j++)
+                {
+                    long voterCode = voterCodes[j];
+                    sumValueToTypeByTypeDetails[i].CountOfChoose += DB.ValueToTypes.Count(v => v.VoterCode == voterCode && v.TypeDetailsId == typeDetailsId);
+                }
+            }
+            return sumValueToTypeByTypeDetails;
         }
     }
 }

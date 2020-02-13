@@ -27,7 +27,6 @@ export class PieComponent implements OnInit {
   ngOnInit()
   {
     this.resultOfOptionList=this.data
-    console.log(this.resultOfOptionList)
     this.getAllOptions();
   }
 
@@ -38,8 +37,6 @@ export class PieComponent implements OnInit {
      this.pieChartLabels[i]=this.resultOfOptionList[i].ElectionOptionName;
      this.pieChartData[i]=this.resultOfOptionList[i].CountOfChoose;
        }
-       console.log(this.pieChartLabels)
-       console.log(this.pieChartData)
    }
 
 

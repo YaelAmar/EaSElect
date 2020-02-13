@@ -26,5 +26,10 @@ namespace BL
         {
            return ElectionResultDal.GetResultOfOption(electionOptionId);
         }
+
+        public List<long> GetVotersCodesByOptionSelected(long electionOptionId)
+        {
+          return  ElectionResultDal.GetVotersCodesByOptionSelected(electionOptionId);
+        }
     }
 }

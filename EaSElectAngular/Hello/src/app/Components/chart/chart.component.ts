@@ -6,6 +6,7 @@ import { Type } from '../../Models/type.model';
 //import { TypeDetailsService } from '../../Services/typeDetails.service';
 import { TypeDetails } from '../../Models/typeDetails.model';
 import { TypeDetailsService } from '../../Services/typeDetails.service';
+import { ElectionResultService } from '../../Services/electionResult.service';
 
 @Component({
   selector: 'app-chart',
@@ -18,7 +19,14 @@ export class ChartComponent implements OnInit {
  @Input() options:ResultOfOption[]
  selectedType:Type
  resultOfOptionList:ResultOfOption[]
- typeDetailsList:TypeDetails[]
+ resultOptionByType: ResultOfOption[]=[]
+index:number=0
+indexData:number=0
+sum: ResultOfOption[][]=[];
+   c:number=0
+   results:number[]=[]
+ public typeDetailsList:TypeDetails[]
+
   public barChartOptions: ChartOptions = {
     responsive: true,
   };
@@ -26,36 +34,59 @@ export class ChartComponent implements OnInit {
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [];
-
-  public barChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
-  ];
-
-  constructor(private typeDetailsService:TypeDetailsService) { }
+  
+  // public barChartData: ChartDataSets[] = [{data:[5,4,345,6,7],label:"זכר"},{data:[4,5,67,8,7],label:"נקבה"}]
+  public barChartData: ChartDataSets[] = [{data:[],label:""}];
+  constructor(private typeDetailsService:TypeDetailsService,private electionResultService:ElectionResultService) { }
 
   ngOnInit() {
     this.selectedType=this.type
-  this.resultOfOptionList= this.options
-  console.log(this.selectedType)
-  debugger
- this.getAllOptions()
-  }
-  
-  getAllOptions()
-  {
-   for(let i=0;i<this.resultOfOptionList.length;i++)
+    console.log(this.selectedType)
+    debugger
+    this.resultOfOptionList= this.options
+    //מביא את פרטי הסווג של הסיוג שנבחר
+    this.typeDetailsService.Get(this.selectedType.TypeId).subscribe(typeDetailsList1=>
+      {
+       this.typeDetailsList=typeDetailsList1
+       console.log(this.typeDetailsList)
+      });
+      for(let i=0;i<this.resultOfOptionList.length;i++)
+       {
+         let electionOptionId=this.resultOfOptionList[i].ElectionOptionId
+         console.log(this.resultOfOptionList[i].ElectionOptionName)
+        //מביא את כמה הצביעו מכל אופציה עבור הסיווג שנבחר
+        this.electionResultService.GetResultOptionByType(this.selectedType.TypeId,electionOptionId).subscribe(resultOptionByType=>
+               {
+                this.resultOptionByType=resultOptionByType
+                this.sum[this.index++]=this.resultOptionByType
+                this.barChartLabels[i]=this.resultOfOptionList[i].ElectionOptionName;
+                 console.log(this.sum)
+                console.log(this.sum)
+               if(this.sum.length==this.resultOfOptionList.length)
+                        this.fillData(this.sum);
+              }); 
+             
+        }
+      
+    
+   }
+   fillData(sum:ResultOfOption[][])
+   {
+    for(let k=0;k<this.typeDetailsList.length;k++)
     {
-     this.barChartLabels[i]=this.resultOfOptionList[i].ElectionOptionName;
-     //מביא את פרטי הסווג של הסיוג שנבחר
-     this.typeDetailsService.Get(this.type.TypeId).subscribe(typeDetailList=>{
-        this.typeDetailsList=typeDetailList
-        console.log(this.typeDetailsList)
-     })
-     
-     //this.barChartData[i].label=this.resultOfOptionList[i].CountOfChoose;
-       }
-       console.log(this.barChartLabels)
-       console.log(this.barChartData)
+      this.results=[]
+        console.log(this.typeDetailsList[k].TypeDetailsName)
+        for(let i=0;i<sum.length;i++)
+           for(let j=0;j<sum[i].length;j++)
+              {
+                if(sum[i][j].ElectionOptionId==this.typeDetailsList[k].TypeDetailsId)
+                       this.results[this.c++]=sum[i][j].CountOfChoose;
+              }
+         console.log(this.typeDetailsList[k].TypeDetailsName)
+         console.log(this.results)
+         this.barChartData[this.indexData]={data:[],label:""};
+         this.barChartData[this.indexData++]={data:this.results,label:this.typeDetailsList[k].TypeDetailsName}
+         console.log(this.barChartData)
+          }
    }
 }

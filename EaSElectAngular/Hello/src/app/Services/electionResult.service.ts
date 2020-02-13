@@ -21,4 +21,8 @@ export class ElectionResultService{
       GetResult(electionId: number):Observable<ResultOfOption[]> {
           return this.http.get<ResultOfOption[]>(`${this.url}/getResult/${electionId}`);
           }
+      GetResultOptionByType(typeId:number,electionOptionId:number):Observable<ResultOfOption[]>
+      {
+          return this.http.get<ResultOfOption[]>(`${this.url}/getResultOptionByType/${typeId}/${electionOptionId}`);
+      }
     }

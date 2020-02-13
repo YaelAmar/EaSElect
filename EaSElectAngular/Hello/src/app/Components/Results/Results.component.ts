@@ -21,7 +21,7 @@ import { TypeService } from '../../Services/type.service';
     electionName:string
     resultOfOption:ResultOfOption[]
     types:Type[]
-    selectedType:Type=new Type()
+    selectedType:Type
      constructor(private route:ActivatedRoute,private electionService:ElectionService,private typeService:TypeService,
       private electionOptionService:ElectionOptionService,private electionResultService:ElectionResultService){
     }
@@ -30,13 +30,11 @@ import { TypeService } from '../../Services/type.service';
 
     this.route.params.subscribe(e=>
       {
-        console.log(e.id)
          this.electionResults.ElectionId=e.id;
          if(sessionStorage.getItem('electionResult')!=e.id)
          {
             sessionStorage.setItem('electionResult',e.id.toString())
          }
-      console.log(this.electionResults)    
       })
     this.getResult();
     this.getElectionName();
@@ -55,18 +53,17 @@ import { TypeService } from '../../Services/type.service';
       })
      }
      getTypes(){
-      this.typeService.Get().subscribe(typeList=>
+      this.typeService.Get(this.electionResults.ElectionId).subscribe(typeList=>
         {
           this.types=typeList;
-          console.log(this.types)
           this.selectedType=new Type()
           this.selectedType=this.types[0]
-          console.log(this.selectedType)
         })
     }
 
     selectType(type:Type)
     {
+      debugger
       this.selectedType=new Type()
       console.log(type)
       this.selectedType=type
