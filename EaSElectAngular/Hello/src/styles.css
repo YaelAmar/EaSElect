@@ -50,11 +50,11 @@ bottom: -50px;
     text-align: center;  
   
   }
-  .input{
+.input{
    height: 70px;
   }
  
-  .part{
+.part{
     padding-top: 30px;
     border-width: 2px;
     border-radius: 15%;
@@ -66,7 +66,7 @@ bottom: -50px;
    height: 450px;
    float: right;
   }
-  .vertical{
+.vertical{
       margin-top: 70px;
       margin-right: 25px;
       margin-left: 10px;
@@ -75,7 +75,7 @@ bottom: -50px;
       float: right;
 
   }
-  .list{
+.list{
    
     margin: auto;
     max-width: 200px;
@@ -86,8 +86,31 @@ bottom: -50px;
     text-align: right;
   }
 
-  .next{
+.next{
     right: 125px; 
     
     }
+.title{
+    font-size:  35px;
+     margin: auto;
+     text-align: center;
+   }
+   .span{
+    color:#008bfb;
+    font-size: 20px;
+    display: inline-block;
+}
+.upload{
+    margin: auto;
+    width: 250px;
+    border-radius: 7.5px;
+    border-color: #008bfb;
+    border-style: solid;
+    border-width: 1px;
+    padding-bottom: 10px;
+}
+.up{
+    display: inline-block;
+}
+
       /* דפי מנהל עריכה הצגה וכד'*/

@@ -1,19 +1,31 @@
-
+<div class="vertical"></div>
 <div class="frm part">
-
-    <label>אופציות הבחירה</label>
+<div class="listA">
+    <h1 class="title">אופציות הבחירה</h1>
     <br>
     <label>לחץ enter לאחר השינוי</label>
     <table>
            <tr *ngFor="let item of electionOptionList">
-             <input type="button" value="-" (click)="deleteOption(item)">
-             <td><input type="text" value="{{item.ElectionOptionName}}" (keyup.enter)="editOption(item,optionName.value)" #optionName ></td>
+            <td>
+            <button mat-button class="add" type="button" (click)="deleteOption(item)">-</button>
+             
+              <mat-form-field class="example-full-width">
+              <input matInput value="{{item.ElectionOptionName}}" (keyup.enter)="editOption(item,optionName.value)" #optionName >
+               <!-- <input type="text" value="{{item.ElectionOptionName}}" (keyup.enter)="editOption(item,optionName.value)" #optionName > -->
+              </mat-form-field>
+              </td>
            </tr>
            <tr>
-             <td *ngIf="addStatus==true"><input type="text" [(ngModel)]="newOption.ElectionOptionName" placeholder="הכנס אופציה חדשה"></td> 
+             <td class="addNew" >
+              <button id="plus" mat-button type="button" class="add" (click)="showAndAddOption(newOption.ElectionOptionName)">+ </button>
+              <mat-form-field class="example-full-width" *ngIf="addStatus==true">
+                <input matInput [(ngModel)]="newOption.ElectionOptionName" placeholder="הכנס אופציה חדשה">
+               <!-- <input type="text" [(ngModel)]="newOption.ElectionOptionName" placeholder="הכנס אופציה חדשה"> -->
+             </mat-form-field>
+              </td> 
            </tr>
   </table>
-  <input type="button" value="+" (click)="showAndAddOption(newOption.ElectionOptionName)"> 
-
+ 
+</div>
 </div>
 

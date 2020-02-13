@@ -17,7 +17,7 @@
          <input type="file"  (change)="uploadEmailList(emailUpload)" #emailUpload >
     </div>
     <mat-chip-list aria-label="Fish selection">
-    <button mat-button type="button" class="btnOK next" value="שלח הודעות לבוחרים" (click)="SendMessageToVoters()" [disabled]="voters"></button>
+    <button mat-button type="button" class="btnOK send"  (click)="SendMessageToVoters()" [disabled]="voters">שלח הודעות לבוחרים</button>
 </mat-chip-list>
     <br>
  

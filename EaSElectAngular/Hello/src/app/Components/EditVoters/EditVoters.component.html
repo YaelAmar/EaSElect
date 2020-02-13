@@ -1,15 +1,23 @@
+<div class="vertical"></div>
 <div class="frm part">
-    בוחרים
+   <h1  class=title> בוחרים</h1>
     <br>
-    <label>טען מחדש פרטי בוחרים</label>
+    <div class="upload">
+    <label class="span">טען מחדש פרטי בוחרים</label>
     <br>
     <input type="file" value="טען מחדש פרטי בוחרים" (change)="reUploadVoters(votersUpload)" #votersUpload>
+    </div>
     <br>
-    <label>טען מחדש מיילי בוחרים</label>
+    <div class="upload">
+    <label class="span">טען מחדש מיילי בוחרים</label>
    <br>
-    <input type="file" value="טען מחדש מיילי בוחרים" (change)="reUploadEmails(emailsUpload)" #emailsUpload [disabled]="voters" >
+    <input type="file" value="טען מחדש כתובות בוחרים" (change)="reUploadEmails(emailsUpload)" #emailsUpload [disabled]="voters" >
  <br>
-    <input type="button" value="שלח מיילים לבוחרים" (click)="SendMessageToVoters()" [disabled]="send">  
+</div>
+<mat-chip-list aria-label="Fish selection">
+    <button mat-button type="button" class="btnOK send" (click)="SendMessageToVoters()" >שלח הודעות לבוחרים</button>
+</mat-chip-list>
+    <!-- <input type="button" value="שלח הודעות לבוחרים" (click)="SendMessageToVoters()" [disabled]="send">   -->
     <br>
 <label *ngIf="send==null">שליחת המיילים נעשתה בהצלחה</label>
 

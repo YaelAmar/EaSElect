@@ -35,7 +35,7 @@
     <Key>
       <PropertyRef Name="ElectionResultId" />
     </Key>
-    <Property Name="ElectionResultId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ElectionResultId" Type="bigint" Nullable="false" />
     <Property Name="VoterCode" Type="bigint" Nullable="false" />
     <Property Name="ElectionOptionId" Type="bigint" Nullable="false" />
     <Property Name="DeleteRow" Type="bit" Nullable="false" />
