@@ -61,8 +61,8 @@ sum: ResultOfOption[][]=[];
                 this.sum[this.index++]=this.resultOptionByType
                 this.barChartLabels[i]=this.resultOfOptionList[i].ElectionOptionName;
                  console.log(this.sum)
-                console.log(this.sum)
-               if(this.sum.length==this.resultOfOptionList.length)
+debugger
+                 if(this.sum.length==this.resultOfOptionList.length)
                         this.fillData(this.sum);
               }); 
              
@@ -74,6 +74,7 @@ sum: ResultOfOption[][]=[];
    {
     for(let k=0;k<this.typeDetailsList.length;k++)
     {
+      debugger
       this.results=[]
         console.log(this.typeDetailsList[k].TypeDetailsName)
         for(let i=0;i<sum.length;i++)

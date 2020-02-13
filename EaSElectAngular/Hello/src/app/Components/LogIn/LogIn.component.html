@@ -15,6 +15,9 @@
       <div class="input">
         <mat-form-field class="example-full-width">
           <input matInput placeholder="סיסמא" name="password" [(ngModel)]="logIn.Password" type="password" #password="ngModel" required />
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+              </button>
         </mat-form-field>
           <span class="error font" *ngIf="password.errors!=null && password.errors.required && password.touched">שדה חובה</span>
         </div>

@@ -26,7 +26,7 @@
    
             </div>
       
-      <div class="example-container input"  >  
+      <div class="example-container input">  
         <mat-form-field class="example-full-width">
           <input  matInput placeholder="סיסמא" name="password" [(ngModel)]="newCompany.Password" type="password" #password="ngModel" required [type]="hide ? 'text' : 'password'">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
