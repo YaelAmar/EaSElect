@@ -9,6 +9,7 @@
 
 namespace Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -18,8 +19,8 @@ namespace Models
         public long VoterCode { get; set; }
         public long ElectionOptionId { get; set; }
         public bool DeleteRow { get; set; }
-    
+        [JsonIgnore]
         public virtual ElectionOption ElectionOption { get; set; }
-        public virtual Voter Voter { get; set; }
+        [JsonIgnore] public virtual Voter Voter { get; set; }
     }
 }

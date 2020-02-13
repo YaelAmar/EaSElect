@@ -25,6 +25,7 @@ indexData:number=0
 sum: ResultOfOption[][]=[];
    c:number=0
    results:number[]=[]
+
  public typeDetailsList:TypeDetails[]
 
   public barChartOptions: ChartOptions = {
@@ -42,7 +43,7 @@ sum: ResultOfOption[][]=[];
   ngOnInit() {
     this.selectedType=this.type
     console.log(this.selectedType)
-    debugger
+    
     this.resultOfOptionList= this.options
     //מביא את פרטי הסווג של הסיוג שנבחר
     this.typeDetailsService.Get(this.selectedType.TypeId).subscribe(typeDetailsList1=>
@@ -61,7 +62,7 @@ sum: ResultOfOption[][]=[];
                 this.sum[this.index++]=this.resultOptionByType
                 this.barChartLabels[i]=this.resultOfOptionList[i].ElectionOptionName;
                  console.log(this.sum)
-debugger
+                 
                  if(this.sum.length==this.resultOfOptionList.length)
                         this.fillData(this.sum);
               }); 
