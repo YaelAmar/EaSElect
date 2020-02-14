@@ -34,7 +34,8 @@ import { Time } from '../../Models/time.model';
  
 }
   EditElection(frm:any){
-  
+  this.electionToEdit.StartDate=this.startDate1
+  this.electionToEdit.EndDate=this.endDate1
       this.electionService.EditElection(this.electionToEdit).subscribe()
       console.log(this.electionToEdit.CompanyId,this.electionToEdit.ElectionName,this.electionToEdit.StartDate,this.electionToEdit.EndDate);
     

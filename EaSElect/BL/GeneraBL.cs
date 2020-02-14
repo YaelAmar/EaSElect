@@ -80,11 +80,29 @@ namespace BL
             return 1;
         }
 
-        public ResultOfOption[] GetResultByType(long typeId, long electionOptionId)
+        public List<ResultOfOptionByTypeDetails> GetResultByType(long typeId, List<ResultOfOption> electionOptionResult)
         {
-           List<TypeDetail> typeDetails= TypeDetailsBL.Get(typeId);
-           List<long> voterCodes = ElectionResultBL.GetVotersCodesByOptionSelected(electionOptionId);
-          return ValueToTypeBL.GetValueToTypeByTypeDetails(typeDetails, voterCodes);
+            List<ResultOfOptionByTypeDetails> resultOfOptionByTypeDetails = new List<ResultOfOptionByTypeDetails>();
+            List<long> voterCodes = new List<long>();
+            List<TypeDetail> typeDetails= TypeDetailsBL.Get(typeId);
+            long countOfVoters = 0;
+
+            for (int i = 0; i < typeDetails.Count; i++)
+            {
+                List<long> amountTypeOfOption = new List<long>();
+                for(int j = 0 ; j < electionOptionResult.Count; j++)
+                {
+                    voterCodes = ElectionResultBL.GetVotersCodesByOptionSelected(electionOptionResult[j].ElectionOptionId);
+                    countOfVoters = 0;
+                    for (int k = 0; k < voterCodes.Count; k++)
+                    {
+                       countOfVoters+= ValueToTypeBL.CountVoterOfTypeDetail(voterCodes[k],typeDetails[i]);
+                    }
+                   amountTypeOfOption.Add(countOfVoters);
+                }
+                resultOfOptionByTypeDetails.Add(new ResultOfOptionByTypeDetails() { TypeDetail = typeDetails[i], AmountTypeOfOption = amountTypeOfOption });
+            }
+             return resultOfOptionByTypeDetails;
         }
 
         public int CheckVoter(string fingerPrint,long electionId)

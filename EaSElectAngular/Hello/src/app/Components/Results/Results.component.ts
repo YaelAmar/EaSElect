@@ -19,14 +19,14 @@ import { TypeService } from '../../Services/type.service';
   export class ResultsComponent {
     electionResults:Election=new Election()
     electionName:string
-    resultOfOption:ResultOfOption[]=[]
+    resultOfOption:ResultOfOption[]
     types:Type[]=[]
     selectedType:Type
      constructor(private route:ActivatedRoute,private electionService:ElectionService,private typeService:TypeService,
       private electionOptionService:ElectionOptionService,private electionResultService:ElectionResultService){
     }
    ngOnInit(){
-     debugger
+     
     sessionStorage.setItem('enter','3');
 
     this.route.params.subscribe(e=>
@@ -58,19 +58,17 @@ import { TypeService } from '../../Services/type.service';
      getTypes(){
       this.typeService.Get(this.electionResults.ElectionId).subscribe(typeList=>
         {
-          debugger
           this.types=typeList;
           this.selectedType=new Type()
           this.selectedType=this.types[0]
-          console.log(this.types)
         })
     }
-
+    
     selectType(type:Type)
     {
-      debugger
       this.selectedType=new Type()
       console.log(type)
       this.selectedType=type
+      console.log(this.selectedType)
     } 
   }

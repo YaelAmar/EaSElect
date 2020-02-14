@@ -41,6 +41,12 @@ namespace BL
         {
            return  ValueToTypeDal.GetValueToTypeByTypeDetails(typeDetails, voterCodes);
         }
-            
+
+
+
+        public int CountVoterOfTypeDetail(long voterCode, TypeDetail typeDetail)
+        {
+            return ValueToTypeDal.CountVoterOfTypeDetail(voterCode, typeDetail);
+        }
     }
 }

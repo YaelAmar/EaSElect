@@ -26,11 +26,17 @@ namespace API.Controllers
         {
             return GeneralBL.GetResult(electionId);
         }
-        [HttpGet]
-        [Route("api/electionResult/getResultOptionByType/{typeId}/{electionOptionId}")]
-        public ResultOfOption[] GetResultByType(long typeId,long electionOptionId)
+       // [HttpGet]
+      //  [Route("api/electionResult/getResultOptionByType/{typeId}/{electionOptionId}")]
+        //public ResultOfOption[] GetResultByType(long typeId,long electionOptionId)
+        //{
+        //   // return GeneralBL.GetResultByType(typeId,electionOptionId);
+        //}
+        [HttpPost]
+        [Route("api/electionResult/getResultByType")]
+        public List<ResultOfOptionByTypeDetails> GetResultByType(ResultByType resultByType)
         {
-            return GeneralBL.GetResultByType(typeId,electionOptionId);
+           return GeneralBL.GetResultByType(resultByType.TypeId, resultByType.ResultOfOption);
         }
         public void Options()
         { }

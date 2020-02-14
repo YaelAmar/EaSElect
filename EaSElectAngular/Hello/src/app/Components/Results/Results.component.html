@@ -1,5 +1,5 @@
 <body>
-<h1>תוצאות לבחירות ל{{electionName}}</h1>
+<h1>תוצאות ל{{electionName}}</h1>
 
 <h4>תוצאות על פי סווג</h4>
 <mat-form-field>
@@ -11,7 +11,8 @@
   </mat-select>
 </mat-form-field>
 
-<!-- <app-chart   [options]="resultOfOption" [type]="selectedType"></app-chart> -->
+
 <app-chart *ngIf="selectedType!=null&&resultOfOption!=null"  [options]="resultOfOption" [type]="selectedType"></app-chart>
 <app-pie *ngIf="resultOfOption!=null" [data]="resultOfOption"></app-pie>
+
 </body>
