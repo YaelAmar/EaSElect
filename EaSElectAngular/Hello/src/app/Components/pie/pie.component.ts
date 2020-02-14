@@ -10,7 +10,7 @@ import { ElectionOptionService } from '../../Services/electionOption.service';
   styleUrls: ['./pie.component.css']
 })
 export class PieComponent implements OnInit {
-  resultOfOptionList:ResultOfOption[]
+  resultOfOptionList:ResultOfOption[]=[]
    @Input() data:ResultOfOption[]
 
   public pieChartOptions: ChartOptions = {
@@ -26,7 +26,10 @@ export class PieComponent implements OnInit {
 
   ngOnInit()
   {
+
     this.resultOfOptionList=this.data
+    console.log(this.resultOfOptionList)
+    console.log(this.data)
     this.getAllOptions();
   }
 
@@ -36,7 +39,7 @@ export class PieComponent implements OnInit {
     {
      this.pieChartLabels[i]=this.resultOfOptionList[i].ElectionOptionName;
      this.pieChartData[i]=this.resultOfOptionList[i].CountOfChoose;
-       }
+    }
    }
 
 

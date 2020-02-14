@@ -51,10 +51,17 @@ namespace DAL
             for (int i = 0; i < typeDetailsIds.Count; i++)
             {
                 long typeDetailsId = typeDetailsIds[i];
-                typeDetails.Add(DB.TypeDetails.Where(d => d.TypeDetailsId == typeDetailsId).ToList()[0]);
+                typeDetails.Add(DB.TypeDetails.Where(d => d.TypeDetailsId == typeDetailsId&&d.DeleteRow==false).ToList()[0]);
 
             }
             return typeDetails;
+        }
+
+        public int CountVoterOfTypeDetail(long voterCode, TypeDetail typeDetail)
+        {
+            if (DB.ValueToTypes.Any(v => v.VoterCode == voterCode && v.TypeDetailsId == typeDetail.TypeDetailsId))
+                return DB.ValueToTypes.Count(v => v.VoterCode == voterCode && v.TypeDetailsId == typeDetail.TypeDetailsId);
+            return 0;
         }
 
         public ResultOfOption[] GetValueToTypeByTypeDetails(List<TypeDetail> typeDetails, List<long> voterCodes)
@@ -64,13 +71,17 @@ namespace DAL
             for (int i = 0; i < typeDetails.Count; i++)
             {
                 sumValueToTypeByTypeDetails[i] = new ResultOfOption();
-               typeDetailsId = typeDetails[i].TypeDetailsId;
+                typeDetailsId = typeDetails[i].TypeDetailsId;
                 sumValueToTypeByTypeDetails[i].ElectionOptionId = typeDetailsId;
                 sumValueToTypeByTypeDetails[i].ElectionOptionName = typeDetails[i].TypeDetailsName;
                 for (int j = 0; j < voterCodes.Count; j++)
                 {
                     long voterCode = voterCodes[j];
-                    sumValueToTypeByTypeDetails[i].CountOfChoose += DB.ValueToTypes.Count(v => v.VoterCode == voterCode && v.TypeDetailsId == typeDetailsId);
+                    if (DB.ValueToTypes.Any(v => v.VoterCode == voterCode && v.TypeDetailsId == typeDetailsId))
+                    {
+                        sumValueToTypeByTypeDetails[i].CountOfChoose += DB.ValueToTypes.Count(v => v.VoterCode == voterCode && v.TypeDetailsId == typeDetailsId);
+
+                    }
                 }
             }
             return sumValueToTypeByTypeDetails;

@@ -17,8 +17,7 @@ namespace Models
     {
         public long ElectionId { get; set; }
         public string EmailVoter { get; set; }
-    [JsonIgnore]
-
+        [JsonIgnore]
         public virtual Election Election { get; set; }
     }
 }

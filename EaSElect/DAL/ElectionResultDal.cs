@@ -20,7 +20,7 @@ namespace DAL
 
         public void AddElectionResult(ElectionResult electionResult)
         {
-            if (!(DB.ElectionResults.Any(c=>c.ElectionOptionId==electionResult.ElectionOptionId&&c.VoterCode==electionResult.VoterCode)))
+            if (!(DB.ElectionResults.Any(c=>c.VoterCode==electionResult.VoterCode)))
             {
                 DB.ElectionResults.Add(electionResult);
                 DB.SaveChanges();

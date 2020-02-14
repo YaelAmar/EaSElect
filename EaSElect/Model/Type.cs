@@ -26,10 +26,8 @@ namespace Models
         public Nullable<long> ElectionId { get; set; }
         public bool DeleteRow { get; set; }
     [JsonIgnore]
-
         public virtual Election Election { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    [JsonIgnore]
-        public virtual ICollection<TypeDetail> TypeDetails { get; set; }
+        [JsonIgnore] public virtual ICollection<TypeDetail> TypeDetails { get; set; }
     }
 }

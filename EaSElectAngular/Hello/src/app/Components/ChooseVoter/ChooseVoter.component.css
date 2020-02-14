@@ -7,9 +7,10 @@ body{
   /* top:150px; */
     display: block;
    max-height: 350px;
-   overflow:hidden;
-    overflow-y:scroll;
-    width: 300px;
+   /* overflow:hidden; */
+    overflow-y:auto;
+    overflow-x: scroll;
+    max-width: 300px;
     margin: auto;
 }
 .btn{   
@@ -23,9 +24,11 @@ bottom: -30px;
 
 .listItem{  
 font-family: Stanga AAA;
-font-size: 30px;
+font-size: 20px;
 background-color:#008bfb;  
 color: #000000;
+overflow-x: scroll;
+
 /* color:#008bfb; */
 }
 
