@@ -2,6 +2,9 @@ import { Component, Output, EventEmitter } from "@angular/core";
 import { Election } from "../../Models/election.model";
 import { ElectionService } from "../../Services/election.service";
 import { Subscription } from "rxjs/Subscription";
+import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+
+
 
 @Component({
     selector: 'app-add-election',
@@ -19,6 +22,7 @@ import { Subscription } from "rxjs/Subscription";
   endTime1={hour:22,minute:0}
   startDate1:Date
   endDate1:Date
+  
     constructor(private electionService:ElectionService){
     }
   
@@ -43,4 +47,8 @@ import { Subscription } from "rxjs/Subscription";
       });
 
    }
+
+
+   
+ 
 }

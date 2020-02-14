@@ -13,7 +13,7 @@
 
      <div  class="input"> 
            <mat-form-field class="example-full-width">
-            <input matInput placeholder="שם משתמש" name="userName" [(ngModel)]="newCompany.UserName" type="text" #userName="ngModel" required  maxlength="20">
+            <input matInput placeholder="שם משתמש" name="userName" [(ngModel)]="newCompany.UserName" type="text" #userName="ngModel" required ngbTooltip="שם משתמש חייב להכיל לפחות 5 תוים" triggers="click:blur"  tooltipClass="tooltip" minlength="5"  maxlength="20">
           </mat-form-field>
           <span class="error" *ngIf="userName.errors!=null && userName.errors.required && userName.touched">שדה חובה</span>
           </div>
@@ -28,24 +28,26 @@
       
       <div class="example-container input">  
         <mat-form-field class="example-full-width">
-          <input  matInput placeholder="סיסמא" name="password" [(ngModel)]="newCompany.Password" type="password" #password="ngModel" required [type]="hide ? 'text' : 'password'">
+          <input ngbTooltip="סיסמא חייבת להכיל לפחות 5 תוים" triggers="click:blur"  tooltipClass="tooltip" matInput placeholder="סיסמא"name="password" [(ngModel)]="newCompany.Password" type="password" #password="ngModel" required [type]="hide ? 'text' : 'password'" minlength="5" maxlength="12">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
           </button>
         </mat-form-field>        
           <span class="error" *ngIf="password.errors!=null && password.errors.required && password.touched">שדה חובה</span>
         </div>
-
+<!-- 
       <div class="example-container input">
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="אימות סיסמא"  name="passwordTrue" [(ngModel)]="confirmPass"  #passwordTrue="ngModel" required [type]="hide ? 'text' : 'password'">
+          <input matInput placeholder="אימות סיסמא" name="passwordTrue" [(ngModel)]="confirmPass"  #passwordTrue="ngModel" required [type]="hide ? 'text' : 'password'">
           <button mat-icon-button matSuffix (click)="hide =!hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
           </button>
         </mat-form-field>
         <span class="error" *ngIf="passwordTrue.errors!=null && passwordTrue.errors.required && passwordTrue.touched">שדה חובה</span>
         <span class="error" *ngIf="passwordTrue.value!=newCompany.password && passwordTrue.touched">הסיסמאות לא זהות</span>
-    </div>
+        <span class="error" *ngIf="required validateEqual=password && passwordTrue.touched">הסיסמאות לא זהות</span>
+ 
+      </div> -->
     <div class="btnfrm">
     <mat-chip-list aria-label="Fish selection" >
       <button mat-button type="submit" [disabled]="!frm.valid"  class="btnOK" selected>רשום אותי</button>

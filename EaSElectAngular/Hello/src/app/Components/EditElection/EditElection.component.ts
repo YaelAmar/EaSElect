@@ -21,6 +21,7 @@ import { EditVotersComponent } from '../EditVoters/EditVoters.component';
     companyId:number
     ElectionsList: Election[];
     election:Election=new Election();
+    dateNow=new Date();
     constructor(private router:Router,private route:ActivatedRoute,private electionService:ElectionService){
      }
      @ViewChild(EditElectionDetailsComponent,{static:false}) electionDetails:EditElectionDetailsComponent;
@@ -31,6 +32,7 @@ import { EditVotersComponent } from '../EditVoters/EditVoters.component';
 
      ngOnInit() {
       sessionStorage.setItem('enter','3');
+      
       }
 
       ngAfterViewInit() {

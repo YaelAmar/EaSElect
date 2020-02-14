@@ -1,10 +1,12 @@
-<div>
+<div *ngIf="d<=dateNow"  class="toLate" > בחירות אלו כבר התחילו, מאוחר מידי לשנות....😉😉😉😉</div>
+
+<div *ngIf="d>dateNow">
     <form novalidate (submit)="EditElection(frm)" #frm="ngForm" class="frm part">
             <label>פרטי בחירות, לחץ לשינוי</label>
         
     <div class="item">
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="שם בחירות" name="electionName" [(ngModel)]="electionToEdit.ElectionName" type="text" #electionName="ngModel" required maxlength="50">
+            <input matInput placeholder="שם בחירות" name="electionName" [(ngModel)]="electionToEdit.ElectionName" type="text" #electionName="ngModel" required maxlength="30">
         </mat-form-field>
         <span class="error" *ngIf="electionName.errors!=null && electionName.errors.required && electionName.touched">שדה חובה</span>
     </div>
@@ -15,7 +17,7 @@
             <input matInput [matDatepicker]="picker1" placeholder="בחר תאריך התחלה" name="startDate" [(ngModel)]="startDate1" #startDate="ngModel" required [min]="dateNow">
           </mat-form-field>
         <span class="error" *ngIf="startDate.errors!=null && startDate.errors.required && startDate.touched">שדה חובה</span>
-        <span class="error" *ngIf="startDate.errors?.min">תאריך לא יכול להיות לפני התאריך הנוכחי</span>
+        <!-- <span class="error" *ngIf="startDate.errors?.min">תאריך לא יכול להיות לפני התאריך הנוכחי</span> -->
     </div>
     
     <div class="timer item">
@@ -26,7 +28,7 @@
         <mat-form-field class="date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-            <input matInput [matDatepicker]="picker" placeholder="בחר תאריך סיום"  name="endDate" [(ngModel)]="endDate1" #endDate="ngModel" required min="dateNow">
+            <input matInput [matDatepicker]="picker" placeholder="בחר תאריך סיום"  name="endDate" [(ngModel)]="endDate1" #endDate="ngModel" required [min]="startDate1">
           </mat-form-field>
         <span class="error" *ngIf="endDate.errors!=null && endDate.errors.required && endDate.touched">שדה חובה</span>
         <span class="error" *ngIf="endDate.errors?.min">תאריך לא יכול להיות לפני התאריך הנוכחי</span>

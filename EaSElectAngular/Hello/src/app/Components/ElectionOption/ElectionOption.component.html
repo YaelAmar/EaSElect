@@ -3,9 +3,10 @@
     
       <div>  
       <mat-form-field class="example-full-width">
-              <input matInput placeholder="שם אופציה" type="text" [(ngModel)]="newElectionOption.ElectionOptionName" type="text" #electionOptionName="ngModel" required [ngModelOptions]="{standalone: true}">
+              <input matInput placeholder="שם אופציה" type="text" [(ngModel)]="newElectionOption.ElectionOptionName" type="text" #electionOptionName="ngModel" required [ngModelOptions]="{standalone: true}" maxlength="30">
         </mat-form-field>
-        </div>
+        <span class="error" *ngIf="electionOptionName.errors!=null && electionOptionName.errors.required && electionOptionName.touched && countOptions<2">שדה חובה</span>
+      </div>
        
         <mat-chip-list aria-label="Fish selection">
           <button mat-button type="submit" [disabled]="!frm.valid"  id="electionOptionBtn" selected class="btnOK btn">הוסף אופציה</button>

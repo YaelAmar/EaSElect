@@ -7,14 +7,14 @@
   <form novalidate  (submit)="enter(frm)" #frm="ngForm" >
       <div class="input">
         <mat-form-field class="example-full-width">
-           <input matInput placeholder="שם משתמש" name="userName" [(ngModel)]="logIn.UserName" type="text" #userName="ngModel" required />
-          
+           <input ngbTooltip="שם משתמש חייב להכיל לפחות 5 תוים" triggers="click:blur"  tooltipClass="tooltip" matInput placeholder="שם משתמש" name="userName" [(ngModel)]="logIn.UserName" type="text" #userName="ngModel" required minlength="5" maxlength="20"/>        
           </mat-form-field>
-           <span class="error font" *ngIf="userName.errors!=null && userName.errors.required && userName.touched">שדה חובה</span>
+          <!-- <span class="error font" *ngIf="userName.errors!=null && userName.errors.minlength && userName.touched">שם משתמש חייב להכיל לפחות 5 תווים</span> -->
+          <span class="error font" *ngIf="userName.errors!=null && userName.errors.required && userName.touched">שדה חובה</span>
       </div>
       <div class="input">
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="סיסמא" name="password" [(ngModel)]="logIn.Password" type="password" #password="ngModel" required />
+          <input ngbTooltip="סיסמא חייבת להכיל לפחות 5 תוים" triggers="click:blur"  tooltipClass="tooltip" matInput placeholder="סיסמא" name="password" [(ngModel)]="logIn.Password" type="password" #password="ngModel" required minlength="5" maxlength="12"/>
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
               </button>

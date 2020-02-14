@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { CompanyService } from "../../Services/company.service";
 import { Company } from "../../Models/company.model";
 import { Router} from "@angular/router";
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-signUp',
@@ -12,15 +13,16 @@ import { Router} from "@angular/router";
    
     newCompany:Company=new Company();
     confirmPass:string=this.newCompany.Password;
+
+
+    
    constructor(private  companyService:CompanyService,private router: Router){
    }
   
    ngOnInit()
    {
   sessionStorage.setItem('enter','0');
-     
    }
-   
 SignUp(frm:any){
   console.log(this.newCompany.CompanyName,this.newCompany.UserName,this.newCompany.Password);
   this.companyService.SignUp(this.newCompany).subscribe(companyId=>{
@@ -36,4 +38,11 @@ SignUp(frm:any){
    });
    
   }
+
+  checkPasswords(group: FormGroup) { // here we have the 'passwords' group
+  let pass = group.get('password').value;
+  let confirmPass = group.get('confirmPass').value;
+
+  return pass === confirmPass ? null : { notSame: true }     
+}
 }

@@ -14,7 +14,18 @@ html, body { height: 100%; }
     margin: auto;  
   }
 
-
+.toLate{
+    position:absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    float: left;
+    background-image: linear-gradient(to right, #008bfb,#00ffff );
+    z-index: 10;
+    font-size: 50px;
+    text-align: center;
+    }
 /* דפי כניסה*/
 .btnOK{
     background-color:#00ffff;
@@ -111,6 +122,10 @@ bottom: -50px;
 }
 .up{
     display: inline-block;
+}
+.tooltip{
+ 
+  font-family: Stanga AAA;
 }
 
       /* דפי מנהל עריכה הצגה וכד'*/
