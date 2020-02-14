@@ -1,7 +1,7 @@
 <div *ngIf="d<=dateNow"  class="toLate" > בחירות אלו כבר התחילו, מאוחר מידי לשנות....😉😉😉😉</div>
 
 <div *ngIf="d>dateNow">
-    <form novalidate (submit)="EditElection(frm)" #frm="ngForm" class="frm part">
+    <form novalidate  #frm="ngForm" class="frm part">
             <label>פרטי בחירות, לחץ לשינוי</label>
         
     <div class="item">
@@ -42,7 +42,7 @@
     
     <div >
         <mat-chip-list aria-label="Fish selection">
-            <button mat-button type="submit" [disabled]="!frm.valid" class="btnOK" selected>שמור שינויים</button>
+            <button mat-button type="button" (click)="EditElection(frm)" [disabled]="!frm.valid" class="btnOK" selected>שמור שינויים</button>
             </mat-chip-list>
     </div>
  </form>
