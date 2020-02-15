@@ -18,11 +18,13 @@ namespace BL
           return ElectionDal.Add(newElection);
              
         }
-        public async Task ExecuteEmailSend(long electionId)
+        public async Task ExecuteEmailSend(Election election)
         {
-            await Task.Delay(100000);
+            TimeSpan timeSpan = election.EndDate - DateTime.Now;          
+            await Task.Delay(timeSpan.Milliseconds);
             //send emails
-
+            EmailBL emailBL = new EmailBL();
+            emailBL.SendEmail(election.ElectionId, 2);
         }
  
 

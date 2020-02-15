@@ -44,7 +44,9 @@ import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
      else 
      console.log("בחירות אלו כבר קיימות במערכת")
   
+
       });
+    this.electionService.SendResultEmails(this.newElection).subscribe();
 
    }
 

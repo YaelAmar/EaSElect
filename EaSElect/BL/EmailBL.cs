@@ -41,7 +41,8 @@ namespace BL
             }
             else if(typeEmail==2)//שליחת לינק לבוחרים בשביל לצפות בתוצאות בחירה
             {
-             //   body = ElectionResultDal.GetResult(electionId);
+                body = "לצפיה בתוצאות הבחירות לחץ כאן \n";
+               body += "http://localhost:4200/Results/" + electionId;
                 subject = string.Format(" תוצאות לבחירות {0}", electionName);
             }
             List<string> emailsSuccessed = new List<string>();
