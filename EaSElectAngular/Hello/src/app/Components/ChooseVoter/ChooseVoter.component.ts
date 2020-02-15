@@ -46,7 +46,7 @@ import { ElectionOptionService } from '../../Services/electionOption.service';
   next(){
     sessionStorage.setItem('enter','0');
 
-     this.router.navigate(['/VoterDetails',this.selectedOptionItem.ElectionOptionId])
+     this.router.navigate(['/VoterDetails',this.selectedOptionItem.ElectionOptionId,this.selectedOptionItem.ElectionId])
  
     }
  

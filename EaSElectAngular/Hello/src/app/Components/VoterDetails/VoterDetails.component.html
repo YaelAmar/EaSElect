@@ -1,20 +1,18 @@
 <body>
 <label class="return" *ngIf="selectedOptionItem&&finish==false" (click)="changeChoose()">אני רוצה לבחור משהו אחר</label>
-<!-- <input type="button" value="אני רוצה לבחור משהו אחר" *ngIf="selectedOptionItem&&finish==false" (click)="changeChoose()"> -->
 
 <div class="txt">
    <p>אתה מוסר למנהל הבחירות:{{companyName}} את הפרטים הבאים עליך לצורך סטטיסקות אנונימיות:</p>
 
 <div *ngIf="typeDetailsList"  class="list">
-   <div *ngFor="let item of typeDetailsList" >
-       <mat-checkbox color="#008bfb" class="example-margin" (change)="emptyCheckBox(item,$event.checked)" [checked]="true" [disabled]="finish">{{item.TypeDetailsName}}</mat-checkbox>
-       <!-- <mat-checkbox class="example-margin" [checked]="true" [(ngModel)]="checked" >{{item.TypeDetailsName}}</mat-checkbox> -->
-   </div>
+   <ng-template ngFor let-item [ngForOf]="typeDetailsList" let-i="index">
+       <mat-checkbox color="#008bfb" class="example-margin" (change)="emptyCheckBox(item,$event.checked)" [checked]="true" [disabled]="finish">{{typeList[i].TypeName}}:{{item.TypeDetailsName}}</mat-checkbox>
+     <br>
+      </ng-template>
 </div>
 
-<button mat-button class="btnOK btn" selected type="button" [disabled]="finish" (click)="sendResult()" > סיים</button>
+<button mat-button class="btnOK btn" selected type="button" [disabled]="finish" (click)="sendResult()"> סיים</button>
 
-<!-- <input type="button" value="סיים" (click)="sendResult()" [disabled]="finish">  -->
 <br>
 <label *ngIf="finish==true">תודה שבחרת בEaSelect</label>
 </div>

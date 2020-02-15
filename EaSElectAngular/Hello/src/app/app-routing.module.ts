@@ -27,7 +27,7 @@ export const appRoutes: Routes = [
    { path:'Results/:id',component:ResultsComponent,pathMatch:'full'},
    { path:'IdentifyVoter/:id',component:IdentifyVoterComponent,pathMatch:'full'},
    { path:'ChooseVoter/:id',component:ChooseVoterComponent,pathMatch:'full'},
-   { path:'VoterDetails/:id',component:VoterDetailsComponent},
+   { path:'VoterDetails/:optionId/:electionId',component:VoterDetailsComponent},
    { path:'Home',component:HomeComponent} 
 
 

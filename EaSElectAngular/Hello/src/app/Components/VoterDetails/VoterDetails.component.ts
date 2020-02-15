@@ -9,6 +9,9 @@ import { CompanyService } from '../../Services/company.service';
 import { ValueToTypeService } from '../../Services/valueToType.service';
 import { TypeDetails } from '../../Models/typeDetails.model';
 import { ElectionResultService } from '../../Services/electionResult.service';
+import { TypeService } from '../../Services/type.service';
+import { Type } from '../../Models/type.model';
+
 
 
 
@@ -23,23 +26,32 @@ import { ElectionResultService } from '../../Services/electionResult.service';
    selectedOptionItem:ElectionOption=new ElectionOption()// בחורה אופציה
    companyName:string
    voterCode:number
+   typeList:Type[]=[]
    typeDetailsList:TypeDetails[]
    finish:boolean=false
+   i:number=0
   constructor(private electionOptionService:ElectionOptionService ,private companyService:CompanyService,
-              private valueToTypeService:ValueToTypeService, private eletionResultService:ElectionResultService,
-              private router:Router, private route:ActivatedRoute){
+              private valueToTypeService:ValueToTypeService, private electionResultService:ElectionResultService,
+              private router:Router, private route:ActivatedRoute,private typeService:TypeService ){
      }
      ngOnInit()
       {
-        this.subscribe = this.route.paramMap.subscribe(params => {
-        this.selectedOptionItem.ElectionOptionId= +params.get("id") });
+        this.subscribe = this.route.paramMap.subscribe(params => 
+          {
+        this.selectedOptionItem.ElectionOptionId= +params.get("optionId") 
+        this.selectedOptionItem.ElectionId=+params.get("electionId")
+      });
         sessionStorage.setItem('enter','0');
       
 
       this.getCompanyName();//מחזיר את החברה שבה נמצא עכשיו
       this.GetValueToTypeOfCurrentVoter();//מחזיר את הערכי סווג של בוחר זה
 
-     
+      this.typeService.Get(this.selectedOptionItem.ElectionId).subscribe(types=>
+        {
+          this.typeList=types;
+        })
+        this.i=0;
       }
      
   GetValueToTypeOfCurrentVoter() {
@@ -72,7 +84,7 @@ import { ElectionResultService } from '../../Services/electionResult.service';
        this.valueToTypeService.DeleteValueToType(this.voterCode,typeDetail.TypeDetailsId,checked1).subscribe();
   }
   sendResult(){
-    this.eletionResultService.sendChoose(this.voterCode,this.selectedOptionItem.ElectionOptionId).subscribe();
+    this.electionResultService.sendChoose(this.voterCode,this.selectedOptionItem.ElectionOptionId).subscribe();
     this.finish=true
 
   }
