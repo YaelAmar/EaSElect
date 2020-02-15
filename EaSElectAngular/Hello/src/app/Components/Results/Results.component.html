@@ -12,6 +12,7 @@
 </mat-form-field>
 
 <app-chart *ngIf="selectedType!=null&&resultOfOption!=null"  [options]="resultOfOption" [type]="selectedType"></app-chart>
+<h1>תוצאות סופיות</h1>
 <app-pie *ngIf="resultOfOption!=null" [data]="resultOfOption"></app-pie>
 
 </body>

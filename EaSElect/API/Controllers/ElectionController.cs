@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace API.Controllers
@@ -20,8 +21,12 @@ namespace API.Controllers
         {
           return  ElectionBL.AddNewElection(newElection);
         }
-
-
+        [HttpPost]
+        [Route("api/election/send")]
+        public async Task ExecuteEmailSend(Election election)
+        {
+            ElectionBL.ExecuteEmailSend(election);
+        }
         //מחיקת בחירות
         public void Delete(int electionId)
         {

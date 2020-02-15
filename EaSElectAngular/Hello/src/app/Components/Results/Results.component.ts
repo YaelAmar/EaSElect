@@ -27,7 +27,7 @@ import { TypeService } from '../../Services/type.service';
      constructor(private route:ActivatedRoute,private electionService:ElectionService,private typeService:TypeService,
       private electionOptionService:ElectionOptionService,private electionResultService:ElectionResultService){
     }
-    @ViewChild(ChartComponent,{static:false}) chart:ChartComponent;
+    //@ViewChild(ChartComponent,{static:false}) chart:ChartComponent;
 
    ngOnInit(){
      
@@ -47,10 +47,7 @@ import { TypeService } from '../../Services/type.service';
    
      }
     
-     ngAfterViewInit(){
-      //this.chart.changeType(this.selectedType);;
-
-     }
+    
 
      getResult(){
       this.electionResultService.GetResult(this.electionResults.ElectionId).subscribe(list=>
@@ -66,10 +63,9 @@ import { TypeService } from '../../Services/type.service';
      getTypes(){
       this.typeService.Get(this.electionResults.ElectionId).subscribe(typeList=>
         {
-          this.types=typeList;
-          this.selectedType=new Type()
-          this.selectedType=this.types[1]
-
+         this.types=typeList;
+         this.selectedType=new Type()
+         this.selectedType=this.types[1]
         })
     }
     
@@ -77,9 +73,6 @@ import { TypeService } from '../../Services/type.service';
     {
       this.selectedType=new Type()
       this.selectedType=type
-      debugger
-      console.log(this.selectedType)
-  this.ngAfterViewInit();
     } 
    
   }

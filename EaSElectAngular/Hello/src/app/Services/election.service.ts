@@ -6,7 +6,7 @@ import { Election } from '../Models/election.model';
 
 @Injectable()
 export class ElectionService{
- 
+  
 
     url='http://localhost:55866/api/election'
     constructor(private http:HttpClient){
@@ -33,4 +33,8 @@ export class ElectionService{
     GetCompanyIdByElectionId(electionId: number):Observable<number> {
         return this.http.get<number>(`${this.url}/GetCompanyIdByElectionId/${electionId}`);
       }
+      SendResultEmails(newElection: Election):Observable<void> {
+        return this.http.post<void>(`${this.url}/send`,newElection);
+      }
+     
 }

@@ -16,13 +16,9 @@ import { bindCallback } from 'rxjs';
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit,OnChanges {
-  ngOnChanges(changes: SimpleChanges): void {
-    debugger
-    if('type' in changes||'options' in changes)
-    this.ngOnInit();
+ 
+ 
 
-   
-  }
 
  @Input() type:Type
  @Input() options:ResultOfOption[]
@@ -30,6 +26,8 @@ export class ChartComponent implements OnInit,OnChanges {
  resultOfOptionList:ResultOfOption[]
  resultOptionByType: ResultOfOption[]=[]
 index:number=0
+counter:number=0
+
    resultOfOptionByTypeDetails:ResultOfOptionByTypeDetails[]
  public typeDetailsList:TypeDetails[]
 
@@ -41,44 +39,71 @@ index:number=0
   public barChartLegend = true;
   public barChartPlugins = [];
   public barChartData: ChartDataSets[] = [{data:[],label:""}];
-public chartColor:Color[]=[
-  { backgroundColor:'red'},
-  {backgroundColor:'blue'},
-  {backgroundColor:'green'},
-  {backgroundColor:'yellow'},
-  {backgroundColor:'pink'},
-  {backgroundColor:'orange'},
-  {backgroundColor:'purple'},
-  {backgroundColor:'brown'},
-  {backgroundColor:'aqua'},
-  {backgroundColor:'blueviolet'},
-  {backgroundColor:'chartreuse'},
-  {backgroundColor:'chocolate'},
-  {backgroundColor:'darksalmon'},
-  {backgroundColor:'deepink'},
-  {backgroundColor:'gold'}
-
-];
+public chartColor:Color[]
   constructor(private typeDetailsService:TypeDetailsService,private electionResultService:ElectionResultService) { }
 
-  ngOnInit() {
-  this.changeType(this.selectedType)
+   
+  ngOnChanges(changes: SimpleChanges): void {
     
+    if(('type' in changes||'options' in changes)&&this.counter!=0)
+         {
+           this.ngOnInit();
+
+         }
+   
+  }
+  ngOnInit() {
+ 
+    this.index=0;
+this.counter++;
+  this.chartColor=[
+    { backgroundColor:'red'},
+    {backgroundColor:'blue'},
+    {backgroundColor:'green'},
+    {backgroundColor:'yellow'},
+    {backgroundColor:'pink'},
+    {backgroundColor:'orange'},
+    {backgroundColor:'purple'},
+    {backgroundColor:'brown'},
+    {backgroundColor:'aqua'},
+    {backgroundColor:'blueviolet'},
+    {backgroundColor:'chartreuse'},
+    {backgroundColor:'chocolate'},
+    {backgroundColor:'darksalmon'},
+    {backgroundColor:'deepink'},
+    {backgroundColor:'gold'},
+    {backgroundColor:'red'},
+    {backgroundColor:'blue'},
+    {backgroundColor:'green'},
+    {backgroundColor:'yellow'},
+    {backgroundColor:'pink'},
+    {backgroundColor:'orange'},
+    {backgroundColor:'purple'},
+    {backgroundColor:'brown'},
+    {backgroundColor:'aqua'},
+    {backgroundColor:'blueviolet'},
+    {backgroundColor:'chartreuse'},
+    {backgroundColor:'chocolate'},
+    {backgroundColor:'darksalmon'},
+    {backgroundColor:'deepink'},
+    {backgroundColor:'gold'}
+  
+  ];
+    this.barChartData=[{data:[],label:""}];
+  this.changeType()
    }
 
 
    
-   changeType(selectedType:Type)
+   changeType()
    {
-    this.selectedType=this.type
+    this.selectedType=this.type;
     console.log(this.selectedType)
-    debugger
     this.resultOfOptionList= this.options
     for(let i=0;i<this.resultOfOptionList.length;i++)
-{
-  this.barChartLabels[i]=this.resultOfOptionList[i].ElectionOptionName
-
-}
+     {
+      this.barChartLabels[i]=this.resultOfOptionList[i].ElectionOptionName
+     }
     //מביא את פרטי הסווג של הסיוג שנבחר
     this.typeDetailsService.Get(this.selectedType.TypeId).subscribe(typeDetailsList1=>
       {
