@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Label } from 'ng2-charts';
+import { Label, Color } from 'ng2-charts';
 import { ResultOfOption } from '../../Models/resultOfOption';
 import { Type } from '../../Models/type.model';
 //import { TypeDetailsService } from '../../Services/typeDetails.service';
@@ -8,6 +8,7 @@ import { TypeDetails } from '../../Models/typeDetails.model';
 import { TypeDetailsService } from '../../Services/typeDetails.service';
 import { ElectionResultService } from '../../Services/electionResult.service';
 import { ResultOfOptionByTypeDetails } from '../../Models/ResultOfOptionByTypeDetails.model';
+import { bindCallback } from 'rxjs';
 
 @Component({
   selector: 'app-chart',
@@ -22,12 +23,7 @@ export class ChartComponent implements OnInit {
  resultOfOptionList:ResultOfOption[]
  resultOptionByType: ResultOfOption[]=[]
 index:number=0
-indexData:number=0
-sum: ResultOfOption[][]=[];
-   c:number=0
-   results:number[]=[]
    resultOfOptionByTypeDetails:ResultOfOptionByTypeDetails[]
-
  public typeDetailsList:TypeDetails[]
 
   public barChartOptions: ChartOptions = {
@@ -37,12 +33,34 @@ sum: ResultOfOption[][]=[];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [];
-  
-  // public barChartData: ChartDataSets[] = [{data:[5,4,345,6,7],label:"זכר"},{data:[4,5,67,8,7],label:"נקבה"}]
   public barChartData: ChartDataSets[] = [{data:[],label:""}];
+public chartColor:Color[]=[
+  { backgroundColor:'red'},
+  {backgroundColor:'blue'},
+  {backgroundColor:'green'},
+  {backgroundColor:'yellow'},
+  {backgroundColor:'pink'},
+  {backgroundColor:'orange'},
+  {backgroundColor:'purple'},
+  {backgroundColor:'brown'},
+  {backgroundColor:'aqua'},
+  {backgroundColor:'blueviolet'},
+  {backgroundColor:'chartreuse'},
+  {backgroundColor:'chocolate'},
+  {backgroundColor:'darksalmon'},
+  {backgroundColor:'deepink'},
+  {backgroundColor:'gold'}
+
+];
   constructor(private typeDetailsService:TypeDetailsService,private electionResultService:ElectionResultService) { }
 
   ngOnInit() {
+  this.changeType(this.selectedType)
+    
+   }
+   
+   changeType(selectedType:Type)
+   {
     this.selectedType=this.type
     console.log(this.selectedType)
     debugger
@@ -56,58 +74,15 @@ sum: ResultOfOption[][]=[];
     this.typeDetailsService.Get(this.selectedType.TypeId).subscribe(typeDetailsList1=>
       {
        this.typeDetailsList=typeDetailsList1
-       console.log(this.typeDetailsList)
       });
-      debugger
      this.electionResultService.GetResultByType(this.selectedType.TypeId,this.resultOfOptionList).subscribe(result=>
       {
-        console.log(result)
         for(let i=0;i<result.length;i++)
            {
-            this.barChartData[this.index++]={data:result[i].AmountTypeOfOption,label:result[i].TypeDetail.TypeDetailsName}
-
+            this.barChartData[this.index++]={data:result[i].AmountTypeOfOption,label:result[i].TypeDetail.TypeDetailsName,backgroundColor:this.chartColor[i].backgroundColor}
            }
      
       })
-        
-     
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-      // for(let i=0;i<this.resultOfOptionList.length;i++)
-      //  {
-      //    let electionOptionId=this.resultOfOptionList[i].ElectionOptionId
-      //    console.log(this.resultOfOptionList[i].ElectionOptionName)
-      //   //מביא את כמה הצביעו מכל אופציה עבור הסיווג שנבחר
-      //   this.electionResultService.GetResultOptionByType(this.selectedType.TypeId,electionOptionId).subscribe(resultOptionByType=>
-      //          {
-      //           this.resultOptionByType=resultOptionByType
-      //           console.log(this.resultOptionByType)
-      //           this.sum[this.index++]=this.resultOptionByType
-      //           this.barChartLabels[i]=this.resultOfOptionList[i].ElectionOptionName;
-      //            console.log(this.sum)
-                 
-      //            if(this.sum.length==this.resultOfOptionList.length)
-      //            {
-      //             this.fillData(this.sum);
-      //            }
-      //         }); 
-             
-      //   }
-      
     
-   }
-   
-   
+   }  
 }
