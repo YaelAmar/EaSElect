@@ -9,7 +9,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ElectionService } from '../../Services/election.service';
 import { Type } from '../../Models/type.model';
 import { TypeService } from '../../Services/type.service';
-import { PieComponent } from '../pie/pie.component';
  
 @Component({
     selector: 'app-Results',
@@ -28,17 +27,12 @@ import { PieComponent } from '../pie/pie.component';
      constructor(private route:ActivatedRoute,private electionService:ElectionService,private typeService:TypeService,
       private electionOptionService:ElectionOptionService,private electionResultService:ElectionResultService){
     }
-    @ViewChild(PieComponent,{static:false}) pie:PieComponent;
     @ViewChild(ChartComponent,{static:false}) chart:ChartComponent;
 
-    ngOnInit() {
-      sessionStorage.setItem('enter','3');
-      
-      }
-    ngAfterViewInit(){
+   ngOnInit(){
      
-    
-debugger
+    sessionStorage.setItem('enter','3');
+
     this.route.params.subscribe(e=>
       {
          this.electionResults.ElectionId=e.id;
@@ -46,16 +40,18 @@ debugger
          {
             sessionStorage.setItem('electionResult',e.id.toString())
          }
-     
-      // this.pie.ngOnInit();
-      // this.chart.ngOnInit();
-    })
-    this.getResult();
-    this.getElectionName();
-    this.getTypes();
+         this.getResult();
+         this.getElectionName();
+         this.getTypes();
+      })
+   
      }
     
-   
+     ngAfterViewInit(){
+      this.chart.changeType(this.selectedType);;
+
+     }
+
      getResult(){
       this.electionResultService.GetResult(this.electionResults.ElectionId).subscribe(list=>
         {
@@ -81,7 +77,9 @@ debugger
     {
       this.selectedType=new Type()
       this.selectedType=type
+      debugger
       console.log(this.selectedType)
+  this.ngAfterViewInit();
     } 
    
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
 import { ResultOfOption } from '../../Models/resultOfOption';
@@ -15,7 +15,14 @@ import { bindCallback } from 'rxjs';
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
-export class ChartComponent implements OnInit {
+export class ChartComponent implements OnInit,OnChanges {
+  ngOnChanges(changes: SimpleChanges): void {
+    debugger
+    if('type' in changes||'options' in changes)
+    this.ngOnInit();
+
+   
+  }
 
  @Input() type:Type
  @Input() options:ResultOfOption[]
@@ -58,6 +65,8 @@ public chartColor:Color[]=[
   this.changeType(this.selectedType)
     
    }
+
+
    
    changeType(selectedType:Type)
    {

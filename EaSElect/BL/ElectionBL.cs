@@ -18,6 +18,13 @@ namespace BL
           return ElectionDal.Add(newElection);
              
         }
+        public async Task ExecuteEmailSend(long electionId)
+        {
+            await Task.Delay(100000);
+            //send emails
+
+        }
+ 
 
         public List<Election> GetElectionsByCompanyCode(long companyId)
         {
