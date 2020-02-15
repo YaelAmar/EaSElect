@@ -33,7 +33,6 @@ import { Router } from '@angular/router';
      {
       console.log(election)
       console.log(sessionStorage.getItem('electionToEdit'))
-     debugger
      this.router.navigate(['/EditElection',election.ElectionId]);
       }
      }
@@ -41,7 +40,8 @@ import { Router } from '@angular/router';
    ResultElection(election:Election){
     console.log(election)
     sessionStorage.setItem('electionResult',election.ElectionId.toString())
-     this.router.navigate(['/Results',election.ElectionId.toString()]);
+    debugger
+     this.router.navigate(['/Results',election.ElectionId]);
       
   }
   home(){
