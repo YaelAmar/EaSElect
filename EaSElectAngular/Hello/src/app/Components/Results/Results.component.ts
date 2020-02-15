@@ -40,10 +40,11 @@ import { TypeService } from '../../Services/type.service';
          {
             sessionStorage.setItem('electionResult',e.id.toString())
          }
+         this.getResult();
+         this.getElectionName();
+         this.getTypes();
       })
-    this.getResult();
-    this.getElectionName();
-    this.getTypes();
+   
      }
     
      ngAfterViewInit(){
