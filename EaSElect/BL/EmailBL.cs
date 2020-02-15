@@ -5,21 +5,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace BL
 {
-   public class EmailBL
-    {
+   
+    public class EmailBL
+    {      
         EmailDal EmailDal = new EmailDal();
         CompanyDal CompanyDal = new CompanyDal();
         ElectionResultDal ElectionResultDal = new ElectionResultDal();
         ElectionDal ElectionDal = new ElectionDal();
+       
         public long LoadEmails(List<string> emails, long electionId)
         {
            return EmailDal.LoadEmails(emails, electionId);
         }
         public int SendEmail(long electionId,int typeEmail)
         {
+  
             int notSuccessed = 0;
             Company company = CompanyDal.GetCompanyDetailsByElectionId(electionId);//מביא את פרטי החברה השולחת את המייל
             SendMail sendMail = new SendMail(company.CompanyName, company.EmailManager,company.Password);
@@ -66,5 +70,8 @@ namespace BL
         {
             EmailDal.EmptyEmails(electionId);
         }
+
+       
     }
+   
 }
