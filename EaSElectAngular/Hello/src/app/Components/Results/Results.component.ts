@@ -48,7 +48,7 @@ import { TypeService } from '../../Services/type.service';
      }
     
      ngAfterViewInit(){
-      this.chart.changeType(this.selectedType);;
+      //this.chart.changeType(this.selectedType);;
 
      }
 
