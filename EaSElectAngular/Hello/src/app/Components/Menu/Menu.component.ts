@@ -30,7 +30,8 @@ import { Router } from '@angular/router';
     this.router.navigate(['/Election']);
   }
   selectedElection(election:Election){
-     {
+
+    {
       console.log(election)
       console.log(sessionStorage.getItem('electionToEdit'))
      this.router.navigate(['/EditElection',election.ElectionId]);
