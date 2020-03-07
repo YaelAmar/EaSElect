@@ -22,17 +22,15 @@ import { TypeService } from '../../Services/type.service';
     resultOfOption:ResultOfOption[]
     types:Type[]=[]
     selectedType:Type
-
-
+    dateNow=new Date();
+d:Date
      constructor(private route:ActivatedRoute,private electionService:ElectionService,private typeService:TypeService,
       private electionOptionService:ElectionOptionService,private electionResultService:ElectionResultService){
     }
-    //@ViewChild(ChartComponent,{static:false}) chart:ChartComponent;
 
    ngOnInit(){
-     
     sessionStorage.setItem('enter','3');
-
+   
     this.route.params.subscribe(e=>
       {
          this.electionResults.ElectionId=e.id;
@@ -44,7 +42,12 @@ import { TypeService } from '../../Services/type.service';
          this.getElectionName();
          this.getTypes();
       })
-   
+
+      this.d=new Date(this.electionResults.EndDate)
+      // if(this.d<=this.dateNow)
+      // console.log("VVVVVVVVVVVVVVVVVVVVVVVVVVVV")
+      // else
+      // console.log("XXXXXXXXXXXXXXXXXXX")
      }
     
     
@@ -65,7 +68,7 @@ import { TypeService } from '../../Services/type.service';
         {
          this.types=typeList;
          this.selectedType=new Type()
-         this.selectedType=this.types[1]
+         this.selectedType=this.types[2]
         })
     }
     

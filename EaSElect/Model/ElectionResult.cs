@@ -21,6 +21,7 @@ namespace Models
         public bool DeleteRow { get; set; }
         [JsonIgnore]
         public virtual ElectionOption ElectionOption { get; set; }
-        [JsonIgnore] public virtual Voter Voter { get; set; }
+        [JsonIgnore]
+        public virtual Voter Voter { get; set; }
     }
 }

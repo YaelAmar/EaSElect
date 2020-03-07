@@ -29,8 +29,10 @@ namespace Models
         [JsonIgnore]
         public virtual Election Election { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore] public virtual ICollection<ElectionResult> ElectionResults { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<ElectionResult> ElectionResults { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore] public virtual ICollection<ValueToType> ValueToTypes { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<ValueToType> ValueToTypes { get; set; }
     }
 }

@@ -25,8 +25,8 @@ export class ChartComponent implements OnInit,OnChanges {
  selectedType:Type
  resultOfOptionList:ResultOfOption[]
  resultOptionByType: ResultOfOption[]=[]
-index:number=0
-counter:number=0
+  index:number=0
+  counter:number=0
 
    resultOfOptionByTypeDetails:ResultOfOptionByTypeDetails[]
  public typeDetailsList:TypeDetails[]
@@ -39,24 +39,29 @@ counter:number=0
   public barChartLegend = true;
   public barChartPlugins = [];
   public barChartData: ChartDataSets[] = [{data:[],label:""}];
+  flag=true;
 public chartColor:Color[]
   constructor(private typeDetailsService:TypeDetailsService,private electionResultService:ElectionResultService) { }
 
    
   ngOnChanges(changes: SimpleChanges): void {
-    
+   
     if(('type' in changes||'options' in changes)&&this.counter!=0)
          {
-           this.ngOnInit();
-
+         
+           this.ngOnInit();  
+         
+           
          }
    
   }
   ngOnInit() {
- 
+   
+    
+    this.counter++;
     this.index=0;
-this.counter++;
-  this.chartColor=[
+    console.log(this.counter)
+    this.chartColor=[
     { backgroundColor:'red'},
     {backgroundColor:'blue'},
     {backgroundColor:'green'},
@@ -90,27 +95,35 @@ this.counter++;
   
   ];
     this.barChartData=[{data:[],label:""}];
-  this.changeType()
+   
+    this.changeType()
    }
 
 
    
    changeType()
    {
+    
     this.selectedType=this.type;
     console.log(this.selectedType)
     this.resultOfOptionList= this.options
+    
+    this.barChartData=[{data:[],label:""}];
+    this.barChartLabels=[]
     for(let i=0;i<this.resultOfOptionList.length;i++)
      {
       this.barChartLabels[i]=this.resultOfOptionList[i].ElectionOptionName
      }
+   
     //מביא את פרטי הסווג של הסיוג שנבחר
     this.typeDetailsService.Get(this.selectedType.TypeId).subscribe(typeDetailsList1=>
       {
        this.typeDetailsList=typeDetailsList1
       });
+     
      this.electionResultService.GetResultByType(this.selectedType.TypeId,this.resultOfOptionList).subscribe(result=>
       {
+      
         for(let i=0;i<result.length;i++)
            {
             this.barChartData[this.index++]={data:result[i].AmountTypeOfOption,label:result[i].TypeDetail.TypeDetailsName,backgroundColor:this.chartColor[i].backgroundColor}

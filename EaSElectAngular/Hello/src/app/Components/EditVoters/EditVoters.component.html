@@ -5,11 +5,17 @@
     <div class="upload">
     <label class="span">טען מחדש פרטי בוחרים</label>
     <br>
+    
     <input type="file" value="טען מחדש פרטי בוחרים" (change)="reUploadVoters(votersUpload)" #votersUpload>
-    </div>
+    <br>
+    <a target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMhAjoggKQiiJakqflbyZvvpAfjzmm1DTY1Ya7DpKAxgKRh1J0hwUpaFDlxdAmWF920B4UVLuXHWx_/pubhtml?widget=true&amp;headers=false">לחץ כדי לצפות בקובץ לדוגמא</a>
+    <br>
+        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMhAjoggKQiiJakqflbyZvvpAfjzmm1DTY1Ya7DpKAxgKRh1J0hwUpaFDlxdAmWF920B4UVLuXHWx_/pub?output=csv">לחץ כאן כדי להוריד קובץ לדוגמא</a>
+    
+</div>
     <br>
     <div class="upload">
-    <label class="span">טען מחדש מיילי בוחרים</label>
+    <label class="span">טען מחדש כתובות בוחרים</label>
    <br>
     <input type="file" value="טען מחדש כתובות בוחרים" (change)="reUploadEmails(emailsUpload)" #emailsUpload [disabled]="voters" >
  <br>
