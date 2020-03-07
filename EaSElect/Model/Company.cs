@@ -27,8 +27,8 @@ namespace Models
         public string Password { get; set; }
         public string EmailManager { get; set; }
         public bool DeleteRow { get; set; }
-    
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore] public virtual ICollection<Election> Elections { get; set; }
+        public virtual ICollection<Election> Elections { get; set; }
     }
 }

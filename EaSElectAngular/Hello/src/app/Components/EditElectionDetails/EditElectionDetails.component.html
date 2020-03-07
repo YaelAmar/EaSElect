@@ -1,6 +1,6 @@
-<div *ngIf="d<=dateNow"  class="toLate" > בחירות אלו כבר התחילו, מאוחר מידי לשנות....😉😉😉😉</div>
+<div *ngIf="d<dateNow&&electionToEdit!=null"  class="toLate" > בחירות אלו כבר התחילו, מאוחר מידי לשנות....😉😉😉😉</div>
 
-<div *ngIf="d>dateNow">
+<div *ngIf="d>=dateNow&&electionToEdit!=null">
     <form novalidate  #frm="ngForm" class="frm part">
             <label>פרטי בחירות, לחץ לשינוי</label>
         

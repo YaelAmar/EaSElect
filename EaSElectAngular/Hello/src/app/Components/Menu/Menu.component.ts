@@ -40,7 +40,7 @@ import { Router } from '@angular/router';
    ResultElection(election:Election){
     console.log(election)
     sessionStorage.setItem('electionResult',election.ElectionId.toString())
-    debugger
+    
      this.router.navigate(['/Results',election.ElectionId]);
       
   }

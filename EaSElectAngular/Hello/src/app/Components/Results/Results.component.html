@@ -1,9 +1,11 @@
-<body>
+<div *ngIf="d<dateNow"  class="toLate" > בחירות אלו עוד לא נגמרו, סבלנות....😉😉😉😉</div>
+
+<body style="text-align: right;" >
 <h1>תוצאות ל{{electionName}}</h1>
 
 <h4>תוצאות על פי סווג</h4>
 <mat-form-field>
-  <mat-label>בחר סווג</mat-label>
+  <mat-label style="font-family: Stanga AAA;font-size: 25px;direction: rtl;">   בחר סווג   </mat-label>
   <mat-select>
     <mat-option *ngFor="let type of types" [value]="type" (click)="selectType(type)">
       {{type.TypeName}}
