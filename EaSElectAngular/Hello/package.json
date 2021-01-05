@@ -30,7 +30,7 @@
     "@vaadin/vaadin-grid": "^5.5.0",
     "@vaadin/vaadin-text-field": "^2.5.3",
     "angular-material-fileupload": "^2.0.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "chart.js": "^2.9.3",
     "core-js": "^3.6.1",
     "fingerprintjs2": "^2.1.0",
